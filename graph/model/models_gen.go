@@ -261,15 +261,15 @@ type WebhookSubscriptionEndpoint interface {
 // Represents the access scope permission that is applicable to a merchant's shop, such as `read_orders`.
 type AccessScope struct {
 	// Description of the access scopes enabled on an api permission.
-	Description string `json:"description"`
+	Description string `json:"description,omitempty"`
 	// A human-friendly string for an access scope.
-	Handle string `json:"handle"`
+	Handle string `json:"handle,omitempty"`
 }
 
 // Whether all items in the cart are entitled to the discount.
 type AllDiscountItems struct {
 	// Whether all items are selected. The value is hardcoded to `true`.
-	AllItems bool `json:"allItems"`
+	AllItems bool `json:"allItems,omitempty"`
 }
 
 func (AllDiscountItems) IsDiscountItems() {}
@@ -277,17 +277,17 @@ func (AllDiscountItems) IsDiscountItems() {}
 // A version of the API.
 type APIVersion struct {
 	// The human-readable name of the version.
-	DisplayName string `json:"displayName"`
+	DisplayName string `json:"displayName,omitempty"`
 	// The unique identifier of an ApiVersion. All supported API versions have a date-based (YYYY-MM) or `unstable` handle.
-	Handle string `json:"handle"`
+	Handle string `json:"handle,omitempty"`
 	// Whether the version is supported by Shopify.
-	Supported bool `json:"supported"`
+	Supported bool `json:"supported,omitempty"`
 }
 
 // A Shopify application.
 type App struct {
 	// A unique application API identifier.
-	APIKey string `json:"apiKey"`
+	APIKey string `json:"apiKey,omitempty"`
 	// App store page URL of the app.
 	AppStoreAppURL *string `json:"appStoreAppUrl,omitempty"`
 	// App store page URL of the developer who created the app.
@@ -299,13 +299,13 @@ type App struct {
 	// App's developer name.
 	DeveloperName *string `json:"developerName,omitempty"`
 	// Website of the developer who created the app.
-	DeveloperURL string `json:"developerUrl"`
+	DeveloperURL string `json:"developerUrl,omitempty"`
 	// Whether the app uses the Embedded App SDK.
-	Embedded bool `json:"embedded"`
+	Embedded bool `json:"embedded,omitempty"`
 	// Requirements that must be met before the app can be installed.
-	FailedRequirements []*FailedRequirement `json:"failedRequirements"`
+	FailedRequirements []*FailedRequirement `json:"failedRequirements,omitempty"`
 	// List of app features.
-	Features []string `json:"features"`
+	Features []string `json:"features,omitempty"`
 	// Feedback from this app about the store.
 	Feedback *AppFeedback `json:"feedback,omitempty"`
 	// Handle of the app.
@@ -313,33 +313,33 @@ type App struct {
 	// Icon that represents the app.
 	Icon *Image `json:"icon,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Webpage where you can install the app.
 	InstallURL *string `json:"installUrl,omitempty"`
 	// Corresponding AppInstallation for this shop and App.
 	// Returns null if the App is not installed.
 	Installation *AppInstallation `json:"installation,omitempty"`
 	// Webpage that the app starts in.
-	LaunchURL string `json:"launchUrl"`
+	LaunchURL string `json:"launchUrl,omitempty"`
 	// Menu items for the app, which also appear as submenu items in left navigation sidebar in the Shopify admin.
-	NavigationItems []*NavigationItem `json:"navigationItems"`
+	NavigationItems []*NavigationItem `json:"navigationItems,omitempty"`
 	// Detailed information about the app pricing.
 	PricingDetails *string `json:"pricingDetails,omitempty"`
 	// Summary of the app pricing details.
-	PricingDetailsSummary string `json:"pricingDetailsSummary"`
+	PricingDetailsSummary string `json:"pricingDetailsSummary,omitempty"`
 	// Link to app privacy policy.
 	PrivacyPolicyURL *string `json:"privacyPolicyUrl,omitempty"`
 	// Whether the app is published.
-	Published bool `json:"published"`
+	Published bool `json:"published,omitempty"`
 	// Screenshots of the app.
-	Screenshots []*Image `json:"screenshots"`
+	Screenshots []*Image `json:"screenshots,omitempty"`
 	// Whether the app was developed by Shopify.
-	ShopifyDeveloped bool `json:"shopifyDeveloped"`
+	ShopifyDeveloped bool `json:"shopifyDeveloped,omitempty"`
 	// Name of the app.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// Message that appears when the app is uninstalled. For example:
 	// By removing this app, you will no longer be able to publish products to MySocialSite or view this app in your Shopify admin. You can re-enable this channel at any time.
-	UninstallMessage string `json:"uninstallMessage"`
+	UninstallMessage string `json:"uninstallMessage,omitempty"`
 	// Webpage where you can uninstall the app.
 	UninstallURL *string `json:"uninstallUrl,omitempty"`
 }
@@ -349,7 +349,7 @@ func (App) IsNode() {}
 // An auto-generated type for paginating through multiple Apps.
 type AppConnection struct {
 	// A list of edges.
-	Edges []*AppEdge `json:"edges"`
+	Edges []*AppEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -359,13 +359,13 @@ type AppCredit struct {
 	// The amount that can be used towards future app purchases in Shopify.
 	Amount *MoneyV2 `json:"amount,omitempty"`
 	// The date and time when the app credit was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The description of the app credit.
-	Description string `json:"description"`
+	Description string `json:"description,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Whether the app credit is a test transaction.
-	Test bool `json:"test"`
+	Test bool `json:"test,omitempty"`
 }
 
 func (AppCredit) IsNode() {}
@@ -373,7 +373,7 @@ func (AppCredit) IsNode() {}
 // An auto-generated type for paginating through multiple AppCredits.
 type AppCreditConnection struct {
 	// A list of edges.
-	Edges []*AppCreditEdge `json:"edges"`
+	Edges []*AppCreditEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -383,13 +383,13 @@ type AppCreditCreatePayload struct {
 	// The newly created app credit.
 	AppCredit *AppCredit `json:"appCredit,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one AppCredit and a cursor during pagination.
 type AppCreditEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of AppCreditEdge.
 	Node *AppCredit `json:"node,omitempty"`
 }
@@ -397,7 +397,7 @@ type AppCreditEdge struct {
 // An auto-generated type which holds one App and a cursor during pagination.
 type AppEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of AppEdge.
 	Node *App `json:"node,omitempty"`
 }
@@ -411,15 +411,15 @@ type AppFeedback struct {
 	// A link to where merchants can resolve errors.
 	Link *Link `json:"link,omitempty"`
 	// The feedback message presented to the merchant.
-	Messages []*UserError `json:"messages"`
+	Messages []*UserError `json:"messages,omitempty"`
 }
 
 // Represents an installed application on a shop.
 type AppInstallation struct {
 	// Access scopes granted to an app by a merchant during installation.
-	AccessScopes []*AccessScope `json:"accessScopes"`
+	AccessScopes []*AccessScope `json:"accessScopes,omitempty"`
 	// Active subscriptions charged to a shop on a recurring basis.
-	ActiveSubscriptions []*AppSubscription `json:"activeSubscriptions"`
+	ActiveSubscriptions []*AppSubscription `json:"activeSubscriptions,omitempty"`
 	// All subscriptions created for a shop.
 	AllSubscriptions *AppSubscriptionConnection `json:"allSubscriptions,omitempty"`
 	// Application which is installed.
@@ -429,15 +429,15 @@ type AppInstallation struct {
 	// Credits that can be used towards future app purchases.
 	Credits *AppCreditConnection `json:"credits,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Url used to launch the app.
-	LaunchURL string `json:"launchUrl"`
+	LaunchURL string `json:"launchUrl,omitempty"`
 	// One-time purchases to a shop.
 	OneTimePurchases *AppPurchaseOneTimeConnection `json:"oneTimePurchases,omitempty"`
 	// Publication associated with the installed application.
 	Publication *Publication `json:"publication,omitempty"`
 	// Subscriptions charge to a shop on a recurring basis.
-	Subscriptions []*AppSubscription `json:"subscriptions"`
+	Subscriptions []*AppSubscription `json:"subscriptions,omitempty"`
 	// Webpage where you can uninstall the app.
 	UninstallURL *string `json:"uninstallUrl,omitempty"`
 }
@@ -447,7 +447,7 @@ func (AppInstallation) IsNode() {}
 // An auto-generated type for paginating through multiple AppInstallations.
 type AppInstallationConnection struct {
 	// A list of edges.
-	Edges []*AppInstallationEdge `json:"edges"`
+	Edges []*AppInstallationEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -455,7 +455,7 @@ type AppInstallationConnection struct {
 // An auto-generated type which holds one AppInstallation and a cursor during pagination.
 type AppInstallationEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of AppInstallationEdge.
 	Node *AppInstallation `json:"node,omitempty"`
 }
@@ -471,23 +471,23 @@ type AppPlanInput struct {
 // Defines the app plan the merchant is subscribed to.
 type AppPlanV2 struct {
 	// Defines the pricing model for the app subscription.
-	PricingDetails AppPricingDetails `json:"pricingDetails"`
+	PricingDetails AppPricingDetails `json:"pricingDetails,omitempty"`
 }
 
 // Services and features purchased once by a store.
 type AppPurchaseOneTime struct {
 	// The date and time when the app purchase was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The name of the app purchase.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The amount to be charged to the store for the app purchase.
 	Price *MoneyV2 `json:"price,omitempty"`
 	// The status of the app purchase. Possible values include pending, active, declined and cancelled.
-	Status AppPurchaseStatus `json:"status"`
+	Status AppPurchaseStatus `json:"status,omitempty"`
 	// Whether the app purchase is a test transaction.
-	Test bool `json:"test"`
+	Test bool `json:"test,omitempty"`
 }
 
 func (AppPurchaseOneTime) IsAppPurchase() {}
@@ -496,7 +496,7 @@ func (AppPurchaseOneTime) IsNode()        {}
 // An auto-generated type for paginating through multiple AppPurchaseOneTimes.
 type AppPurchaseOneTimeConnection struct {
 	// A list of edges.
-	Edges []*AppPurchaseOneTimeEdge `json:"edges"`
+	Edges []*AppPurchaseOneTimeEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -508,13 +508,13 @@ type AppPurchaseOneTimeCreatePayload struct {
 	// The URL where the merchant can approve or decline the app one-time purchase.
 	ConfirmationURL *string `json:"confirmationUrl,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one AppPurchaseOneTime and a cursor during pagination.
 type AppPurchaseOneTimeEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of AppPurchaseOneTimeEdge.
 	Node *AppPurchaseOneTime `json:"node,omitempty"`
 }
@@ -522,7 +522,7 @@ type AppPurchaseOneTimeEdge struct {
 // Price charged every interval.
 type AppRecurringPricing struct {
 	// Specifies the number of days in a billing cycle of the app subscription.
-	Interval AppPricingInterval `json:"interval"`
+	Interval AppPricingInterval `json:"interval,omitempty"`
 	// The amount to be charged to the store every billing interval.
 	Price *MoneyV2 `json:"price,omitempty"`
 }
@@ -540,24 +540,24 @@ type AppRecurringPricingInput struct {
 // Provides users access to services and/or features for a duration of time.
 type AppSubscription struct {
 	// The date and time when the app subscription was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The date and time when the current app subscription period ends.
 	CurrentPeriodEnd *string `json:"currentPeriodEnd,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Attaches a plan to an app subscription.
-	LineItems []*AppSubscriptionLineItem `json:"lineItems"`
+	LineItems []*AppSubscriptionLineItem `json:"lineItems,omitempty"`
 	// The name of the app subscription.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The URL where the merchant is redirected after approving the app subscription.
-	ReturnURL string `json:"returnUrl"`
+	ReturnURL string `json:"returnUrl,omitempty"`
 	// The status of the app subscription. Possible values include pending, active, declined,
 	//          expired, frozen, and cancelled.
-	Status AppSubscriptionStatus `json:"status"`
+	Status AppSubscriptionStatus `json:"status,omitempty"`
 	// Specifies whether the app subscription is a test transaction.
-	Test bool `json:"test"`
+	Test bool `json:"test,omitempty"`
 	// The number of days of the free trial.
-	TrialDays int `json:"trialDays"`
+	TrialDays int `json:"trialDays,omitempty"`
 }
 
 func (AppSubscription) IsNode() {}
@@ -567,13 +567,13 @@ type AppSubscriptionCancelPayload struct {
 	// The cancelled app subscription.
 	AppSubscription *AppSubscription `json:"appSubscription,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple AppSubscriptions.
 type AppSubscriptionConnection struct {
 	// A list of edges.
-	Edges []*AppSubscriptionEdge `json:"edges"`
+	Edges []*AppSubscriptionEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -585,13 +585,13 @@ type AppSubscriptionCreatePayload struct {
 	// The URL where the merchant approves or declines an app subscription.
 	ConfirmationURL *string `json:"confirmationUrl,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one AppSubscription and a cursor during pagination.
 type AppSubscriptionEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of AppSubscriptionEdge.
 	Node *AppSubscription `json:"node,omitempty"`
 }
@@ -599,7 +599,7 @@ type AppSubscriptionEdge struct {
 // Attaches a plan to an app subscription.
 type AppSubscriptionLineItem struct {
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Defines the pricing model for the app subscription.
 	Plan *AppPlanV2 `json:"plan,omitempty"`
 	// Lists the store's usage for a usage pricing plan.
@@ -619,7 +619,7 @@ type AppSubscriptionLineItemUpdatePayload struct {
 	// The URL where the merchant approves or declines the updated app subscription line item.
 	ConfirmationURL *string `json:"confirmationUrl,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Defines the usage pricing model for the app subscription.
@@ -629,9 +629,9 @@ type AppUsagePricing struct {
 	// The limit a store can be charged for usage based pricing.
 	CappedAmount *MoneyV2 `json:"cappedAmount,omitempty"`
 	// Specifies the interval which usage records are applied.
-	Interval AppPricingInterval `json:"interval"`
+	Interval AppPricingInterval `json:"interval,omitempty"`
 	// The terms and conditions for app usage pricing.
-	Terms string `json:"terms"`
+	Terms string `json:"terms,omitempty"`
 }
 
 func (AppUsagePricing) IsAppPricingDetails() {}
@@ -641,17 +641,17 @@ type AppUsagePricingInput struct {
 	// The limit a customer can be charged for usage based pricing.
 	CappedAmount *MoneyInput `json:"cappedAmount,omitempty"`
 	// The terms and conditions for app usage.
-	Terms string `json:"terms"`
+	Terms string `json:"terms,omitempty"`
 }
 
 // Store usage for app subscriptions with usage pricing.
 type AppUsageRecord struct {
 	// The date and time when the usage record was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The description of the app usage record.
-	Description string `json:"description"`
+	Description string `json:"description,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The price of the usage record. The only permitted currency code is USD.
 	Price *MoneyV2 `json:"price,omitempty"`
 	// Defines the usage pricing plan the merchant is subscribed to.
@@ -663,7 +663,7 @@ func (AppUsageRecord) IsNode() {}
 // An auto-generated type for paginating through multiple AppUsageRecords.
 type AppUsageRecordConnection struct {
 	// A list of edges.
-	Edges []*AppUsageRecordEdge `json:"edges"`
+	Edges []*AppUsageRecordEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -673,13 +673,13 @@ type AppUsageRecordCreatePayload struct {
 	// The newly created app usage record.
 	AppUsageRecord *AppUsageRecord `json:"appUsageRecord,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one AppUsageRecord and a cursor during pagination.
 type AppUsageRecordEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of AppUsageRecordEdge.
 	Node *AppUsageRecord `json:"node,omitempty"`
 }
@@ -687,7 +687,7 @@ type AppUsageRecordEdge struct {
 // Represents a generic custom attribute.
 type Attribute struct {
 	// Key or name of the attribute.
-	Key string `json:"key"`
+	Key string `json:"key,omitempty"`
 	// Value of the attribute.
 	Value *string `json:"value,omitempty"`
 }
@@ -695,26 +695,26 @@ type Attribute struct {
 // Specifies the input fields required for an attribute.
 type AttributeInput struct {
 	// Key or name of the attribute.
-	Key string `json:"key"`
+	Key string `json:"key,omitempty"`
 	// Value of the attribute.
-	Value string `json:"value"`
+	Value string `json:"value,omitempty"`
 }
 
 // Automatic discount applications capture the intentions of a discount that was automatically applied.
 type AutomaticDiscountApplication struct {
 	// The method by which the discount's value is allocated to its entitled items.
-	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod"`
+	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod,omitempty"`
 	// An ordered index that can be used to identify the discount application and indicate the precedence
 	// of the discount application for calculations.
-	Index int `json:"index"`
+	Index int `json:"index,omitempty"`
 	// How the discount amount is distributed on the discounted lines.
-	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection"`
+	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection,omitempty"`
 	// Whether the discount is applied on line items or shipping lines.
-	TargetType DiscountApplicationTargetType `json:"targetType"`
+	TargetType DiscountApplicationTargetType `json:"targetType,omitempty"`
 	// The title of the discount application.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The value of the discount application.
-	Value PricingValue `json:"value"`
+	Value PricingValue `json:"value,omitempty"`
 }
 
 func (AutomaticDiscountApplication) IsDiscountApplication() {}
@@ -725,17 +725,17 @@ type BasicEvent struct {
 	// The name of the app that created the event. Returns null when the event originates from the Shopify admin.
 	AppTitle *string `json:"appTitle,omitempty"`
 	// Whether the event was created by an app.
-	AttributeToApp bool `json:"attributeToApp"`
+	AttributeToApp bool `json:"attributeToApp,omitempty"`
 	// Whether the event was caused by an admin user.
-	AttributeToUser bool `json:"attributeToUser"`
+	AttributeToUser bool `json:"attributeToUser,omitempty"`
 	// The date and time when the event was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// Whether the event is critical.
-	CriticalAlert bool `json:"criticalAlert"`
+	CriticalAlert bool `json:"criticalAlert,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Human readable text that describes the event.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 func (BasicEvent) IsNode()  {}
@@ -746,9 +746,9 @@ type BillingAttemptUserError struct {
 	// Error code to uniquely identify the error.
 	Code *BillingAttemptUserErrorCode `json:"code,omitempty"`
 	// Path to the input field which caused the error.
-	Field []string `json:"field"`
+	Field []string `json:"field,omitempty"`
 	// The error message.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 func (BillingAttemptUserError) IsDisplayableError() {}
@@ -764,28 +764,28 @@ type BulkOperation struct {
 	// When the bulk operation was successfully completed.
 	CompletedAt *string `json:"completedAt,omitempty"`
 	// When the bulk operation was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// Error code for failed operations.
 	ErrorCode *BulkOperationErrorCode `json:"errorCode,omitempty"`
 	// File size in bytes of the file in the `url` field.
 	FileSize *string `json:"fileSize,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The running count of all objects processed.
 	// For example, when fetching all products and their variants, this field counts both products and variants.
 	// This field can be used to track operation progress.
-	ObjectCount string `json:"objectCount"`
+	ObjectCount string `json:"objectCount,omitempty"`
 	// URL to partial/incomplete response data (in [JSONL](http://jsonlines.org/) format) returned by a failed operation.
 	// Expires **one week** after the operation fails. Returns `null` when there's no data available.
 	PartialDataURL *string `json:"partialDataUrl,omitempty"`
 	// GraphQL query document specified in `bulkOperationRunQuery`.
-	Query string `json:"query"`
+	Query string `json:"query,omitempty"`
 	// The running count of all objects processed at the root of the query.
 	// For example, when fetching all products and their variants, this field counts only products.
 	// This field can be used to track operation progress.
-	RootObjectCount string `json:"rootObjectCount"`
+	RootObjectCount string `json:"rootObjectCount,omitempty"`
 	// Status of the bulk operation.
-	Status BulkOperationStatus `json:"status"`
+	Status BulkOperationStatus `json:"status,omitempty"`
 	// URL to the response data in [JSONL](http://jsonlines.org/) format.
 	// Expires **one week** after the operation completes.
 	URL *string `json:"url,omitempty"`
@@ -798,7 +798,7 @@ type BulkOperationCancelPayload struct {
 	// The bulk operation to be canceled.
 	BulkOperation *BulkOperation `json:"bulkOperation,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `bulkOperationRunQuery` mutation.
@@ -806,26 +806,26 @@ type BulkOperationRunQueryPayload struct {
 	// The newly created bulk operation.
 	BulkOperation *BulkOperation `json:"bulkOperation,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Discount code applications capture the intentions of a discount code at
 // the time that it is applied onto an order.
 type CalculatedAutomaticDiscountApplication struct {
 	// The method by which the discount's value is allocated to its entitled items.
-	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod"`
+	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod,omitempty"`
 	// The level at which the discount was applied.
-	AppliedTo DiscountApplicationLevel `json:"appliedTo"`
+	AppliedTo DiscountApplicationLevel `json:"appliedTo,omitempty"`
 	// The description of discount application. Indicates the reason why the discount was applied.
 	Description *string `json:"description,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// How the discount amount is distributed on the discounted lines.
-	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection"`
+	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection,omitempty"`
 	// Whether the discount is applied on line items or shipping lines.
-	TargetType DiscountApplicationTargetType `json:"targetType"`
+	TargetType DiscountApplicationTargetType `json:"targetType,omitempty"`
 	// The value of the discount application.
-	Value PricingValue `json:"value"`
+	Value PricingValue `json:"value,omitempty"`
 }
 
 func (CalculatedAutomaticDiscountApplication) IsCalculatedDiscountApplication() {}
@@ -835,13 +835,13 @@ type CalculatedDiscountAllocation struct {
 	// The money amount allocated by the discount application in shop and presentment currencies.
 	AllocatedAmountSet *MoneyBag `json:"allocatedAmountSet,omitempty"`
 	// The discount that the allocated amount originated from.
-	DiscountApplication CalculatedDiscountApplication `json:"discountApplication"`
+	DiscountApplication CalculatedDiscountApplication `json:"discountApplication,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple CalculatedDiscountApplications.
 type CalculatedDiscountApplicationConnection struct {
 	// A list of edges.
-	Edges []*CalculatedDiscountApplicationEdge `json:"edges"`
+	Edges []*CalculatedDiscountApplicationEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -849,30 +849,30 @@ type CalculatedDiscountApplicationConnection struct {
 // An auto-generated type which holds one CalculatedDiscountApplication and a cursor during pagination.
 type CalculatedDiscountApplicationEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of CalculatedDiscountApplicationEdge.
-	Node CalculatedDiscountApplication `json:"node"`
+	Node CalculatedDiscountApplication `json:"node,omitempty"`
 }
 
 // Discount code applications capture the intentions of a discount code at
 // the time that it is applied onto an order.
 type CalculatedDiscountCodeApplication struct {
 	// The method by which the discount's value is allocated to its entitled items.
-	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod"`
+	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod,omitempty"`
 	// The level at which the discount was applied.
-	AppliedTo DiscountApplicationLevel `json:"appliedTo"`
+	AppliedTo DiscountApplicationLevel `json:"appliedTo,omitempty"`
 	// The string identifying the discount code that was used at the time of application.
-	Code string `json:"code"`
+	Code string `json:"code,omitempty"`
 	// The description of discount application. Indicates the reason why the discount was applied.
 	Description *string `json:"description,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// How the discount amount is distributed on the discounted lines.
-	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection"`
+	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection,omitempty"`
 	// Whether the discount is applied on line items or shipping lines.
-	TargetType DiscountApplicationTargetType `json:"targetType"`
+	TargetType DiscountApplicationTargetType `json:"targetType,omitempty"`
 	// The value of the discount application.
-	Value PricingValue `json:"value"`
+	Value PricingValue `json:"value,omitempty"`
 }
 
 func (CalculatedDiscountCodeApplication) IsCalculatedDiscountApplication() {}
@@ -882,23 +882,23 @@ type CalculatedDraftOrder struct {
 	// Order-level discount applied to the draft order.
 	AppliedDiscount *DraftOrderAppliedDiscount `json:"appliedDiscount,omitempty"`
 	// The available shipping rates for the draft order. Requires a customer with a valid shipping address and at least one line item.
-	AvailableShippingRates []*ShippingRate `json:"availableShippingRates"`
+	AvailableShippingRates []*ShippingRate `json:"availableShippingRates,omitempty"`
 	// Customer who will be sent an invoice for the draft order, if there is one.
 	Customer *Customer `json:"customer,omitempty"`
 	// Line items in the draft order with their computed properties.
-	LineItems []*CalculatedDraftOrderLineItem `json:"lineItems"`
+	LineItems []*CalculatedDraftOrderLineItem `json:"lineItems,omitempty"`
 	// Line item that contains the shipping costs.
 	ShippingLine *ShippingLine `json:"shippingLine,omitempty"`
 	// Subtotal of the line items and their discounts (does not contain shipping charges or shipping discounts, or taxes).
-	SubtotalPrice string `json:"subtotalPrice"`
+	SubtotalPrice string `json:"subtotalPrice,omitempty"`
 	// Total amount of taxes charged for each line item and shipping line.
-	TaxLines []*TaxLine `json:"taxLines"`
+	TaxLines []*TaxLine `json:"taxLines,omitempty"`
 	// Total amount of the draft order (includes taxes, shipping charges, and discounts).
-	TotalPrice string `json:"totalPrice"`
+	TotalPrice string `json:"totalPrice,omitempty"`
 	// Total shipping charge for the draft order.
-	TotalShippingPrice string `json:"totalShippingPrice"`
+	TotalShippingPrice string `json:"totalShippingPrice,omitempty"`
 	// Total amount of taxes for the draft order.
-	TotalTax string `json:"totalTax"`
+	TotalTax string `json:"totalTax,omitempty"`
 }
 
 // The computed line items for a draft order.
@@ -906,9 +906,9 @@ type CalculatedDraftOrderLineItem struct {
 	// Discount applied to the line item.
 	AppliedDiscount *DraftOrderAppliedDiscount `json:"appliedDiscount,omitempty"`
 	// Indicates if this is a product variant line item, or a custom line item.
-	Custom bool `json:"custom"`
+	Custom bool `json:"custom,omitempty"`
 	// List of additional information (metafields) about the line item.
-	CustomAttributes []*Attribute `json:"customAttributes"`
+	CustomAttributes []*Attribute `json:"customAttributes,omitempty"`
 	// Total price with discounts applied.
 	DiscountedTotal *MoneyV2 `json:"discountedTotal,omitempty"`
 	// Unit price with discounts applied.
@@ -921,9 +921,9 @@ type CalculatedDraftOrderLineItem struct {
 	// Image associated with the draft order line item.
 	Image *Image `json:"image,omitempty"`
 	// Indicates whether the line item represents the puchase of a gift card.
-	IsGiftCard bool `json:"isGiftCard"`
+	IsGiftCard bool `json:"isGiftCard,omitempty"`
 	// Name of the product.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// Total price (without discounts) of the line item, based on the original unit price of the variant x quantity.
 	OriginalTotal *MoneyV2 `json:"originalTotal,omitempty"`
 	// Variant price without any discounts applied.
@@ -931,15 +931,15 @@ type CalculatedDraftOrderLineItem struct {
 	// Product associated with the draft order line item.
 	Product *Product `json:"product,omitempty"`
 	// Number of variant items requested in the draft order.
-	Quantity int `json:"quantity"`
+	Quantity int `json:"quantity,omitempty"`
 	// Whether physical shipping is required for the variant.
-	RequiresShipping bool `json:"requiresShipping"`
+	RequiresShipping bool `json:"requiresShipping,omitempty"`
 	// Variant SKU number.
 	Sku *string `json:"sku,omitempty"`
 	// Whether the variant is taxable.
-	Taxable bool `json:"taxable"`
+	Taxable bool `json:"taxable,omitempty"`
 	// Title of the product or variant (this field only applies to custom line items).
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// Total value of the discount.
 	TotalDiscount *MoneyV2 `json:"totalDiscount,omitempty"`
 	// Variant associated with the draft order line item.
@@ -955,39 +955,39 @@ type CalculatedDraftOrderLineItem struct {
 // A line item involved in order editing that may be newly added or have new changes applied.
 type CalculatedLineItem struct {
 	// The discounts that have been allocated onto the line item by discount applications.
-	CalculatedDiscountAllocations []*CalculatedDiscountAllocation `json:"calculatedDiscountAllocations"`
+	CalculatedDiscountAllocations []*CalculatedDiscountAllocation `json:"calculatedDiscountAllocations,omitempty"`
 	// List of additional information (metafields) about the line item.
-	CustomAttributes []*Attribute `json:"customAttributes"`
+	CustomAttributes []*Attribute `json:"customAttributes,omitempty"`
 	// The discounts that have been allocated onto the line item by discount applications.
-	DiscountAllocations []*DiscountAllocation `json:"discountAllocations"`
+	DiscountAllocations []*DiscountAllocation `json:"discountAllocations,omitempty"`
 	// The total line price after discounts are applied in shop and presentment currencies.
 	DiscountedUnitPriceSet *MoneyBag `json:"discountedUnitPriceSet,omitempty"`
 	// The total number of items that can be edited.
-	EditableQuantity int `json:"editableQuantity"`
+	EditableQuantity int `json:"editableQuantity,omitempty"`
 	// The editable quantity prior to any changes made in the current edit.
-	EditableQuantityBeforeChanges int `json:"editableQuantityBeforeChanges"`
+	EditableQuantityBeforeChanges int `json:"editableQuantityBeforeChanges,omitempty"`
 	// The total price of editable lines in shop and presentment currencies.
 	EditableSubtotalSet *MoneyBag `json:"editableSubtotalSet,omitempty"`
 	// Whether the calculated line item has a staged discount.
-	HasStagedLineItemDiscount bool `json:"hasStagedLineItemDiscount"`
+	HasStagedLineItemDiscount bool `json:"hasStagedLineItemDiscount,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The Image object associated to the line item's variant.
 	Image *Image `json:"image,omitempty"`
 	// Variant price without any discounts applied in shop and presentment currencies.
 	OriginalUnitPriceSet *MoneyBag `json:"originalUnitPriceSet,omitempty"`
 	// The total number of items.
-	Quantity int `json:"quantity"`
+	Quantity int `json:"quantity,omitempty"`
 	// Whether the line item can be restocked or not.
-	Restockable bool `json:"restockable"`
+	Restockable bool `json:"restockable,omitempty"`
 	// Whether the changes on the line item will result in a restock.
-	Restocking bool `json:"restocking"`
+	Restocking bool `json:"restocking,omitempty"`
 	// Variant SKU number.
 	Sku *string `json:"sku,omitempty"`
 	// A list of changes that affect this line item.
-	StagedChanges []OrderStagedChange `json:"stagedChanges"`
+	StagedChanges []OrderStagedChange `json:"stagedChanges,omitempty"`
 	// Title of the product or variant.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The total price of uneditable lines in shop and presentment currencies.
 	UneditableSubtotalSet *MoneyBag `json:"uneditableSubtotalSet,omitempty"`
 	// The product variant associated with this line item. Will be null for custom line items and items whose
@@ -1000,7 +1000,7 @@ type CalculatedLineItem struct {
 // An auto-generated type for paginating through multiple CalculatedLineItems.
 type CalculatedLineItemConnection struct {
 	// A list of edges.
-	Edges []*CalculatedLineItemEdge `json:"edges"`
+	Edges []*CalculatedLineItemEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -1008,7 +1008,7 @@ type CalculatedLineItemConnection struct {
 // An auto-generated type which holds one CalculatedLineItem and a cursor during pagination.
 type CalculatedLineItemEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of CalculatedLineItemEdge.
 	Node *CalculatedLineItem `json:"node,omitempty"`
 }
@@ -1016,19 +1016,19 @@ type CalculatedLineItemEdge struct {
 // Manual discount applications capture the intentions of a discount that was manually created for an order.
 type CalculatedManualDiscountApplication struct {
 	// The method by which the discount's value is allocated to its entitled items.
-	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod"`
+	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod,omitempty"`
 	// The level at which the discount was applied.
-	AppliedTo DiscountApplicationLevel `json:"appliedTo"`
+	AppliedTo DiscountApplicationLevel `json:"appliedTo,omitempty"`
 	// The description of discount application. Indicates the reason why the discount was applied.
 	Description *string `json:"description,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// How the discount amount is distributed on the discounted lines.
-	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection"`
+	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection,omitempty"`
 	// Whether the discount is applied on line items or shipping lines.
-	TargetType DiscountApplicationTargetType `json:"targetType"`
+	TargetType DiscountApplicationTargetType `json:"targetType,omitempty"`
 	// The value of the discount application.
-	Value PricingValue `json:"value"`
+	Value PricingValue `json:"value,omitempty"`
 }
 
 func (CalculatedManualDiscountApplication) IsCalculatedDiscountApplication() {}
@@ -1042,16 +1042,16 @@ type CalculatedOrder struct {
 	// Amount of the order-level discount (does not contain any line item discounts) in shop and presentment currencies.
 	CartDiscountAmountSet *MoneyBag `json:"cartDiscountAmountSet,omitempty"`
 	// Will be true when the changes have been applied to the order.
-	Committed bool `json:"committed"`
+	Committed bool `json:"committed,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Returns all items on the order that existed before starting the edit.
 	// will include any changes that have been made.
 	LineItems *CalculatedLineItemConnection `json:"lineItems,omitempty"`
 	// The HTML of the customer notification for the order edit.
 	NotificationPreviewHTML *string `json:"notificationPreviewHtml,omitempty"`
 	// The customer notification title.
-	NotificationPreviewTitle string `json:"notificationPreviewTitle"`
+	NotificationPreviewTitle string `json:"notificationPreviewTitle,omitempty"`
 	// The order with changes applied.
 	Order *Order `json:"order,omitempty"`
 	// The order without any changes applied.
@@ -1059,11 +1059,11 @@ type CalculatedOrder struct {
 	// List of changes made on the order.
 	StagedChanges *OrderStagedChangeConnection `json:"stagedChanges,omitempty"`
 	// The sum of the quantities for the line items that contribute to the order's subtotal.
-	SubtotalLineItemsQuantity int `json:"subtotalLineItemsQuantity"`
+	SubtotalLineItemsQuantity int `json:"subtotalLineItemsQuantity,omitempty"`
 	// Subtotal of the line items and their discounts (does not contain shipping costs, shipping discounts) in shop and presentment currencies.
 	SubtotalPriceSet *MoneyBag `json:"subtotalPriceSet,omitempty"`
 	// Taxes charged for the line item.
-	TaxLines []*TaxLine `json:"taxLines"`
+	TaxLines []*TaxLine `json:"taxLines,omitempty"`
 	// Total price of the order less the total amount received from the customer in shop and presentment currencies.
 	TotalOutstandingSet *MoneyBag `json:"totalOutstandingSet,omitempty"`
 	// Total amount of the order (includes taxes and discounts) in shop and presentment currencies.
@@ -1076,19 +1076,19 @@ func (CalculatedOrder) IsNode() {}
 // the time that it is applied onto an order.
 type CalculatedScriptDiscountApplication struct {
 	// The method by which the discount's value is allocated to its entitled items.
-	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod"`
+	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod,omitempty"`
 	// The level at which the discount was applied.
-	AppliedTo DiscountApplicationLevel `json:"appliedTo"`
+	AppliedTo DiscountApplicationLevel `json:"appliedTo,omitempty"`
 	// The description of discount application. Indicates the reason why the discount was applied.
 	Description *string `json:"description,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// How the discount amount is distributed on the discounted lines.
-	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection"`
+	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection,omitempty"`
 	// Whether the discount is applied on line items or shipping lines.
-	TargetType DiscountApplicationTargetType `json:"targetType"`
+	TargetType DiscountApplicationTargetType `json:"targetType,omitempty"`
 	// The value of the discount application.
-	Value PricingValue `json:"value"`
+	Value PricingValue `json:"value,omitempty"`
 }
 
 func (CalculatedScriptDiscountApplication) IsCalculatedDiscountApplication() {}
@@ -1103,15 +1103,15 @@ type Channel struct {
 	// The list of collections published to the channel.
 	Collections *CollectionConnection `json:"collections,omitempty"`
 	// Unique identifier for the channel.
-	Handle string `json:"handle"`
+	Handle string `json:"handle,omitempty"`
 	// Whether the collection is available to the channel.
-	HasCollection bool `json:"hasCollection"`
+	HasCollection bool `json:"hasCollection,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Name of the channel.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// Menu items for the channel, which also appear as submenu items in left navigation sidebar in the Shopify admin.
-	NavigationItems []*NavigationItem `json:"navigationItems"`
+	NavigationItems []*NavigationItem `json:"navigationItems,omitempty"`
 	// Home page for the channel.
 	OverviewPath *string `json:"overviewPath,omitempty"`
 	// The product publications for the products published to the channel.
@@ -1121,7 +1121,7 @@ type Channel struct {
 	// The list of products published to the channel.
 	Products *ProductConnection `json:"products,omitempty"`
 	// Whether or not this channel supports future publishing.
-	SupportsFuturePublishing bool `json:"supportsFuturePublishing"`
+	SupportsFuturePublishing bool `json:"supportsFuturePublishing,omitempty"`
 }
 
 func (Channel) IsNode() {}
@@ -1129,7 +1129,7 @@ func (Channel) IsNode() {}
 // An auto-generated type for paginating through multiple Channels.
 type ChannelConnection struct {
 	// A list of edges.
-	Edges []*ChannelEdge `json:"edges"`
+	Edges []*ChannelEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -1137,7 +1137,7 @@ type ChannelConnection struct {
 // An auto-generated type which holds one Channel and a cursor during pagination.
 type ChannelEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of ChannelEdge.
 	Node *Channel `json:"node,omitempty"`
 }
@@ -1145,23 +1145,23 @@ type ChannelEdge struct {
 // Represents a collection of products.
 type Collection struct {
 	// The number of publications a resource is published to without feedback errors.
-	AvailablePublicationCount int `json:"availablePublicationCount"`
+	AvailablePublicationCount int `json:"availablePublicationCount,omitempty"`
 	// The stripped description of the collection, in a single line with HTML tags removed.
-	Description string `json:"description"`
+	Description string `json:"description,omitempty"`
 	// The description of the collection, complete with HTML formatting.
-	DescriptionHTML string `json:"descriptionHtml"`
+	DescriptionHTML string `json:"descriptionHtml,omitempty"`
 	// Information about the collection that's provided through resource feedback.
 	Feedback *ResourceFeedback `json:"feedback,omitempty"`
 	// A unique human-friendly string for the collection. Automatically generated from the collection's title.
-	Handle string `json:"handle"`
+	Handle string `json:"handle,omitempty"`
 	// Whether the collection includes a product.
-	HasProduct bool `json:"hasProduct"`
+	HasProduct bool `json:"hasProduct,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The image associated with the collection.
 	Image *Image `json:"image,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// The metafield associated with the resource.
 	Metafield *Metafield `json:"metafield,omitempty"`
 	// A paginated list of metafields associated with the resource.
@@ -1173,19 +1173,19 @@ type Collection struct {
 	// The products that are included in the collection.
 	Products *ProductConnection `json:"products,omitempty"`
 	// The number of products included in the collection.
-	ProductsCount int `json:"productsCount"`
+	ProductsCount int `json:"productsCount,omitempty"`
 	// The number of publications a resource is published on.
-	PublicationCount int `json:"publicationCount"`
+	PublicationCount int `json:"publicationCount,omitempty"`
 	// The channels where the collection is published.
 	Publications *CollectionPublicationConnection `json:"publications,omitempty"`
 	// Check to see whether the resource is published to a given channel.
-	PublishedOnChannel bool `json:"publishedOnChannel"`
+	PublishedOnChannel bool `json:"publishedOnChannel,omitempty"`
 	// Check to see whether the resource is published to the calling app's channel.
-	PublishedOnCurrentChannel bool `json:"publishedOnCurrentChannel"`
+	PublishedOnCurrentChannel bool `json:"publishedOnCurrentChannel,omitempty"`
 	// Check to see whether the resource is published to the calling app's publication.
-	PublishedOnCurrentPublication bool `json:"publishedOnCurrentPublication"`
+	PublishedOnCurrentPublication bool `json:"publishedOnCurrentPublication,omitempty"`
 	// Check to see whether the resource is published to a given publication.
-	PublishedOnPublication bool `json:"publishedOnPublication"`
+	PublishedOnPublication bool `json:"publishedOnPublication,omitempty"`
 	// The list of resources that are published to a publication.
 	ResourcePublications *ResourcePublicationConnection `json:"resourcePublications,omitempty"`
 	// The list of resources that are either published or staged to be published to a publication.
@@ -1195,21 +1195,21 @@ type Collection struct {
 	// SEO information for the collection.
 	Seo *Seo `json:"seo,omitempty"`
 	// The order in which the collection's products are sorted.
-	SortOrder CollectionSortOrder `json:"sortOrder"`
+	SortOrder CollectionSortOrder `json:"sortOrder,omitempty"`
 	// The storefront ID of the collection.
-	StorefrontID string `json:"storefrontId"`
+	StorefrontID string `json:"storefrontId,omitempty"`
 	// The theme template used when viewing this collection in a store.
 	TemplateSuffix *string `json:"templateSuffix,omitempty"`
 	// The title of the collection.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The translations associated with the resource.
-	Translations []*PublishedTranslation `json:"translations"`
+	Translations []*PublishedTranslation `json:"translations,omitempty"`
 	// The list of channels that the resource is not published to.
 	UnpublishedChannels *ChannelConnection `json:"unpublishedChannels,omitempty"`
 	// The list of publications that the resource is not published to.
 	UnpublishedPublications *PublicationConnection `json:"unpublishedPublications,omitempty"`
 	// The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the collection was last modified.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 }
 
 func (Collection) IsHasMetafields()            {}
@@ -1222,13 +1222,13 @@ type CollectionAddProductsPayload struct {
 	// The updated collection.
 	Collection *Collection `json:"collection,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple Collections.
 type CollectionConnection struct {
 	// A list of edges.
-	Edges []*CollectionEdge `json:"edges"`
+	Edges []*CollectionEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -1238,13 +1238,13 @@ type CollectionCreatePayload struct {
 	// The collection that has been created.
 	Collection *Collection `json:"collection,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Specifies the collection to delete.
 type CollectionDeleteInput struct {
 	// The ID of the collection to be deleted.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 }
 
 // Return type for `collectionDelete` mutation.
@@ -1254,13 +1254,13 @@ type CollectionDeletePayload struct {
 	// The shop associated with the collection.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one Collection and a cursor during pagination.
 type CollectionEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of CollectionEdge.
 	Node *Collection `json:"node,omitempty"`
 }
@@ -1276,11 +1276,11 @@ type CollectionInput struct {
 	// The image associated with the collection.
 	Image *ImageInput `json:"image,omitempty"`
 	// Initial list of collection products. Only valid with `productCreate` and without rules.
-	Products []string `json:"products"`
+	Products []string `json:"products,omitempty"`
 	// Initial list of collection publications. Only valid with `productCreate`. This argument is deprecated: Use PublishablePublish instead.
-	Publications []*CollectionPublicationInput `json:"publications"`
+	Publications []*CollectionPublicationInput `json:"publications,omitempty"`
 	// The private metafields to associated with this product.
-	PrivateMetafields []*PrivateMetafieldInput `json:"privateMetafields"`
+	PrivateMetafields []*PrivateMetafieldInput `json:"privateMetafields,omitempty"`
 	// The rules used to assign products to the collection.
 	RuleSet *CollectionRuleSetInput `json:"ruleSet,omitempty"`
 	// The theme template used when viewing the collection in a store.
@@ -1290,7 +1290,7 @@ type CollectionInput struct {
 	// Required for creating a new collection.
 	Title *string `json:"title,omitempty"`
 	// The metafields to associate with this collection.
-	Metafields []*MetafieldInput `json:"metafields"`
+	Metafields []*MetafieldInput `json:"metafields,omitempty"`
 	// SEO information for the collection.
 	Seo *SEOInput `json:"seo,omitempty"`
 	// Indicates whether a redirect is required after a new handle has been provided.
@@ -1305,17 +1305,17 @@ type CollectionPublication struct {
 	// The collection to be published on the publication.
 	Collection *Collection `json:"collection,omitempty"`
 	// Whether the publication is published or not.
-	IsPublished bool `json:"isPublished"`
+	IsPublished bool `json:"isPublished,omitempty"`
 	// The publication where the collection will be published.
 	Publication *Publication `json:"publication,omitempty"`
 	// The date that the publication was or is going to be published.
-	PublishDate string `json:"publishDate"`
+	PublishDate string `json:"publishDate,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple CollectionPublications.
 type CollectionPublicationConnection struct {
 	// A list of edges.
-	Edges []*CollectionPublicationEdge `json:"edges"`
+	Edges []*CollectionPublicationEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -1323,7 +1323,7 @@ type CollectionPublicationConnection struct {
 // An auto-generated type which holds one CollectionPublication and a cursor during pagination.
 type CollectionPublicationEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of CollectionPublicationEdge.
 	Node *CollectionPublication `json:"node,omitempty"`
 }
@@ -1341,9 +1341,9 @@ type CollectionPublicationInput struct {
 // Specifies a collection to publish and the sales channels to publish it to.
 type CollectionPublishInput struct {
 	// The collection to create or update publications for.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The channels where the collection will be published.
-	CollectionPublications []*CollectionPublicationInput `json:"collectionPublications"`
+	CollectionPublications []*CollectionPublicationInput `json:"collectionPublications,omitempty"`
 }
 
 // Return type for `collectionPublish` mutation.
@@ -1351,11 +1351,11 @@ type CollectionPublishPayload struct {
 	// The published collection.
 	Collection *Collection `json:"collection,omitempty"`
 	// The channels where the collection has been published.
-	CollectionPublications []*CollectionPublication `json:"collectionPublications"`
+	CollectionPublications []*CollectionPublication `json:"collectionPublications,omitempty"`
 	// The shop associated with the collection.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `collectionRemoveProducts` mutation.
@@ -1363,7 +1363,7 @@ type CollectionRemoveProductsPayload struct {
 	// The asynchronous job removing the products.
 	Job *Job `json:"job,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `collectionReorderProducts` mutation.
@@ -1371,37 +1371,37 @@ type CollectionReorderProductsPayload struct {
 	// The asynchronous job reordering the products.
 	Job *Job `json:"job,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents at rule that's used to assign products to a collection.
 type CollectionRule struct {
 	// The attribute that the rule focuses on (for example, `title` or `product_type`).
-	Column CollectionRuleColumn `json:"column"`
+	Column CollectionRuleColumn `json:"column,omitempty"`
 	// The value that the operator is applied to (for example, `Hats`).
-	Condition string `json:"condition"`
+	Condition string `json:"condition,omitempty"`
 	// The type of operator that the rule is based on (for example, `equals`, `contains`, or `not_equals`).
-	Relation CollectionRuleRelation `json:"relation"`
+	Relation CollectionRuleRelation `json:"relation,omitempty"`
 }
 
 // Collections may use rules to automatically include the matching products. This defines restrictions for a type of rule.
 type CollectionRuleConditions struct {
 	// Allowed relations of the rule.
-	AllowedRelations []CollectionRuleRelation `json:"allowedRelations"`
+	AllowedRelations []CollectionRuleRelation `json:"allowedRelations,omitempty"`
 	// Most commonly used relation for this rule.
-	DefaultRelation CollectionRuleRelation `json:"defaultRelation"`
+	DefaultRelation CollectionRuleRelation `json:"defaultRelation,omitempty"`
 	// Type of the rule.
-	RuleType CollectionRuleColumn `json:"ruleType"`
+	RuleType CollectionRuleColumn `json:"ruleType,omitempty"`
 }
 
 // Specifies a rule to associate with a collection.
 type CollectionRuleInput struct {
 	// The attribute that the rule focuses on (for example, `title` or `product_type`).
-	Column CollectionRuleColumn `json:"column"`
+	Column CollectionRuleColumn `json:"column,omitempty"`
 	// The type of operator that the rule is based on (for example, `equals`, `contains`, or `not_equals`).
-	Relation CollectionRuleRelation `json:"relation"`
+	Relation CollectionRuleRelation `json:"relation,omitempty"`
 	// The value that the operator is applied to (for example, `Hats`).
-	Condition string `json:"condition"`
+	Condition string `json:"condition,omitempty"`
 }
 
 // The set of rules that are used to determine which products are included in the collection.
@@ -1409,9 +1409,9 @@ type CollectionRuleSet struct {
 	// Whether products must match any or all of the rules to be included in the collection.
 	// If true, then products must match one or more of the rules to be included in the collection.
 	// If false, then products must match all of the rules to be included in the collection.
-	AppliedDisjunctively bool `json:"appliedDisjunctively"`
+	AppliedDisjunctively bool `json:"appliedDisjunctively,omitempty"`
 	// The rules used to assign products to the collection.
-	Rules []*CollectionRule `json:"rules"`
+	Rules []*CollectionRule `json:"rules,omitempty"`
 }
 
 // Specifies a rule set for the collection.
@@ -1419,17 +1419,17 @@ type CollectionRuleSetInput struct {
 	// Whether products must match any or all of the rules to be included in the collection.
 	// If true, then products must match one or more of the rules to be included in the collection.
 	// If false, then products must match all of the rules to be included in the collection.
-	AppliedDisjunctively bool `json:"appliedDisjunctively"`
+	AppliedDisjunctively bool `json:"appliedDisjunctively,omitempty"`
 	// The rules used to assign products to the collection.
-	Rules []*CollectionRuleInput `json:"rules"`
+	Rules []*CollectionRuleInput `json:"rules,omitempty"`
 }
 
 // Specifies the collection to unpublish and the sales channels to remove it from.
 type CollectionUnpublishInput struct {
 	// The collection to create or update publications for.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The channels where the collection is published.
-	CollectionPublications []*CollectionPublicationInput `json:"collectionPublications"`
+	CollectionPublications []*CollectionPublicationInput `json:"collectionPublications,omitempty"`
 }
 
 // Return type for `collectionUnpublish` mutation.
@@ -1439,7 +1439,7 @@ type CollectionUnpublishPayload struct {
 	// The shop associated with the collection.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `collectionUpdate` mutation.
@@ -1449,7 +1449,7 @@ type CollectionUpdatePayload struct {
 	// The asynchronous job updating the products based on the new rule set.
 	Job *Job `json:"job,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Comment events are generated by staff members of a shop.
@@ -1458,31 +1458,31 @@ type CommentEvent struct {
 	// The name of the app that created the event. Returns null when the event originates from the Shopify admin.
 	AppTitle *string `json:"appTitle,omitempty"`
 	// The attachments associated with the comment event.
-	Attachments []*CommentEventAttachment `json:"attachments"`
+	Attachments []*CommentEventAttachment `json:"attachments,omitempty"`
 	// Whether the event was created by an app.
-	AttributeToApp bool `json:"attributeToApp"`
+	AttributeToApp bool `json:"attributeToApp,omitempty"`
 	// Whether the event was caused by an admin user.
-	AttributeToUser bool `json:"attributeToUser"`
+	AttributeToUser bool `json:"attributeToUser,omitempty"`
 	// Whether the comment event can be deleted. If true, then the comment event can be deleted.
-	CanDelete bool `json:"canDelete"`
+	CanDelete bool `json:"canDelete,omitempty"`
 	// Whether the comment event can be edited. If true, then the comment event can be edited.
-	CanEdit bool `json:"canEdit"`
+	CanEdit bool `json:"canEdit,omitempty"`
 	// The date and time when the event was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// Whether the event is critical.
-	CriticalAlert bool `json:"criticalAlert"`
+	CriticalAlert bool `json:"criticalAlert,omitempty"`
 	// Whether the comment event has been edited. If true, then the comment event has been edited.
-	Edited bool `json:"edited"`
+	Edited bool `json:"edited,omitempty"`
 	// The references associated with the comment event.
-	Embed CommentEventEmbed `json:"embed"`
+	Embed CommentEventEmbed `json:"embed,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Human readable text that describes the event.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 	// The raw body of the comment event.
-	RawMessage string `json:"rawMessage"`
+	RawMessage string `json:"rawMessage,omitempty"`
 	// The subject of the comment event.
-	Subject CommentEventSubject `json:"subject"`
+	Subject CommentEventSubject `json:"subject,omitempty"`
 }
 
 func (CommentEvent) IsNode()  {}
@@ -1493,37 +1493,37 @@ type CommentEventAttachment struct {
 	// The file extension of the comment event attachment, indicating the file format.
 	FileExtension *string `json:"fileExtension,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The image attached to the comment event.
 	Image *Image `json:"image,omitempty"`
 	// The filename of the comment event attachment.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The size of the attachment.
-	Size int `json:"size"`
+	Size int `json:"size,omitempty"`
 	// The URL of the attachment.
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 }
 
 // Countries that have been defined in shipping zones for the shop.
 type CountriesInShippingZones struct {
 	// Countries that have been defined in shipping zones.
-	CountryCodes []CountryCode `json:"countryCodes"`
+	CountryCodes []CountryCode `json:"countryCodes,omitempty"`
 	// Whether 'Rest of World' has been defined in any shipping zones.
-	IncludeRestOfWorld bool `json:"includeRestOfWorld"`
+	IncludeRestOfWorld bool `json:"includeRestOfWorld,omitempty"`
 }
 
 // Holds the country specific harmonized system code and the country ISO code.
 type CountryHarmonizedSystemCode struct {
 	// Country ISO code.
-	CountryCode CountryCode `json:"countryCode"`
+	CountryCode CountryCode `json:"countryCode,omitempty"`
 	// Country specific harmonized system code.
-	HarmonizedSystemCode string `json:"harmonizedSystemCode"`
+	HarmonizedSystemCode string `json:"harmonizedSystemCode,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple CountryHarmonizedSystemCodes.
 type CountryHarmonizedSystemCodeConnection struct {
 	// A list of edges.
-	Edges []*CountryHarmonizedSystemCodeEdge `json:"edges"`
+	Edges []*CountryHarmonizedSystemCodeEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -1531,7 +1531,7 @@ type CountryHarmonizedSystemCodeConnection struct {
 // An auto-generated type which holds one CountryHarmonizedSystemCode and a cursor during pagination.
 type CountryHarmonizedSystemCodeEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of CountryHarmonizedSystemCodeEdge.
 	Node *CountryHarmonizedSystemCode `json:"node,omitempty"`
 }
@@ -1539,41 +1539,41 @@ type CountryHarmonizedSystemCodeEdge struct {
 // Holds the country specific harmonized system code and the country ISO code.
 type CountryHarmonizedSystemCodeInput struct {
 	// Country specific harmonized system code.
-	HarmonizedSystemCode string `json:"harmonizedSystemCode"`
+	HarmonizedSystemCode string `json:"harmonizedSystemCode,omitempty"`
 	// Country ISO code.
-	CountryCode CountryCode `json:"countryCode"`
+	CountryCode CountryCode `json:"countryCode,omitempty"`
 }
 
 // Specifies the input fields required to create a media object.
 type CreateMediaInput struct {
 	// The original source of the media object. May be an external URL or signed upload URL.
-	OriginalSource string `json:"originalSource"`
+	OriginalSource string `json:"originalSource,omitempty"`
 	// The alt text associated to the media.
 	Alt *string `json:"alt,omitempty"`
 	// The media content type.
-	MediaContentType MediaContentType `json:"mediaContentType"`
+	MediaContentType MediaContentType `json:"mediaContentType,omitempty"`
 }
 
 // Currency formats.
 type CurrencyFormats struct {
 	// HTML without currency.
-	MoneyFormat string `json:"moneyFormat"`
+	MoneyFormat string `json:"moneyFormat,omitempty"`
 	// Email without currency.
-	MoneyInEmailsFormat string `json:"moneyInEmailsFormat"`
+	MoneyInEmailsFormat string `json:"moneyInEmailsFormat,omitempty"`
 	// HTML with currency.
-	MoneyWithCurrencyFormat string `json:"moneyWithCurrencyFormat"`
+	MoneyWithCurrencyFormat string `json:"moneyWithCurrencyFormat,omitempty"`
 	// Email with currency.
-	MoneyWithCurrencyInEmailsFormat string `json:"moneyWithCurrencyInEmailsFormat"`
+	MoneyWithCurrencyInEmailsFormat string `json:"moneyWithCurrencyInEmailsFormat,omitempty"`
 }
 
 // Represents a currency setting.
 type CurrencySetting struct {
 	// The currency's ISO code.
-	CurrencyCode CurrencyCode `json:"currencyCode"`
+	CurrencyCode CurrencyCode `json:"currencyCode,omitempty"`
 	// The full name of the currency.
-	CurrencyName string `json:"currencyName"`
+	CurrencyName string `json:"currencyName,omitempty"`
 	// Flag describing whether the currency is enabled.
-	Enabled bool `json:"enabled"`
+	Enabled bool `json:"enabled,omitempty"`
 	// Date and time when the exchange rate for the currency was last modified.
 	RateUpdatedAt *string `json:"rateUpdatedAt,omitempty"`
 }
@@ -1581,7 +1581,7 @@ type CurrencySetting struct {
 // An auto-generated type for paginating through multiple CurrencySettings.
 type CurrencySettingConnection struct {
 	// A list of edges.
-	Edges []*CurrencySettingEdge `json:"edges"`
+	Edges []*CurrencySettingEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -1589,7 +1589,7 @@ type CurrencySettingConnection struct {
 // An auto-generated type which holds one CurrencySetting and a cursor during pagination.
 type CurrencySettingEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of CurrencySettingEdge.
 	Node *CurrencySetting `json:"node,omitempty"`
 }
@@ -1598,11 +1598,11 @@ type CurrencySettingEdge struct {
 // history, and whether they've agreed to receive email marketing.
 type Customer struct {
 	// Whether the customer has agreed to receive marketing materials.
-	AcceptsMarketing bool `json:"acceptsMarketing"`
+	AcceptsMarketing bool `json:"acceptsMarketing,omitempty"`
 	// The date and time when the customer consented or objected to receiving marketing material by email.
-	AcceptsMarketingUpdatedAt string `json:"acceptsMarketingUpdatedAt"`
+	AcceptsMarketingUpdatedAt string `json:"acceptsMarketingUpdatedAt,omitempty"`
 	// A list of addresses associated with the customer.
-	Addresses []*MailingAddress `json:"addresses"`
+	Addresses []*MailingAddress `json:"addresses,omitempty"`
 	// The average amount that the customer spent per order.
 	AverageOrderAmount *string `json:"averageOrderAmount,omitempty"`
 	// The average amount that the customer spent per order.
@@ -1611,14 +1611,14 @@ type Customer struct {
 	//
 	// A customer can be deleted from a store only if they have not yet made an order. After a customer makes an
 	// order, they can't be deleted from a store.
-	CanDelete bool `json:"canDelete"`
+	CanDelete bool `json:"canDelete,omitempty"`
 	// The date and time when the customer was added to the store.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The default address associated with the customer.
 	DefaultAddress *MailingAddress `json:"defaultAddress,omitempty"`
 	// The full name of the customer, based on the values for first_name and last_name. If the first_name and
 	// last_name are not available, then this falls back to the customer's email address, and if that is not available, the customer's phone number.
-	DisplayName string `json:"displayName"`
+	DisplayName string `json:"displayName,omitempty"`
 	// The customer's email address.
 	Email *string `json:"email,omitempty"`
 	// A list of events associated with the customer.
@@ -1626,11 +1626,11 @@ type Customer struct {
 	// The customer's first name.
 	FirstName *string `json:"firstName,omitempty"`
 	// Whether the customer has a note associated with them.
-	HasNote bool `json:"hasNote"`
+	HasNote bool `json:"hasNote,omitempty"`
 	// Whether the merchant has added timeline comments about the customer on the customer's page.
-	HasTimelineComment bool `json:"hasTimelineComment"`
+	HasTimelineComment bool `json:"hasTimelineComment,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The image associated with the customer.
 	Image *Image `json:"image,omitempty"`
 	// The customer's last name.
@@ -1638,13 +1638,13 @@ type Customer struct {
 	// The customer's last order.
 	LastOrder *Order `json:"lastOrder,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// The amount of time since the customer was first added to the store.
 	//
 	// Example: 'about 12 years'.
-	LifetimeDuration string `json:"lifetimeDuration"`
+	LifetimeDuration string `json:"lifetimeDuration,omitempty"`
 	// The customer's locale.
-	Locale string `json:"locale"`
+	Locale string `json:"locale,omitempty"`
 	// The marketing subscription opt-in level (as described by the M3AAWG best practices guideline) that the
 	// customer gave when they consented to receive marketing material by email.
 	//
@@ -1661,7 +1661,7 @@ type Customer struct {
 	// A list of the customer's orders.
 	Orders *OrderConnection `json:"orders,omitempty"`
 	// The number of orders that the customer has made at the store in their lifetime.
-	OrdersCount string `json:"ordersCount"`
+	OrdersCount string `json:"ordersCount,omitempty"`
 	// A list of the customer's payment methods.
 	PaymentMethods *CustomerPaymentMethodConnection `json:"paymentMethods,omitempty"`
 	// The customer's phone number.
@@ -1671,28 +1671,28 @@ type Customer struct {
 	// List of private metafields.
 	PrivateMetafields *PrivateMetafieldConnection `json:"privateMetafields,omitempty"`
 	// Possible subscriber states of a customer defined by their subscription contracts.
-	ProductSubscriberStatus CustomerProductSubscriberStatus `json:"productSubscriberStatus"`
+	ProductSubscriberStatus CustomerProductSubscriberStatus `json:"productSubscriberStatus,omitempty"`
 	// The state of the customer's account with the shop.
-	State CustomerState `json:"state"`
+	State CustomerState `json:"state,omitempty"`
 	// A list of the customer's subscription contracts.
 	SubscriptionContracts *SubscriptionContractConnection `json:"subscriptionContracts,omitempty"`
 	// A comma separated list of tags that have been added to the customer.
-	Tags []string `json:"tags"`
+	Tags []string `json:"tags,omitempty"`
 	// Whether the customer is exempt from being charged taxes on their orders.
-	TaxExempt bool `json:"taxExempt"`
+	TaxExempt bool `json:"taxExempt,omitempty"`
 	// The list of tax exemptions applied to the customer.
-	TaxExemptions []TaxExemption `json:"taxExemptions"`
+	TaxExemptions []TaxExemption `json:"taxExemptions,omitempty"`
 	// The total amount that the customer has spent on orders in their lifetime.
-	TotalSpent string `json:"totalSpent"`
+	TotalSpent string `json:"totalSpent,omitempty"`
 	// The total amount that the customer has spent on orders in their lifetime.
 	TotalSpentV2 *MoneyV2 `json:"totalSpentV2,omitempty"`
 	// The date and time when the customer was last updated.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 	// Whether the email address is formatted correctly. This does not
 	// guarantee that the email address actually exists.
-	ValidEmailAddress bool `json:"validEmailAddress"`
+	ValidEmailAddress bool `json:"validEmailAddress,omitempty"`
 	// Whether the customer has verified their email address. Defaults to `true` if the customer is created through the Shopify admin or API.
-	VerifiedEmail bool `json:"verifiedEmail"`
+	VerifiedEmail bool `json:"verifiedEmail,omitempty"`
 }
 
 func (Customer) IsCommentEventEmbed()      {}
@@ -1707,13 +1707,13 @@ type CustomerAddTaxExemptionsPayload struct {
 	// The updated customer.
 	Customer *Customer `json:"customer,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple Customers.
 type CustomerConnection struct {
 	// A list of edges.
-	Edges []*CustomerEdge `json:"edges"`
+	Edges []*CustomerEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -1723,7 +1723,7 @@ type CustomerCreatePayload struct {
 	// The created customer.
 	Customer *Customer `json:"customer,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents a card instrument for customer payment method.
@@ -1731,23 +1731,23 @@ type CustomerCreditCard struct {
 	// The billing address of the card.
 	BillingAddress *CustomerCreditCardBillingAddress `json:"billingAddress,omitempty"`
 	// The brand of the card.
-	Brand string `json:"brand"`
+	Brand string `json:"brand,omitempty"`
 	// Whether the card is about to expire.
-	ExpiresSoon bool `json:"expiresSoon"`
+	ExpiresSoon bool `json:"expiresSoon,omitempty"`
 	// The expiry month of the card.
-	ExpiryMonth int `json:"expiryMonth"`
+	ExpiryMonth int `json:"expiryMonth,omitempty"`
 	// The expiry year of the card.
-	ExpiryYear int `json:"expiryYear"`
+	ExpiryYear int `json:"expiryYear,omitempty"`
 	// The card's BIN number.
 	FirstDigits *string `json:"firstDigits,omitempty"`
 	// The payment method can be revoked if there are no active subscription contracts.
-	IsRevocable bool `json:"isRevocable"`
+	IsRevocable bool `json:"isRevocable,omitempty"`
 	// The last 4 digits of the card.
-	LastDigits string `json:"lastDigits"`
+	LastDigits string `json:"lastDigits,omitempty"`
 	// The masked card number with only the last 4 digits displayed.
-	MaskedNumber string `json:"maskedNumber"`
+	MaskedNumber string `json:"maskedNumber,omitempty"`
 	// The name of the card holder.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 }
 
 func (CustomerCreditCard) IsCustomerPaymentInstrument() {}
@@ -1775,7 +1775,7 @@ type CustomerCreditCardBillingAddress struct {
 // Specifies the customer to delete.
 type CustomerDeleteInput struct {
 	// The ID of the customer to delete.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 }
 
 // Return type for `customerDelete` mutation.
@@ -1785,13 +1785,13 @@ type CustomerDeletePayload struct {
 	// Shop of the deleted customer.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one Customer and a cursor during pagination.
 type CustomerEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of CustomerEdge.
 	Node *Customer `json:"node,omitempty"`
 }
@@ -1801,7 +1801,7 @@ type CustomerGenerateAccountActivationURLPayload struct {
 	// The newly generated account activation URL.
 	AccountActivationURL *string `json:"accountActivationUrl,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Provides the fields and values to use when creating or updating a customer.
@@ -1812,7 +1812,7 @@ type CustomerInput struct {
 	// whenever the customer consents or objects to marketing material.
 	AcceptsMarketingUpdatedAt *string `json:"acceptsMarketingUpdatedAt,omitempty"`
 	// An input that specifies addresses for a customer.
-	Addresses []*MailingAddressInput `json:"addresses"`
+	Addresses []*MailingAddressInput `json:"addresses,omitempty"`
 	// The unique email address of the customer.
 	Email *string `json:"email,omitempty"`
 	// The customer's first name.
@@ -1827,33 +1827,33 @@ type CustomerInput struct {
 	// enabled when the customer consented to receiving marketing material by email.
 	MarketingOptInLevel *CustomerMarketingOptInLevel `json:"marketingOptInLevel,omitempty"`
 	// Attaches additional metadata to the customer.
-	Metafields []*MetafieldInput `json:"metafields"`
+	Metafields []*MetafieldInput `json:"metafields,omitempty"`
 	// A note about the customer.
 	Note *string `json:"note,omitempty"`
 	// The unique phone number for the customer.
 	Phone *string `json:"phone,omitempty"`
 	// The private metafields to associated with this product.
-	PrivateMetafields []*PrivateMetafieldInput `json:"privateMetafields"`
+	PrivateMetafields []*PrivateMetafieldInput `json:"privateMetafields,omitempty"`
 	// A comma separated list of tags that have been added to the customer.
-	Tags []string `json:"tags"`
+	Tags []string `json:"tags,omitempty"`
 	// Whether the customer is exempt from paying taxes on their order.
 	TaxExempt *bool `json:"taxExempt,omitempty"`
 	// The list of tax exemptions to apply to the customer.
-	TaxExemptions []TaxExemption `json:"taxExemptions"`
+	TaxExemptions []TaxExemption `json:"taxExemptions,omitempty"`
 }
 
 // Represents a customer's activity on a shop's online store.
 type CustomerJourney struct {
 	// The position of the current order within the customer's order history.
-	CustomerOrderIndex int `json:"customerOrderIndex"`
+	CustomerOrderIndex int `json:"customerOrderIndex,omitempty"`
 	// The amount of days between first session and order creation date. First session represents first session since the last order, or first session within the 30 day attribution window, if more than 30 days has passed since the last order.
-	DaysToConversion int `json:"daysToConversion"`
+	DaysToConversion int `json:"daysToConversion,omitempty"`
 	// The customer's first session going into the shop.
 	FirstVisit *CustomerVisit `json:"firstVisit,omitempty"`
 	// The last session before an order is made.
 	LastVisit *CustomerVisit `json:"lastVisit,omitempty"`
 	// Events preceding a customer order, such as shop sessions.
-	Moments []CustomerMoment `json:"moments"`
+	Moments []CustomerMoment `json:"moments,omitempty"`
 }
 
 // Represents a customer's activity on a shop's online store.
@@ -1871,13 +1871,13 @@ type CustomerJourneySummary struct {
 	// The total number of customer moments associated with this order. Returns null if the order is still in the process of being attributed.
 	MomentsCount *int `json:"momentsCount,omitempty"`
 	// Whether or not the attributed sessions for the order have been created yet.
-	Ready bool `json:"ready"`
+	Ready bool `json:"ready,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple CustomerMoments.
 type CustomerMomentConnection struct {
 	// A list of edges.
-	Edges []*CustomerMomentEdge `json:"edges"`
+	Edges []*CustomerMomentEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -1885,9 +1885,9 @@ type CustomerMomentConnection struct {
 // An auto-generated type which holds one CustomerMoment and a cursor during pagination.
 type CustomerMomentEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of CustomerMomentEdge.
-	Node CustomerMoment `json:"node"`
+	Node CustomerMoment `json:"node,omitempty"`
 }
 
 // A customer's payment method.
@@ -1895,9 +1895,9 @@ type CustomerPaymentMethod struct {
 	// The customer to whom the payment method belongs.
 	Customer *Customer `json:"customer,omitempty"`
 	// The ID of this payment method.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The instrument for this payment method.
-	Instrument CustomerPaymentInstrument `json:"instrument"`
+	Instrument CustomerPaymentInstrument `json:"instrument,omitempty"`
 	// The time that the payment method was revoked.
 	RevokedAt *string `json:"revokedAt,omitempty"`
 	// List Subscription Contracts.
@@ -1909,7 +1909,7 @@ func (CustomerPaymentMethod) IsNode() {}
 // An auto-generated type for paginating through multiple CustomerPaymentMethods.
 type CustomerPaymentMethodConnection struct {
 	// A list of edges.
-	Edges []*CustomerPaymentMethodEdge `json:"edges"`
+	Edges []*CustomerPaymentMethodEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -1919,7 +1919,7 @@ type CustomerPaymentMethodCreditCardCreatePayload struct {
 	// The customer payment method.
 	CustomerPaymentMethod *CustomerPaymentMethod `json:"customerPaymentMethod,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `customerPaymentMethodCreditCardUpdate` mutation.
@@ -1927,13 +1927,13 @@ type CustomerPaymentMethodCreditCardUpdatePayload struct {
 	// The customer payment method.
 	CustomerPaymentMethod *CustomerPaymentMethod `json:"customerPaymentMethod,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one CustomerPaymentMethod and a cursor during pagination.
 type CustomerPaymentMethodEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of CustomerPaymentMethodEdge.
 	Node *CustomerPaymentMethod `json:"node,omitempty"`
 }
@@ -1943,7 +1943,7 @@ type CustomerPaymentMethodRemoteCreditCardCreatePayload struct {
 	// The customer payment method.
 	CustomerPaymentMethod *CustomerPaymentMethod `json:"customerPaymentMethod,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*CustomerPaymentMethodUserError `json:"userErrors"`
+	UserErrors []*CustomerPaymentMethodUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `customerPaymentMethodRevoke` mutation.
@@ -1951,7 +1951,7 @@ type CustomerPaymentMethodRevokePayload struct {
 	// The ID of the revoked customer payment method.
 	RevokedCustomerPaymentMethodID *string `json:"revokedCustomerPaymentMethodId,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `customerPaymentMethodSendUpdateEmail` mutation.
@@ -1959,7 +1959,7 @@ type CustomerPaymentMethodSendUpdateEmailPayload struct {
 	// The customer to whom an update payment method email was sent.
 	Customer *Customer `json:"customer,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents an error in the input of a mutation.
@@ -1967,9 +1967,9 @@ type CustomerPaymentMethodUserError struct {
 	// Error code to uniquely identify the error.
 	Code *CustomerPaymentMethodUserErrorCode `json:"code,omitempty"`
 	// Path to the input field which caused the error.
-	Field []string `json:"field"`
+	Field []string `json:"field,omitempty"`
 	// The error message.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 func (CustomerPaymentMethodUserError) IsDisplayableError() {}
@@ -1979,7 +1979,7 @@ type CustomerRemoveTaxExemptionsPayload struct {
 	// The updated customer.
 	Customer *Customer `json:"customer,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `customerReplaceTaxExemptions` mutation.
@@ -1987,7 +1987,7 @@ type CustomerReplaceTaxExemptionsPayload struct {
 	// The updated customer.
 	Customer *Customer `json:"customer,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `customerUpdateDefaultAddress` mutation.
@@ -1995,7 +1995,7 @@ type CustomerUpdateDefaultAddressPayload struct {
 	// The customer whose address was updated.
 	Customer *Customer `json:"customer,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `customerUpdate` mutation.
@@ -2003,13 +2003,13 @@ type CustomerUpdatePayload struct {
 	// The updated customer.
 	Customer *Customer `json:"customer,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Information about a customer's session on a shop's online store.
 type CustomerVisit struct {
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// URL of the first page the customer landed on for the session.
 	LandingPage *string `json:"landingPage,omitempty"`
 	// Landing page information with URL linked in HTML. For example, the first page the customer visited was store.myshopify.com/products/1.
@@ -2018,19 +2018,19 @@ type CustomerVisit struct {
 	// to market Shopify resources such as products, collections, and discounts.
 	MarketingEvent *MarketingEvent `json:"marketingEvent,omitempty"`
 	// When the customer moment occurred.
-	OccurredAt string `json:"occurredAt"`
+	OccurredAt string `json:"occurredAt,omitempty"`
 	// Marketing referral code from the link that the customer clicked to visit the store.
 	// Supports the following URL attributes: _ref_, _source_, or _r_.
 	// For example, if the URL is myshopifystore.com/products/slide?ref=j2tj1tn2, then this value is j2tj1tn2.
 	ReferralCode *string `json:"referralCode,omitempty"`
 	// Referral information with URLs linked in HTML.
-	ReferralInfoHTML string `json:"referralInfoHtml"`
+	ReferralInfoHTML string `json:"referralInfoHtml,omitempty"`
 	// Webpage where the customer clicked a link that sent them to the online store.
 	// For example, _https://randomblog.com/page1_ or _android-app://com.google.android.gm_.
 	ReferrerURL *string `json:"referrerUrl,omitempty"`
 	// Source from which the customer visited the store, such as a platform (Facebook, Google), email, direct,
 	// a website domain, QR code, or unknown.
-	Source string `json:"source"`
+	Source string `json:"source,omitempty"`
 	// Describes the source explicitly for first or last session.
 	SourceDescription *string `json:"sourceDescription,omitempty"`
 	// Type of marketing tactic.
@@ -2047,17 +2047,17 @@ func (CustomerVisit) IsNode()           {}
 // as the resource itself has been removed and can no longer be accessed.
 type DeletionEvent struct {
 	// The date and time when the deletion event for the related resource was generated.
-	OccurredAt string `json:"occurredAt"`
+	OccurredAt string `json:"occurredAt,omitempty"`
 	// The id of the resource that was deleted.
-	SubjectID string `json:"subjectId"`
+	SubjectID string `json:"subjectId,omitempty"`
 	// The type of resource that was deleted.
-	SubjectType DeletionEventSubjectType `json:"subjectType"`
+	SubjectType DeletionEventSubjectType `json:"subjectType,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple DeletionEvents.
 type DeletionEventConnection struct {
 	// A list of edges.
-	Edges []*DeletionEventEdge `json:"edges"`
+	Edges []*DeletionEventEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -2065,7 +2065,7 @@ type DeletionEventConnection struct {
 // An auto-generated type which holds one DeletionEvent and a cursor during pagination.
 type DeletionEventEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of DeletionEventEdge.
 	Node *DeletionEvent `json:"node,omitempty"`
 }
@@ -2075,19 +2075,19 @@ type DeliveryAvailableService struct {
 	// The countries the service provider ships to.
 	Countries *DeliveryCountryCodesOrRestOfWorld `json:"countries,omitempty"`
 	// The name of the service.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 }
 
 // Information about a carrier or service provider.
 type DeliveryCarrierService struct {
 	// Services offered for given destinations.
-	AvailableServicesForCountries []*DeliveryAvailableService `json:"availableServicesForCountries"`
+	AvailableServicesForCountries []*DeliveryAvailableService `json:"availableServicesForCountries,omitempty"`
 	// The properly formatted name of the service provider, ready to display.
 	FormattedName *string `json:"formattedName,omitempty"`
 	// The logo of the service provider.
 	Icon *Image `json:"icon,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The name of the service provider.
 	Name *string `json:"name,omitempty"`
 }
@@ -2099,19 +2099,19 @@ type DeliveryCarrierServiceAndLocations struct {
 	// The carrier service.
 	CarrierService *DeliveryCarrierService `json:"carrierService,omitempty"`
 	// The locations that support this carrier service.
-	Locations []*Location `json:"locations"`
+	Locations []*Location `json:"locations,omitempty"`
 }
 
 // A condition that must pass for a method definition to be applied to an order.
 type DeliveryCondition struct {
 	// The criteria (weight or price) that the field must meet based on the operator.
-	ConditionCriteria DeliveryConditionCriteria `json:"conditionCriteria"`
+	ConditionCriteria DeliveryConditionCriteria `json:"conditionCriteria,omitempty"`
 	// The field to compare the criteria unit against, using the operator.
-	Field DeliveryConditionField `json:"field"`
+	Field DeliveryConditionField `json:"field,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The operator to compare the field and criteria.
-	Operator DeliveryConditionOperator `json:"operator"`
+	Operator DeliveryConditionOperator `json:"operator,omitempty"`
 }
 
 func (DeliveryCondition) IsNode() {}
@@ -2121,13 +2121,13 @@ type DeliveryCountry struct {
 	// The ISO 3166-1 alpha-2 country code of this country and a flag indicating Rest Of World.
 	Code *DeliveryCountryCodeOrRestOfWorld `json:"code,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The name of the country.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The regions associated with this country.
-	Provinces []*DeliveryProvince `json:"provinces"`
+	Provinces []*DeliveryProvince `json:"provinces,omitempty"`
 	// The name of the country, translated based on the user locale.
-	TranslatedName string `json:"translatedName"`
+	TranslatedName string `json:"translatedName,omitempty"`
 }
 
 func (DeliveryCountry) IsNode() {}
@@ -2137,7 +2137,7 @@ type DeliveryCountryAndZone struct {
 	// The country in the delivery zone.
 	Country *DeliveryCountry `json:"country,omitempty"`
 	// The name of the delivery zone.
-	Zone string `json:"zone"`
+	Zone string `json:"zone,omitempty"`
 }
 
 // The ISO 3166-1 alpha-2 country code and a flag indicating Rest Of World.
@@ -2145,15 +2145,15 @@ type DeliveryCountryCodeOrRestOfWorld struct {
 	// The country code.
 	CountryCode *CountryCode `json:"countryCode,omitempty"`
 	// Indicates if 'Rest of World' is applied.
-	RestOfWorld bool `json:"restOfWorld"`
+	RestOfWorld bool `json:"restOfWorld,omitempty"`
 }
 
 // A list of ISO 3166-1 alpha-2 country codes or the 'Rest of World'.
 type DeliveryCountryCodesOrRestOfWorld struct {
 	// List of applicable country codes.
-	CountryCodes []CountryCode `json:"countryCodes"`
+	CountryCodes []CountryCode `json:"countryCodes,omitempty"`
 	// Indicates if 'Rest of World' is applied.
-	RestOfWorld bool `json:"restOfWorld"`
+	RestOfWorld bool `json:"restOfWorld,omitempty"`
 }
 
 // Input fields to specify a country.
@@ -2163,7 +2163,7 @@ type DeliveryCountryInput struct {
 	// Use Rest of World as the country.
 	RestOfWorld *bool `json:"restOfWorld,omitempty"`
 	// The regions associated with this country.
-	Provinces []*DeliveryProvinceInput `json:"provinces"`
+	Provinces []*DeliveryProvinceInput `json:"provinces,omitempty"`
 	// Associate all available provinces with this country.
 	IncludeAllProvinces *bool `json:"includeAllProvinces,omitempty"`
 }
@@ -2171,15 +2171,15 @@ type DeliveryCountryInput struct {
 // Whether the shop is blocked from converting to full multi-location delivery profiles mode. If the shop is blocked, then the blocking reasons are also returned.
 type DeliveryLegacyModeBlocked struct {
 	// Whether the shop can convert to full multi-location delivery profiles mode.
-	Blocked bool `json:"blocked"`
+	Blocked bool `json:"blocked,omitempty"`
 	// The reasons why the shop is blocked from converting to full multi-location delivery profiles mode.
-	Reasons []DeliveryLegacyModeBlockedReason `json:"reasons"`
+	Reasons []DeliveryLegacyModeBlockedReason `json:"reasons,omitempty"`
 }
 
 // A location group is a collection of active locations that share zone and delivery methods across delivery profiles.
 type DeliveryLocationGroup struct {
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// List of active locations that are part of this location group.
 	Locations *LocationConnection `json:"locations,omitempty"`
 }
@@ -2199,7 +2199,7 @@ type DeliveryLocationGroupZone struct {
 // An auto-generated type for paginating through multiple DeliveryLocationGroupZones.
 type DeliveryLocationGroupZoneConnection struct {
 	// A list of edges.
-	Edges []*DeliveryLocationGroupZoneEdge `json:"edges"`
+	Edges []*DeliveryLocationGroupZoneEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -2207,7 +2207,7 @@ type DeliveryLocationGroupZoneConnection struct {
 // An auto-generated type which holds one DeliveryLocationGroupZone and a cursor during pagination.
 type DeliveryLocationGroupZoneEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of DeliveryLocationGroupZoneEdge.
 	Node *DeliveryLocationGroupZone `json:"node,omitempty"`
 }
@@ -2219,19 +2219,19 @@ type DeliveryLocationGroupZoneInput struct {
 	// The name of the zone.
 	Name *string `json:"name,omitempty"`
 	// Countries to associate with the zone.
-	Countries []*DeliveryCountryInput `json:"countries"`
+	Countries []*DeliveryCountryInput `json:"countries,omitempty"`
 	// Method definitions to create.
-	MethodDefinitionsToCreate []*DeliveryMethodDefinitionInput `json:"methodDefinitionsToCreate"`
+	MethodDefinitionsToCreate []*DeliveryMethodDefinitionInput `json:"methodDefinitionsToCreate,omitempty"`
 	// Method definitions to update.
-	MethodDefinitionsToUpdate []*DeliveryMethodDefinitionInput `json:"methodDefinitionsToUpdate"`
+	MethodDefinitionsToUpdate []*DeliveryMethodDefinitionInput `json:"methodDefinitionsToUpdate,omitempty"`
 }
 
 // Delivery method.
 type DeliveryMethod struct {
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The type of the delivery method.
-	MethodType DeliveryMethodType `json:"methodType"`
+	MethodType DeliveryMethodType `json:"methodType,omitempty"`
 }
 
 func (DeliveryMethod) IsNode() {}
@@ -2239,17 +2239,17 @@ func (DeliveryMethod) IsNode() {}
 // A method definition describes the delivery rate and the conditions that must be met for the method to be applied.
 type DeliveryMethodDefinition struct {
 	// Whether this method definition is active.
-	Active bool `json:"active"`
+	Active bool `json:"active,omitempty"`
 	// The description of the method definition.
 	Description *string `json:"description,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The method conditions that must pass for this method definition to be applied to an order.
-	MethodConditions []*DeliveryCondition `json:"methodConditions"`
+	MethodConditions []*DeliveryCondition `json:"methodConditions,omitempty"`
 	// The name of the method definition.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// Provided rate for this method definition, from a rate definition or participant.
-	RateProvider DeliveryRateProvider `json:"rateProvider"`
+	RateProvider DeliveryRateProvider `json:"rateProvider,omitempty"`
 }
 
 func (DeliveryMethodDefinition) IsNode() {}
@@ -2257,7 +2257,7 @@ func (DeliveryMethodDefinition) IsNode() {}
 // An auto-generated type for paginating through multiple DeliveryMethodDefinitions.
 type DeliveryMethodDefinitionConnection struct {
 	// A list of edges.
-	Edges []*DeliveryMethodDefinitionEdge `json:"edges"`
+	Edges []*DeliveryMethodDefinitionEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -2265,15 +2265,15 @@ type DeliveryMethodDefinitionConnection struct {
 // Then number of method definitions in a zone, separated into merchant-owned and participant definitions.
 type DeliveryMethodDefinitionCounts struct {
 	// The number of participant method definitions in the current zone.
-	ParticipantDefinitionsCount int `json:"participantDefinitionsCount"`
+	ParticipantDefinitionsCount int `json:"participantDefinitionsCount,omitempty"`
 	// The number of merchant-defined method definitions in the current zone.
-	RateDefinitionsCount int `json:"rateDefinitionsCount"`
+	RateDefinitionsCount int `json:"rateDefinitionsCount,omitempty"`
 }
 
 // An auto-generated type which holds one DeliveryMethodDefinition and a cursor during pagination.
 type DeliveryMethodDefinitionEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of DeliveryMethodDefinitionEdge.
 	Node *DeliveryMethodDefinition `json:"node,omitempty"`
 }
@@ -2293,27 +2293,27 @@ type DeliveryMethodDefinitionInput struct {
 	// A participant to apply to the method definition.
 	Participant *DeliveryParticipantInput `json:"participant,omitempty"`
 	// Weight conditions on the method definition.
-	WeightConditionsToCreate []*DeliveryWeightConditionInput `json:"weightConditionsToCreate"`
+	WeightConditionsToCreate []*DeliveryWeightConditionInput `json:"weightConditionsToCreate,omitempty"`
 	// Price conditions on the method definition.
-	PriceConditionsToCreate []*DeliveryPriceConditionInput `json:"priceConditionsToCreate"`
+	PriceConditionsToCreate []*DeliveryPriceConditionInput `json:"priceConditionsToCreate,omitempty"`
 	// Conditions on the method definition to update.
-	ConditionsToUpdate []*DeliveryUpdateConditionInput `json:"conditionsToUpdate"`
+	ConditionsToUpdate []*DeliveryUpdateConditionInput `json:"conditionsToUpdate,omitempty"`
 }
 
 // A carrier-defined rate with possible merchant-defined fixed fee or percentage-of-rate fee.
 type DeliveryParticipant struct {
 	// Flag to indicate if new available services should be included.
-	AdaptToNewServicesFlag bool `json:"adaptToNewServicesFlag"`
+	AdaptToNewServicesFlag bool `json:"adaptToNewServicesFlag,omitempty"`
 	// Use this carrier service for this participant.
 	CarrierService *DeliveryCarrierService `json:"carrierService,omitempty"`
 	// The merchant-set fixed fee for this participant.
 	FixedFee *MoneyV2 `json:"fixedFee,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Services offered by the participant and their active status.
-	ParticipantServices []*DeliveryParticipantService `json:"participantServices"`
+	ParticipantServices []*DeliveryParticipantService `json:"participantServices,omitempty"`
 	// The merchant-set percentage-of-rate fee for this participant.
-	PercentageOfRateFee float64 `json:"percentageOfRateFee"`
+	PercentageOfRateFee float64 `json:"percentageOfRateFee,omitempty"`
 }
 
 func (DeliveryParticipant) IsNode()                 {}
@@ -2330,7 +2330,7 @@ type DeliveryParticipantInput struct {
 	// The merchant-set percentage-of-rate fee for this participant.
 	PercentageOfRateFee *float64 `json:"percentageOfRateFee,omitempty"`
 	// Services offered by the participant and their active status.
-	ParticipantServices []*DeliveryParticipantServiceInput `json:"participantServices"`
+	ParticipantServices []*DeliveryParticipantServiceInput `json:"participantServices,omitempty"`
 	// Flag to indicate if new available services should be included.
 	AdaptToNewServices *bool `json:"adaptToNewServices,omitempty"`
 }
@@ -2338,17 +2338,17 @@ type DeliveryParticipantInput struct {
 // A service provided by a participant.
 type DeliveryParticipantService struct {
 	// If the service is active or not.
-	Active bool `json:"active"`
+	Active bool `json:"active,omitempty"`
 	// Name of the service.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 }
 
 // Input fields for a service provided by a participant.
 type DeliveryParticipantServiceInput struct {
 	// Name of the service.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// If the service is active or not.
-	Active bool `json:"active"`
+	Active bool `json:"active,omitempty"`
 }
 
 // Input fields for the price-based conditions of a method definition.
@@ -2362,41 +2362,41 @@ type DeliveryPriceConditionInput struct {
 // How many product variants are in a profile. This count is capped at 500.
 type DeliveryProductVariantsCount struct {
 	// If the count has reached the cap of 500.
-	Capped bool `json:"capped"`
+	Capped bool `json:"capped,omitempty"`
 	// The product variant count.
-	Count int `json:"count"`
+	Count int `json:"count,omitempty"`
 }
 
 // A profile for multi-location, per-product delivery.
 type DeliveryProfile struct {
 	// The number of active shipping rates for the profile.
-	ActiveMethodDefinitionsCount int `json:"activeMethodDefinitionsCount"`
+	ActiveMethodDefinitionsCount int `json:"activeMethodDefinitionsCount,omitempty"`
 	// Whether this is the default profile.
-	Default bool `json:"default"`
+	Default bool `json:"default,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Whether this shop has enabled legacy compatibility mode for delivery profiles.
-	LegacyMode bool `json:"legacyMode"`
+	LegacyMode bool `json:"legacyMode,omitempty"`
 	// The number of locations without rates defined.
-	LocationsWithoutRatesCount int `json:"locationsWithoutRatesCount"`
+	LocationsWithoutRatesCount int `json:"locationsWithoutRatesCount,omitempty"`
 	// The name of the delivery profile.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The number of active origin locations for the profile.
-	OriginLocationCount int `json:"originLocationCount"`
+	OriginLocationCount int `json:"originLocationCount,omitempty"`
 	// The number of product variants for this profile. The count for the default profile is not supported and will return -1.
-	ProductVariantsCount int `json:"productVariantsCount"`
+	ProductVariantsCount int `json:"productVariantsCount,omitempty"`
 	// How many product variants are in this profile.
 	ProductVariantsCountV2 *DeliveryProductVariantsCount `json:"productVariantsCountV2,omitempty"`
 	// The products and variants associated with this profile.
 	ProfileItems *DeliveryProfileItemConnection `json:"profileItems,omitempty"`
 	// The location groups and associated zones using this profile.
-	ProfileLocationGroups []*DeliveryProfileLocationGroup `json:"profileLocationGroups"`
+	ProfileLocationGroups []*DeliveryProfileLocationGroup `json:"profileLocationGroups,omitempty"`
 	// Selling Plan Groups associated with the specified Delivery Profile.
 	SellingPlanGroups *SellingPlanGroupConnection `json:"sellingPlanGroups,omitempty"`
 	// List of locations that have not been assigned to a location group for this profile.
-	UnassignedLocations []*Location `json:"unassignedLocations"`
+	UnassignedLocations []*Location `json:"unassignedLocations,omitempty"`
 	// The number of countries with active rates to deliver to.
-	ZoneCountryCount int `json:"zoneCountryCount"`
+	ZoneCountryCount int `json:"zoneCountryCount,omitempty"`
 }
 
 func (DeliveryProfile) IsNode() {}
@@ -2404,7 +2404,7 @@ func (DeliveryProfile) IsNode() {}
 // An auto-generated type for paginating through multiple DeliveryProfiles.
 type DeliveryProfileConnection struct {
 	// A list of edges.
-	Edges []*DeliveryProfileEdge `json:"edges"`
+	Edges []*DeliveryProfileEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -2412,7 +2412,7 @@ type DeliveryProfileConnection struct {
 // An auto-generated type which holds one DeliveryProfile and a cursor during pagination.
 type DeliveryProfileEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of DeliveryProfileEdge.
 	Node *DeliveryProfile `json:"node,omitempty"`
 }
@@ -2422,27 +2422,27 @@ type DeliveryProfileInput struct {
 	// The name of the profile.
 	Name *string `json:"name,omitempty"`
 	// The location groups associated with the profile.
-	ProfileLocationGroups []*DeliveryProfileLocationGroupInput `json:"profileLocationGroups"`
+	ProfileLocationGroups []*DeliveryProfileLocationGroupInput `json:"profileLocationGroups,omitempty"`
 	// The location groups to be created in the profile.
-	LocationGroupsToCreate []*DeliveryProfileLocationGroupInput `json:"locationGroupsToCreate"`
+	LocationGroupsToCreate []*DeliveryProfileLocationGroupInput `json:"locationGroupsToCreate,omitempty"`
 	// The location groups to be updated in the profile.
-	LocationGroupsToUpdate []*DeliveryProfileLocationGroupInput `json:"locationGroupsToUpdate"`
+	LocationGroupsToUpdate []*DeliveryProfileLocationGroupInput `json:"locationGroupsToUpdate,omitempty"`
 	// The location groups to be deleted in the profile.
-	LocationGroupsToDelete []string `json:"locationGroupsToDelete"`
+	LocationGroupsToDelete []string `json:"locationGroupsToDelete,omitempty"`
 	// The product variant ids to be associated with this profile.
-	VariantsToAssociate []string `json:"variantsToAssociate"`
+	VariantsToAssociate []string `json:"variantsToAssociate,omitempty"`
 	// The product variant ids to be dissociated from this profile and returned to the default profile.
-	VariantsToDissociate []string `json:"variantsToDissociate"`
+	VariantsToDissociate []string `json:"variantsToDissociate,omitempty"`
 	// Zones to delete.
-	ZonesToDelete []string `json:"zonesToDelete"`
+	ZonesToDelete []string `json:"zonesToDelete,omitempty"`
 	// Method definitions to delete.
-	MethodDefinitionsToDelete []string `json:"methodDefinitionsToDelete"`
+	MethodDefinitionsToDelete []string `json:"methodDefinitionsToDelete,omitempty"`
 	// Conditions to delete.
-	ConditionsToDelete []string `json:"conditionsToDelete"`
+	ConditionsToDelete []string `json:"conditionsToDelete,omitempty"`
 	// The selling plan groups to be associated with this profile.
-	SellingPlanGroupsToAssociate []string `json:"sellingPlanGroupsToAssociate"`
+	SellingPlanGroupsToAssociate []string `json:"sellingPlanGroupsToAssociate,omitempty"`
 	// The selling plan groups to be dissociated with this profile.
-	SellingPlanGroupsToDissociate []string `json:"sellingPlanGroupsToDissociate"`
+	SellingPlanGroupsToDissociate []string `json:"sellingPlanGroupsToDissociate,omitempty"`
 }
 
 // A product and the subset of associated variants that are part of this delivery profile.
@@ -2456,7 +2456,7 @@ type DeliveryProfileItem struct {
 // An auto-generated type for paginating through multiple DeliveryProfileItems.
 type DeliveryProfileItemConnection struct {
 	// A list of edges.
-	Edges []*DeliveryProfileItemEdge `json:"edges"`
+	Edges []*DeliveryProfileItemEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -2464,7 +2464,7 @@ type DeliveryProfileItemConnection struct {
 // An auto-generated type which holds one DeliveryProfileItem and a cursor during pagination.
 type DeliveryProfileItemEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of DeliveryProfileItemEdge.
 	Node *DeliveryProfileItem `json:"node,omitempty"`
 }
@@ -2472,7 +2472,7 @@ type DeliveryProfileItemEdge struct {
 // Links a location group with zones associated to a delivery profile.
 type DeliveryProfileLocationGroup struct {
 	// The countries already selected in any zone for the given location group and profile.
-	CountriesInAnyZone []*DeliveryCountryAndZone `json:"countriesInAnyZone"`
+	CountriesInAnyZone []*DeliveryCountryAndZone `json:"countriesInAnyZone,omitempty"`
 	// The location group associated to a delivery profile.
 	LocationGroup *DeliveryLocationGroup `json:"locationGroup,omitempty"`
 	// The applicable zones associated to a location group and delivery profile.
@@ -2484,23 +2484,23 @@ type DeliveryProfileLocationGroupInput struct {
 	// Globally unique identifier of the LocationGroup.
 	ID *string `json:"id,omitempty"`
 	// The location ids of the locations to be moved to this location group.
-	Locations []string `json:"locations"`
+	Locations []string `json:"locations,omitempty"`
 	// Zones to create.
-	ZonesToCreate []*DeliveryLocationGroupZoneInput `json:"zonesToCreate"`
+	ZonesToCreate []*DeliveryLocationGroupZoneInput `json:"zonesToCreate,omitempty"`
 	// Zones to update.
-	ZonesToUpdate []*DeliveryLocationGroupZoneInput `json:"zonesToUpdate"`
+	ZonesToUpdate []*DeliveryLocationGroupZoneInput `json:"zonesToUpdate,omitempty"`
 }
 
 // A region that is used to define a zone.
 type DeliveryProvince struct {
 	// The code of this region.
-	Code string `json:"code"`
+	Code string `json:"code,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The name of the region.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The name of the region, translated based on the user locale.
-	TranslatedName string `json:"translatedName"`
+	TranslatedName string `json:"translatedName,omitempty"`
 }
 
 func (DeliveryProvince) IsNode() {}
@@ -2508,13 +2508,13 @@ func (DeliveryProvince) IsNode() {}
 // The input fields to specify a region.
 type DeliveryProvinceInput struct {
 	// The code of the region.
-	Code string `json:"code"`
+	Code string `json:"code,omitempty"`
 }
 
 // The merchant-defined rate of the DeliveryMethodDefinition.
 type DeliveryRateDefinition struct {
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The price of this rate.
 	Price *MoneyV2 `json:"price,omitempty"`
 }
@@ -2535,7 +2535,7 @@ type DeliverySetting struct {
 	// Whether the shop is blocked from converting to full multi-location delivery profiles mode. If the shop is blocked, then the blocking reasons are also returned.
 	LegacyModeBlocked *DeliveryLegacyModeBlocked `json:"legacyModeBlocked,omitempty"`
 	// Enables legacy compatability mode for the multi-location delivery profiles feature.
-	LegacyModeProfiles bool `json:"legacyModeProfiles"`
+	LegacyModeProfiles bool `json:"legacyModeProfiles,omitempty"`
 }
 
 // Input fields for shop-level delivery settings.
@@ -2549,19 +2549,19 @@ type DeliverySettingUpdatePayload struct {
 	// The updated delivery shop level settings.
 	Setting *DeliverySetting `json:"setting,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `deliveryShippingOriginAssign` mutation.
 type DeliveryShippingOriginAssignPayload struct {
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Input fields for updating the conditions of a method definition.
 type DeliveryUpdateConditionInput struct {
 	// Globally unique identifier of the condition.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The value of the criteria of the condition.
 	Criteria *float64 `json:"criteria,omitempty"`
 	// The unit of the criteria of the condition.
@@ -2583,11 +2583,11 @@ type DeliveryWeightConditionInput struct {
 // A zone is a geographical area that contains delivery methods within a delivery profile.
 type DeliveryZone struct {
 	// The list of countries within the zone.
-	Countries []*DeliveryCountry `json:"countries"`
+	Countries []*DeliveryCountry `json:"countries,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The name of the zone.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 }
 
 func (DeliveryZone) IsNode() {}
@@ -2599,7 +2599,7 @@ type DiscountAllocation struct {
 	// Money amount allocated by the discount application in shop and presentment currencies.
 	AllocatedAmountSet *MoneyBag `json:"allocatedAmountSet,omitempty"`
 	// The discount of which this allocated amount originated from.
-	DiscountApplication DiscountApplication `json:"discountApplication"`
+	DiscountApplication DiscountApplication `json:"discountApplication,omitempty"`
 }
 
 // The fixed amount value of a discount.
@@ -2607,7 +2607,7 @@ type DiscountAmount struct {
 	// The value of the discount.
 	Amount *MoneyV2 `json:"amount,omitempty"`
 	// If true, then the discount is applied to each of the entitled items. If false, then the amount is split across all of the entitled items.
-	AppliesOnEachItem bool `json:"appliesOnEachItem"`
+	AppliesOnEachItem bool `json:"appliesOnEachItem,omitempty"`
 }
 
 func (DiscountAmount) IsDiscountCustomerGetsValue() {}
@@ -2623,7 +2623,7 @@ type DiscountAmountInput struct {
 // An auto-generated type for paginating through multiple DiscountApplications.
 type DiscountApplicationConnection struct {
 	// A list of edges.
-	Edges []*DiscountApplicationEdge `json:"edges"`
+	Edges []*DiscountApplicationEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -2631,9 +2631,9 @@ type DiscountApplicationConnection struct {
 // An auto-generated type which holds one DiscountApplication and a cursor during pagination.
 type DiscountApplicationEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of DiscountApplicationEdge.
-	Node DiscountApplication `json:"node"`
+	Node DiscountApplication `json:"node,omitempty"`
 }
 
 // Return type for `discountAutomaticActivate` mutation.
@@ -2641,33 +2641,33 @@ type DiscountAutomaticActivatePayload struct {
 	// The activated automatic discount.
 	AutomaticDiscountNode *DiscountAutomaticNode `json:"automaticDiscountNode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // An automatic basic discount.
 type DiscountAutomaticBasic struct {
 	// The number of times the discount has been used. This value is updated asynchronously and can be different than the actual usage count.
-	AsyncUsageCount int `json:"asyncUsageCount"`
+	AsyncUsageCount int `json:"asyncUsageCount,omitempty"`
 	// The date and time when the discount was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The qualifying items in an order, the quantity of each one, and the total value of the discount.
 	CustomerGets *DiscountCustomerGets `json:"customerGets,omitempty"`
 	// The date and time when the discount ends. For open-ended discounts, use `null`.
 	EndsAt *string `json:"endsAt,omitempty"`
 	// The minimum subtotal or quantity that's required for the discount to be applied.
-	MinimumRequirement DiscountMinimumRequirement `json:"minimumRequirement"`
+	MinimumRequirement DiscountMinimumRequirement `json:"minimumRequirement,omitempty"`
 	// A short summary of the discount.
-	ShortSummary string `json:"shortSummary"`
+	ShortSummary string `json:"shortSummary,omitempty"`
 	// The date and time when the discount starts.
-	StartsAt string `json:"startsAt"`
+	StartsAt string `json:"startsAt,omitempty"`
 	// The status of the discount.
-	Status DiscountStatus `json:"status"`
+	Status DiscountStatus `json:"status,omitempty"`
 	// A detailed summary of the discount.
-	Summary string `json:"summary"`
+	Summary string `json:"summary,omitempty"`
 	// The title of the discount.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The number of times that the discount has been used.
-	UsageCount int `json:"usageCount"`
+	UsageCount int `json:"usageCount,omitempty"`
 }
 
 func (DiscountAutomaticBasic) IsDiscountAutomatic() {}
@@ -2677,7 +2677,7 @@ type DiscountAutomaticBasicCreatePayload struct {
 	// The created automatic discount.
 	AutomaticDiscountNode *DiscountAutomaticNode `json:"automaticDiscountNode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // Specifies input field to create or update automatic basic discount.
@@ -2699,7 +2699,7 @@ type DiscountAutomaticBasicUpdatePayload struct {
 	// The updated automatic discount.
 	AutomaticDiscountNode *DiscountAutomaticNode `json:"automaticDiscountNode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `discountAutomaticBulkDelete` mutation.
@@ -2707,15 +2707,15 @@ type DiscountAutomaticBulkDeletePayload struct {
 	// The asynchronous job removing the automatic discounts.
 	Job *Job `json:"job,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // An automatic BXGY discount.
 type DiscountAutomaticBxgy struct {
 	// The number of times the discount has been used. This value is updated asynchronously and can be different than the actual usage count.
-	AsyncUsageCount int `json:"asyncUsageCount"`
+	AsyncUsageCount int `json:"asyncUsageCount,omitempty"`
 	// The date and time when the discount was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The qualifying items and the quantity of each one that the customer has to buy to be eligible for the discount.
 	CustomerBuys *DiscountCustomerBuys `json:"customerBuys,omitempty"`
 	// The qualifying items in an order, the quantity of each one, and the total value of the discount.
@@ -2725,17 +2725,17 @@ type DiscountAutomaticBxgy struct {
 	// The paginated list of events associated with the host subject.
 	Events *EventConnection `json:"events,omitempty"`
 	// A legacy unique identifier for the discount.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The date and time when the discount starts.
-	StartsAt string `json:"startsAt"`
+	StartsAt string `json:"startsAt,omitempty"`
 	// The status of the discount.
-	Status DiscountStatus `json:"status"`
+	Status DiscountStatus `json:"status,omitempty"`
 	// A detailed summary of the discount.
-	Summary string `json:"summary"`
+	Summary string `json:"summary,omitempty"`
 	// The title of the discount.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The number of times that the discount has been used.
-	UsageCount int `json:"usageCount"`
+	UsageCount int `json:"usageCount,omitempty"`
 	// The maximum number of times that the discount can be applied to an order.
 	UsesPerOrderLimit *int `json:"usesPerOrderLimit,omitempty"`
 }
@@ -2749,7 +2749,7 @@ type DiscountAutomaticBxgyCreatePayload struct {
 	// The created automatic discount.
 	AutomaticDiscountNode *DiscountAutomaticNode `json:"automaticDiscountNode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // Specifies input field to create or update automatic bogo discount.
@@ -2773,13 +2773,13 @@ type DiscountAutomaticBxgyUpdatePayload struct {
 	// The updated automatic discount.
 	AutomaticDiscountNode *DiscountAutomaticNode `json:"automaticDiscountNode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple DiscountAutomatics.
 type DiscountAutomaticConnection struct {
 	// A list of edges.
-	Edges []*DiscountAutomaticEdge `json:"edges"`
+	Edges []*DiscountAutomaticEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -2789,7 +2789,7 @@ type DiscountAutomaticDeactivatePayload struct {
 	// The deactivated automatic discount.
 	AutomaticDiscountNode *DiscountAutomaticNode `json:"automaticDiscountNode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `discountAutomaticDelete` mutation.
@@ -2797,25 +2797,25 @@ type DiscountAutomaticDeletePayload struct {
 	// The deleted automatic discount ID.
 	DeletedAutomaticDiscountID *string `json:"deletedAutomaticDiscountId,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one DiscountAutomatic and a cursor during pagination.
 type DiscountAutomaticEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of DiscountAutomaticEdge.
-	Node DiscountAutomatic `json:"node"`
+	Node DiscountAutomatic `json:"node,omitempty"`
 }
 
 // An automatic discount wrapper node.
 type DiscountAutomaticNode struct {
 	// An automatic discount.
-	AutomaticDiscount DiscountAutomatic `json:"automaticDiscount"`
+	AutomaticDiscount DiscountAutomatic `json:"automaticDiscount,omitempty"`
 	// The paginated list of events associated with the host subject.
 	Events *EventConnection `json:"events,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 }
 
 func (DiscountAutomaticNode) IsNode()      {}
@@ -2824,7 +2824,7 @@ func (DiscountAutomaticNode) IsHasEvents() {}
 // An auto-generated type for paginating through multiple DiscountAutomaticNodes.
 type DiscountAutomaticNodeConnection struct {
 	// A list of edges.
-	Edges []*DiscountAutomaticNodeEdge `json:"edges"`
+	Edges []*DiscountAutomaticNodeEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -2832,7 +2832,7 @@ type DiscountAutomaticNodeConnection struct {
 // An auto-generated type which holds one DiscountAutomaticNode and a cursor during pagination.
 type DiscountAutomaticNodeEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of DiscountAutomaticNodeEdge.
 	Node *DiscountAutomaticNode `json:"node,omitempty"`
 }
@@ -2842,25 +2842,25 @@ type DiscountCodeActivatePayload struct {
 	// The activated code discount.
 	CodeDiscountNode *DiscountCodeNode `json:"codeDiscountNode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // Discount code applications capture the intentions of a discount code at
 // the time that it is applied onto an order.
 type DiscountCodeApplication struct {
 	// The method by which the discount's value is allocated to its entitled items.
-	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod"`
+	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod,omitempty"`
 	// The string identifying the discount code that was used at the time of application.
-	Code string `json:"code"`
+	Code string `json:"code,omitempty"`
 	// An ordered index that can be used to identify the discount application and indicate the precedence
 	// of the discount application for calculations.
-	Index int `json:"index"`
+	Index int `json:"index,omitempty"`
 	// How the discount amount is distributed on the discounted lines.
-	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection"`
+	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection,omitempty"`
 	// Whether the discount is applied on line items or shipping lines.
-	TargetType DiscountApplicationTargetType `json:"targetType"`
+	TargetType DiscountApplicationTargetType `json:"targetType,omitempty"`
 	// The value of the discount application.
-	Value PricingValue `json:"value"`
+	Value PricingValue `json:"value,omitempty"`
 }
 
 func (DiscountCodeApplication) IsDiscountApplication() {}
@@ -2868,39 +2868,39 @@ func (DiscountCodeApplication) IsDiscountApplication() {}
 // A basic code discount.
 type DiscountCodeBasic struct {
 	// Whether the discount can be applied only once per customer.
-	AppliesOncePerCustomer bool `json:"appliesOncePerCustomer"`
+	AppliesOncePerCustomer bool `json:"appliesOncePerCustomer,omitempty"`
 	// The number of times that the discount has been used.
-	AsyncUsageCount int `json:"asyncUsageCount"`
+	AsyncUsageCount int `json:"asyncUsageCount,omitempty"`
 	// The number of redeem codes for the discount.
-	CodeCount int `json:"codeCount"`
+	CodeCount int `json:"codeCount,omitempty"`
 	// A list of redeem codes for the discount.
 	Codes *DiscountRedeemCodeConnection `json:"codes,omitempty"`
 	// The date and time when the discount was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The qualifying items in an order, the quantity of each one, and the total value of the discount.
 	CustomerGets *DiscountCustomerGets `json:"customerGets,omitempty"`
 	// The customers that can use the discount.
-	CustomerSelection DiscountCustomerSelection `json:"customerSelection"`
+	CustomerSelection DiscountCustomerSelection `json:"customerSelection,omitempty"`
 	// The date and time when the discount ends. For open-ended discounts, use `null`.
 	EndsAt *string `json:"endsAt,omitempty"`
 	// Indicates whether there are any timeline comments on the discount.
-	HasTimelineComment bool `json:"hasTimelineComment"`
+	HasTimelineComment bool `json:"hasTimelineComment,omitempty"`
 	// The minimum subtotal or quantity that's required for the discount to be applied.
-	MinimumRequirement DiscountMinimumRequirement `json:"minimumRequirement"`
+	MinimumRequirement DiscountMinimumRequirement `json:"minimumRequirement,omitempty"`
 	// The number of times a discount applies on recurring purchases (subscriptions).
 	RecurringCycleLimit *int `json:"recurringCycleLimit,omitempty"`
 	// URLs that can be used to share the discount.
-	ShareableUrls []*DiscountShareableURL `json:"shareableUrls"`
+	ShareableUrls []*DiscountShareableURL `json:"shareableUrls,omitempty"`
 	// A short summary of the discount.
-	ShortSummary string `json:"shortSummary"`
+	ShortSummary string `json:"shortSummary,omitempty"`
 	// The date and time when the discount starts.
-	StartsAt string `json:"startsAt"`
+	StartsAt string `json:"startsAt,omitempty"`
 	// The status of the discount.
-	Status DiscountStatus `json:"status"`
+	Status DiscountStatus `json:"status,omitempty"`
 	// A detailed summary of the discount.
-	Summary string `json:"summary"`
+	Summary string `json:"summary,omitempty"`
 	// The title of the discount.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The total sales from orders where the discount was used.
 	TotalSales *MoneyV2 `json:"totalSales,omitempty"`
 	// The maximum number of times that the discount can be used.
@@ -2914,7 +2914,7 @@ type DiscountCodeBasicCreatePayload struct {
 	// The created code discount.
 	CodeDiscountNode *DiscountCodeNode `json:"codeDiscountNode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // Specifies input field to create or update code basic discount.
@@ -2946,7 +2946,7 @@ type DiscountCodeBasicUpdatePayload struct {
 	// The updated code discount.
 	CodeDiscountNode *DiscountCodeNode `json:"codeDiscountNode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `discountCodeBulkActivate` mutation.
@@ -2954,7 +2954,7 @@ type DiscountCodeBulkActivatePayload struct {
 	// The asynchronous job that activates the code discounts.
 	Job *Job `json:"job,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `discountCodeBulkDeactivate` mutation.
@@ -2962,7 +2962,7 @@ type DiscountCodeBulkDeactivatePayload struct {
 	// The asynchronous job that deactivates the code discounts.
 	Job *Job `json:"job,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `discountCodeBulkDelete` mutation.
@@ -2970,41 +2970,41 @@ type DiscountCodeBulkDeletePayload struct {
 	// The asynchronous job that deletes the code discounts.
 	Job *Job `json:"job,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // A BXGY code discount.
 type DiscountCodeBxgy struct {
 	// Whether the discount can be applied only once per customer.
-	AppliesOncePerCustomer bool `json:"appliesOncePerCustomer"`
+	AppliesOncePerCustomer bool `json:"appliesOncePerCustomer,omitempty"`
 	// The number of times that the discount has been used.
-	AsyncUsageCount int `json:"asyncUsageCount"`
+	AsyncUsageCount int `json:"asyncUsageCount,omitempty"`
 	// The number of redeem codes for the discount.
-	CodeCount int `json:"codeCount"`
+	CodeCount int `json:"codeCount,omitempty"`
 	// A list of redeem codes for the discount.
 	Codes *DiscountRedeemCodeConnection `json:"codes,omitempty"`
 	// The date and time when the discount was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The qualifying items and the quantity of each one that the customer has to buy to be eligible for the discount.
 	CustomerBuys *DiscountCustomerBuys `json:"customerBuys,omitempty"`
 	// The qualifying items in an order, the quantity of each one, and the total value of the discount.
 	CustomerGets *DiscountCustomerGets `json:"customerGets,omitempty"`
 	// The customers that can use the discount.
-	CustomerSelection DiscountCustomerSelection `json:"customerSelection"`
+	CustomerSelection DiscountCustomerSelection `json:"customerSelection,omitempty"`
 	// The date and time when the discount ends. For open-ended discounts, use `null`.
 	EndsAt *string `json:"endsAt,omitempty"`
 	// Indicates whether there are any timeline comments on the discount.
-	HasTimelineComment bool `json:"hasTimelineComment"`
+	HasTimelineComment bool `json:"hasTimelineComment,omitempty"`
 	// URLs that can be used to share the discount.
-	ShareableUrls []*DiscountShareableURL `json:"shareableUrls"`
+	ShareableUrls []*DiscountShareableURL `json:"shareableUrls,omitempty"`
 	// The date and time when the discount starts.
-	StartsAt string `json:"startsAt"`
+	StartsAt string `json:"startsAt,omitempty"`
 	// The status of the discount.
-	Status DiscountStatus `json:"status"`
+	Status DiscountStatus `json:"status,omitempty"`
 	// A detailed summary of the discount.
-	Summary string `json:"summary"`
+	Summary string `json:"summary,omitempty"`
 	// The title of the discount.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The total sales from orders where the discount was used.
 	TotalSales *MoneyV2 `json:"totalSales,omitempty"`
 	// The maximum number of times that the discount can be used.
@@ -3020,7 +3020,7 @@ type DiscountCodeBxgyCreatePayload struct {
 	// The created code discount.
 	CodeDiscountNode *DiscountCodeNode `json:"codeDiscountNode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // Specifies input field to create or update a BXGY code discount.
@@ -3052,7 +3052,7 @@ type DiscountCodeBxgyUpdatePayload struct {
 	// The updated code discount.
 	CodeDiscountNode *DiscountCodeNode `json:"codeDiscountNode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `discountCodeDeactivate` mutation.
@@ -3060,7 +3060,7 @@ type DiscountCodeDeactivatePayload struct {
 	// The deactivated code discount.
 	CodeDiscountNode *DiscountCodeNode `json:"codeDiscountNode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `discountCodeDelete` mutation.
@@ -3068,51 +3068,51 @@ type DiscountCodeDeletePayload struct {
 	// The deleted code discount ID.
 	DeletedCodeDiscountID *string `json:"deletedCodeDiscountId,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // A free shipping code discount.
 type DiscountCodeFreeShipping struct {
 	// Whether the discount applies on regular one-time-purchase shipping lines.
-	AppliesOnOneTimePurchase bool `json:"appliesOnOneTimePurchase"`
+	AppliesOnOneTimePurchase bool `json:"appliesOnOneTimePurchase,omitempty"`
 	// Whether the discount applies on subscription shipping lines.
-	AppliesOnSubscription bool `json:"appliesOnSubscription"`
+	AppliesOnSubscription bool `json:"appliesOnSubscription,omitempty"`
 	// Whether the discount can be applied only once per customer.
-	AppliesOncePerCustomer bool `json:"appliesOncePerCustomer"`
+	AppliesOncePerCustomer bool `json:"appliesOncePerCustomer,omitempty"`
 	// The number of times that the discount has been used.
-	AsyncUsageCount int `json:"asyncUsageCount"`
+	AsyncUsageCount int `json:"asyncUsageCount,omitempty"`
 	// The number of redeem codes for the discount.
-	CodeCount int `json:"codeCount"`
+	CodeCount int `json:"codeCount,omitempty"`
 	// A list of redeem codes for the discount.
 	Codes *DiscountRedeemCodeConnection `json:"codes,omitempty"`
 	// The date and time when the discount was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The customers that can use the discount.
-	CustomerSelection DiscountCustomerSelection `json:"customerSelection"`
+	CustomerSelection DiscountCustomerSelection `json:"customerSelection,omitempty"`
 	// A shipping destination that qualifies for the discount.
-	DestinationSelection DiscountShippingDestinationSelection `json:"destinationSelection"`
+	DestinationSelection DiscountShippingDestinationSelection `json:"destinationSelection,omitempty"`
 	// The date and time when the discount ends. For open-ended discounts, use `null`.
 	EndsAt *string `json:"endsAt,omitempty"`
 	// Indicates whether there are any timeline comments on the discount.
-	HasTimelineComment bool `json:"hasTimelineComment"`
+	HasTimelineComment bool `json:"hasTimelineComment,omitempty"`
 	// The maximum shipping price amount accepted to qualify for the discount.
 	MaximumShippingPrice *MoneyV2 `json:"maximumShippingPrice,omitempty"`
 	// The minimum subtotal or quantity that's required for the discount to be applied.
-	MinimumRequirement DiscountMinimumRequirement `json:"minimumRequirement"`
+	MinimumRequirement DiscountMinimumRequirement `json:"minimumRequirement,omitempty"`
 	// The number of times a discount applies on recurring purchases (subscriptions).
 	RecurringCycleLimit *int `json:"recurringCycleLimit,omitempty"`
 	// URLs that can be used to share the discount.
-	ShareableUrls []*DiscountShareableURL `json:"shareableUrls"`
+	ShareableUrls []*DiscountShareableURL `json:"shareableUrls,omitempty"`
 	// A short summary of the discount.
-	ShortSummary string `json:"shortSummary"`
+	ShortSummary string `json:"shortSummary,omitempty"`
 	// The date and time when the discount starts.
-	StartsAt string `json:"startsAt"`
+	StartsAt string `json:"startsAt,omitempty"`
 	// The status of the discount.
-	Status DiscountStatus `json:"status"`
+	Status DiscountStatus `json:"status,omitempty"`
 	// A detailed summary of the discount.
-	Summary string `json:"summary"`
+	Summary string `json:"summary,omitempty"`
 	// The title of the discount.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The total sales from orders where the discount was used.
 	TotalSales *MoneyV2 `json:"totalSales,omitempty"`
 	// The maximum number of times that the discount can be used.
@@ -3126,7 +3126,7 @@ type DiscountCodeFreeShippingCreatePayload struct {
 	// The created code discount.
 	CodeDiscountNode *DiscountCodeNode `json:"codeDiscountNode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // Specifies input field to create or update free shipping code discount.
@@ -3164,17 +3164,17 @@ type DiscountCodeFreeShippingUpdatePayload struct {
 	// The updated code discount.
 	CodeDiscountNode *DiscountCodeNode `json:"codeDiscountNode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // A code discount wrapper node.
 type DiscountCodeNode struct {
 	// A code discount.
-	CodeDiscount DiscountCode `json:"codeDiscount"`
+	CodeDiscount DiscountCode `json:"codeDiscount,omitempty"`
 	// The paginated list of events associated with the host subject.
 	Events *EventConnection `json:"events,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 }
 
 func (DiscountCodeNode) IsNode()      {}
@@ -3183,7 +3183,7 @@ func (DiscountCodeNode) IsHasEvents() {}
 // An auto-generated type for paginating through multiple DiscountCodeNodes.
 type DiscountCodeNodeConnection struct {
 	// A list of edges.
-	Edges []*DiscountCodeNodeEdge `json:"edges"`
+	Edges []*DiscountCodeNodeEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -3191,7 +3191,7 @@ type DiscountCodeNodeConnection struct {
 // An auto-generated type which holds one DiscountCodeNode and a cursor during pagination.
 type DiscountCodeNodeEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of DiscountCodeNodeEdge.
 	Node *DiscountCodeNode `json:"node,omitempty"`
 }
@@ -3201,7 +3201,7 @@ type DiscountCodeRedeemCodeBulkDeletePayload struct {
 	// The asynchronous job that deletes the discount redeem codes.
 	Job *Job `json:"job,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*DiscountUserError `json:"userErrors"`
+	UserErrors []*DiscountUserError `json:"userErrors,omitempty"`
 }
 
 // A list of collections that the discount can have as a prerequisite or entitlement.
@@ -3215,17 +3215,17 @@ func (DiscountCollections) IsDiscountItems() {}
 // Specifies the collections attached to a discount.
 type DiscountCollectionsInput struct {
 	// Specifies list of collection ids to add.
-	Add []string `json:"add"`
+	Add []string `json:"add,omitempty"`
 	// Specifies list of collection ids to remove.
-	Remove []string `json:"remove"`
+	Remove []string `json:"remove,omitempty"`
 }
 
 // The shipping destination where the discount applies.
 type DiscountCountries struct {
 	// The codes for the countries where the discount can be used.
-	Countries []CountryCode `json:"countries"`
+	Countries []CountryCode `json:"countries,omitempty"`
 	// Whether the discount is applicable to countries that have not been defined in the shop's shipping zones.
-	IncludeRestOfWorld bool `json:"includeRestOfWorld"`
+	IncludeRestOfWorld bool `json:"includeRestOfWorld,omitempty"`
 }
 
 func (DiscountCountries) IsDiscountShippingDestinationSelection() {}
@@ -3233,9 +3233,9 @@ func (DiscountCountries) IsDiscountShippingDestinationSelection() {}
 // Specifies a list of countries to add or remove from the free shipping discount.
 type DiscountCountriesInput struct {
 	// The country codes to add to the list of countries where the discount applies.
-	Add []CountryCode `json:"add"`
+	Add []CountryCode `json:"add,omitempty"`
 	// The country codes to remove from the list of countries where the discount applies.
-	Remove []CountryCode `json:"remove"`
+	Remove []CountryCode `json:"remove,omitempty"`
 	// Whether the discount code is applicable to countries that have not been defined in the shop's shipping zones.
 	IncludeRestOfWorld *bool `json:"includeRestOfWorld,omitempty"`
 }
@@ -3243,7 +3243,7 @@ type DiscountCountriesInput struct {
 // Whether the discount applies to all countries.
 type DiscountCountryAll struct {
 	// Always true when resolved to this type.
-	AllCountries bool `json:"allCountries"`
+	AllCountries bool `json:"allCountries,omitempty"`
 }
 
 func (DiscountCountryAll) IsDiscountShippingDestinationSelection() {}
@@ -3251,7 +3251,7 @@ func (DiscountCountryAll) IsDiscountShippingDestinationSelection() {}
 // Whether the discount applies to all customers.
 type DiscountCustomerAll struct {
 	// Always true when resolved to this type.
-	AllCustomers bool `json:"allCustomers"`
+	AllCustomers bool `json:"allCustomers,omitempty"`
 }
 
 func (DiscountCustomerAll) IsDiscountCustomerSelection() {}
@@ -3259,9 +3259,9 @@ func (DiscountCustomerAll) IsDiscountCustomerSelection() {}
 // The prerequisite items and prerequisite value.
 type DiscountCustomerBuys struct {
 	// The items required for the discount to be applicable.
-	Items DiscountItems `json:"items"`
+	Items DiscountItems `json:"items,omitempty"`
 	// The prerequisite value.
-	Value DiscountCustomerBuysValue `json:"value"`
+	Value DiscountCustomerBuysValue `json:"value,omitempty"`
 }
 
 // Specifies the prerequisite items and prerequisite quantity.
@@ -3283,13 +3283,13 @@ type DiscountCustomerBuysValueInput struct {
 // The qualifying items in an order, the quantity of each one, and the total value of the discount.
 type DiscountCustomerGets struct {
 	// Whether the discount applies on regular one-time-purchase items.
-	AppliesOnOneTimePurchase bool `json:"appliesOnOneTimePurchase"`
+	AppliesOnOneTimePurchase bool `json:"appliesOnOneTimePurchase,omitempty"`
 	// Whether the discount applies on subscription items.
-	AppliesOnSubscription bool `json:"appliesOnSubscription"`
+	AppliesOnSubscription bool `json:"appliesOnSubscription,omitempty"`
 	// The items to which the discount applies.
-	Items DiscountItems `json:"items"`
+	Items DiscountItems `json:"items,omitempty"`
 	// Entitled quantity and the discount value.
-	Value DiscountCustomerGetsValue `json:"value"`
+	Value DiscountCustomerGetsValue `json:"value,omitempty"`
 }
 
 // Specifies the items that will be discounted, the quantity of items that will be discounted, and the value of discount.
@@ -3317,7 +3317,7 @@ type DiscountCustomerGetsValueInput struct {
 // A list of customer saved searches that contain the customers to whom the discount applies.
 type DiscountCustomerSavedSearches struct {
 	// A list of customer saved searches that contain the customers who can use the discount.
-	SavedSearches []*SavedSearch `json:"savedSearches"`
+	SavedSearches []*SavedSearch `json:"savedSearches,omitempty"`
 }
 
 func (DiscountCustomerSavedSearches) IsDiscountCustomerSelection() {}
@@ -3325,9 +3325,9 @@ func (DiscountCustomerSavedSearches) IsDiscountCustomerSelection() {}
 // Specifies which customer saved searches to add to or remove from the discount.
 type DiscountCustomerSavedSearchesInput struct {
 	// A list of customer saved searches to add to the current list of customer saved searches.
-	Add []string `json:"add"`
+	Add []string `json:"add,omitempty"`
 	// A list of customer saved searches to remove from the current list of customer saved searches.
-	Remove []string `json:"remove"`
+	Remove []string `json:"remove,omitempty"`
 }
 
 // Specifies the customers who can use this discount.
@@ -3343,7 +3343,7 @@ type DiscountCustomerSelectionInput struct {
 // A list of customers to whom the discount applies.
 type DiscountCustomers struct {
 	// A list of the customers that can use the discount.
-	Customers []*Customer `json:"customers"`
+	Customers []*Customer `json:"customers,omitempty"`
 }
 
 func (DiscountCustomers) IsDiscountCustomerSelection() {}
@@ -3351,9 +3351,9 @@ func (DiscountCustomers) IsDiscountCustomerSelection() {}
 // Specifies which customers to add to or remove from the discount.
 type DiscountCustomersInput struct {
 	// A list of customers to add to the current list of customers who can use the discount.
-	Add []string `json:"add"`
+	Add []string `json:"add,omitempty"`
 	// A list of customers to remove from the current list of customers who can use the discount.
-	Remove []string `json:"remove"`
+	Remove []string `json:"remove,omitempty"`
 }
 
 // Specifies how the discount will be applied. Currently, only percentage off is supported.
@@ -3375,7 +3375,7 @@ type DiscountItemsInput struct {
 // The minimum quantity of items required for the discount to apply.
 type DiscountMinimumQuantity struct {
 	// The minimum quantity of items that's required for the discount to be applied.
-	GreaterThanOrEqualToQuantity string `json:"greaterThanOrEqualToQuantity"`
+	GreaterThanOrEqualToQuantity string `json:"greaterThanOrEqualToQuantity,omitempty"`
 }
 
 func (DiscountMinimumQuantity) IsDiscountMinimumRequirement() {}
@@ -3411,7 +3411,7 @@ type DiscountMinimumSubtotalInput struct {
 // The quantity of items discounted, the discount value, and how the discount will be applied.
 type DiscountOnQuantity struct {
 	// The discount's effect on qualifying items.
-	Effect DiscountEffect `json:"effect"`
+	Effect DiscountEffect `json:"effect,omitempty"`
 	// The number of items being discounted.
 	Quantity *DiscountQuantity `json:"quantity,omitempty"`
 }
@@ -3429,7 +3429,7 @@ type DiscountOnQuantityInput struct {
 // The percentage value of the discount.
 type DiscountPercentage struct {
 	// The percentage value of the discount.
-	Percentage float64 `json:"percentage"`
+	Percentage float64 `json:"percentage,omitempty"`
 }
 
 func (DiscountPercentage) IsDiscountCustomerGetsValue() {}
@@ -3448,19 +3448,19 @@ func (DiscountProducts) IsDiscountItems() {}
 // Specifies the products and product variants attached to a discount.
 type DiscountProductsInput struct {
 	// Specifies list of product ids to add.
-	ProductsToAdd []string `json:"productsToAdd"`
+	ProductsToAdd []string `json:"productsToAdd,omitempty"`
 	// Specifies list of product ids to remove.
-	ProductsToRemove []string `json:"productsToRemove"`
+	ProductsToRemove []string `json:"productsToRemove,omitempty"`
 	// Specifies list of product variant ids to add.
-	ProductVariantsToAdd []string `json:"productVariantsToAdd"`
+	ProductVariantsToAdd []string `json:"productVariantsToAdd,omitempty"`
 	// Specifies list of product variant ids to remove.
-	ProductVariantsToRemove []string `json:"productVariantsToRemove"`
+	ProductVariantsToRemove []string `json:"productVariantsToRemove,omitempty"`
 }
 
 // The prerequisite purchase amount required for the discount to be applicable.
 type DiscountPurchaseAmount struct {
 	// Decimal money amount.
-	Amount string `json:"amount"`
+	Amount string `json:"amount,omitempty"`
 }
 
 func (DiscountPurchaseAmount) IsDiscountCustomerBuysValue() {}
@@ -3468,7 +3468,7 @@ func (DiscountPurchaseAmount) IsDiscountCustomerBuysValue() {}
 // The quantity of items in discount.
 type DiscountQuantity struct {
 	// The quantity of items.
-	Quantity string `json:"quantity"`
+	Quantity string `json:"quantity,omitempty"`
 }
 
 func (DiscountQuantity) IsDiscountCustomerBuysValue() {}
@@ -3476,19 +3476,19 @@ func (DiscountQuantity) IsDiscountCustomerBuysValue() {}
 // A redeem code for a code discount.
 type DiscountRedeemCode struct {
 	// The number of times the discount has been used. This value is updated asynchronously and can be different than the actual usage count.
-	AsyncUsageCount int `json:"asyncUsageCount"`
+	AsyncUsageCount int `json:"asyncUsageCount,omitempty"`
 	// The code of a discount.
-	Code string `json:"code"`
+	Code string `json:"code,omitempty"`
 	// The application that created the discount code.
 	CreatedBy *App `json:"createdBy,omitempty"`
 	// Globally unique identifier of the discount redeem code.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple DiscountRedeemCodes.
 type DiscountRedeemCodeConnection struct {
 	// A list of edges.
-	Edges []*DiscountRedeemCodeEdge `json:"edges"`
+	Edges []*DiscountRedeemCodeEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -3496,7 +3496,7 @@ type DiscountRedeemCodeConnection struct {
 // An auto-generated type which holds one DiscountRedeemCode and a cursor during pagination.
 type DiscountRedeemCodeEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of DiscountRedeemCodeEdge.
 	Node *DiscountRedeemCode `json:"node,omitempty"`
 }
@@ -3506,11 +3506,11 @@ type DiscountShareableURL struct {
 	// The image URL of the item (product or collection) to which the discount applies.
 	TargetItemImage *Image `json:"targetItemImage,omitempty"`
 	// The type of page that's associated with the URL.
-	TargetType DiscountShareableURLTargetType `json:"targetType"`
+	TargetType DiscountShareableURLTargetType `json:"targetType,omitempty"`
 	// The title of the page that's associated with the URL.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The URL for the discount code.
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 }
 
 // Specifies the destinations where the free shipping discount will be applied.
@@ -3528,9 +3528,9 @@ type DiscountUserError struct {
 	// Extra information about this error.
 	ExtraInfo *string `json:"extraInfo,omitempty"`
 	// Path to the input field which caused the error.
-	Field []string `json:"field"`
+	Field []string `json:"field,omitempty"`
 	// The error message.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 func (DiscountUserError) IsDisplayableError() {}
@@ -3538,15 +3538,15 @@ func (DiscountUserError) IsDisplayableError() {}
 // A unique string that represents the address of a Shopify store on the Internet.
 type Domain struct {
 	// The host name of the domain (eg: `example.com`).
-	Host string `json:"host"`
+	Host string `json:"host,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The localization of the domain, if it does not redirect.
 	Localization *DomainLocalization `json:"localization,omitempty"`
 	// Whether SSL is enabled or not.
-	SslEnabled bool `json:"sslEnabled"`
+	SslEnabled bool `json:"sslEnabled,omitempty"`
 	// The URL of the domain (eg: `https://example.com`).
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 }
 
 func (Domain) IsNode() {}
@@ -3554,21 +3554,21 @@ func (Domain) IsNode() {}
 // The country and language settings assigned to a domain.
 type DomainLocalization struct {
 	// The ISO codes for the domain’s alternate locales.
-	AlternateLocales []string `json:"alternateLocales"`
+	AlternateLocales []string `json:"alternateLocales,omitempty"`
 	// The ISO code for the country assigned to the domain, or "*" for a domain set to "Rest of world".
 	Country *string `json:"country,omitempty"`
 	// The ISO code for the domain’s default locale.
-	DefaultLocale string `json:"defaultLocale"`
+	DefaultLocale string `json:"defaultLocale,omitempty"`
 }
 
 // Returns unfulfilled line items grouped by their fulfillment service. Each draft fulfillment contains additional information, such as whether the fulfillment requires shipping and whether a shipping label can be printed for it.
 type DraftFulfillment struct {
 	// Whether a label can be purchased.
-	AllowLabelPurchase bool `json:"allowLabelPurchase"`
+	AllowLabelPurchase bool `json:"allowLabelPurchase,omitempty"`
 	// The line items (which might correspond to a variant) that are part of this draft fulfillment.
-	LineItems []*LineItem `json:"lineItems"`
+	LineItems []*LineItem `json:"lineItems,omitempty"`
 	// Whether a fulfillment requires shipping.
-	RequiresShipping bool `json:"requiresShipping"`
+	RequiresShipping bool `json:"requiresShipping,omitempty"`
 	// The service responsible for fulfilling the fulfillment.
 	Service *FulfillmentService `json:"service,omitempty"`
 }
@@ -3583,11 +3583,11 @@ type DraftOrder struct {
 	// and the draft order's status changed to **Completed**.
 	CompletedAt *string `json:"completedAt,omitempty"`
 	// Date and time when the draft order was created in Shopify.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// Three letter code for the currency of the store at the time that the invoice is sent.
-	CurrencyCode CurrencyCode `json:"currencyCode"`
+	CurrencyCode CurrencyCode `json:"currencyCode,omitempty"`
 	// Custom information added to the draft order on behalf of your customer.
-	CustomAttributes []*Attribute `json:"customAttributes"`
+	CustomAttributes []*Attribute `json:"customAttributes,omitempty"`
 	// Customer who will be sent an invoice for the draft order, if there is one.
 	Customer *Customer `json:"customer,omitempty"`
 	// Email address of the customer, which is used to send notifications to.
@@ -3595,15 +3595,15 @@ type DraftOrder struct {
 	// List of events associated with the draft order.
 	Events *EventConnection `json:"events,omitempty"`
 	// Whether the merchant has added timeline comments to the draft order.
-	HasTimelineComment bool `json:"hasTimelineComment"`
+	HasTimelineComment bool `json:"hasTimelineComment,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Date and time when the invoice was last emailed to the customer.
 	InvoiceSentAt *string `json:"invoiceSentAt,omitempty"`
 	// Link to the checkout, which is sent to your customer in the invoice email.
 	InvoiceURL *string `json:"invoiceUrl,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// List of the line items in the draft order.
 	LineItems *DraftOrderLineItemConnection `json:"lineItems,omitempty"`
 	// List of localization extensions for the resource.
@@ -3613,7 +3613,7 @@ type DraftOrder struct {
 	// A paginated list of metafields associated with the resource.
 	Metafields *MetafieldConnection `json:"metafields,omitempty"`
 	// Unique identifier for the draft order, which is unique within the store. For example, _#D1223_.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// Text from an optional note attached to the draft order.
 	Note2 *string `json:"note2,omitempty"`
 	// Order that was created from this draft order.
@@ -3624,34 +3624,34 @@ type DraftOrder struct {
 	PrivateMetafields *PrivateMetafieldConnection `json:"privateMetafields,omitempty"`
 	// Whether or not the Draft Order is ready and can be completed. Draft Orders
 	//         may have asynchronous operations that can take time to finish.
-	Ready bool `json:"ready"`
+	Ready bool `json:"ready,omitempty"`
 	// Shipping mailing address of the customer.
 	ShippingAddress *MailingAddress `json:"shippingAddress,omitempty"`
 	// Line item that contains the shipping costs.
 	ShippingLine *ShippingLine `json:"shippingLine,omitempty"`
 	// Status of the draft order.
-	Status DraftOrderStatus `json:"status"`
+	Status DraftOrderStatus `json:"status,omitempty"`
 	// Subtotal of the line items and their discounts (does not contain shipping charges or shipping discounts, or taxes).
-	SubtotalPrice string `json:"subtotalPrice"`
+	SubtotalPrice string `json:"subtotalPrice,omitempty"`
 	// A comma separated list of tags that have been added to the draft order.
-	Tags []string `json:"tags"`
+	Tags []string `json:"tags,omitempty"`
 	// Whether the draft order is tax exempt.
-	TaxExempt bool `json:"taxExempt"`
+	TaxExempt bool `json:"taxExempt,omitempty"`
 	// Total amount of taxes charged for each line item and shipping line.
-	TaxLines []*TaxLine `json:"taxLines"`
+	TaxLines []*TaxLine `json:"taxLines,omitempty"`
 	// Whether the line item prices include taxes.
-	TaxesIncluded bool `json:"taxesIncluded"`
+	TaxesIncluded bool `json:"taxesIncluded,omitempty"`
 	// Total amount of the draft order (includes taxes, shipping charges, and discounts).
-	TotalPrice string `json:"totalPrice"`
+	TotalPrice string `json:"totalPrice,omitempty"`
 	// Total shipping charge for the draft order.
-	TotalShippingPrice string `json:"totalShippingPrice"`
+	TotalShippingPrice string `json:"totalShippingPrice,omitempty"`
 	// Total amount of taxes for the draft order.
-	TotalTax string `json:"totalTax"`
+	TotalTax string `json:"totalTax,omitempty"`
 	// Total weight (grams) of the draft order.
-	TotalWeight string `json:"totalWeight"`
+	TotalWeight string `json:"totalWeight,omitempty"`
 	// Date and time when the draft order was last changed.
 	// The format is YYYY-MM-DD HH:mm:ss (for example, 2016-02-05 17:04:01).
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 }
 
 func (DraftOrder) IsCommentEventEmbed()                       {}
@@ -3665,18 +3665,18 @@ func (DraftOrder) IsHasLocalizationExtensionsForDraftOrders() {}
 // The order-level discount applied to a draft order.
 type DraftOrderAppliedDiscount struct {
 	// Amount of the order-level discount that is applied to the draft order.
-	Amount string `json:"amount"`
+	Amount string `json:"amount,omitempty"`
 	// Amount of money discounted.
 	AmountV2 *MoneyV2 `json:"amountV2,omitempty"`
 	// Description of the order-level discount.
-	Description string `json:"description"`
+	Description string `json:"description,omitempty"`
 	// Name of the order-level discount.
 	Title *string `json:"title,omitempty"`
 	// Amount of the order level discount (when value_type is percentage,
 	// the value in this field is the percentage discount).
-	Value float64 `json:"value"`
+	Value float64 `json:"value,omitempty"`
 	// Type of the order-level discount.
-	ValueType DraftOrderAppliedDiscountType `json:"valueType"`
+	ValueType DraftOrderAppliedDiscountType `json:"valueType,omitempty"`
 }
 
 // The input fields for applying an order-level discount to a draft order.
@@ -3690,9 +3690,9 @@ type DraftOrderAppliedDiscountInput struct {
 	// The value of the discount.
 	// If the type of the discount is fixed amount, then this is a fixed dollar amount.
 	// If the type is percentage, then this is the percentage.
-	Value float64 `json:"value"`
+	Value float64 `json:"value,omitempty"`
 	// The type of discount.
-	ValueType DraftOrderAppliedDiscountType `json:"valueType"`
+	ValueType DraftOrderAppliedDiscountType `json:"valueType,omitempty"`
 }
 
 // Return type for `draftOrderCalculate` mutation.
@@ -3700,7 +3700,7 @@ type DraftOrderCalculatePayload struct {
 	// The calculated properties for a draft order.
 	CalculatedDraftOrder *CalculatedDraftOrder `json:"calculatedDraftOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `draftOrderComplete` mutation.
@@ -3708,13 +3708,13 @@ type DraftOrderCompletePayload struct {
 	// The completed draft order.
 	DraftOrder *DraftOrder `json:"draftOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple DraftOrders.
 type DraftOrderConnection struct {
 	// A list of edges.
-	Edges []*DraftOrderEdge `json:"edges"`
+	Edges []*DraftOrderEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -3724,13 +3724,13 @@ type DraftOrderCreatePayload struct {
 	// The created draft order.
 	DraftOrder *DraftOrder `json:"draftOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Specifies the draft order to delete by its ID.
 type DraftOrderDeleteInput struct {
 	// The ID of the draft order to delete.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 }
 
 // Return type for `draftOrderDelete` mutation.
@@ -3738,13 +3738,13 @@ type DraftOrderDeletePayload struct {
 	// The ID of the deleted draft order.
 	DeletedID *string `json:"deletedId,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one DraftOrder and a cursor during pagination.
 type DraftOrderEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of DraftOrderEdge.
 	Node *DraftOrder `json:"node,omitempty"`
 }
@@ -3759,18 +3759,18 @@ type DraftOrderInput struct {
 	// Customer associated with the draft order.
 	CustomerID *string `json:"customerId,omitempty"`
 	// Extra information added to the customer.
-	CustomAttributes []*AttributeInput `json:"customAttributes"`
+	CustomAttributes []*AttributeInput `json:"customAttributes,omitempty"`
 	// The customer's email address.
 	Email *string `json:"email,omitempty"`
 	// Product variant line item or custom line item associated to the draft order.
 	// Each draft order must include at least one line item.
-	LineItems []*DraftOrderLineItemInput `json:"lineItems"`
+	LineItems []*DraftOrderLineItemInput `json:"lineItems,omitempty"`
 	// Metafields attached to the draft order.
-	Metafields []*MetafieldInput `json:"metafields"`
+	Metafields []*MetafieldInput `json:"metafields,omitempty"`
 	// The private metafields attached to the draft order.
-	PrivateMetafields []*PrivateMetafieldInput `json:"privateMetafields"`
+	PrivateMetafields []*PrivateMetafieldInput `json:"privateMetafields,omitempty"`
 	// The localization extensions attached to the draft order. For example, Tax IDs.
-	LocalizationExtensions []*LocalizationExtensionInput `json:"localizationExtensions"`
+	LocalizationExtensions []*LocalizationExtensionInput `json:"localizationExtensions,omitempty"`
 	// The text of an optional note that a shop owner can attach to the draft order.
 	Note *string `json:"note,omitempty"`
 	// The mailing address to where the order will be shipped.
@@ -3778,7 +3778,7 @@ type DraftOrderInput struct {
 	// A shipping line object, which details the shipping method used.
 	ShippingLine *ShippingLineInput `json:"shippingLine,omitempty"`
 	// A comma separated list of tags that have been added to the draft order.
-	Tags []string `json:"tags"`
+	Tags []string `json:"tags,omitempty"`
 	// Whether or not taxes are exempt for the draft order.
 	// If false, then Shopify will refer to the taxable field for each line item.
 	// If a customer is applied to the draft order, then Shopify will use the customer's tax exempt field instead.
@@ -3792,7 +3792,7 @@ type DraftOrderInvoicePreviewPayload struct {
 	// HTML to preview the draft order invoice email.
 	PreviewHTML *string `json:"previewHtml,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `draftOrderInvoiceSend` mutation.
@@ -3800,7 +3800,7 @@ type DraftOrderInvoiceSendPayload struct {
 	// The draft order an invoice email is sent for.
 	DraftOrder *DraftOrder `json:"draftOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents a line item included in a draft order.
@@ -3809,13 +3809,13 @@ type DraftOrderLineItem struct {
 	AppliedDiscount *DraftOrderAppliedDiscount `json:"appliedDiscount,omitempty"`
 	// Whether this is a product variant line item, or a custom line item.
 	// If set to true indicates a custom line item. If set to false indicates a product variant line item.
-	Custom bool `json:"custom"`
+	Custom bool `json:"custom,omitempty"`
 	// List of additional information (metafields) about the line item.
-	CustomAttributes []*Attribute `json:"customAttributes"`
+	CustomAttributes []*Attribute `json:"customAttributes,omitempty"`
 	// Line item price after discounts are applied.
-	DiscountedTotal string `json:"discountedTotal"`
+	DiscountedTotal string `json:"discountedTotal,omitempty"`
 	// The `discountedTotal` divided by `quantity`, resulting in the value of the discount per unit.
-	DiscountedUnitPrice string `json:"discountedUnitPrice"`
+	DiscountedUnitPrice string `json:"discountedUnitPrice,omitempty"`
 	// Name of the service provider who fulfilled the order.
 	//
 	// Valid values are either **manual** or the name of the provider.
@@ -3824,33 +3824,33 @@ type DraftOrderLineItem struct {
 	// Weight in grams. Can only be specified if this is a custom line item.
 	Grams *int `json:"grams,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Image associated with the draft order line item.
 	Image *Image `json:"image,omitempty"`
 	// Whether the line item represents the puchase of a gift card.
-	IsGiftCard bool `json:"isGiftCard"`
+	IsGiftCard bool `json:"isGiftCard,omitempty"`
 	// Name of the product.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// Total price (without discounts) of the line item, based on the original unit price of the variant x quantity.
-	OriginalTotal string `json:"originalTotal"`
+	OriginalTotal string `json:"originalTotal,omitempty"`
 	// Variant price without any discounts applied.
-	OriginalUnitPrice string `json:"originalUnitPrice"`
+	OriginalUnitPrice string `json:"originalUnitPrice,omitempty"`
 	// The product corresponding to the line item’s product variant.
 	Product *Product `json:"product,omitempty"`
 	// Number of variant items requested in the draft order.
-	Quantity int `json:"quantity"`
+	Quantity int `json:"quantity,omitempty"`
 	// Whether physical shipping is required for the variant.
-	RequiresShipping bool `json:"requiresShipping"`
+	RequiresShipping bool `json:"requiresShipping,omitempty"`
 	// Variant SKU number.
 	Sku *string `json:"sku,omitempty"`
 	// A list of tax line objects, each of which details the total taxes applicable to the order.
-	TaxLines []*TaxLine `json:"taxLines"`
+	TaxLines []*TaxLine `json:"taxLines,omitempty"`
 	// Whether the variant is taxable.
-	Taxable bool `json:"taxable"`
+	Taxable bool `json:"taxable,omitempty"`
 	// Title of the product or variant (this field only applies to custom line items).
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// Total value of the discount applied to the line item.
-	TotalDiscount string `json:"totalDiscount"`
+	TotalDiscount string `json:"totalDiscount,omitempty"`
 	// Associated variant for the line item.
 	Variant *ProductVariant `json:"variant,omitempty"`
 	// Name of the variant.
@@ -3866,7 +3866,7 @@ func (DraftOrderLineItem) IsNode() {}
 // An auto-generated type for paginating through multiple DraftOrderLineItems.
 type DraftOrderLineItemConnection struct {
 	// A list of edges.
-	Edges []*DraftOrderLineItemEdge `json:"edges"`
+	Edges []*DraftOrderLineItemEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -3874,7 +3874,7 @@ type DraftOrderLineItemConnection struct {
 // An auto-generated type which holds one DraftOrderLineItem and a cursor during pagination.
 type DraftOrderLineItemEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of DraftOrderLineItemEdge.
 	Node *DraftOrderLineItem `json:"node,omitempty"`
 }
@@ -3884,13 +3884,13 @@ type DraftOrderLineItemInput struct {
 	// Discount which will be applied to the line item.
 	AppliedDiscount *DraftOrderAppliedDiscountInput `json:"appliedDiscount,omitempty"`
 	// Represents a generic custom attribute using a key value pair.
-	CustomAttributes []*AttributeInput `json:"customAttributes"`
+	CustomAttributes []*AttributeInput `json:"customAttributes,omitempty"`
 	// Ignored when variant ID is provided. This argument is deprecated: Use `weight` instead.
 	Grams *int `json:"grams,omitempty"`
 	// Ignored when variant ID is provided.
 	OriginalUnitPrice *string `json:"originalUnitPrice,omitempty"`
 	// The number of products that were purchased.
-	Quantity int `json:"quantity"`
+	Quantity int `json:"quantity,omitempty"`
 	// Ignored when variant ID is provided.
 	RequiresShipping *bool `json:"requiresShipping,omitempty"`
 	// Ignored when variant ID is provided.
@@ -3912,7 +3912,7 @@ type DraftOrderUpdatePayload struct {
 	// The updated draft order.
 	DraftOrder *DraftOrder `json:"draftOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents a single duty for a line item.
@@ -3922,11 +3922,11 @@ type Duty struct {
 	// The harmonized system code of the line item.
 	HarmonizedSystemCode *string `json:"harmonizedSystemCode,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The price of the duty for the line item.
 	Price *MoneyBag `json:"price,omitempty"`
 	// The TaxLine objects connected to the duty for the line item.
-	TaxLines []*TaxLine `json:"taxLines"`
+	TaxLines []*TaxLine `json:"taxLines,omitempty"`
 }
 
 func (Duty) IsNode() {}
@@ -3934,7 +3934,7 @@ func (Duty) IsNode() {}
 // The attribute editable information.
 type EditableProperty struct {
 	// Whether the attribute is locked for editing.
-	Locked bool `json:"locked"`
+	Locked bool `json:"locked,omitempty"`
 	// The reason the attribute is locked for editing.
 	Reason *string `json:"reason,omitempty"`
 }
@@ -3950,7 +3950,7 @@ type EmailInput struct {
 	// Specifies the email body.
 	Body *string `json:"body,omitempty"`
 	// Specifies any bcc recipients for the email.
-	Bcc []string `json:"bcc"`
+	Bcc []string `json:"bcc,omitempty"`
 	// Specifies a custom message to include in the email.
 	CustomMessage *string `json:"customMessage,omitempty"`
 }
@@ -3958,7 +3958,7 @@ type EmailInput struct {
 // Return type for `eventBridgeWebhookSubscriptionCreate` mutation.
 type EventBridgeWebhookSubscriptionCreatePayload struct {
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 	// The webhook subscription that was created.
 	WebhookSubscription *WebhookSubscription `json:"webhookSubscription,omitempty"`
 }
@@ -3970,15 +3970,15 @@ type EventBridgeWebhookSubscriptionInput struct {
 	// The format in which the webhook subscription should send the data.
 	Format *WebhookSubscriptionFormat `json:"format,omitempty"`
 	// The list of fields to be included in the webhook subscription.
-	IncludeFields []string `json:"includeFields"`
+	IncludeFields []string `json:"includeFields,omitempty"`
 	// The list of namespaces for any metafields that should be included in the webhook subscription.
-	MetafieldNamespaces []string `json:"metafieldNamespaces"`
+	MetafieldNamespaces []string `json:"metafieldNamespaces,omitempty"`
 }
 
 // Return type for `eventBridgeWebhookSubscriptionUpdate` mutation.
 type EventBridgeWebhookSubscriptionUpdatePayload struct {
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 	// The webhook subscription that was updated.
 	WebhookSubscription *WebhookSubscription `json:"webhookSubscription,omitempty"`
 }
@@ -3986,7 +3986,7 @@ type EventBridgeWebhookSubscriptionUpdatePayload struct {
 // An auto-generated type for paginating through multiple Events.
 type EventConnection struct {
 	// A list of edges.
-	Edges []*EventEdge `json:"edges"`
+	Edges []*EventEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -3994,9 +3994,9 @@ type EventConnection struct {
 // An auto-generated type which holds one Event and a cursor during pagination.
 type EventEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of EventEdge.
-	Node Event `json:"node"`
+	Node Event `json:"node,omitempty"`
 }
 
 // Represents a video hosted outside of Shopify.
@@ -4004,17 +4004,17 @@ type ExternalVideo struct {
 	// A word or phrase to share the nature or contents of a media.
 	Alt *string `json:"alt,omitempty"`
 	// The URL.
-	EmbeddedURL string `json:"embeddedUrl"`
+	EmbeddedURL string `json:"embeddedUrl,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The media content type.
-	MediaContentType MediaContentType `json:"mediaContentType"`
+	MediaContentType MediaContentType `json:"mediaContentType,omitempty"`
 	// Any errors which have occurred on the media.
-	MediaErrors []*MediaError `json:"mediaErrors"`
+	MediaErrors []*MediaError `json:"mediaErrors,omitempty"`
 	// The preview image for the media.
 	Preview *MediaPreviewImage `json:"preview,omitempty"`
 	// Current status of the media.
-	Status MediaStatus `json:"status"`
+	Status MediaStatus `json:"status,omitempty"`
 }
 
 func (ExternalVideo) IsNode()  {}
@@ -4026,27 +4026,27 @@ type FailedRequirement struct {
 	Action *NavigationItem `json:"action,omitempty"`
 	// A concise set of copy strings to be displayed to merchants, to guide them in resolving problems your app
 	// encounters when trying to make use of their Shop and its resources.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 // A filter option is one possible value in a search filter.
 type FilterOption struct {
 	// The filter option's label for display purposes.
-	Label string `json:"label"`
+	Label string `json:"label,omitempty"`
 	// The filter option's value.
-	Value string `json:"value"`
+	Value string `json:"value,omitempty"`
 }
 
 // Return type for `flowTriggerReceive` mutation.
 type FlowTriggerReceivePayload struct {
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents a fulfillment. In Shopify, a fulfillment represents a shipment of one or more items in an order. When an order has been completely fulfilled, it means that all the items that are included in the order have been sent to the customer. There can be more than one fulfillment for an order.
 type Fulfillment struct {
 	// The date and time when the fulfillment was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The date that this fulfillment was delivered.
 	DeliveredAt *string `json:"deliveredAt,omitempty"`
 	// Human readable display status for this fulfillment.
@@ -4060,30 +4060,30 @@ type Fulfillment struct {
 	// A list of fulfillment orders for the fulfillment.
 	FulfillmentOrders *FulfillmentOrderConnection `json:"fulfillmentOrders,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The date and time when the fulfillment went into transit.
 	InTransitAt *string `json:"inTransitAt,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// The location that the fulfillment was processed at.
 	Location *Location `json:"location,omitempty"`
 	// Human readable reference identifier for this fulfillment.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The order for which the fulfillment was created.
 	Order *Order `json:"order,omitempty"`
 	// Whether any of the line items in the fulfillment require shipping.
-	RequiresShipping bool `json:"requiresShipping"`
+	RequiresShipping bool `json:"requiresShipping,omitempty"`
 	// Fulfillment service associated with the fulfillment.
 	Service *FulfillmentService `json:"service,omitempty"`
 	// The status of the fulfillment.
-	Status FulfillmentStatus `json:"status"`
+	Status FulfillmentStatus `json:"status,omitempty"`
 	// Sum of all line item quantities for the fulfillment.
-	TotalQuantity int `json:"totalQuantity"`
+	TotalQuantity int `json:"totalQuantity,omitempty"`
 	// Tracking information associated with the fulfillment,
 	// such as the tracking company, tracking number, and tracking URL.
-	TrackingInfo []*FulfillmentTrackingInfo `json:"trackingInfo"`
+	TrackingInfo []*FulfillmentTrackingInfo `json:"trackingInfo,omitempty"`
 	// The date and time when the fulfillment was last modified.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 }
 
 func (Fulfillment) IsLegacyInteroperability() {}
@@ -4094,13 +4094,13 @@ type FulfillmentCancelPayload struct {
 	// The canceled fulfillment.
 	Fulfillment *Fulfillment `json:"fulfillment,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple Fulfillments.
 type FulfillmentConnection struct {
 	// A list of edges.
-	Edges []*FulfillmentEdge `json:"edges"`
+	Edges []*FulfillmentEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -4112,7 +4112,7 @@ type FulfillmentCreatePayload struct {
 	// The order for which the fulfillment is created.
 	Order *Order `json:"order,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `fulfillmentCreateV2` mutation.
@@ -4120,13 +4120,13 @@ type FulfillmentCreateV2Payload struct {
 	// The created fulfillment.
 	Fulfillment *Fulfillment `json:"fulfillment,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one Fulfillment and a cursor during pagination.
 type FulfillmentEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of FulfillmentEdge.
 	Node *Fulfillment `json:"node,omitempty"`
 }
@@ -4134,11 +4134,11 @@ type FulfillmentEdge struct {
 // An event that describes a fulfillment at a time.
 type FulfillmentEvent struct {
 	// The time at which this fulfillment event happened.
-	HappenedAt string `json:"happenedAt"`
+	HappenedAt string `json:"happenedAt,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The status of this fulfillment event.
-	Status FulfillmentEventStatus `json:"status"`
+	Status FulfillmentEventStatus `json:"status,omitempty"`
 }
 
 func (FulfillmentEvent) IsNode() {}
@@ -4146,7 +4146,7 @@ func (FulfillmentEvent) IsNode() {}
 // An auto-generated type for paginating through multiple FulfillmentEvents.
 type FulfillmentEventConnection struct {
 	// A list of edges.
-	Edges []*FulfillmentEventEdge `json:"edges"`
+	Edges []*FulfillmentEventEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -4154,7 +4154,7 @@ type FulfillmentEventConnection struct {
 // An auto-generated type which holds one FulfillmentEvent and a cursor during pagination.
 type FulfillmentEventEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of FulfillmentEventEdge.
 	Node *FulfillmentEvent `json:"node,omitempty"`
 }
@@ -4162,13 +4162,13 @@ type FulfillmentEventEdge struct {
 // The input fields used to create a fulfillment.
 type FulfillmentInput struct {
 	// The ID of the order to be fulfilled.
-	OrderID string `json:"orderId"`
+	OrderID string `json:"orderId,omitempty"`
 	// The line items to be fulfilled.
-	LineItems []*FulfillmentLineItemInput `json:"lineItems"`
+	LineItems []*FulfillmentLineItemInput `json:"lineItems,omitempty"`
 	// Tracking numbers associated with the fulfillment.
-	TrackingNumbers []string `json:"trackingNumbers"`
+	TrackingNumbers []string `json:"trackingNumbers,omitempty"`
 	// The URLs to track the fulfillment.
-	TrackingUrls []string `json:"trackingUrls"`
+	TrackingUrls []string `json:"trackingUrls,omitempty"`
 	// The name of the tracking company.
 	TrackingCompany *string `json:"trackingCompany,omitempty"`
 	// Whether the customer is notified.
@@ -4177,21 +4177,21 @@ type FulfillmentInput struct {
 	// A reference to the shipping method, such as `Free Shipping`.
 	ShippingMethod *string `json:"shippingMethod,omitempty"`
 	// The ID of the location from which the items will be fulfilled.
-	LocationID string `json:"locationId"`
+	LocationID string `json:"locationId,omitempty"`
 }
 
 // Represents a line item from an order that's included in a fulfillment.
 type FulfillmentLineItem struct {
 	// The total price after discounts are applied.
-	DiscountedTotal string `json:"discountedTotal"`
+	DiscountedTotal string `json:"discountedTotal,omitempty"`
 	// The total price after discounts are applied in shop and presentment currencies.
 	DiscountedTotalSet *MoneyBag `json:"discountedTotalSet,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The associated order's line item.
 	LineItem *LineItem `json:"lineItem,omitempty"`
 	// The total price before discounts are applied.
-	OriginalTotal string `json:"originalTotal"`
+	OriginalTotal string `json:"originalTotal,omitempty"`
 	// The total price before discounts are applied in shop and presentment currencies.
 	OriginalTotalSet *MoneyBag `json:"originalTotalSet,omitempty"`
 	// Number of line items in the fulfillment.
@@ -4203,7 +4203,7 @@ func (FulfillmentLineItem) IsNode() {}
 // An auto-generated type for paginating through multiple FulfillmentLineItems.
 type FulfillmentLineItemConnection struct {
 	// A list of edges.
-	Edges []*FulfillmentLineItemEdge `json:"edges"`
+	Edges []*FulfillmentLineItemEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -4211,7 +4211,7 @@ type FulfillmentLineItemConnection struct {
 // An auto-generated type which holds one FulfillmentLineItem and a cursor during pagination.
 type FulfillmentLineItemEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of FulfillmentLineItemEdge.
 	Node *FulfillmentLineItem `json:"node,omitempty"`
 }
@@ -4219,7 +4219,7 @@ type FulfillmentLineItemEdge struct {
 // The input fields used to include a line item from an order in a fulfillment.
 type FulfillmentLineItemInput struct {
 	// The ID of the line item.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The quantity of the line item to be fulfilled.
 	Quantity *int `json:"quantity,omitempty"`
 }
@@ -4239,7 +4239,7 @@ type FulfillmentOrder struct {
 	// A list of fulfillments for the fulfillment order.
 	Fulfillments *FulfillmentConnection `json:"fulfillments,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// A list of the fulfillment order's line items.
 	LineItems *FulfillmentOrderLineItemConnection `json:"lineItems,omitempty"`
 	// A list of locations that the fulfillment order can potentially move to.
@@ -4249,11 +4249,11 @@ type FulfillmentOrder struct {
 	// The order that's associated with the fulfillment order.
 	Order *Order `json:"order,omitempty"`
 	// The request status of the fulfillment order.
-	RequestStatus FulfillmentOrderRequestStatus `json:"requestStatus"`
+	RequestStatus FulfillmentOrderRequestStatus `json:"requestStatus,omitempty"`
 	// The status of the fulfillment order.
-	Status FulfillmentOrderStatus `json:"status"`
+	Status FulfillmentOrderStatus `json:"status,omitempty"`
 	// The actions that can be performed on this fulfillment order.
-	SupportedActions []*FulfillmentOrderSupportedAction `json:"supportedActions"`
+	SupportedActions []*FulfillmentOrderSupportedAction `json:"supportedActions,omitempty"`
 }
 
 func (FulfillmentOrder) IsNode() {}
@@ -4263,7 +4263,7 @@ type FulfillmentOrderAcceptCancellationRequestPayload struct {
 	// The fulfillment order whose cancellation request was accepted.
 	FulfillmentOrder *FulfillmentOrder `json:"fulfillmentOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `fulfillmentOrderAcceptFulfillmentRequest` mutation.
@@ -4271,7 +4271,7 @@ type FulfillmentOrderAcceptFulfillmentRequestPayload struct {
 	// The fulfillment order whose fulfillment request was accepted.
 	FulfillmentOrder *FulfillmentOrder `json:"fulfillmentOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents the assigned location of a fulfillment order, which is a snapshot of the location
@@ -4284,13 +4284,13 @@ type FulfillmentOrderAssignedLocation struct {
 	// The city of the location.
 	City *string `json:"city,omitempty"`
 	// The two-letter country code of the location.
-	CountryCode CountryCode `json:"countryCode"`
+	CountryCode CountryCode `json:"countryCode,omitempty"`
 	// The location where the fulfillment order was created. This can differ from the
 	// `FulfillmentOrderAssignedLocation` if the location was updated since the fulfillment order
 	// was closed.
 	Location *Location `json:"location,omitempty"`
 	// The name of the location.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The phone number of the location.
 	Phone *string `json:"phone,omitempty"`
 	// The province of the location.
@@ -4306,7 +4306,7 @@ type FulfillmentOrderCancelPayload struct {
 	// The fulfillment order that was created to replace the canceled fulfillment order.
 	ReplacementFulfillmentOrder *FulfillmentOrder `json:"replacementFulfillmentOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `fulfillmentOrderClose` mutation.
@@ -4314,13 +4314,13 @@ type FulfillmentOrderClosePayload struct {
 	// The fulfillment order that was marked as incomplete.
 	FulfillmentOrder *FulfillmentOrder `json:"fulfillmentOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple FulfillmentOrders.
 type FulfillmentOrderConnection struct {
 	// A list of edges.
-	Edges []*FulfillmentOrderEdge `json:"edges"`
+	Edges []*FulfillmentOrderEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -4342,7 +4342,7 @@ type FulfillmentOrderDestination struct {
 	// The first name of the customer at the destination.
 	FirstName *string `json:"firstName,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The last name of the customer at the destination.
 	LastName *string `json:"lastName,omitempty"`
 	// The phone number of the customer at the destination.
@@ -4358,7 +4358,7 @@ func (FulfillmentOrderDestination) IsNode() {}
 // An auto-generated type which holds one FulfillmentOrder and a cursor during pagination.
 type FulfillmentOrderEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of FulfillmentOrderEdge.
 	Node *FulfillmentOrder `json:"node,omitempty"`
 }
@@ -4366,13 +4366,13 @@ type FulfillmentOrderEdge struct {
 // Represents a line item belonging to a fulfillment order.
 type FulfillmentOrderLineItem struct {
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The associated order line item.
 	LineItem *LineItem `json:"lineItem,omitempty"`
 	// The number of units remaining to be fulfilled.
-	RemainingQuantity int `json:"remainingQuantity"`
+	RemainingQuantity int `json:"remainingQuantity,omitempty"`
 	// The total number of units to be fulfilled.
-	TotalQuantity int `json:"totalQuantity"`
+	TotalQuantity int `json:"totalQuantity,omitempty"`
 }
 
 func (FulfillmentOrderLineItem) IsNode() {}
@@ -4380,7 +4380,7 @@ func (FulfillmentOrderLineItem) IsNode() {}
 // An auto-generated type for paginating through multiple FulfillmentOrderLineItems.
 type FulfillmentOrderLineItemConnection struct {
 	// A list of edges.
-	Edges []*FulfillmentOrderLineItemEdge `json:"edges"`
+	Edges []*FulfillmentOrderLineItemEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -4388,7 +4388,7 @@ type FulfillmentOrderLineItemConnection struct {
 // An auto-generated type which holds one FulfillmentOrderLineItem and a cursor during pagination.
 type FulfillmentOrderLineItemEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of FulfillmentOrderLineItemEdge.
 	Node *FulfillmentOrderLineItem `json:"node,omitempty"`
 }
@@ -4396,18 +4396,18 @@ type FulfillmentOrderLineItemEdge struct {
 // The input fields used to include a line item from a fulfillment order.
 type FulfillmentOrderLineItemInput struct {
 	// The ID of the fulfillment order line item.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The quantity of the fulfillment order line item.
-	Quantity int `json:"quantity"`
+	Quantity int `json:"quantity,omitempty"`
 }
 
 // The input fields used to include the line items of a specified fulfillment order that should be fulfilled.
 type FulfillmentOrderLineItemsInput struct {
 	// The ID of the fulfillment order.
-	FulfillmentOrderID string `json:"fulfillmentOrderId"`
+	FulfillmentOrderID string `json:"fulfillmentOrderId,omitempty"`
 	// The fulfillment order line items to be fulfilled.
 	// If left blank, all line items of the fulfillment order will be fulfilled.
-	FulfillmentOrderLineItems []*FulfillmentOrderLineItemInput `json:"fulfillmentOrderLineItems"`
+	FulfillmentOrderLineItems []*FulfillmentOrderLineItemInput `json:"fulfillmentOrderLineItems,omitempty"`
 }
 
 // A location that a fulfillment order can potentially move to.
@@ -4418,13 +4418,13 @@ type FulfillmentOrderLocationForMove struct {
 	// moved to the location.
 	Message *string `json:"message,omitempty"`
 	// Whether the fulfillment order can be moved to the location.
-	Movable bool `json:"movable"`
+	Movable bool `json:"movable,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple FulfillmentOrderLocationForMoves.
 type FulfillmentOrderLocationForMoveConnection struct {
 	// A list of edges.
-	Edges []*FulfillmentOrderLocationForMoveEdge `json:"edges"`
+	Edges []*FulfillmentOrderLocationForMoveEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -4432,7 +4432,7 @@ type FulfillmentOrderLocationForMoveConnection struct {
 // An auto-generated type which holds one FulfillmentOrderLocationForMove and a cursor during pagination.
 type FulfillmentOrderLocationForMoveEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of FulfillmentOrderLocationForMoveEdge.
 	Node *FulfillmentOrderLocationForMove `json:"node,omitempty"`
 }
@@ -4440,9 +4440,9 @@ type FulfillmentOrderLocationForMoveEdge struct {
 // Represents a request made by the merchant to a fulfillment service for a fulfillment order.
 type FulfillmentOrderMerchantRequest struct {
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The kind of request made.
-	Kind FulfillmentOrderMerchantRequestKind `json:"kind"`
+	Kind FulfillmentOrderMerchantRequestKind `json:"kind,omitempty"`
 	// The optional message that the merchant included in the request.
 	Message *string `json:"message,omitempty"`
 	// Additional options requested by the merchant. These depend on the `kind` of the request.
@@ -4453,7 +4453,7 @@ type FulfillmentOrderMerchantRequest struct {
 	// The response from the fulfillment service.
 	ResponseData *string `json:"responseData,omitempty"`
 	// The timestamp when the request was made.
-	SentAt string `json:"sentAt"`
+	SentAt string `json:"sentAt,omitempty"`
 }
 
 func (FulfillmentOrderMerchantRequest) IsNode() {}
@@ -4461,7 +4461,7 @@ func (FulfillmentOrderMerchantRequest) IsNode() {}
 // An auto-generated type for paginating through multiple FulfillmentOrderMerchantRequests.
 type FulfillmentOrderMerchantRequestConnection struct {
 	// A list of edges.
-	Edges []*FulfillmentOrderMerchantRequestEdge `json:"edges"`
+	Edges []*FulfillmentOrderMerchantRequestEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -4469,7 +4469,7 @@ type FulfillmentOrderMerchantRequestConnection struct {
 // An auto-generated type which holds one FulfillmentOrderMerchantRequest and a cursor during pagination.
 type FulfillmentOrderMerchantRequestEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of FulfillmentOrderMerchantRequestEdge.
 	Node *FulfillmentOrderMerchantRequest `json:"node,omitempty"`
 }
@@ -4485,7 +4485,7 @@ type FulfillmentOrderMovePayload struct {
 	// due to not being stocked there.
 	RemainingFulfillmentOrder *FulfillmentOrder `json:"remainingFulfillmentOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `fulfillmentOrderOpen` mutation.
@@ -4493,7 +4493,7 @@ type FulfillmentOrderOpenPayload struct {
 	// The fulfillment order that was marked as open.
 	FulfillmentOrder *FulfillmentOrder `json:"fulfillmentOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `fulfillmentOrderRejectCancellationRequest` mutation.
@@ -4501,7 +4501,7 @@ type FulfillmentOrderRejectCancellationRequestPayload struct {
 	// The fulfillment order whose cancellation request was rejected.
 	FulfillmentOrder *FulfillmentOrder `json:"fulfillmentOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `fulfillmentOrderRejectFulfillmentRequest` mutation.
@@ -4509,7 +4509,7 @@ type FulfillmentOrderRejectFulfillmentRequestPayload struct {
 	// The fulfillment order whose fulfillment request was rejected.
 	FulfillmentOrder *FulfillmentOrder `json:"fulfillmentOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `fulfillmentOrderReschedule` mutation.
@@ -4517,7 +4517,7 @@ type FulfillmentOrderReschedulePayload struct {
 	// The fulfillment order that was updated to the new fulfill at date.
 	FulfillmentOrder *FulfillmentOrder `json:"fulfillmentOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*FulfillmentOrderRescheduleUserError `json:"userErrors"`
+	UserErrors []*FulfillmentOrderRescheduleUserError `json:"userErrors,omitempty"`
 }
 
 // An error that occurs during the execution of FulfillmentOrderReschedule.
@@ -4525,9 +4525,9 @@ type FulfillmentOrderRescheduleUserError struct {
 	// Error code to uniquely identify the error.
 	Code *FulfillmentOrderRescheduleUserErrorCode `json:"code,omitempty"`
 	// Path to the input field which caused the error.
-	Field []string `json:"field"`
+	Field []string `json:"field,omitempty"`
 	// The error message.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 func (FulfillmentOrderRescheduleUserError) IsDisplayableError() {}
@@ -4537,7 +4537,7 @@ type FulfillmentOrderSubmitCancellationRequestPayload struct {
 	// The fulfillment order whose cancellation was requested.
 	FulfillmentOrder *FulfillmentOrder `json:"fulfillmentOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `fulfillmentOrderSubmitFulfillmentRequest` mutation.
@@ -4552,13 +4552,13 @@ type FulfillmentOrderSubmitFulfillmentRequestPayload struct {
 	// fulfillment order with the remaining line items not submitted to the fulfillment service.
 	UnsubmittedFulfillmentOrder *FulfillmentOrder `json:"unsubmittedFulfillmentOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents one of the methods that the fulfillment order supports.
 type FulfillmentOrderSupportedAction struct {
 	// The action value.
-	Action FulfillmentOrderAction `json:"action"`
+	Action FulfillmentOrderAction `json:"action,omitempty"`
 	// The external URL to be used to initiate the fulfillment process outside Shopify.
 	ExternalURL *string `json:"externalUrl,omitempty"`
 }
@@ -4568,23 +4568,23 @@ type FulfillmentService struct {
 	// The callback URL the fulfillment service has registered for requests.
 	CallbackURL *string `json:"callbackUrl,omitempty"`
 	// Whether the fulfillment service has opted into fulfillment order based requests.
-	FulfillmentOrdersOptIn bool `json:"fulfillmentOrdersOptIn"`
+	FulfillmentOrdersOptIn bool `json:"fulfillmentOrdersOptIn,omitempty"`
 	// Human-readable unique identifier for this fulfillment service.
-	Handle string `json:"handle"`
+	Handle string `json:"handle,omitempty"`
 	// The ID of the fulfillment service.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Whether the fulfillment service tracks product inventory and provides updates to Shopify.
-	InventoryManagement bool `json:"inventoryManagement"`
+	InventoryManagement bool `json:"inventoryManagement,omitempty"`
 	// Location associated with the fulfillment service.
 	Location *Location `json:"location,omitempty"`
 	// Whether the fulfillment service supports local deliveries.
-	ProductBased bool `json:"productBased"`
+	ProductBased bool `json:"productBased,omitempty"`
 	// The name of the fulfillment service as seen by merchants.
-	ServiceName string `json:"serviceName"`
+	ServiceName string `json:"serviceName,omitempty"`
 	// Shipping methods associated with the fulfillment service provider.
-	ShippingMethods []*ShippingMethod `json:"shippingMethods"`
+	ShippingMethods []*ShippingMethod `json:"shippingMethods,omitempty"`
 	// Type associated with the fulfillment service.
-	Type FulfillmentServiceType `json:"type"`
+	Type FulfillmentServiceType `json:"type,omitempty"`
 }
 
 // Return type for `fulfillmentServiceCreate` mutation.
@@ -4592,7 +4592,7 @@ type FulfillmentServiceCreatePayload struct {
 	// The created fulfillment service.
 	FulfillmentService *FulfillmentService `json:"fulfillmentService,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `fulfillmentServiceDelete` mutation.
@@ -4600,7 +4600,7 @@ type FulfillmentServiceDeletePayload struct {
 	// The ID of the deleted fulfillment service.
 	DeletedID *string `json:"deletedId,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `fulfillmentServiceUpdate` mutation.
@@ -4608,7 +4608,7 @@ type FulfillmentServiceUpdatePayload struct {
 	// The updated fulfillment service.
 	FulfillmentService *FulfillmentService `json:"fulfillmentService,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents the tracking information for a fulfillment.
@@ -4626,7 +4626,7 @@ type FulfillmentTrackingInfoUpdatePayload struct {
 	// The updated fulfillment with tracking information.
 	Fulfillment *Fulfillment `json:"fulfillment,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `fulfillmentTrackingInfoUpdateV2` mutation.
@@ -4634,7 +4634,7 @@ type FulfillmentTrackingInfoUpdateV2Payload struct {
 	// The updated fulfillment with tracking information.
 	Fulfillment *Fulfillment `json:"fulfillment,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // The input fields used to specify all possible fields for tracking information.
@@ -4659,7 +4659,7 @@ type FulfillmentV2Input struct {
 	// order line items that have to be fulfilled for each fulfillment order.  For any given pair, if the
 	// fulfillment order line items are left blank then all the fulfillment order line items of the
 	// associated fulfillment order ID will be fulfilled.
-	LineItemsByFulfillmentOrder []*FulfillmentOrderLineItemsInput `json:"lineItemsByFulfillmentOrder"`
+	LineItemsByFulfillmentOrder []*FulfillmentOrderLineItemsInput `json:"lineItemsByFulfillmentOrder,omitempty"`
 }
 
 // Represents an image resource.
@@ -4677,18 +4677,18 @@ type Image struct {
 	// The location of the original image as a URL.
 	//
 	// If there are any existing transformations in the original source URL, they will remain and not be stripped.
-	OriginalSrc string `json:"originalSrc"`
+	OriginalSrc string `json:"originalSrc,omitempty"`
 	// Returns a private metafield found by namespace and key.
 	PrivateMetafield *PrivateMetafield `json:"privateMetafield,omitempty"`
 	// List of private metafields.
 	PrivateMetafields *PrivateMetafieldConnection `json:"privateMetafields,omitempty"`
 	// The location of the image as a URL.
-	Src string `json:"src"`
+	Src string `json:"src,omitempty"`
 	// The location of the transformed image as a URL.
 	//
 	// All transformation arguments are considered "best-effort". If they can be applied to an image, they will be.
 	// Otherwise any transformations which an image type does not support will be ignored.
-	TransformedSrc string `json:"transformedSrc"`
+	TransformedSrc string `json:"transformedSrc,omitempty"`
 	// The original width of the image in pixels. Returns `null` if the image is not hosted by Shopify.
 	Width *int `json:"width,omitempty"`
 }
@@ -4698,7 +4698,7 @@ func (Image) IsHasMetafields() {}
 // An auto-generated type for paginating through multiple Images.
 type ImageConnection struct {
 	// A list of edges.
-	Edges []*ImageEdge `json:"edges"`
+	Edges []*ImageEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -4706,7 +4706,7 @@ type ImageConnection struct {
 // An auto-generated type which holds one Image and a cursor during pagination.
 type ImageEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of ImageEdge.
 	Node *Image `json:"node,omitempty"`
 }
@@ -4724,9 +4724,9 @@ type ImageInput struct {
 // Upload parameter of an image.
 type ImageUploadParameter struct {
 	// Parameter name.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// Parameter value.
-	Value string `json:"value"`
+	Value string `json:"value,omitempty"`
 }
 
 // Return type for `inventoryActivate` mutation.
@@ -4734,23 +4734,23 @@ type InventoryActivatePayload struct {
 	// The newly activated inventory level.
 	InventoryLevel *InventoryLevel `json:"inventoryLevel,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Specifies the items and their adjustments.
 type InventoryAdjustItemInput struct {
 	// ID of the inventory item to adjust.
-	InventoryItemID string `json:"inventoryItemId"`
+	InventoryItemID string `json:"inventoryItemId,omitempty"`
 	// Count by which to adjust the available quantity.
-	AvailableDelta int `json:"availableDelta"`
+	AvailableDelta int `json:"availableDelta,omitempty"`
 }
 
 // Specifies the fields required to adjust the inventory quantity.
 type InventoryAdjustQuantityInput struct {
 	// ID of the inventory level to adjust.
-	InventoryLevelID string `json:"inventoryLevelId"`
+	InventoryLevelID string `json:"inventoryLevelId,omitempty"`
 	// Count by which to adjust the available quantity.
-	AvailableDelta int `json:"availableDelta"`
+	AvailableDelta int `json:"availableDelta,omitempty"`
 }
 
 // Return type for `inventoryAdjustQuantity` mutation.
@@ -4758,21 +4758,21 @@ type InventoryAdjustQuantityPayload struct {
 	// Represents the updated inventory quantity of an inventory item at a specific location.
 	InventoryLevel *InventoryLevel `json:"inventoryLevel,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `inventoryBulkAdjustQuantityAtLocation` mutation.
 type InventoryBulkAdjustQuantityAtLocationPayload struct {
 	// The updated inventory quantities.
-	InventoryLevels []*InventoryLevel `json:"inventoryLevels"`
+	InventoryLevels []*InventoryLevel `json:"inventoryLevels,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `inventoryDeactivate` mutation.
 type InventoryDeactivatePayload struct {
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents the goods available to be shipped to a customer.
@@ -4783,13 +4783,13 @@ type InventoryItem struct {
 	// List of country specific harmonized system codes.
 	CountryHarmonizedSystemCodes *CountryHarmonizedSystemCodeConnection `json:"countryHarmonizedSystemCodes,omitempty"`
 	// The date and time when the inventory item was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The number of inventory items that share the same SKU with this item.
-	DuplicateSkuCount int `json:"duplicateSkuCount"`
+	DuplicateSkuCount int `json:"duplicateSkuCount,omitempty"`
 	// The harmonized system code of the item.
 	HarmonizedSystemCode *string `json:"harmonizedSystemCode,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// URL for inventory history web page.
 	InventoryHistoryURL *string `json:"inventoryHistoryUrl,omitempty"`
 	// Get the inventory level at a specific location.
@@ -4797,23 +4797,23 @@ type InventoryItem struct {
 	// Paginated list of inventory levels for each location that the inventory item is stocked at.
 	InventoryLevels *InventoryLevelConnection `json:"inventoryLevels,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// The number of locations where this inventory item is stocked.
-	LocationsCount int `json:"locationsCount"`
+	LocationsCount int `json:"locationsCount,omitempty"`
 	// The ISO code of the province of origin.
 	ProvinceCodeOfOrigin *string `json:"provinceCodeOfOrigin,omitempty"`
 	// Whether the item requires shipping or not.
-	RequiresShipping bool `json:"requiresShipping"`
+	RequiresShipping bool `json:"requiresShipping,omitempty"`
 	// Inventory item SKU.
 	Sku *string `json:"sku,omitempty"`
 	// Whether the inventory quantities of inventory levels for the item are tracked or not.
-	Tracked bool `json:"tracked"`
+	Tracked bool `json:"tracked,omitempty"`
 	// Whether changes to the inventory item tracked attribute are allowed.
 	TrackedEditable *EditableProperty `json:"trackedEditable,omitempty"`
 	// Unit cost associated with the inventory item.
 	UnitCost *MoneyV2 `json:"unitCost,omitempty"`
 	// The date and time when the inventory item was updated.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 	// The variant that owns this inventory item.
 	Variant *ProductVariant `json:"variant,omitempty"`
 }
@@ -4824,7 +4824,7 @@ func (InventoryItem) IsLegacyInteroperability() {}
 // An auto-generated type for paginating through multiple InventoryItems.
 type InventoryItemConnection struct {
 	// A list of edges.
-	Edges []*InventoryItemEdge `json:"edges"`
+	Edges []*InventoryItemEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -4832,7 +4832,7 @@ type InventoryItemConnection struct {
 // An auto-generated type which holds one InventoryItem and a cursor during pagination.
 type InventoryItemEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of InventoryItemEdge.
 	Node *InventoryItem `json:"node,omitempty"`
 }
@@ -4858,7 +4858,7 @@ type InventoryItemUpdateInput struct {
 	// The harmonized system code of the inventory item.
 	HarmonizedSystemCode *string `json:"harmonizedSystemCode,omitempty"`
 	// List of country-specific harmonized system codes.
-	CountryHarmonizedSystemCodes []*CountryHarmonizedSystemCodeInput `json:"countryHarmonizedSystemCodes"`
+	CountryHarmonizedSystemCodes []*CountryHarmonizedSystemCodeInput `json:"countryHarmonizedSystemCodes,omitempty"`
 }
 
 // Return type for `inventoryItemUpdate` mutation.
@@ -4866,31 +4866,31 @@ type InventoryItemUpdatePayload struct {
 	// The updated inventory item.
 	InventoryItem *InventoryItem `json:"inventoryItem,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents the inventory quantity of an inventory item at a specific location.
 type InventoryLevel struct {
 	// Quantity of items available at the location.
-	Available int `json:"available"`
+	Available int `json:"available,omitempty"`
 	// Whether inventoryDeactivate is allowed for this inventory level.
-	CanDeactivate bool `json:"canDeactivate"`
+	CanDeactivate bool `json:"canDeactivate,omitempty"`
 	// The date and time when the inventory level was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// Reason why canDeactivate is false, or impact of deactivating the inventory level.
 	DeactivationAlert *string `json:"deactivationAlert,omitempty"`
 	// Reason why canDeactivate is false with URLs linked in HTML, or impact of deactivating the inventory level.
 	DeactivationAlertHTML *string `json:"deactivationAlertHtml,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Quantity of items incoming to the location.
-	Incoming int `json:"incoming"`
+	Incoming int `json:"incoming,omitempty"`
 	// Inventory item associated with the inventory level.
 	Item *InventoryItem `json:"item,omitempty"`
 	// Location associated with the inventory level.
 	Location *Location `json:"location,omitempty"`
 	// The date and time when the inventory level was updated.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 }
 
 func (InventoryLevel) IsNode() {}
@@ -4898,7 +4898,7 @@ func (InventoryLevel) IsNode() {}
 // An auto-generated type for paginating through multiple InventoryLevels.
 type InventoryLevelConnection struct {
 	// A list of edges.
-	Edges []*InventoryLevelEdge `json:"edges"`
+	Edges []*InventoryLevelEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -4906,7 +4906,7 @@ type InventoryLevelConnection struct {
 // An auto-generated type which holds one InventoryLevel and a cursor during pagination.
 type InventoryLevelEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of InventoryLevelEdge.
 	Node *InventoryLevel `json:"node,omitempty"`
 }
@@ -4914,17 +4914,17 @@ type InventoryLevelEdge struct {
 // Inventory quantity at a specific location.
 type InventoryLevelInput struct {
 	// Sets the quantity available at the location.
-	AvailableQuantity int `json:"availableQuantity"`
+	AvailableQuantity int `json:"availableQuantity,omitempty"`
 	// ID of the location.
-	LocationID string `json:"locationId"`
+	LocationID string `json:"locationId,omitempty"`
 }
 
 // A job corresponds to some long running task that the client should poll for status.
 type Job struct {
 	// This indicates if the job is still queued or has been run.
-	Done bool `json:"done"`
+	Done bool `json:"done,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 }
 
 // Return type for `kitSkillTriggerRequest` mutation.
@@ -4932,43 +4932,43 @@ type KitSkillTriggerRequestPayload struct {
 	// Conversation unique identifier sent to Conversation API and returned to app developer.
 	ConversationUID *string `json:"conversationUid,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // The total number of pending orders on a shop if less then a maximum, or that maximum.
 // The atMax field indicates when this maximum has been reached.
 type LimitedPendingOrderCount struct {
 	// This is set when the number of pending orders has reached the maximum.
-	AtMax bool `json:"atMax"`
+	AtMax bool `json:"atMax,omitempty"`
 	// The number of pendings orders on the shop.
 	// Limited to a maximum of 10000.
-	Count int `json:"count"`
+	Count int `json:"count,omitempty"`
 }
 
 // Represents a single line in a shopping cart.
 type LineItem struct {
 	// Whether the line item's variant has an ID and inventory is managed by Shopify.
-	CanRestock bool `json:"canRestock"`
+	CanRestock bool `json:"canRestock,omitempty"`
 	// The subscription contract associated with this line item.
 	Contract *SubscriptionContract `json:"contract,omitempty"`
 	// The line item's quantity minus the removed quantity.
-	CurrentQuantity int `json:"currentQuantity"`
+	CurrentQuantity int `json:"currentQuantity,omitempty"`
 	// List of additional information (metafields) about the line item.
-	CustomAttributes []*Attribute `json:"customAttributes"`
+	CustomAttributes []*Attribute `json:"customAttributes,omitempty"`
 	// The discounts that have been allocated onto the line item by discount applications.
-	DiscountAllocations []*DiscountAllocation `json:"discountAllocations"`
+	DiscountAllocations []*DiscountAllocation `json:"discountAllocations,omitempty"`
 	// The total line price after discounts are applied.
-	DiscountedTotal string `json:"discountedTotal"`
+	DiscountedTotal string `json:"discountedTotal,omitempty"`
 	// The total line price after discounts are applied in shop and presentment currencies.
 	DiscountedTotalSet *MoneyBag `json:"discountedTotalSet,omitempty"`
 	// The price of a single variant unit after line item discounts are applied.
-	DiscountedUnitPrice string `json:"discountedUnitPrice"`
+	DiscountedUnitPrice string `json:"discountedUnitPrice,omitempty"`
 	// The price of a single variant unit after line item discounts are applied in shop and presentment currencies.
 	DiscountedUnitPriceSet *MoneyBag `json:"discountedUnitPriceSet,omitempty"`
 	// The duties associated with the line item.
-	Duties []*Duty `json:"duties"`
+	Duties []*Duty `json:"duties,omitempty"`
 	// The total number of units to fulfill.
-	FulfillableQuantity int `json:"fulfillableQuantity"`
+	FulfillableQuantity int `json:"fulfillableQuantity,omitempty"`
 	// Name of the service provider who fulfilled the order.
 	//
 	// Valid values are either **manual** or the name of the provider.
@@ -4976,59 +4976,59 @@ type LineItem struct {
 	FulfillmentService *FulfillmentService `json:"fulfillmentService,omitempty"`
 	// The line item's fulfillment status. Returns 'fulfilled' if fulfillableQuantity >= quantity,
 	// 'partial' if  fulfillableQuantity > 0, and 'unfulfilled' otherwise.
-	FulfillmentStatus string `json:"fulfillmentStatus"`
+	FulfillmentStatus string `json:"fulfillmentStatus,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The Image object associated to the line item's variant.
 	Image *Image `json:"image,omitempty"`
 	// Whether the line item can be edited or not.
-	MerchantEditable bool `json:"merchantEditable"`
+	MerchantEditable bool `json:"merchantEditable,omitempty"`
 	// Name of the product.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// A count of the number of line items that cannot be fulfilled.
-	NonFulfillableQuantity int `json:"nonFulfillableQuantity"`
+	NonFulfillableQuantity int `json:"nonFulfillableQuantity,omitempty"`
 	// Total price (without discounts) of the line item, based on the original unit price of the variant x quantity.
-	OriginalTotal string `json:"originalTotal"`
+	OriginalTotal string `json:"originalTotal,omitempty"`
 	// Total price (without discounts) of the line item, based on the original unit price of the  variant x quantity in shop and presentment currencies.
 	OriginalTotalSet *MoneyBag `json:"originalTotalSet,omitempty"`
 	// Variant price without any discounts applied.
-	OriginalUnitPrice string `json:"originalUnitPrice"`
+	OriginalUnitPrice string `json:"originalUnitPrice,omitempty"`
 	// Variant price without any discounts applied in shop and presentment currencies.
 	OriginalUnitPriceSet *MoneyBag `json:"originalUnitPriceSet,omitempty"`
 	// The Product object associated with this line item's variant.
 	Product *Product `json:"product,omitempty"`
 	// The number of variant items ordered.
-	Quantity int `json:"quantity"`
+	Quantity int `json:"quantity,omitempty"`
 	// The line item's quantity minus its refundedQuantity.
-	RefundableQuantity int `json:"refundableQuantity"`
+	RefundableQuantity int `json:"refundableQuantity,omitempty"`
 	// Whether physical shipping is required for the variant.
-	RequiresShipping bool `json:"requiresShipping"`
+	RequiresShipping bool `json:"requiresShipping,omitempty"`
 	// Whether the line item's variant has an ID and inventory is managed by Shopify.
-	Restockable bool `json:"restockable"`
+	Restockable bool `json:"restockable,omitempty"`
 	// The selling plan details associated with the line item.
 	SellingPlan *LineItemSellingPlan `json:"sellingPlan,omitempty"`
 	// Variant SKU number.
 	Sku *string `json:"sku,omitempty"`
 	// The TaxLine object connected to this line item.
-	TaxLines []*TaxLine `json:"taxLines"`
+	TaxLines []*TaxLine `json:"taxLines,omitempty"`
 	// Whether the variant is taxable.
-	Taxable bool `json:"taxable"`
+	Taxable bool `json:"taxable,omitempty"`
 	// Title of the product or variant (this field only applies to custom line items).
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The sum of all AppliedDiscounts on this line item.
-	TotalDiscount string `json:"totalDiscount"`
+	TotalDiscount string `json:"totalDiscount,omitempty"`
 	// The sum of all AppliedDiscounts on this line item in shop and presentment currencies.
 	TotalDiscountSet *MoneyBag `json:"totalDiscountSet,omitempty"`
 	// The total discounted value of unfulfilled units.
-	UnfulfilledDiscountedTotal string `json:"unfulfilledDiscountedTotal"`
+	UnfulfilledDiscountedTotal string `json:"unfulfilledDiscountedTotal,omitempty"`
 	// The total discounted value of unfulfilled units in shop and presentment currencies.
 	UnfulfilledDiscountedTotalSet *MoneyBag `json:"unfulfilledDiscountedTotalSet,omitempty"`
 	// The total value before discount of all unfulfilled units.
-	UnfulfilledOriginalTotal string `json:"unfulfilledOriginalTotal"`
+	UnfulfilledOriginalTotal string `json:"unfulfilledOriginalTotal,omitempty"`
 	// The total value before discount of all unfulfilled units in shop and presentment currencies.
 	UnfulfilledOriginalTotalSet *MoneyBag `json:"unfulfilledOriginalTotalSet,omitempty"`
 	// The number of units not yet fulfilled.
-	UnfulfilledQuantity int `json:"unfulfilledQuantity"`
+	UnfulfilledQuantity int `json:"unfulfilledQuantity,omitempty"`
 	// The Variant object associated with this line item.
 	Variant *ProductVariant `json:"variant,omitempty"`
 	// Name of the variant.
@@ -5042,7 +5042,7 @@ func (LineItem) IsNode() {}
 // An auto-generated type for paginating through multiple LineItems.
 type LineItemConnection struct {
 	// A list of edges.
-	Edges []*LineItemEdge `json:"edges"`
+	Edges []*LineItemEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -5050,7 +5050,7 @@ type LineItemConnection struct {
 // An auto-generated type which holds one LineItem and a cursor during pagination.
 type LineItemEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of LineItemEdge.
 	Node *LineItem `json:"node,omitempty"`
 }
@@ -5058,21 +5058,21 @@ type LineItemEdge struct {
 // Represents a single line in a shopping cart.
 type LineItemMutable struct {
 	// Whether the line item's variant has an ID and inventory is managed by Shopify.
-	CanRestock bool `json:"canRestock"`
+	CanRestock bool `json:"canRestock,omitempty"`
 	// List of additional information (metafields) about the line item.
-	CustomAttributes []*Attribute `json:"customAttributes"`
+	CustomAttributes []*Attribute `json:"customAttributes,omitempty"`
 	// The discounts that have been allocated onto the line item by discount applications.
-	DiscountAllocations []*DiscountAllocation `json:"discountAllocations"`
+	DiscountAllocations []*DiscountAllocation `json:"discountAllocations,omitempty"`
 	// The total line price after discounts are applied.
-	DiscountedTotal string `json:"discountedTotal"`
+	DiscountedTotal string `json:"discountedTotal,omitempty"`
 	// The total line price after discounts are applied in shop and presentment currencies.
 	DiscountedTotalSet *MoneyBag `json:"discountedTotalSet,omitempty"`
 	// The price of a single variant unit after line item discounts are applied.
-	DiscountedUnitPrice string `json:"discountedUnitPrice"`
+	DiscountedUnitPrice string `json:"discountedUnitPrice,omitempty"`
 	// The price of a single variant unit after line item discounts are applied in shop and presentment currencies.
 	DiscountedUnitPriceSet *MoneyBag `json:"discountedUnitPriceSet,omitempty"`
 	// The total number of units to fulfill.
-	FulfillableQuantity int `json:"fulfillableQuantity"`
+	FulfillableQuantity int `json:"fulfillableQuantity,omitempty"`
 	// Name of the service provider who fulfilled the order.
 	//
 	// Valid values are either **manual** or the name of the provider.
@@ -5080,57 +5080,57 @@ type LineItemMutable struct {
 	FulfillmentService *FulfillmentService `json:"fulfillmentService,omitempty"`
 	// The line item's fulfillment status. Returns 'fulfilled' if fulfillableQuantity >= quantity,
 	// 'partial' if  fulfillableQuantity > 0, and 'unfulfilled' otherwise.
-	FulfillmentStatus string `json:"fulfillmentStatus"`
+	FulfillmentStatus string `json:"fulfillmentStatus,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The Image object associated to the line item's variant.
 	Image *Image `json:"image,omitempty"`
 	// Whether the line item can be edited or not.
-	MerchantEditable bool `json:"merchantEditable"`
+	MerchantEditable bool `json:"merchantEditable,omitempty"`
 	// Name of the product.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// A count of the number of line items that cannot be fulfilled.
-	NonFulfillableQuantity int `json:"nonFulfillableQuantity"`
+	NonFulfillableQuantity int `json:"nonFulfillableQuantity,omitempty"`
 	// Total price (without discounts) of the line item, based on the original unit price of the variant x quantity.
-	OriginalTotal string `json:"originalTotal"`
+	OriginalTotal string `json:"originalTotal,omitempty"`
 	// Total price (without discounts) of the line item, based on the original unit price of the  variant x quantity in shop and presentment currencies.
 	OriginalTotalSet *MoneyBag `json:"originalTotalSet,omitempty"`
 	// Variant price without any discounts applied.
-	OriginalUnitPrice string `json:"originalUnitPrice"`
+	OriginalUnitPrice string `json:"originalUnitPrice,omitempty"`
 	// Variant price without any discounts applied in shop and presentment currencies.
 	OriginalUnitPriceSet *MoneyBag `json:"originalUnitPriceSet,omitempty"`
 	// The Product object associated with this line item's variant.
 	Product *Product `json:"product,omitempty"`
 	// Number of variant items ordered.
-	Quantity int `json:"quantity"`
+	Quantity int `json:"quantity,omitempty"`
 	// The line item's quantity minus its refundedQuantity.
-	RefundableQuantity int `json:"refundableQuantity"`
+	RefundableQuantity int `json:"refundableQuantity,omitempty"`
 	// Whether physical shipping is required for the variant.
-	RequiresShipping bool `json:"requiresShipping"`
+	RequiresShipping bool `json:"requiresShipping,omitempty"`
 	// Whether the line item's variant has an ID and inventory is managed by Shopify.
-	Restockable bool `json:"restockable"`
+	Restockable bool `json:"restockable,omitempty"`
 	// Variant SKU number.
 	Sku *string `json:"sku,omitempty"`
 	// The TaxLine object connected to this line item.
-	TaxLines []*TaxLine `json:"taxLines"`
+	TaxLines []*TaxLine `json:"taxLines,omitempty"`
 	// Whether the variant is taxable.
-	Taxable bool `json:"taxable"`
+	Taxable bool `json:"taxable,omitempty"`
 	// Title of the product or variant (this field only applies to custom line items).
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The sum of all AppliedDiscounts on this line item.
-	TotalDiscount string `json:"totalDiscount"`
+	TotalDiscount string `json:"totalDiscount,omitempty"`
 	// The sum of all AppliedDiscounts on this line item in shop and presentment currencies.
 	TotalDiscountSet *MoneyBag `json:"totalDiscountSet,omitempty"`
 	// The total discounted value of unfulfilled units.
-	UnfulfilledDiscountedTotal string `json:"unfulfilledDiscountedTotal"`
+	UnfulfilledDiscountedTotal string `json:"unfulfilledDiscountedTotal,omitempty"`
 	// The total discounted value of unfulfilled units in shop and presentment currencies.
 	UnfulfilledDiscountedTotalSet *MoneyBag `json:"unfulfilledDiscountedTotalSet,omitempty"`
 	// The total value before discount of all unfulfilled units.
-	UnfulfilledOriginalTotal string `json:"unfulfilledOriginalTotal"`
+	UnfulfilledOriginalTotal string `json:"unfulfilledOriginalTotal,omitempty"`
 	// The total value before discount of all unfulfilled units in shop and presentment currencies.
 	UnfulfilledOriginalTotalSet *MoneyBag `json:"unfulfilledOriginalTotalSet,omitempty"`
 	// The number of units not yet fulfilled.
-	UnfulfilledQuantity int `json:"unfulfilledQuantity"`
+	UnfulfilledQuantity int `json:"unfulfilledQuantity,omitempty"`
 	// The Variant object associated with this line item.
 	Variant *ProductVariant `json:"variant,omitempty"`
 	// Name of the variant.
@@ -5144,7 +5144,7 @@ func (LineItemMutable) IsNode() {}
 // An auto-generated type for paginating through multiple LineItemMutables.
 type LineItemMutableConnection struct {
 	// A list of edges.
-	Edges []*LineItemMutableEdge `json:"edges"`
+	Edges []*LineItemMutableEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -5152,7 +5152,7 @@ type LineItemMutableConnection struct {
 // An auto-generated type which holds one LineItemMutable and a cursor during pagination.
 type LineItemMutableEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of LineItemMutableEdge.
 	Node *LineItemMutable `json:"node,omitempty"`
 }
@@ -5160,17 +5160,17 @@ type LineItemMutableEdge struct {
 // Represents the selling plan for a line item.
 type LineItemSellingPlan struct {
 	// The name of the selling plan for display purposes.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 }
 
 // A link to direct users to.
 type Link struct {
 	// A context-sensitive label for the link.
-	Label string `json:"label"`
+	Label string `json:"label,omitempty"`
 	// The translations associated with the resource.
-	Translations []*PublishedTranslation `json:"translations"`
+	Translations []*PublishedTranslation `json:"translations,omitempty"`
 	// The URL that the link visits.
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 }
 
 func (Link) IsHasPublishedTranslations() {}
@@ -5178,29 +5178,29 @@ func (Link) IsHasPublishedTranslations() {}
 // A locale.
 type Locale struct {
 	// Locale ISO code.
-	IsoCode string `json:"isoCode"`
+	IsoCode string `json:"isoCode,omitempty"`
 	// Locale name.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 }
 
 // Represents the value captured by a localization extension, like a tax id.
 type LocalizationExtension struct {
 	// Country ISO 3166-1 alpha-2 code.
-	CountryCode CountryCode `json:"countryCode"`
+	CountryCode CountryCode `json:"countryCode,omitempty"`
 	// The localized extension keys that are allowed.
-	Key LocalizationExtensionKey `json:"key"`
+	Key LocalizationExtensionKey `json:"key,omitempty"`
 	// The purpose of this localization extension.
-	Purpose LocalizationExtensionPurpose `json:"purpose"`
+	Purpose LocalizationExtensionPurpose `json:"purpose,omitempty"`
 	// The localized extension title.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The value of the field.
-	Value string `json:"value"`
+	Value string `json:"value,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple LocalizationExtensions.
 type LocalizationExtensionConnection struct {
 	// A list of edges.
-	Edges []*LocalizationExtensionEdge `json:"edges"`
+	Edges []*LocalizationExtensionEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -5208,7 +5208,7 @@ type LocalizationExtensionConnection struct {
 // An auto-generated type which holds one LocalizationExtension and a cursor during pagination.
 type LocalizationExtensionEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of LocalizationExtensionEdge.
 	Node *LocalizationExtension `json:"node,omitempty"`
 }
@@ -5216,51 +5216,51 @@ type LocalizationExtensionEdge struct {
 // Specifies the input fields for a LocalizationExtensionInput.
 type LocalizationExtensionInput struct {
 	// The key for the localization extension.
-	Key LocalizationExtensionKey `json:"key"`
+	Key LocalizationExtensionKey `json:"key,omitempty"`
 	// The localization extension value.
-	Value string `json:"value"`
+	Value string `json:"value,omitempty"`
 }
 
 // Represents the location where the physical good resides.
 type Location struct {
 	// Whether this location can be reactivated.
-	Activatable bool `json:"activatable"`
+	Activatable bool `json:"activatable,omitempty"`
 	// The LocationAddress object for location.
 	Address *LocationAddress `json:"address,omitempty"`
 	// Whether the location address has been verified.
-	AddressVerified bool `json:"addressVerified"`
+	AddressVerified bool `json:"addressVerified,omitempty"`
 	// Whether this location can be deactivated.
-	Deactivatable bool `json:"deactivatable"`
+	Deactivatable bool `json:"deactivatable,omitempty"`
 	// Date and time the location was deactivated (null if location is still active). Following UTC ISO8601 format, e.g.: "2019-04-24T13:42:24Z".
 	DeactivatedAt *string `json:"deactivatedAt,omitempty"`
 	// Whether this location can be deleted.
-	Deletable bool `json:"deletable"`
+	Deletable bool `json:"deletable,omitempty"`
 	// Name of the service provider that fulfills from this location.
 	FulfillmentService *FulfillmentService `json:"fulfillmentService,omitempty"`
 	// Indicates whether this location can fulfill online orders.
-	FulfillsOnlineOrders bool `json:"fulfillsOnlineOrders"`
+	FulfillsOnlineOrders bool `json:"fulfillsOnlineOrders,omitempty"`
 	// Indicates whether or not this location has active inventory.
-	HasActiveInventory bool `json:"hasActiveInventory"`
+	HasActiveInventory bool `json:"hasActiveInventory,omitempty"`
 	// Indicates whether or not this location has unfulfilled orders.
-	HasUnfulfilledOrders bool `json:"hasUnfulfilledOrders"`
+	HasUnfulfilledOrders bool `json:"hasUnfulfilledOrders,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// A single inventory level for the given inventory item.
 	InventoryLevel *InventoryLevel `json:"inventoryLevel,omitempty"`
 	// Paginated list of inventory levels for inventory items stocked at the location.
 	InventoryLevels *InventoryLevelConnection `json:"inventoryLevels,omitempty"`
 	// Whether the location is active.
-	IsActive bool `json:"isActive"`
+	IsActive bool `json:"isActive,omitempty"`
 	// Whether the location is your primary location for shipping inventory.
-	IsPrimary bool `json:"isPrimary"`
+	IsPrimary bool `json:"isPrimary,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// The name of the location.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// Indicates whether or not this location is used for calculating shipping rates.
-	ShipsInventory bool `json:"shipsInventory"`
+	ShipsInventory bool `json:"shipsInventory,omitempty"`
 	// List of suggested addresses for this location (empty if none).
-	SuggestedAddresses []*LocationSuggestedAddress `json:"suggestedAddresses"`
+	SuggestedAddresses []*LocationSuggestedAddress `json:"suggestedAddresses,omitempty"`
 }
 
 func (Location) IsNode()                   {}
@@ -5279,7 +5279,7 @@ type LocationAddress struct {
 	// The two-letter country code of the location.
 	CountryCode *string `json:"countryCode,omitempty"`
 	// A formatted version of the location address.
-	Formatted []string `json:"formatted"`
+	Formatted []string `json:"formatted,omitempty"`
 	// The latitude coordinates of the location.
 	Latitude *float64 `json:"latitude,omitempty"`
 	// The longitude coordinates of the location.
@@ -5298,7 +5298,7 @@ type LocationAddress struct {
 // An auto-generated type for paginating through multiple Locations.
 type LocationConnection struct {
 	// A list of edges.
-	Edges []*LocationEdge `json:"edges"`
+	Edges []*LocationEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -5306,7 +5306,7 @@ type LocationConnection struct {
 // An auto-generated type which holds one Location and a cursor during pagination.
 type LocationEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of LocationEdge.
 	Node *Location `json:"node,omitempty"`
 }
@@ -5324,7 +5324,7 @@ type LocationSuggestedAddress struct {
 	// The country code of the suggested address.
 	CountryCode *CountryCode `json:"countryCode,omitempty"`
 	// A formatted version of the suggested address.
-	Formatted []string `json:"formatted"`
+	Formatted []string `json:"formatted,omitempty"`
 	// The province of the suggested address.
 	Province *string `json:"province,omitempty"`
 	// The province code of the suggested address.
@@ -5358,11 +5358,11 @@ type MailingAddress struct {
 	// The first name of the customer.
 	FirstName *string `json:"firstName,omitempty"`
 	// A formatted version of the address, customized by the provided arguments.
-	Formatted []string `json:"formatted"`
+	Formatted []string `json:"formatted,omitempty"`
 	// A comma-separated list of the values for city, province, and country.
 	FormattedArea *string `json:"formattedArea,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The last name of the customer.
 	LastName *string `json:"lastName,omitempty"`
 	// The latitude coordinate of the customer address.
@@ -5423,20 +5423,20 @@ type MailingAddressInput struct {
 // Manual discount applications capture the intentions of a discount that was manually created for an order.
 type ManualDiscountApplication struct {
 	// The method by which the discount's value is allocated to its entitled items.
-	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod"`
+	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod,omitempty"`
 	// The description of the discount application.
 	Description *string `json:"description,omitempty"`
 	// An ordered index that can be used to identify the discount application and indicate the precedence
 	// of the discount application for calculations.
-	Index int `json:"index"`
+	Index int `json:"index,omitempty"`
 	// How the discount amount is distributed on the discounted lines.
-	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection"`
+	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection,omitempty"`
 	// Whether the discount is applied on line items or shipping lines.
-	TargetType DiscountApplicationTargetType `json:"targetType"`
+	TargetType DiscountApplicationTargetType `json:"targetType,omitempty"`
 	// The title of the discount application.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The value of the discount application.
-	Value PricingValue `json:"value"`
+	Value PricingValue `json:"value,omitempty"`
 }
 
 func (ManualDiscountApplication) IsDiscountApplication() {}
@@ -5454,35 +5454,35 @@ type MarketingActivity struct {
 	// The budget for this marketing activity.
 	Budget *MarketingBudget `json:"budget,omitempty"`
 	// The date and time when the marketing activity was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The form data of the marketing activity.
 	FormData *string `json:"formData,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The broad category of marketing, used for reporting aggregation.
-	MarketingChannel MarketingChannel `json:"marketingChannel"`
+	MarketingChannel MarketingChannel `json:"marketingChannel,omitempty"`
 	// Associated marketing event of this marketing activity.
 	MarketingEvent *MarketingEvent `json:"marketingEvent,omitempty"`
 	// A contextual description of the marketing activity based on the platform and tactic used.
-	SourceAndMedium string `json:"sourceAndMedium"`
+	SourceAndMedium string `json:"sourceAndMedium,omitempty"`
 	// Status helps to identify if this marketing activity has been completed, queued, failed etc.
-	Status MarketingActivityStatus `json:"status"`
+	Status MarketingActivityStatus `json:"status,omitempty"`
 	// StatusBadgeType helps to identify the color of the status badge.
 	StatusBadgeType *MarketingActivityStatusBadgeType `json:"statusBadgeType,omitempty"`
 	// Status label to describe the status of the marketing activity.
-	StatusLabel string `json:"statusLabel"`
+	StatusLabel string `json:"statusLabel,omitempty"`
 	// The [date and time](
 	//           https://help.shopify.com/https://en.wikipedia.org/wiki/ISO_8601
 	//           ) when the activity's status last changed.
 	StatusTransitionedAt *string `json:"statusTransitionedAt,omitempty"`
 	// The method of marketing used for this marketing activity.
-	Tactic MarketingTactic `json:"tactic"`
+	Tactic MarketingTactic `json:"tactic,omitempty"`
 	// Expected status set by app in prior to an asynchronous operation.
 	TargetStatus *MarketingActivityStatus `json:"targetStatus,omitempty"`
 	// Title of this marketing activity.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The date and time when the marketing activity was updated.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 	// The set of UTM parameters being tracked for this marketing activity.
 	UtmParameters *UTMParameters `json:"utmParameters,omitempty"`
 }
@@ -5500,7 +5500,7 @@ type MarketingActivityBudgetInput struct {
 // An auto-generated type for paginating through multiple MarketingActivities.
 type MarketingActivityConnection struct {
 	// A list of edges.
-	Edges []*MarketingActivityEdge `json:"edges"`
+	Edges []*MarketingActivityEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -5512,7 +5512,7 @@ type MarketingActivityCreateInput struct {
 	// The form data in JSON serialized as a string.
 	FormData *string `json:"formData,omitempty"`
 	// The ID of the marketing activity extension.
-	MarketingActivityExtensionID string `json:"marketingActivityExtensionId"`
+	MarketingActivityExtensionID string `json:"marketingActivityExtensionId,omitempty"`
 	// Encoded context containing marketing campaign id.
 	Context *string `json:"context,omitempty"`
 	// Specifies the
@@ -5521,7 +5521,7 @@ type MarketingActivityCreateInput struct {
 	// tactics except Storefront App.
 	Utm *UTMInput `json:"utm,omitempty"`
 	// The current state of the marketing activity.
-	Status MarketingActivityStatus `json:"status"`
+	Status MarketingActivityStatus `json:"status,omitempty"`
 	// The budget for this marketing activity.
 	Budget *MarketingActivityBudgetInput `json:"budget,omitempty"`
 }
@@ -5533,13 +5533,13 @@ type MarketingActivityCreatePayload struct {
 	// The path to return back to shopify admin from embedded editor.
 	RedirectPath *string `json:"redirectPath,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one MarketingActivity and a cursor during pagination.
 type MarketingActivityEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of MarketingActivityEdge.
 	Node *MarketingActivity `json:"node,omitempty"`
 }
@@ -5547,15 +5547,15 @@ type MarketingActivityEdge struct {
 // Represents errors returned from apps when using the marketing activity extension.
 type MarketingActivityExtensionAppErrors struct {
 	// The app error type.
-	Code MarketingActivityExtensionAppErrorCode `json:"code"`
+	Code MarketingActivityExtensionAppErrorCode `json:"code,omitempty"`
 	// The list of errors returned by the app.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Specifies the input fields required to update a marketing activity.
 type MarketingActivityUpdateInput struct {
 	// The id for this marketing activity.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The ID of the recommendation this marketing activity was created from, if one exists.
 	MarketingRecommendationID *string `json:"marketingRecommendationId,omitempty"`
 	// The title of this marketing activity.
@@ -5578,7 +5578,7 @@ type MarketingActivityUpdateInput struct {
 	// A list of the items that were marketed in this marketing activity. Valid types for these items are:
 	// * `Product`
 	// * `Shop` (Must be your current shop).
-	MarketedResources []string `json:"marketedResources"`
+	MarketedResources []string `json:"marketedResources,omitempty"`
 	// Encoded context provided by Shopify during the update marketing activity callback. This argument is deprecated: This context is no longer needed by Shopify in the callback.
 	Context *string `json:"context,omitempty"`
 	// Error messages generated when app was trying to complete this activity.
@@ -5592,13 +5592,13 @@ type MarketingActivityUpdatePayload struct {
 	// The path to return back to shopify admin from embedded editor.
 	RedirectPath *string `json:"redirectPath,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // This type combines budget amount and its marketing budget type.
 type MarketingBudget struct {
 	// The budget type for a marketing activity.
-	BudgetType MarketingBudgetBudgetType `json:"budgetType"`
+	BudgetType MarketingBudgetBudgetType `json:"budgetType,omitempty"`
 	// The amount of budget for marketing activity.
 	Total *MoneyV2 `json:"total,omitempty"`
 }
@@ -5626,7 +5626,7 @@ type MarketingEngagement struct {
 	// The marketing activity related to this engagement.
 	MarketingActivity *MarketingActivity `json:"marketingActivity,omitempty"`
 	// The date that these engagements occurred on.
-	OccurredOn string `json:"occurredOn"`
+	OccurredOn string `json:"occurredOn,omitempty"`
 	// The total number of sends for the day.
 	SendsCount *int `json:"sendsCount,omitempty"`
 	// The total number of shares for the day.
@@ -5648,13 +5648,13 @@ type MarketingEngagementCreatePayload struct {
 	// The marketing engagement that was created.
 	MarketingEngagement *MarketingEngagement `json:"marketingEngagement,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // This object represents marketing engagement input fields for a marketing engagement.
 type MarketingEngagementInput struct {
 	// The date that these engagements occurred on.
-	OccurredOn string `json:"occurredOn"`
+	OccurredOn string `json:"occurredOn,omitempty"`
 	// The total number of impressions for the day.
 	ImpressionsCount *int `json:"impressionsCount,omitempty"`
 	// The total number of views for the day.
@@ -5700,9 +5700,9 @@ type MarketingEvent struct {
 	// The date and time when the marketing event ended.
 	EndedAt *string `json:"endedAt,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// The URL where the marketing event can be managed.
 	ManageURL *string `json:"manageUrl,omitempty"`
 	// The URL where the marketing event can be previewed.
@@ -5716,13 +5716,13 @@ type MarketingEvent struct {
 	// based on a combination of `marketingChannel`, `referringDomain`, and `type` to
 	// provide a consistent representation for any given piece of marketing
 	// regardless of the app that created it.
-	SourceAndMedium string `json:"sourceAndMedium"`
+	SourceAndMedium string `json:"sourceAndMedium,omitempty"`
 	// The date and time when the marketing event started.
-	StartedAt string `json:"startedAt"`
+	StartedAt string `json:"startedAt,omitempty"`
 	// The display text for the marketing event type.
-	TargetTypeDisplayText string `json:"targetTypeDisplayText"`
+	TargetTypeDisplayText string `json:"targetTypeDisplayText,omitempty"`
 	// The marketing event type.
-	Type MarketingTactic `json:"type"`
+	Type MarketingTactic `json:"type,omitempty"`
 	// The name of the marketing campaign.
 	UtmCampaign *string `json:"utmCampaign,omitempty"`
 	// The medium that the marketing campaign is using. Example values: `cpc`, `banner`.
@@ -5737,7 +5737,7 @@ func (MarketingEvent) IsLegacyInteroperability() {}
 // An auto-generated type for paginating through multiple MarketingEvents.
 type MarketingEventConnection struct {
 	// A list of edges.
-	Edges []*MarketingEventEdge `json:"edges"`
+	Edges []*MarketingEventEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -5745,7 +5745,7 @@ type MarketingEventConnection struct {
 // An auto-generated type which holds one MarketingEvent and a cursor during pagination.
 type MarketingEventEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of MarketingEventEdge.
 	Node *MarketingEvent `json:"node,omitempty"`
 }
@@ -5753,7 +5753,7 @@ type MarketingEventEdge struct {
 // An auto-generated type for paginating through multiple Media.
 type MediaConnection struct {
 	// A list of edges.
-	Edges []*MediaEdge `json:"edges"`
+	Edges []*MediaEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -5761,19 +5761,19 @@ type MediaConnection struct {
 // An auto-generated type which holds one Media and a cursor during pagination.
 type MediaEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of MediaEdge.
-	Node Media `json:"node"`
+	Node Media `json:"node,omitempty"`
 }
 
 // Represents a media error.
 type MediaError struct {
 	// Code representing the type of error.
-	Code MediaErrorCode `json:"code"`
+	Code MediaErrorCode `json:"code,omitempty"`
 	// Additional details regarding the error.
 	Details *string `json:"details,omitempty"`
 	// Translated error message.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 // Represents a Shopify hosted image.
@@ -5781,19 +5781,19 @@ type MediaImage struct {
 	// A word or phrase to share the nature or contents of a media.
 	Alt *string `json:"alt,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The image for the media.
 	Image *Image `json:"image,omitempty"`
 	// The media content type.
-	MediaContentType MediaContentType `json:"mediaContentType"`
+	MediaContentType MediaContentType `json:"mediaContentType,omitempty"`
 	// Any errors which have occurred on the media.
-	MediaErrors []*MediaError `json:"mediaErrors"`
+	MediaErrors []*MediaError `json:"mediaErrors,omitempty"`
 	// The MIME type of the image.
 	MimeType *string `json:"mimeType,omitempty"`
 	// The preview image for the media.
 	Preview *MediaPreviewImage `json:"preview,omitempty"`
 	// Current status of the media.
-	Status MediaStatus `json:"status"`
+	Status MediaStatus `json:"status,omitempty"`
 }
 
 func (MediaImage) IsNode()  {}
@@ -5804,7 +5804,7 @@ type MediaPreviewImage struct {
 	// The preview image for the media.
 	Image *Image `json:"image,omitempty"`
 	// Current status of the preview image.
-	Status MediaPreviewImageStatus `json:"status"`
+	Status MediaPreviewImageStatus `json:"status,omitempty"`
 }
 
 // Represents an error that happens during execution of a Media query or mutation.
@@ -5812,9 +5812,9 @@ type MediaUserError struct {
 	// Error code to uniquely identify the error.
 	Code *MediaUserErrorCode `json:"code,omitempty"`
 	// Path to the input field which caused the error.
-	Field []string `json:"field"`
+	Field []string `json:"field,omitempty"`
 	// The error message.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 func (MediaUserError) IsDisplayableError() {}
@@ -5823,25 +5823,25 @@ func (MediaUserError) IsDisplayableError() {}
 // composed of keys, values, and value types.
 type Metafield struct {
 	// The date and time when the metafield was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The description of a metafield.
 	Description *string `json:"description,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The key name for a metafield.
-	Key string `json:"key"`
+	Key string `json:"key,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// The namespace for a metafield.
-	Namespace string `json:"namespace"`
+	Namespace string `json:"namespace,omitempty"`
 	// Owner type of a metafield visible to the Storefront API.
-	OwnerType MetafieldOwnerType `json:"ownerType"`
+	OwnerType MetafieldOwnerType `json:"ownerType,omitempty"`
 	// The date and time when the metafield was updated.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 	// The value of a metafield.
-	Value string `json:"value"`
+	Value string `json:"value,omitempty"`
 	// Represents the metafield value type.
-	ValueType MetafieldValueType `json:"valueType"`
+	ValueType MetafieldValueType `json:"valueType,omitempty"`
 }
 
 func (Metafield) IsNode()                   {}
@@ -5850,7 +5850,7 @@ func (Metafield) IsLegacyInteroperability() {}
 // An auto-generated type for paginating through multiple Metafields.
 type MetafieldConnection struct {
 	// A list of edges.
-	Edges []*MetafieldEdge `json:"edges"`
+	Edges []*MetafieldEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -5858,7 +5858,7 @@ type MetafieldConnection struct {
 // Specifies the input fields to delete a metafield.
 type MetafieldDeleteInput struct {
 	// The ID of the metafield to delete.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 }
 
 // Return type for `metafieldDelete` mutation.
@@ -5866,13 +5866,13 @@ type MetafieldDeletePayload struct {
 	// The ID of the deleted metafield.
 	DeletedID *string `json:"deletedId,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one Metafield and a cursor during pagination.
 type MetafieldEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of MetafieldEdge.
 	Node *Metafield `json:"node,omitempty"`
 }
@@ -5896,19 +5896,19 @@ type MetafieldInput struct {
 // Represents an allowlist record that enables a metafield to be visible to the storefront.
 type MetafieldStorefrontVisibility struct {
 	// The date and time when the allowlist record was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Key of a metafield in the visibility allowlist.
-	Key string `json:"key"`
+	Key string `json:"key,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// Namespace of a metafield in the visibility allowlist.
-	Namespace string `json:"namespace"`
+	Namespace string `json:"namespace,omitempty"`
 	// Owner type of a metafield in the visibility allowlist.
-	OwnerType MetafieldOwnerType `json:"ownerType"`
+	OwnerType MetafieldOwnerType `json:"ownerType,omitempty"`
 	// The date and time when the allowlist record was updated.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 }
 
 func (MetafieldStorefrontVisibility) IsNode()                   {}
@@ -5917,7 +5917,7 @@ func (MetafieldStorefrontVisibility) IsLegacyInteroperability() {}
 // An auto-generated type for paginating through multiple MetafieldStorefrontVisibilities.
 type MetafieldStorefrontVisibilityConnection struct {
 	// A list of edges.
-	Edges []*MetafieldStorefrontVisibilityEdge `json:"edges"`
+	Edges []*MetafieldStorefrontVisibilityEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -5927,7 +5927,7 @@ type MetafieldStorefrontVisibilityCreatePayload struct {
 	// The metafield storefront visibility that was created.
 	MetafieldStorefrontVisibility *MetafieldStorefrontVisibility `json:"metafieldStorefrontVisibility,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `metafieldStorefrontVisibilityDelete` mutation.
@@ -5935,13 +5935,13 @@ type MetafieldStorefrontVisibilityDeletePayload struct {
 	// The ID of the deleted metafield storefront visibility.
 	DeletedMetafieldStorefrontVisibilityID *string `json:"deletedMetafieldStorefrontVisibilityId,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one MetafieldStorefrontVisibility and a cursor during pagination.
 type MetafieldStorefrontVisibilityEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of MetafieldStorefrontVisibilityEdge.
 	Node *MetafieldStorefrontVisibility `json:"node,omitempty"`
 }
@@ -5949,11 +5949,11 @@ type MetafieldStorefrontVisibilityEdge struct {
 // Specifies the input fields for a MetafieldStorefrontVisibilityInput.
 type MetafieldStorefrontVisibilityInput struct {
 	// The namespace of the metafield to be visible to the storefront api.
-	Namespace string `json:"namespace"`
+	Namespace string `json:"namespace,omitempty"`
 	// The key of the metafield to be visible to the storefront api.
-	Key string `json:"key"`
+	Key string `json:"key,omitempty"`
 	// The core resource ( e.g.: Product ) that owns this metafield.
-	OwnerType MetafieldOwnerType `json:"ownerType"`
+	OwnerType MetafieldOwnerType `json:"ownerType,omitempty"`
 }
 
 // Represents a Shopify hosted 3D model.
@@ -5961,21 +5961,21 @@ type Model3d struct {
 	// A word or phrase to share the nature or contents of a media.
 	Alt *string `json:"alt,omitempty"`
 	// The filename of the 3d model.
-	Filename string `json:"filename"`
+	Filename string `json:"filename,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The media content type.
-	MediaContentType MediaContentType `json:"mediaContentType"`
+	MediaContentType MediaContentType `json:"mediaContentType,omitempty"`
 	// Any errors which have occurred on the media.
-	MediaErrors []*MediaError `json:"mediaErrors"`
+	MediaErrors []*MediaError `json:"mediaErrors,omitempty"`
 	// The original source for a 3d model.
 	OriginalSource *Model3dSource `json:"originalSource,omitempty"`
 	// The preview image for the media.
 	Preview *MediaPreviewImage `json:"preview,omitempty"`
 	// The sources for a 3d model.
-	Sources []*Model3dSource `json:"sources"`
+	Sources []*Model3dSource `json:"sources,omitempty"`
 	// Current status of the media.
-	Status MediaStatus `json:"status"`
+	Status MediaStatus `json:"status,omitempty"`
 }
 
 func (Model3d) IsNode()  {}
@@ -5984,13 +5984,13 @@ func (Model3d) IsMedia() {}
 // Represents a source for a Shopify hosted 3d model.
 type Model3dSource struct {
 	// The filesize of the 3d model.
-	Filesize int `json:"filesize"`
+	Filesize int `json:"filesize,omitempty"`
 	// The format of the 3d model.
-	Format string `json:"format"`
+	Format string `json:"format,omitempty"`
 	// The MIME type of the 3d model.
-	MimeType string `json:"mimeType"`
+	MimeType string `json:"mimeType,omitempty"`
 	// The URL of the 3d model.
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 }
 
 // A collection of monetary values in their respective currencies.
@@ -6004,9 +6004,9 @@ type MoneyBag struct {
 // Specifies the fields for a monetary value with currency.
 type MoneyInput struct {
 	// Decimal money amount.
-	Amount string `json:"amount"`
+	Amount string `json:"amount,omitempty"`
 	// Currency of the money.
-	CurrencyCode CurrencyCode `json:"currencyCode"`
+	CurrencyCode CurrencyCode `json:"currencyCode,omitempty"`
 }
 
 // A monetary value with currency.
@@ -6032,9 +6032,9 @@ type MoneyInput struct {
 // (such as [TwitterCldr](https://github.com/twitter/twitter-cldr-rb)).
 type MoneyV2 struct {
 	// Decimal money amount.
-	Amount string `json:"amount"`
+	Amount string `json:"amount,omitempty"`
 	// Currency of the money.
-	CurrencyCode CurrencyCode `json:"currencyCode"`
+	CurrencyCode CurrencyCode `json:"currencyCode,omitempty"`
 }
 
 func (MoneyV2) IsDeliveryConditionCriteria()               {}
@@ -6044,38 +6044,38 @@ func (MoneyV2) IsSellingPlanPricingPolicyAdjustmentValue() {}
 // An individual move to perform of an object to a position.
 type MoveInput struct {
 	// The ID of the object to be moved.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The new position of the object in the set, using a 0 based index.
-	NewPosition string `json:"newPosition"`
+	NewPosition string `json:"newPosition,omitempty"`
 }
 
 // A signed upload parameter for uploading an asset to Shopify.
 type MutationsStagedUploadTargetGenerateUploadParameter struct {
 	// The upload parameter name.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The upload parameter value.
-	Value string `json:"value"`
+	Value string `json:"value,omitempty"`
 }
 
 // A navigation item, holding basic link attributes.
 type NavigationItem struct {
 	// The unique identifier of the navigation item.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The name of the navigation item.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The URL of the page that the navigation item links to.
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 }
 
 // Represents an article in an OnlineStoreBlog object. Articles appear in reverse chronological order, with the
 // most recent entry at the top of the blog's page. A blog can contain any number of articles.
 type OnlineStoreArticle struct {
 	// A default cursor for use in pagination.
-	DefaultCursor string `json:"defaultCursor"`
+	DefaultCursor string `json:"defaultCursor,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The translations associated with the resource.
-	Translations []*PublishedTranslation `json:"translations"`
+	Translations []*PublishedTranslation `json:"translations,omitempty"`
 }
 
 func (OnlineStoreArticle) IsNode()                     {}
@@ -6086,9 +6086,9 @@ func (OnlineStoreArticle) IsHasPublishedTranslations() {}
 // to be used as a type of magazine or newsletter for the shop, with content that changes over time.
 type OnlineStoreBlog struct {
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The translations associated with the resource.
-	Translations []*PublishedTranslation `json:"translations"`
+	Translations []*PublishedTranslation `json:"translations,omitempty"`
 }
 
 func (OnlineStoreBlog) IsNode()                     {}
@@ -6097,11 +6097,11 @@ func (OnlineStoreBlog) IsHasPublishedTranslations() {}
 // A custom page on the Online Store.
 type OnlineStorePage struct {
 	// A default cursor for use in pagination.
-	DefaultCursor string `json:"defaultCursor"`
+	DefaultCursor string `json:"defaultCursor,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The translations associated with the resource.
-	Translations []*PublishedTranslation `json:"translations"`
+	Translations []*PublishedTranslation `json:"translations,omitempty"`
 }
 
 func (OnlineStorePage) IsNode()                     {}
@@ -6112,16 +6112,16 @@ func (OnlineStorePage) IsHasPublishedTranslations() {}
 type Order struct {
 	// Generated messages that appear at the top of an order page in the Shopify admin.
 	// For example, _this is a test order_.
-	Alerts []*ResourceAlert `json:"alerts"`
+	Alerts []*ResourceAlert `json:"alerts,omitempty"`
 	// Mailing address provided by the customer.
 	// Not all orders have mailing addresses.
 	BillingAddress *MailingAddress `json:"billingAddress,omitempty"`
 	// Whether the billing address matches the shipping address.
-	BillingAddressMatchesShippingAddress bool `json:"billingAddressMatchesShippingAddress"`
+	BillingAddressMatchesShippingAddress bool `json:"billingAddressMatchesShippingAddress,omitempty"`
 	// Whether the order can be manually marked as paid.
-	CanMarkAsPaid bool `json:"canMarkAsPaid"`
+	CanMarkAsPaid bool `json:"canMarkAsPaid,omitempty"`
 	// Whether notifications can be sent to the customer or not.
-	CanNotifyCustomer bool `json:"canNotifyCustomer"`
+	CanNotifyCustomer bool `json:"canNotifyCustomer,omitempty"`
 	// Reason the order was canceled.
 	// Returns null if the order wasn't canceled.
 	CancelReason *OrderCancelReason `json:"cancelReason,omitempty"`
@@ -6130,7 +6130,7 @@ type Order struct {
 	CancelledAt *string `json:"cancelledAt,omitempty"`
 	// Whether payment for the order can be captured.
 	// Returns true when the customer's credit card has been authorized for payment and the authorization period has not expired.
-	Capturable bool `json:"capturable"`
+	Capturable bool `json:"capturable,omitempty"`
 	// Amount of the order-level discount (does not contain any line item discounts).
 	CartDiscountAmount *string `json:"cartDiscountAmount,omitempty"`
 	// Amount of the order-level discount (does not contain any line item discounts) in shop and presentment currencies.
@@ -6140,25 +6140,25 @@ type Order struct {
 	// The ip address of the client that is associated with this order.
 	ClientIP *string `json:"clientIp,omitempty"`
 	// Whether the order is closed.
-	Closed bool `json:"closed"`
+	Closed bool `json:"closed,omitempty"`
 	// Date and time when the order closed.
 	// If the order is not closed, then this field is null.
 	ClosedAt *string `json:"closedAt,omitempty"`
 	// Whether inventory has been reserved for the order.
-	Confirmed bool `json:"confirmed"`
+	Confirmed bool `json:"confirmed,omitempty"`
 	// Date and time when the order was created in Shopify.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The currency of the store at the time of the order.
 	// If payment hasn't occurred, then this field is null.
-	CurrencyCode CurrencyCode `json:"currencyCode"`
+	CurrencyCode CurrencyCode `json:"currencyCode,omitempty"`
 	// The amount of the order-level discount minus the amounts for line items that have been returned. This doesn't include line item discounts.
 	CurrentCartDiscountAmountSet *MoneyBag `json:"currentCartDiscountAmountSet,omitempty"`
 	// The sum of the quantities for the line items that contribute to the order's subtotal.
-	CurrentSubtotalLineItemsQuantity int `json:"currentSubtotalLineItemsQuantity"`
+	CurrentSubtotalLineItemsQuantity int `json:"currentSubtotalLineItemsQuantity,omitempty"`
 	// The subtotal of line items and their discounts minus the line items that have been returned. This includes order-level discounts, unless the argument with_cart_discount is set to false. This doesn't include shipping costs and shipping discounts. Taxes are not included unless the order is a taxes-included order.
 	CurrentSubtotalPriceSet *MoneyBag `json:"currentSubtotalPriceSet,omitempty"`
 	// The taxes charged for the order minus the taxes for line items that have been returned.
-	CurrentTaxLines []*TaxLine `json:"currentTaxLines"`
+	CurrentTaxLines []*TaxLine `json:"currentTaxLines,omitempty"`
 	// The total amount discounted from the order (including order-level and line item discounts) minus the amounts for items that have been returned.
 	CurrentTotalDiscountsSet *MoneyBag `json:"currentTotalDiscountsSet,omitempty"`
 	// The total amount of duties for the order. If duties aren't applicable, then this value is `null`.
@@ -6168,15 +6168,15 @@ type Order struct {
 	// The total of all taxes applied to the order minus the taxes for line items that have been returned.
 	CurrentTotalTaxSet *MoneyBag `json:"currentTotalTaxSet,omitempty"`
 	// The total weight (grams) of the order minus the weights for line items that have been returned.
-	CurrentTotalWeight string `json:"currentTotalWeight"`
+	CurrentTotalWeight string `json:"currentTotalWeight,omitempty"`
 	// Custom information added to the order by your customer
 	// (Also referred to as note attributes).
-	CustomAttributes []*Attribute `json:"customAttributes"`
+	CustomAttributes []*Attribute `json:"customAttributes,omitempty"`
 	// Unique identifier of the customer who placed the order.
 	// Not all orders have customers associated with them.
 	Customer *Customer `json:"customer,omitempty"`
 	// Whether the customer agreed to receive marketing materials.
-	CustomerAcceptsMarketing bool `json:"customerAcceptsMarketing"`
+	CustomerAcceptsMarketing bool `json:"customerAcceptsMarketing,omitempty"`
 	// Description of the customer's experience with the store leading up to the order.
 	CustomerJourney *CustomerJourney `json:"customerJourney,omitempty"`
 	// Description of the customer's experience with the store leading up to the order.
@@ -6196,36 +6196,36 @@ type Order struct {
 	DisplayFinancialStatus *OrderDisplayFinancialStatus `json:"displayFinancialStatus,omitempty"`
 	// Fulfillment status for the order that can be shown to the merchant.
 	// This field does not capture all the possible details of an order's fulfillment state. It should only be used for display summary purposes.
-	DisplayFulfillmentStatus OrderDisplayFulfillmentStatus `json:"displayFulfillmentStatus"`
+	DisplayFulfillmentStatus OrderDisplayFulfillmentStatus `json:"displayFulfillmentStatus,omitempty"`
 	// Summary of each dispute associated with the order. Sorted in ascending (ASC) order by ID.
-	Disputes []*OrderDisputeSummary `json:"disputes"`
+	Disputes []*OrderDisputeSummary `json:"disputes,omitempty"`
 	// List of possible fulfilments that can be made for the order (includes line items that can be partially fulfilled).
-	DraftFulfillments []*DraftFulfillment `json:"draftFulfillments"`
+	DraftFulfillments []*DraftFulfillment `json:"draftFulfillments,omitempty"`
 	// Whether the order has had any edits applied or not.
-	Edited bool `json:"edited"`
+	Edited bool `json:"edited,omitempty"`
 	// Email address provided by the customer.
 	Email *string `json:"email,omitempty"`
 	// List of internal events associated with the order.
 	Events *EventConnection `json:"events,omitempty"`
 	// Whether there are items that can be fulfilled.
 	// After an order is completely fulfilled (or completely refunded without any fulfillments) then this field returns false.
-	Fulfillable bool `json:"fulfillable"`
+	Fulfillable bool `json:"fulfillable,omitempty"`
 	// List of fulfillment orders with pagination.
 	FulfillmentOrders *FulfillmentOrderConnection `json:"fulfillmentOrders,omitempty"`
 	// List of shipments for the order.
-	Fulfillments []*Fulfillment `json:"fulfillments"`
+	Fulfillments []*Fulfillment `json:"fulfillments,omitempty"`
 	// Whether the order has been paid in full.
-	FullyPaid bool `json:"fullyPaid"`
+	FullyPaid bool `json:"fullyPaid,omitempty"`
 	// Whether the merchant added timeline comments to the order.
-	HasTimelineComment bool `json:"hasTimelineComment"`
+	HasTimelineComment bool `json:"hasTimelineComment,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// First page of the online store that the customer visited before they submitted the order, for displaying to humans.
 	LandingPageDisplayText *string `json:"landingPageDisplayText,omitempty"`
 	// First page of the online store that the customer visited before they submitted the order.
 	LandingPageURL *string `json:"landingPageUrl,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// List of the order's line items.
 	LineItems *LineItemConnection `json:"lineItems,omitempty"`
 	// List of the order's line items after any edits. Only available on Developer Preview.
@@ -6235,9 +6235,9 @@ type Order struct {
 	// If the order was processed using Shopify POS, then this is its location as provided by the merchant.
 	Location *string `json:"location,omitempty"`
 	// Whether the order can be edited or not.
-	MerchantEditable bool `json:"merchantEditable"`
+	MerchantEditable bool `json:"merchantEditable,omitempty"`
 	// A list of reasons of why the order cannot be edited.
-	MerchantEditableErrors []string `json:"merchantEditableErrors"`
+	MerchantEditableErrors []string `json:"merchantEditableErrors,omitempty"`
 	// The metafield associated with the resource.
 	Metafield *Metafield `json:"metafield,omitempty"`
 	// A paginated list of metafields associated with the resource.
@@ -6245,9 +6245,9 @@ type Order struct {
 	// Unique identifier for the order that appears on the order.
 	// For example, _#1000_ or _Store1001.
 	// This value is not unique across multiple stores.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// Net payment for the order, based on the total amount received - total amount refunded.
-	NetPayment string `json:"netPayment"`
+	NetPayment string `json:"netPayment,omitempty"`
 	// Net payment for the order, based on the total amount received - total amount refunded in shop and presentment currencies.
 	NetPaymentSet *MoneyBag `json:"netPaymentSet,omitempty"`
 	// Line items that can't be fulfilled.
@@ -6264,20 +6264,20 @@ type Order struct {
 	PaymentCollectionDetails *OrderPaymentCollectionDetails `json:"paymentCollectionDetails,omitempty"`
 	// List of all payment gateways used for the order.
 	// For example, _authorize_net_ and _Cash on Delivery (COD)_.
-	PaymentGatewayNames []string `json:"paymentGatewayNames"`
+	PaymentGatewayNames []string `json:"paymentGatewayNames,omitempty"`
 	// Phone number provided by the customer.
 	Phone *string `json:"phone,omitempty"`
 	// If the order was processed using Shopify POS, then this is its location as provided by the merchant.
 	PhysicalLocation *Location `json:"physicalLocation,omitempty"`
 	// The payment currency of the customer for this order.
-	PresentmentCurrencyCode CurrencyCode `json:"presentmentCurrencyCode"`
+	PresentmentCurrencyCode CurrencyCode `json:"presentmentCurrencyCode,omitempty"`
 	// Returns a private metafield found by namespace and key.
 	PrivateMetafield *PrivateMetafield `json:"privateMetafield,omitempty"`
 	// List of private metafields.
 	PrivateMetafields *PrivateMetafieldConnection `json:"privateMetafields,omitempty"`
 	// Date and time when the order was processed.
 	// When orders are imported from an app, this date and time may not match the date and time when the order was created.
-	ProcessedAt string `json:"processedAt"`
+	ProcessedAt string `json:"processedAt,omitempty"`
 	// Publication that created the order.
 	Publication *Publication `json:"publication,omitempty"`
 	// Marketing referral code from the link that the customer clicked to visit your store.
@@ -6291,17 +6291,17 @@ type Order struct {
 	// The difference between suggested and actual refund amounts.  A positive value indicates a difference in the merchants favor and a negative value indicates a difference in the customers favor.
 	RefundDiscrepancySet *MoneyBag `json:"refundDiscrepancySet,omitempty"`
 	// Whether the order can be refunded.
-	Refundable bool `json:"refundable"`
+	Refundable bool `json:"refundable,omitempty"`
 	// List of refunds that have been applied to the order.
-	Refunds []*Refund `json:"refunds"`
+	Refunds []*Refund `json:"refunds,omitempty"`
 	// Whether any line item in the order requires physical shipping.
-	RequiresShipping bool `json:"requiresShipping"`
+	RequiresShipping bool `json:"requiresShipping,omitempty"`
 	// Whether the order can be restocked.
-	Restockable bool `json:"restockable"`
+	Restockable bool `json:"restockable,omitempty"`
 	// Fraud risk level of the order.
-	RiskLevel OrderRiskLevel `json:"riskLevel"`
+	RiskLevel OrderRiskLevel `json:"riskLevel,omitempty"`
 	// The order risks associated with this order.
-	Risks []*OrderRisk `json:"risks"`
+	Risks []*OrderRisk `json:"risks,omitempty"`
 	// Mailing address for shipping provided by the customer.
 	ShippingAddress *MailingAddress `json:"shippingAddress,omitempty"`
 	// Line item that contains the shipping costs.
@@ -6309,7 +6309,7 @@ type Order struct {
 	// List of line items that contains the shipping costs.
 	ShippingLines *ShippingLineConnection `json:"shippingLines,omitempty"`
 	// The sum of the quantities for the line items that contribute to the order's subtotal.
-	SubtotalLineItemsQuantity int `json:"subtotalLineItemsQuantity"`
+	SubtotalLineItemsQuantity int `json:"subtotalLineItemsQuantity,omitempty"`
 	// Subtotal of the line items and their discounts (does not contain shipping costs and shipping discounts).
 	SubtotalPrice *string `json:"subtotalPrice,omitempty"`
 	// Subtotal of the line items and their discounts (does not contain shipping costs and shipping discounts) in shop and presentment currencies.
@@ -6317,16 +6317,16 @@ type Order struct {
 	// The details of the suggested refund. This response can be used to submit a RefundCreate mutation.
 	SuggestedRefund *SuggestedRefund `json:"suggestedRefund,omitempty"`
 	// A comma separated list of tags that have been added to the order.
-	Tags []string `json:"tags"`
+	Tags []string `json:"tags,omitempty"`
 	// Taxes charged for the line item.
-	TaxLines []*TaxLine `json:"taxLines"`
+	TaxLines []*TaxLine `json:"taxLines,omitempty"`
 	// Whether taxes are included in the subtotal price of the order.
-	TaxesIncluded bool `json:"taxesIncluded"`
+	TaxesIncluded bool `json:"taxesIncluded,omitempty"`
 	// Whether the order is a test.
 	// Test orders are made using the Shopify Bogus Gateway or a payment provider with test mode enabled.
-	Test bool `json:"test"`
+	Test bool `json:"test,omitempty"`
 	// Amount authorized for the order, that is uncaptured or undercaptured.
-	TotalCapturable string `json:"totalCapturable"`
+	TotalCapturable string `json:"totalCapturable,omitempty"`
 	// Amount authorized for the order, that is uncaptured or undercaptured in shop and presentment currencies.
 	TotalCapturableSet *MoneyBag `json:"totalCapturableSet,omitempty"`
 	// Total amount discounted from the order (includes order-level and line item discounts).
@@ -6336,21 +6336,21 @@ type Order struct {
 	// Total amount of money not yet authorized for the order.
 	TotalOutstandingSet *MoneyBag `json:"totalOutstandingSet,omitempty"`
 	// Total amount of the order (includes taxes and discounts).
-	TotalPrice string `json:"totalPrice"`
+	TotalPrice string `json:"totalPrice,omitempty"`
 	// Total amount of the order (includes taxes and discounts) in shop and presentment currencies.
 	TotalPriceSet *MoneyBag `json:"totalPriceSet,omitempty"`
 	// Total amount received by the customer for the order.
-	TotalReceived string `json:"totalReceived"`
+	TotalReceived string `json:"totalReceived,omitempty"`
 	// Total amount received by the customer for the order in shop and presentment currencies.
 	TotalReceivedSet *MoneyBag `json:"totalReceivedSet,omitempty"`
 	// Total amount refunded for the order.
-	TotalRefunded string `json:"totalRefunded"`
+	TotalRefunded string `json:"totalRefunded,omitempty"`
 	// Total amount refunded for the order in shop and presentment currencies.
 	TotalRefundedSet *MoneyBag `json:"totalRefundedSet,omitempty"`
 	// Total amount refunded for shipping in shop and presentment currencies.
 	TotalRefundedShippingSet *MoneyBag `json:"totalRefundedShippingSet,omitempty"`
 	// Total amount charged for shipping the order.
-	TotalShippingPrice string `json:"totalShippingPrice"`
+	TotalShippingPrice string `json:"totalShippingPrice,omitempty"`
 	// Total amount charged for shipping the order in shop and presentment currencies.
 	TotalShippingPriceSet *MoneyBag `json:"totalShippingPriceSet,omitempty"`
 	// Total of all taxes applied to the order.
@@ -6364,12 +6364,12 @@ type Order struct {
 	// Total weight (grams) of the order.
 	TotalWeight *string `json:"totalWeight,omitempty"`
 	// List of all transactions associated with the order.
-	Transactions []*OrderTransaction `json:"transactions"`
+	Transactions []*OrderTransaction `json:"transactions,omitempty"`
 	// Whether no payments have been made for the order.
 	// If no payments have been made for the order, then this returns true.
-	Unpaid bool `json:"unpaid"`
+	Unpaid bool `json:"unpaid,omitempty"`
 	// Date and time when the order was last modified.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 }
 
 func (Order) IsCommentEventEmbed()         {}
@@ -6383,11 +6383,11 @@ func (Order) IsHasLocalizationExtensions() {}
 // Specifies the authorized transaction to capture and the total amount to capture from it.
 type OrderCaptureInput struct {
 	// The ID of the order to capture.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The ID of the authorized transaction to capture.
-	ParentTransactionID string `json:"parentTransactionId"`
+	ParentTransactionID string `json:"parentTransactionId,omitempty"`
 	// The amount to capture.
-	Amount string `json:"amount"`
+	Amount string `json:"amount,omitempty"`
 	// The currency (in ISO format) that is used to capture the order. This must be the presentment currency (the currency used by the customer) and is a required field for orders where the currency and presentment currency differ.
 	Currency *CurrencyCode `json:"currency,omitempty"`
 }
@@ -6397,13 +6397,13 @@ type OrderCapturePayload struct {
 	// The transaction of the capture.
 	Transaction *OrderTransaction `json:"transaction,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Specifies an open order to close.
 type OrderCloseInput struct {
 	// The ID of the order to close.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 }
 
 // Return type for `orderClose` mutation.
@@ -6411,13 +6411,13 @@ type OrderClosePayload struct {
 	// The closed order.
 	Order *Order `json:"order,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple Orders.
 type OrderConnection struct {
 	// A list of edges.
-	Edges []*OrderEdge `json:"edges"`
+	Edges []*OrderEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -6425,11 +6425,11 @@ type OrderConnection struct {
 // A summary of the important details for a dispute on an order.
 type OrderDisputeSummary struct {
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The type that the dispute was initiated as.
-	InitiatedAs DisputeType `json:"initiatedAs"`
+	InitiatedAs DisputeType `json:"initiatedAs,omitempty"`
 	// The current status of the dispute.
-	Status DisputeStatus `json:"status"`
+	Status DisputeStatus `json:"status,omitempty"`
 }
 
 func (OrderDisputeSummary) IsNode() {}
@@ -6437,7 +6437,7 @@ func (OrderDisputeSummary) IsNode() {}
 // An auto-generated type which holds one Order and a cursor during pagination.
 type OrderEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of OrderEdge.
 	Node *Order `json:"node,omitempty"`
 }
@@ -6449,7 +6449,7 @@ type OrderEditAddCustomItemPayload struct {
 	// An order with the edits calculated.
 	CalculatedOrder *CalculatedOrder `json:"calculatedOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `orderEditAddLineItemDiscount` mutation.
@@ -6461,7 +6461,7 @@ type OrderEditAddLineItemDiscountPayload struct {
 	// An order with the edits calculated.
 	CalculatedOrder *CalculatedOrder `json:"calculatedOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `orderEditAddVariant` mutation.
@@ -6471,7 +6471,7 @@ type OrderEditAddVariantPayload struct {
 	// An order with the edits calculated.
 	CalculatedOrder *CalculatedOrder `json:"calculatedOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // The input fields used to add a discount during an order edit.
@@ -6489,7 +6489,7 @@ type OrderEditBeginPayload struct {
 	// The order that will be edited.
 	CalculatedOrder *CalculatedOrder `json:"calculatedOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `orderEditCommit` mutation.
@@ -6497,7 +6497,7 @@ type OrderEditCommitPayload struct {
 	// The order with changes applied.
 	Order *Order `json:"order,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `orderEditRemoveLineItemDiscount` mutation.
@@ -6507,7 +6507,7 @@ type OrderEditRemoveLineItemDiscountPayload struct {
 	// An order with the edits calculated.
 	CalculatedOrder *CalculatedOrder `json:"calculatedOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `orderEditSetQuantity` mutation.
@@ -6517,7 +6517,7 @@ type OrderEditSetQuantityPayload struct {
 	// An order with the edits calculated.
 	CalculatedOrder *CalculatedOrder `json:"calculatedOrder,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Specifies the information to be updated on the requested order.
@@ -6525,25 +6525,25 @@ type OrderInput struct {
 	// The email address associated with the order.
 	Email *string `json:"email,omitempty"`
 	// The ID of the order to update.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The order note.
 	Note *string `json:"note,omitempty"`
 	// A comma separated list of tags that have been added to the order.
-	Tags []string `json:"tags"`
+	Tags []string `json:"tags,omitempty"`
 	// The shipping address associated with the order.
 	ShippingAddress *MailingAddressInput `json:"shippingAddress,omitempty"`
 	// Custom information to add to the order, represented as a key value pair. Also referred to as note attributes.
-	CustomAttributes []*AttributeInput `json:"customAttributes"`
+	CustomAttributes []*AttributeInput `json:"customAttributes,omitempty"`
 	// The metafields to associate with this order.
-	Metafields []*MetafieldInput `json:"metafields"`
+	Metafields []*MetafieldInput `json:"metafields,omitempty"`
 	// The localization extensions attached to the order. For example, Tax IDs.
-	LocalizationExtensions []*LocalizationExtensionInput `json:"localizationExtensions"`
+	LocalizationExtensions []*LocalizationExtensionInput `json:"localizationExtensions,omitempty"`
 }
 
 // Specifies the order to mark as paid.
 type OrderMarkAsPaidInput struct {
 	// The ID of the order to mark as paid.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 }
 
 // Return type for `orderMarkAsPaid` mutation.
@@ -6551,13 +6551,13 @@ type OrderMarkAsPaidPayload struct {
 	// The order marked as paid.
 	Order *Order `json:"order,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Specifies a closed order to open.
 type OrderOpenInput struct {
 	// The ID of the order to open.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 }
 
 // Return type for `orderOpen` mutation.
@@ -6565,7 +6565,7 @@ type OrderOpenPayload struct {
 	// The opened order.
 	Order *Order `json:"order,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // The payment collection details for an order requiring additional payment.
@@ -6577,7 +6577,7 @@ type OrderPaymentCollectionDetails struct {
 // Represents a fraud check on an order.
 type OrderRisk struct {
 	// Whether the risk level is shown in the Shopify admin. If false, then this order risk is ignored when Shopify determines the overall risk level for the order.
-	Display bool `json:"display"`
+	Display bool `json:"display,omitempty"`
 	// The likelihood that an order is fraudulent, based on this order risk.
 	//
 	// The level can be set by Shopify risk analysis or by an app.
@@ -6591,9 +6591,9 @@ type OrderStagedChangeAddCustomItem struct {
 	// The price of an individual item without any discounts applied.
 	OriginalUnitPrice *MoneyV2 `json:"originalUnitPrice,omitempty"`
 	// The number of items.
-	Quantity int `json:"quantity"`
+	Quantity int `json:"quantity,omitempty"`
 	// The title of the item.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 }
 
 func (OrderStagedChangeAddCustomItem) IsOrderStagedChange() {}
@@ -6601,11 +6601,11 @@ func (OrderStagedChangeAddCustomItem) IsOrderStagedChange() {}
 // A discount application added as part of an order edit.
 type OrderStagedChangeAddLineItemDiscount struct {
 	// The description of the discount.
-	Description string `json:"description"`
+	Description string `json:"description,omitempty"`
 	// A globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The amount of the discount.
-	Value PricingValue `json:"value"`
+	Value PricingValue `json:"value,omitempty"`
 }
 
 func (OrderStagedChangeAddLineItemDiscount) IsOrderStagedChange() {}
@@ -6627,7 +6627,7 @@ func (OrderStagedChangeAddShippingLine) IsOrderStagedChange() {}
 // A new item created from an existing product variant.
 type OrderStagedChangeAddVariant struct {
 	// The number of items.
-	Quantity int `json:"quantity"`
+	Quantity int `json:"quantity,omitempty"`
 	// The product variant of the added item.
 	Variant *ProductVariant `json:"variant,omitempty"`
 }
@@ -6637,7 +6637,7 @@ func (OrderStagedChangeAddVariant) IsOrderStagedChange() {}
 // An auto-generated type for paginating through multiple OrderStagedChanges.
 type OrderStagedChangeConnection struct {
 	// A list of edges.
-	Edges []*OrderStagedChangeEdge `json:"edges"`
+	Edges []*OrderStagedChangeEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -6645,11 +6645,11 @@ type OrderStagedChangeConnection struct {
 // An removal of items from an existing line item on the order.
 type OrderStagedChangeDecrementItem struct {
 	// The number of items removed.
-	Delta int `json:"delta"`
+	Delta int `json:"delta,omitempty"`
 	// The original line item.
 	LineItem *LineItem `json:"lineItem,omitempty"`
 	// The intention to restock the removed items.
-	Restock bool `json:"restock"`
+	Restock bool `json:"restock,omitempty"`
 }
 
 func (OrderStagedChangeDecrementItem) IsOrderStagedChange() {}
@@ -6657,15 +6657,15 @@ func (OrderStagedChangeDecrementItem) IsOrderStagedChange() {}
 // An auto-generated type which holds one OrderStagedChange and a cursor during pagination.
 type OrderStagedChangeEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of OrderStagedChangeEdge.
-	Node OrderStagedChange `json:"node"`
+	Node OrderStagedChange `json:"node,omitempty"`
 }
 
 // An addition of items to an existing line item on the order.
 type OrderStagedChangeIncrementItem struct {
 	// The number of items added.
-	Delta int `json:"delta"`
+	Delta int `json:"delta,omitempty"`
 	// The original line item.
 	LineItem *LineItem `json:"lineItem,omitempty"`
 }
@@ -6677,7 +6677,7 @@ type OrderTransaction struct {
 	// The masked account number associated with the payment method.
 	AccountNumber *string `json:"accountNumber,omitempty"`
 	// The amount of money.
-	Amount string `json:"amount"`
+	Amount string `json:"amount,omitempty"`
 	// The amount and currency of the transaction in shop and presentment currencies.
 	AmountSet *MoneyBag `json:"amountSet,omitempty"`
 	// The amount and currency of the transaction.
@@ -6687,21 +6687,21 @@ type OrderTransaction struct {
 	// The time when the authorization expires. This field is available only to stores on a Shopify Plus plan and is populated only for Shopify Payments authorizations.
 	AuthorizationExpiresAt *string `json:"authorizationExpiresAt,omitempty"`
 	// Date and time when the transaction was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// A standardized error code, independent of the payment provider.
 	ErrorCode *OrderTransactionErrorCode `json:"errorCode,omitempty"`
 	// The transaction fees charged on the order transaction.
-	Fees []*TransactionFee `json:"fees"`
+	Fees []*TransactionFee `json:"fees,omitempty"`
 	// The human-readable payment gateway name used to process the transaction.
 	FormattedGateway *string `json:"formattedGateway,omitempty"`
 	// The payment gateway used to process the transaction.
 	Gateway *string `json:"gateway,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The kind of transaction.
-	Kind OrderTransactionKind `json:"kind"`
+	Kind OrderTransactionKind `json:"kind,omitempty"`
 	// Whether the transaction can be manually captured.
-	ManuallyCapturable bool `json:"manuallyCapturable"`
+	ManuallyCapturable bool `json:"manuallyCapturable,omitempty"`
 	// Specifies the available amount to refund on the gateway. Only available within SuggestedRefund.
 	MaximumRefundable *string `json:"maximumRefundable,omitempty"`
 	// Specifies the available amount with currency to refund on the gateway.
@@ -6727,9 +6727,9 @@ type OrderTransaction struct {
 	// Contains all Shopify Payments information related to an order transaction. This field is available only to stores on a Shopify Plus plan.
 	ShopifyPaymentsSet *ShopifyPaymentsTransactionSet `json:"shopifyPaymentsSet,omitempty"`
 	// The status of this transaction.
-	Status OrderTransactionStatus `json:"status"`
+	Status OrderTransactionStatus `json:"status,omitempty"`
 	// Whether the transaction is a test transaction.
-	Test bool `json:"test"`
+	Test bool `json:"test,omitempty"`
 	// Specifies the available amount to capture on the gateway.
 	// Only available when an amount is capturable or manually mark as paid.
 	TotalUnsettled *string `json:"totalUnsettled,omitempty"`
@@ -6746,7 +6746,7 @@ func (OrderTransaction) IsNode() {}
 // An auto-generated type for paginating through multiple OrderTransactions.
 type OrderTransactionConnection struct {
 	// A list of edges.
-	Edges []*OrderTransactionEdge `json:"edges"`
+	Edges []*OrderTransactionEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -6754,7 +6754,7 @@ type OrderTransactionConnection struct {
 // An auto-generated type which holds one OrderTransaction and a cursor during pagination.
 type OrderTransactionEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of OrderTransactionEdge.
 	Node *OrderTransaction `json:"node,omitempty"`
 }
@@ -6762,13 +6762,13 @@ type OrderTransactionEdge struct {
 // Specifies the information needed to create an order transaction.
 type OrderTransactionInput struct {
 	// The amount of money for this transaction.
-	Amount string `json:"amount"`
+	Amount string `json:"amount,omitempty"`
 	// The payment gateway to use for this transaction.
-	Gateway string `json:"gateway"`
+	Gateway string `json:"gateway,omitempty"`
 	// The kind of transaction.
-	Kind OrderTransactionKind `json:"kind"`
+	Kind OrderTransactionKind `json:"kind,omitempty"`
 	// The ID of the order associated with the transaction.
-	OrderID string `json:"orderId"`
+	OrderID string `json:"orderId,omitempty"`
 	// The ID of the optional parent transaction, for example the authorization of a capture.
 	ParentID *string `json:"parentId,omitempty"`
 }
@@ -6778,23 +6778,23 @@ type OrderUpdatePayload struct {
 	// The updated order.
 	Order *Order `json:"order,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Information about pagination in a connection.
 type PageInfo struct {
 	// Indicates if there are more pages to fetch.
-	HasNextPage bool `json:"hasNextPage"`
+	HasNextPage bool `json:"hasNextPage,omitempty"`
 	// Indicates if there are any pages prior to the current page.
-	HasPreviousPage bool `json:"hasPreviousPage"`
+	HasPreviousPage bool `json:"hasPreviousPage,omitempty"`
 }
 
 // Represents a payment session.
 type PaymentSession struct {
 	// A globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The url of the Checkout to redirect the buyer to.
-	RedirectURL string `json:"redirectUrl"`
+	RedirectURL string `json:"redirectUrl,omitempty"`
 	// The payment status.
 	Status *PaymentSessionStatus `json:"status,omitempty"`
 }
@@ -6804,13 +6804,13 @@ type PaymentSessionRejectPayload struct {
 	// The updated payment session.
 	PaymentSession *PaymentSession `json:"paymentSession,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Reason of the payment status.
 type PaymentSessionRejectionReasonInput struct {
 	// The reason code.
-	Code PaymentSessionStatusReasonRejectionCode `json:"code"`
+	Code PaymentSessionStatusReasonRejectionCode `json:"code,omitempty"`
 	// A custom, localized message for the merchant.
 	MerchantMessage *string `json:"merchantMessage,omitempty"`
 }
@@ -6820,13 +6820,13 @@ type PaymentSessionResolvePayload struct {
 	// The updated payment session.
 	PaymentSession *PaymentSession `json:"paymentSession,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents a payment status.
 type PaymentSessionStatus struct {
 	// The payment status code.
-	Code PaymentSessionStatusCode `json:"code"`
+	Code PaymentSessionStatusCode `json:"code,omitempty"`
 	// The payment status reason (if applicable).
 	Reason *PaymentSessionStatusReason `json:"reason,omitempty"`
 }
@@ -6834,7 +6834,7 @@ type PaymentSessionStatus struct {
 // Payment status reason.
 type PaymentSessionStatusReason struct {
 	// The reason code.
-	Code PaymentSessionStatusReasonRejectionCode `json:"code"`
+	Code PaymentSessionStatusReasonRejectionCode `json:"code,omitempty"`
 	// The custom, localized message for the merchant.
 	MerchantMessage *string `json:"merchantMessage,omitempty"`
 }
@@ -6842,7 +6842,7 @@ type PaymentSessionStatusReason struct {
 // Settings related to payments.
 type PaymentSettings struct {
 	// List of the digital wallets which the shop supports.
-	SupportedDigitalWallets []DigitalWallet `json:"supportedDigitalWallets"`
+	SupportedDigitalWallets []DigitalWallet `json:"supportedDigitalWallets,omitempty"`
 }
 
 // The production configuration of the payments app.
@@ -6850,7 +6850,7 @@ type PaymentsAppConfiguration struct {
 	// Handle used by the provider.
 	ExternalHandle *string `json:"externalHandle,omitempty"`
 	// The provider is ready to process merchant's payments.
-	Ready bool `json:"ready"`
+	Ready bool `json:"ready,omitempty"`
 }
 
 // Return type for `paymentsAppConfigure` mutation.
@@ -6858,7 +6858,7 @@ type PaymentsAppConfigurePayload struct {
 	// The production configuration of the payments app.
 	PaymentsAppConfiguration *PaymentsAppConfiguration `json:"paymentsAppConfiguration,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Price rules are a set of conditions, including entitlements and prerequisites, that must be met in order for a discount code to apply.
@@ -6866,17 +6866,17 @@ type PriceRule struct {
 	// The maximum number of times that the price rule can be allocated onto an order.
 	AllocationLimit *int `json:"allocationLimit,omitempty"`
 	// The method by which the price rule's value is allocated to its entitled items.
-	AllocationMethod PriceRuleAllocationMethod `json:"allocationMethod"`
+	AllocationMethod PriceRuleAllocationMethod `json:"allocationMethod,omitempty"`
 	// The application that created the price rule.
 	App *App `json:"app,omitempty"`
 	// The date and time when the price rule was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The customers that can use this price rule.
 	CustomerSelection *PriceRuleCustomerSelection `json:"customerSelection,omitempty"`
 	// List of the price rule's discount codes.
 	DiscountCodes *PriceRuleDiscountCodeConnection `json:"discountCodes,omitempty"`
 	// How many discount codes associated with the price rule.
-	DiscountCodesCount int `json:"discountCodesCount"`
+	DiscountCodesCount int `json:"discountCodesCount,omitempty"`
 	// The date and time when the price rule ends. For open-ended price rules, use `null`.
 	EndsAt *string `json:"endsAt,omitempty"`
 	// Quantity of prerequisite items required for the price rule to be applicable,  compared to quantity of entitled items.
@@ -6884,19 +6884,19 @@ type PriceRule struct {
 	// The paginated list of events associated with the price rule.
 	Events *EventConnection `json:"events,omitempty"`
 	// A list of the price rule's features.
-	Features []PriceRuleFeature `json:"features"`
+	Features []PriceRuleFeature `json:"features,omitempty"`
 	// Indicates whether there are any timeline comments on the price rule.
-	HasTimelineComment bool `json:"hasTimelineComment"`
+	HasTimelineComment bool `json:"hasTimelineComment,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The items to which the price rule applies.
 	ItemEntitlements *PriceRuleItemEntitlements `json:"itemEntitlements,omitempty"`
 	// The items required for the price rule to be applicable.
 	ItemPrerequisites *PriceRuleLineItemPrerequisites `json:"itemPrerequisites,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// Whether the price rule can be applied only once per customer.
-	OncePerCustomer bool `json:"oncePerCustomer"`
+	OncePerCustomer bool `json:"oncePerCustomer,omitempty"`
 	// The number of the entitled items must fall within this range for the price rule to be applicable.
 	PrerequisiteQuantityRange *PriceRuleQuantityRange `json:"prerequisiteQuantityRange,omitempty"`
 	// The shipping cost must fall within this range for the price rule to be applicable.
@@ -6906,33 +6906,33 @@ type PriceRule struct {
 	// Quantity of prerequisite items required for the price rule to be applicable,  compared to quantity of entitled items.
 	PrerequisiteToEntitlementQuantityRatio *PriceRulePrerequisiteToEntitlementQuantityRatio `json:"prerequisiteToEntitlementQuantityRatio,omitempty"`
 	// URLs that can be used to share the discount.
-	ShareableUrls []*PriceRuleShareableURL `json:"shareableUrls"`
+	ShareableUrls []*PriceRuleShareableURL `json:"shareableUrls,omitempty"`
 	// The shipping lines to which the price rule applies.
 	ShippingEntitlements *PriceRuleShippingLineEntitlements `json:"shippingEntitlements,omitempty"`
 	// The date and time when the price rule starts.
-	StartsAt string `json:"startsAt"`
+	StartsAt string `json:"startsAt,omitempty"`
 	// The status of the price rule.
-	Status PriceRuleStatus `json:"status"`
+	Status PriceRuleStatus `json:"status,omitempty"`
 	// A detailed summary of the price rule.
 	Summary *string `json:"summary,omitempty"`
 	// The type of lines (line_item or shipping_line) to which the price rule applies.
-	Target PriceRuleTarget `json:"target"`
+	Target PriceRuleTarget `json:"target,omitempty"`
 	// The title of the price rule.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The total sales from orders where the price rule was used.
 	TotalSales *MoneyV2 `json:"totalSales,omitempty"`
 	// A list of the price rule's features.
-	Traits []PriceRuleTrait `json:"traits"`
+	Traits []PriceRuleTrait `json:"traits,omitempty"`
 	// The number of times that the price rule has been used. This value is updated asynchronously and can be different than the actual usage count.
-	UsageCount int `json:"usageCount"`
+	UsageCount int `json:"usageCount,omitempty"`
 	// The maximum number of times that the price rule can be used in total.
 	UsageLimit *int `json:"usageLimit,omitempty"`
 	// A time period during which a price rule is applicable.
 	ValidityPeriod *PriceRuleValidityPeriod `json:"validityPeriod,omitempty"`
 	// The value of the price rule.
-	Value PriceRuleValue `json:"value"`
+	Value PriceRuleValue `json:"value,omitempty"`
 	// The value of the price rule.
-	ValueV2 PricingValue `json:"valueV2"`
+	ValueV2 PricingValue `json:"valueV2,omitempty"`
 }
 
 func (PriceRule) IsNode()                   {}
@@ -6945,15 +6945,15 @@ type PriceRuleActivatePayload struct {
 	// The activated price rule.
 	PriceRule *PriceRule `json:"priceRule,omitempty"`
 	// List of errors that occurred executing the mutation.
-	PriceRuleUserErrors []*PriceRuleUserError `json:"priceRuleUserErrors"`
+	PriceRuleUserErrors []*PriceRuleUserError `json:"priceRuleUserErrors,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple PriceRules.
 type PriceRuleConnection struct {
 	// A list of edges.
-	Edges []*PriceRuleEdge `json:"edges"`
+	Edges []*PriceRuleEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -6965,9 +6965,9 @@ type PriceRuleCreatePayload struct {
 	// The newly created discount code.
 	PriceRuleDiscountCode *PriceRuleDiscountCode `json:"priceRuleDiscountCode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	PriceRuleUserErrors []*PriceRuleUserError `json:"priceRuleUserErrors"`
+	PriceRuleUserErrors []*PriceRuleUserError `json:"priceRuleUserErrors,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // A selection of customers for whom the price rule applies.
@@ -6975,9 +6975,9 @@ type PriceRuleCustomerSelection struct {
 	// List of customers to whom the price rule applies.
 	Customers *CustomerConnection `json:"customers,omitempty"`
 	// Whether the price rule applies to all customers.
-	ForAllCustomers bool `json:"forAllCustomers"`
+	ForAllCustomers bool `json:"forAllCustomers,omitempty"`
 	// A list of customer saved searches that contain the customers who can use the price rule.
-	SavedSearches []*SavedSearch `json:"savedSearches"`
+	SavedSearches []*SavedSearch `json:"savedSearches,omitempty"`
 }
 
 // Specifies the input fields to update a price rule customer selection.
@@ -6985,11 +6985,11 @@ type PriceRuleCustomerSelectionInput struct {
 	// Whether the price rule applies to all customers.
 	ForAllCustomers *bool `json:"forAllCustomers,omitempty"`
 	// List of customer saved searches that contain the customers to whom the price rule applies. No single customer IDs may be present.
-	SavedSearchIds []string `json:"savedSearchIds"`
+	SavedSearchIds []string `json:"savedSearchIds,omitempty"`
 	// List of customers to add to the current list of customers to whom the price rule applies. `savedSearchIds` must be empty.
-	CustomerIdsToAdd []string `json:"customerIdsToAdd"`
+	CustomerIdsToAdd []string `json:"customerIdsToAdd,omitempty"`
 	// A list of customers to remove from the current list of customers to whom the price rule applies.
-	CustomerIdsToRemove []string `json:"customerIdsToRemove"`
+	CustomerIdsToRemove []string `json:"customerIdsToRemove,omitempty"`
 }
 
 // Return type for `priceRuleDeactivate` mutation.
@@ -6997,9 +6997,9 @@ type PriceRuleDeactivatePayload struct {
 	// The deactivated price rule.
 	PriceRule *PriceRule `json:"priceRule,omitempty"`
 	// List of errors that occurred executing the mutation.
-	PriceRuleUserErrors []*PriceRuleUserError `json:"priceRuleUserErrors"`
+	PriceRuleUserErrors []*PriceRuleUserError `json:"priceRuleUserErrors,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `priceRuleDelete` mutation.
@@ -7007,11 +7007,11 @@ type PriceRuleDeletePayload struct {
 	// The id price of the deleted price rule.
 	DeletedPriceRuleID *string `json:"deletedPriceRuleId,omitempty"`
 	// List of errors that occurred executing the mutation.
-	PriceRuleUserErrors []*PriceRuleUserError `json:"priceRuleUserErrors"`
+	PriceRuleUserErrors []*PriceRuleUserError `json:"priceRuleUserErrors,omitempty"`
 	// The shop of the deleted price rule.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // A discount code of a price rule.
@@ -7019,11 +7019,11 @@ type PriceRuleDiscountCode struct {
 	// The application that created the discount code.
 	App *App `json:"app,omitempty"`
 	// The code to use the discount.
-	Code string `json:"code"`
+	Code string `json:"code,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The number of times that the price rule has been used. This value is updated asynchronously and can be different than the actual usage count.
-	UsageCount int `json:"usageCount"`
+	UsageCount int `json:"usageCount,omitempty"`
 }
 
 func (PriceRuleDiscountCode) IsNode() {}
@@ -7031,7 +7031,7 @@ func (PriceRuleDiscountCode) IsNode() {}
 // An auto-generated type for paginating through multiple PriceRuleDiscountCodes.
 type PriceRuleDiscountCodeConnection struct {
 	// A list of edges.
-	Edges []*PriceRuleDiscountCodeEdge `json:"edges"`
+	Edges []*PriceRuleDiscountCodeEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -7043,15 +7043,15 @@ type PriceRuleDiscountCodeCreatePayload struct {
 	// The newly created discount code.
 	PriceRuleDiscountCode *PriceRuleDiscountCode `json:"priceRuleDiscountCode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	PriceRuleUserErrors []*PriceRuleUserError `json:"priceRuleUserErrors"`
+	PriceRuleUserErrors []*PriceRuleUserError `json:"priceRuleUserErrors,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one PriceRuleDiscountCode and a cursor during pagination.
 type PriceRuleDiscountCodeEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of PriceRuleDiscountCodeEdge.
 	Node *PriceRuleDiscountCode `json:"node,omitempty"`
 }
@@ -7069,15 +7069,15 @@ type PriceRuleDiscountCodeUpdatePayload struct {
 	// The updated discount code.
 	PriceRuleDiscountCode *PriceRuleDiscountCode `json:"priceRuleDiscountCode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	PriceRuleUserErrors []*PriceRuleUserError `json:"priceRuleUserErrors"`
+	PriceRuleUserErrors []*PriceRuleUserError `json:"priceRuleUserErrors,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one PriceRule and a cursor during pagination.
 type PriceRuleEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of PriceRuleEdge.
 	Node *PriceRule `json:"node,omitempty"`
 }
@@ -7085,9 +7085,9 @@ type PriceRuleEdge struct {
 // Quantity of prerequisite items required for the price rule to be applicable, compared to quantity of entitled items.
 type PriceRuleEntitlementToPrerequisiteQuantityRatio struct {
 	// The quantity of entitlements in the ratio.
-	EntitlementQuantity int `json:"entitlementQuantity"`
+	EntitlementQuantity int `json:"entitlementQuantity,omitempty"`
 	// The quantity of prerequisites in the ratio.
-	PrerequisiteQuantity int `json:"prerequisiteQuantity"`
+	PrerequisiteQuantity int `json:"prerequisiteQuantity,omitempty"`
 }
 
 // Specifies the quantity of prerequisite items required for the price rule to be applicable, compared to quantity of entitled items.
@@ -7101,7 +7101,7 @@ type PriceRuleEntitlementToPrerequisiteQuantityRatioInput struct {
 // The value of a fixed amount price rule.
 type PriceRuleFixedAmountValue struct {
 	// The monetary value of the price rule.
-	Amount string `json:"amount"`
+	Amount string `json:"amount,omitempty"`
 }
 
 func (PriceRuleFixedAmountValue) IsPriceRuleValue() {}
@@ -7153,7 +7153,7 @@ type PriceRuleItemEntitlements struct {
 	// The products to which the price rule applies.
 	Products *ProductConnection `json:"products,omitempty"`
 	// Whether the price rule applies to all line items.
-	TargetAllLineItems bool `json:"targetAllLineItems"`
+	TargetAllLineItems bool `json:"targetAllLineItems,omitempty"`
 }
 
 // Specifies the input fields to update a price rule line item entitlement.
@@ -7161,21 +7161,21 @@ type PriceRuleItemEntitlementsInput struct {
 	// Whether the price rule applies to all items.
 	TargetAllLineItems *bool `json:"targetAllLineItems,omitempty"`
 	// The products to which the price rule applies.
-	ProductIds []string `json:"productIds"`
+	ProductIds []string `json:"productIds,omitempty"`
 	// The product variants to which the price rule applies.
-	ProductVariantIds []string `json:"productVariantIds"`
+	ProductVariantIds []string `json:"productVariantIds,omitempty"`
 	// The collections to which the price rule applies.
-	CollectionIds []string `json:"collectionIds"`
+	CollectionIds []string `json:"collectionIds,omitempty"`
 }
 
 // Specifies the input fields to update a price rule's item prerequisites.
 type PriceRuleItemPrerequisitesInput struct {
 	// The products needed for the price rule to be applied.
-	ProductIds []string `json:"productIds"`
+	ProductIds []string `json:"productIds,omitempty"`
 	// The product variants needed for the price rule to be applied.
-	ProductVariantIds []string `json:"productVariantIds"`
+	ProductVariantIds []string `json:"productVariantIds,omitempty"`
 	// The collections needed for the price rule to be applied.
-	CollectionIds []string `json:"collectionIds"`
+	CollectionIds []string `json:"collectionIds,omitempty"`
 }
 
 // Single or multiple line item products, product variants or collections required for the price rule to be applicable, can also be provided in combination.
@@ -7215,7 +7215,7 @@ type PriceRuleMoneyRangeInput struct {
 // The value of a percent price rule.
 type PriceRulePercentValue struct {
 	// The percent value of the price rule.
-	Percentage float64 `json:"percentage"`
+	Percentage float64 `json:"percentage,omitempty"`
 }
 
 func (PriceRulePercentValue) IsPriceRuleValue() {}
@@ -7223,9 +7223,9 @@ func (PriceRulePercentValue) IsPriceRuleValue() {}
 // Quantity of prerequisite items required for the price rule to be applicable, compared to quantity of entitled items.
 type PriceRulePrerequisiteToEntitlementQuantityRatio struct {
 	// The quantity of entitlements in the ratio.
-	EntitlementQuantity int `json:"entitlementQuantity"`
+	EntitlementQuantity int `json:"entitlementQuantity,omitempty"`
 	// The quantity of prerequisites in the ratio.
-	PrerequisiteQuantity int `json:"prerequisiteQuantity"`
+	PrerequisiteQuantity int `json:"prerequisiteQuantity,omitempty"`
 }
 
 // Specifies the quantity of prerequisite items required for the price rule to be applicable, compared to quantity of entitled items.
@@ -7265,11 +7265,11 @@ type PriceRuleShareableURL struct {
 	// The image URL of the item (product or collection) to which the discount applies.
 	TargetItemImage *Image `json:"targetItemImage,omitempty"`
 	// The type of page that's associated with the URL.
-	TargetType PriceRuleShareableURLTargetType `json:"targetType"`
+	TargetType PriceRuleShareableURLTargetType `json:"targetType,omitempty"`
 	// The title of the page that's associated with the URL.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The URL for the discount code.
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 }
 
 // Specifies the input fields to update a price rule shipping entitlement.
@@ -7277,7 +7277,7 @@ type PriceRuleShippingEntitlementsInput struct {
 	// Whether the price rule applies to all shipping lines.
 	TargetAllShippingLines *bool `json:"targetAllShippingLines,omitempty"`
 	// The codes for the countries to which the price rule applies to.
-	CountryCodes []CountryCode `json:"countryCodes"`
+	CountryCodes []CountryCode `json:"countryCodes,omitempty"`
 	// Whether the price rule is applicable to countries that have not been defined in the shop's shipping zones.
 	IncludeRestOfWorld *bool `json:"includeRestOfWorld,omitempty"`
 }
@@ -7285,11 +7285,11 @@ type PriceRuleShippingEntitlementsInput struct {
 // The shipping lines to which the price rule applies to.
 type PriceRuleShippingLineEntitlements struct {
 	// The codes for the countries to which the price rule applies to.
-	CountryCodes []CountryCode `json:"countryCodes"`
+	CountryCodes []CountryCode `json:"countryCodes,omitempty"`
 	// Whether the price rule is applicable to countries that have not been defined in the shop's shipping zones.
-	IncludeRestOfWorld bool `json:"includeRestOfWorld"`
+	IncludeRestOfWorld bool `json:"includeRestOfWorld,omitempty"`
 	// Whether the price rule applies to all shipping lines.
-	TargetAllShippingLines bool `json:"targetAllShippingLines"`
+	TargetAllShippingLines bool `json:"targetAllShippingLines,omitempty"`
 }
 
 // Return type for `priceRuleUpdate` mutation.
@@ -7299,9 +7299,9 @@ type PriceRuleUpdatePayload struct {
 	// The updated discount code.
 	PriceRuleDiscountCode *PriceRuleDiscountCode `json:"priceRuleDiscountCode,omitempty"`
 	// List of errors that occurred executing the mutation.
-	PriceRuleUserErrors []*PriceRuleUserError `json:"priceRuleUserErrors"`
+	PriceRuleUserErrors []*PriceRuleUserError `json:"priceRuleUserErrors,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents an error that happens during execution of a price rule mutation.
@@ -7309,9 +7309,9 @@ type PriceRuleUserError struct {
 	// Error code to uniquely identify the error.
 	Code *PriceRuleErrorCode `json:"code,omitempty"`
 	// Path to the input field which caused the error.
-	Field []string `json:"field"`
+	Field []string `json:"field,omitempty"`
 	// The error message.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 func (PriceRuleUserError) IsDisplayableError() {}
@@ -7321,13 +7321,13 @@ type PriceRuleValidityPeriod struct {
 	// The time after which the price rule becomes invalid.
 	End *string `json:"end,omitempty"`
 	// The time after which the price rule is valid.
-	Start string `json:"start"`
+	Start string `json:"start,omitempty"`
 }
 
 // Specifies the input fields to update the validity period of a price rule.
 type PriceRuleValidityPeriodInput struct {
 	// The time after which the price rule is valid.
-	Start string `json:"start"`
+	Start string `json:"start,omitempty"`
 	// The time after which the price rule becomes invalid.
 	End *string `json:"end,omitempty"`
 }
@@ -7343,7 +7343,7 @@ type PriceRuleValueInput struct {
 // The value of the percentage pricing object.
 type PricingPercentageValue struct {
 	// The percentage value of the object.
-	Percentage float64 `json:"percentage"`
+	Percentage float64 `json:"percentage,omitempty"`
 }
 
 func (PricingPercentageValue) IsPricingValue() {}
@@ -7352,19 +7352,19 @@ func (PricingPercentageValue) IsPricingValue() {}
 // Private metafields are private to the application that creates them on a shop's resources.
 type PrivateMetafield struct {
 	// The date and time when the private metafield was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The id of the private metafield.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The key name for a private metafield.
-	Key string `json:"key"`
+	Key string `json:"key,omitempty"`
 	// The namespace for a private metafield.
-	Namespace string `json:"namespace"`
+	Namespace string `json:"namespace,omitempty"`
 	// The date and time when the private metafield was updated.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 	// The value of a private metafield.
-	Value string `json:"value"`
+	Value string `json:"value,omitempty"`
 	// Represents the private metafield value type.
-	ValueType PrivateMetafieldValueType `json:"valueType"`
+	ValueType PrivateMetafieldValueType `json:"valueType,omitempty"`
 }
 
 func (PrivateMetafield) IsNode() {}
@@ -7372,7 +7372,7 @@ func (PrivateMetafield) IsNode() {}
 // An auto-generated type for paginating through multiple PrivateMetafields.
 type PrivateMetafieldConnection struct {
 	// A list of edges.
-	Edges []*PrivateMetafieldEdge `json:"edges"`
+	Edges []*PrivateMetafieldEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -7382,9 +7382,9 @@ type PrivateMetafieldDeleteInput struct {
 	// The ID of the owning resource.
 	Owner *string `json:"owner,omitempty"`
 	// The namespace for the private metafield.
-	Namespace string `json:"namespace"`
+	Namespace string `json:"namespace,omitempty"`
 	// The key for the private metafield.
-	Key string `json:"key"`
+	Key string `json:"key,omitempty"`
 }
 
 // Return type for `privateMetafieldDelete` mutation.
@@ -7392,13 +7392,13 @@ type PrivateMetafieldDeletePayload struct {
 	// The ID of private metafield that was deleted.
 	DeletedPrivateMetafieldID *string `json:"deletedPrivateMetafieldId,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one PrivateMetafield and a cursor during pagination.
 type PrivateMetafieldEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of PrivateMetafieldEdge.
 	Node *PrivateMetafield `json:"node,omitempty"`
 }
@@ -7408,9 +7408,9 @@ type PrivateMetafieldInput struct {
 	// The owning resource.
 	Owner *string `json:"owner,omitempty"`
 	// The namespace for the private metafield.
-	Namespace string `json:"namespace"`
+	Namespace string `json:"namespace,omitempty"`
 	// The key for the private metafield.
-	Key string `json:"key"`
+	Key string `json:"key,omitempty"`
 	// The value and value type of the metafield, wrapped in a ValueInput object.
 	ValueInput *PrivateMetafieldValueInput `json:"valueInput,omitempty"`
 }
@@ -7420,64 +7420,64 @@ type PrivateMetafieldUpsertPayload struct {
 	// The private metafield that was created or updated.
 	PrivateMetafield *PrivateMetafield `json:"privateMetafield,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Value Input wraps two fields of Private Metafields into one. Those fields are value and value_type.
 type PrivateMetafieldValueInput struct {
 	// The value of a private metafield.
-	Value string `json:"value"`
+	Value string `json:"value,omitempty"`
 	// Represents the private metafield value type.
-	ValueType PrivateMetafieldValueType `json:"valueType"`
+	ValueType PrivateMetafieldValueType `json:"valueType,omitempty"`
 }
 
 // Represents a product, including information about related collections and product variants.
 type Product struct {
 	// The number of publications a resource is published to without feedback errors.
-	AvailablePublicationCount int `json:"availablePublicationCount"`
+	AvailablePublicationCount int `json:"availablePublicationCount,omitempty"`
 	// The description of the product, complete with HTML formatting.
 	BodyHTML *string `json:"bodyHtml,omitempty"`
 	// A list of the collections that include the product.
 	Collections *CollectionConnection `json:"collections,omitempty"`
 	// The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the product was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// A default cursor for use in pagination.
-	DefaultCursor string `json:"defaultCursor"`
+	DefaultCursor string `json:"defaultCursor,omitempty"`
 	// A stripped description of the product, single line with HTML tags removed.
-	Description string `json:"description"`
+	Description string `json:"description,omitempty"`
 	// The description of the product, complete with HTML formatting.
-	DescriptionHTML string `json:"descriptionHtml"`
+	DescriptionHTML string `json:"descriptionHtml,omitempty"`
 	// Stripped description of the product, single line with HTML tags removed.
 	// Truncated to 60 characters.
-	DescriptionPlainSummary string `json:"descriptionPlainSummary"`
+	DescriptionPlainSummary string `json:"descriptionPlainSummary,omitempty"`
 	// The featured image for the product.
 	FeaturedImage *Image `json:"featuredImage,omitempty"`
 	// The featured media for the product.
-	FeaturedMedia Media `json:"featuredMedia"`
+	FeaturedMedia Media `json:"featuredMedia,omitempty"`
 	// Information about the product that's provided through resource feedback.
 	Feedback *ResourceFeedback `json:"feedback,omitempty"`
 	// The theme template used when viewing the gift card in a store.
 	GiftCardTemplateSuffix *string `json:"giftCardTemplateSuffix,omitempty"`
 	// A unique human-friendly string of the product's title.
-	Handle string `json:"handle"`
+	Handle string `json:"handle,omitempty"`
 	// Whether the product has only a single variant with the default option and value.
-	HasOnlyDefaultVariant bool `json:"hasOnlyDefaultVariant"`
+	HasOnlyDefaultVariant bool `json:"hasOnlyDefaultVariant,omitempty"`
 	// Whether the product has out of stock variants.
-	HasOutOfStockVariants bool `json:"hasOutOfStockVariants"`
+	HasOutOfStockVariants bool `json:"hasOutOfStockVariants,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The images associated with the product.
 	Images *ImageConnection `json:"images,omitempty"`
 	// Whether the product is in a given collection.
-	InCollection bool `json:"inCollection"`
+	InCollection bool `json:"inCollection,omitempty"`
 	// Whether the product is a gift card.
-	IsGiftCard bool `json:"isGiftCard"`
+	IsGiftCard bool `json:"isGiftCard,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// The media associated with the product.
 	Media *MediaConnection `json:"media,omitempty"`
 	// Total count of media belonging to a product.
-	MediaCount int `json:"mediaCount"`
+	MediaCount int `json:"mediaCount,omitempty"`
 	// The metafield associated with the resource.
 	Metafield *Metafield `json:"metafield,omitempty"`
 	// A paginated list of metafields associated with the resource.
@@ -7488,7 +7488,7 @@ type Product struct {
 	// A value of `null` indicates that the product is not published to the Online Store sales channel.
 	OnlineStoreURL *string `json:"onlineStoreUrl,omitempty"`
 	// A list of product options. The limit is specified by Shop.resourceLimits.maxProductOptions.
-	Options []*ProductOption `json:"options"`
+	Options []*ProductOption `json:"options,omitempty"`
 	// The price range of the product.
 	PriceRange *ProductPriceRange `json:"priceRange,omitempty"`
 	// The price range of the product with prices formatted as decimals.
@@ -7500,49 +7500,49 @@ type Product struct {
 	// A list of the channels where the product is published.
 	ProductPublications *ProductPublicationConnection `json:"productPublications,omitempty"`
 	// The product type specified by the merchant.
-	ProductType string `json:"productType"`
+	ProductType string `json:"productType,omitempty"`
 	// The number of publications a resource is published on.
-	PublicationCount int `json:"publicationCount"`
+	PublicationCount int `json:"publicationCount,omitempty"`
 	// A list of the channels where the product is published.
 	Publications *ProductPublicationConnection `json:"publications,omitempty"`
 	// The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the product was published to the Online Store.
 	PublishedAt *string `json:"publishedAt,omitempty"`
 	// Check to see whether the resource is published to a given channel.
-	PublishedOnChannel bool `json:"publishedOnChannel"`
+	PublishedOnChannel bool `json:"publishedOnChannel,omitempty"`
 	// Check to see whether the resource is published to the calling app's channel.
-	PublishedOnCurrentChannel bool `json:"publishedOnCurrentChannel"`
+	PublishedOnCurrentChannel bool `json:"publishedOnCurrentChannel,omitempty"`
 	// Check to see whether the resource is published to the calling app's publication.
-	PublishedOnCurrentPublication bool `json:"publishedOnCurrentPublication"`
+	PublishedOnCurrentPublication bool `json:"publishedOnCurrentPublication,omitempty"`
 	// Check to see whether the resource is published to a given publication.
-	PublishedOnPublication bool `json:"publishedOnPublication"`
+	PublishedOnPublication bool `json:"publishedOnPublication,omitempty"`
 	// Whether the product can only be purchased with a selling plan.
-	RequiresSellingPlan bool `json:"requiresSellingPlan"`
+	RequiresSellingPlan bool `json:"requiresSellingPlan,omitempty"`
 	// The list of resources that are published to a publication.
 	ResourcePublications *ResourcePublicationConnection `json:"resourcePublications,omitempty"`
 	// The list of resources that are either published or staged to be published to a publication.
 	ResourcePublicationsV2 *ResourcePublicationV2Connection `json:"resourcePublicationsV2,omitempty"`
 	// Count of selling plan groups associated with the product.
-	SellingPlanGroupCount int `json:"sellingPlanGroupCount"`
+	SellingPlanGroupCount int `json:"sellingPlanGroupCount,omitempty"`
 	// SEO information of the product.
 	Seo *Seo `json:"seo,omitempty"`
 	// The product status.
-	Status ProductStatus `json:"status"`
+	Status ProductStatus `json:"status,omitempty"`
 	// The storefront ID of the product.
-	StorefrontID string `json:"storefrontId"`
+	StorefrontID string `json:"storefrontId,omitempty"`
 	// A comma separated list of tags that have been added to the product.
-	Tags []string `json:"tags"`
+	Tags []string `json:"tags,omitempty"`
 	// The theme template used when viewing the product in a store.
 	TemplateSuffix *string `json:"templateSuffix,omitempty"`
 	// The title of the product.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The quantity of inventory in stock.
-	TotalInventory int `json:"totalInventory"`
+	TotalInventory int `json:"totalInventory,omitempty"`
 	// The number of variants that are associated with the product.
-	TotalVariants int `json:"totalVariants"`
+	TotalVariants int `json:"totalVariants,omitempty"`
 	// Whether inventory tracking has been enabled for the product.
-	TracksInventory bool `json:"tracksInventory"`
+	TracksInventory bool `json:"tracksInventory,omitempty"`
 	// The translations associated with the resource.
-	Translations []*PublishedTranslation `json:"translations"`
+	Translations []*PublishedTranslation `json:"translations,omitempty"`
 	// The list of channels that the resource is not published to.
 	UnpublishedChannels *ChannelConnection `json:"unpublishedChannels,omitempty"`
 	// The list of publications that the resource is not published to.
@@ -7551,11 +7551,11 @@ type Product struct {
 	// A product's `updatedAt` value can change for different reasons. For example, if an order
 	// is placed for a product that has inventory tracking set up, then the inventory adjustment
 	// is counted as an update.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 	// A list of variants associated with the product.
 	Variants *ProductVariantConnection `json:"variants,omitempty"`
 	// The name of the product's vendor.
-	Vendor string `json:"vendor"`
+	Vendor string `json:"vendor,omitempty"`
 }
 
 func (Product) IsCommentEventEmbed()        {}
@@ -7570,19 +7570,19 @@ func (Product) IsLegacyInteroperability()   {}
 // Specifies product images to append.
 type ProductAppendImagesInput struct {
 	// The ID of the product.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The images to be appended to the product.
-	Images []*ImageInput `json:"images"`
+	Images []*ImageInput `json:"images,omitempty"`
 }
 
 // Return type for `productAppendImages` mutation.
 type ProductAppendImagesPayload struct {
 	// List of new images appended to the product.
-	NewImages []*Image `json:"newImages"`
+	NewImages []*Image `json:"newImages,omitempty"`
 	// The product object.
 	Product *Product `json:"product,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `productChangeStatus` mutation.
@@ -7590,7 +7590,7 @@ type ProductChangeStatusPayload struct {
 	// The product object.
 	Product *Product `json:"product,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*ProductChangeStatusUserError `json:"userErrors"`
+	UserErrors []*ProductChangeStatusUserError `json:"userErrors,omitempty"`
 }
 
 // An error that occurs during the execution of ProductChangeStatus.
@@ -7598,9 +7598,9 @@ type ProductChangeStatusUserError struct {
 	// Error code to uniquely identify the error.
 	Code *ProductChangeStatusUserErrorCode `json:"code,omitempty"`
 	// Path to the input field which caused the error.
-	Field []string `json:"field"`
+	Field []string `json:"field,omitempty"`
 	// The error message.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 func (ProductChangeStatusUserError) IsDisplayableError() {}
@@ -7608,7 +7608,7 @@ func (ProductChangeStatusUserError) IsDisplayableError() {}
 // An auto-generated type for paginating through multiple Products.
 type ProductConnection struct {
 	// A list of edges.
-	Edges []*ProductEdge `json:"edges"`
+	Edges []*ProductEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -7616,13 +7616,13 @@ type ProductConnection struct {
 // Return type for `productCreateMedia` mutation.
 type ProductCreateMediaPayload struct {
 	// The newly created media.
-	Media []Media `json:"media"`
+	Media []Media `json:"media,omitempty"`
 	// List of errors that occurred executing the mutation.
-	MediaUserErrors []*MediaUserError `json:"mediaUserErrors"`
+	MediaUserErrors []*MediaUserError `json:"mediaUserErrors,omitempty"`
 	// The product associated with the media.
 	Product *Product `json:"product,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `productCreate` mutation.
@@ -7632,37 +7632,37 @@ type ProductCreatePayload struct {
 	// The shop associated with the product.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `productDeleteImages` mutation.
 type ProductDeleteImagesPayload struct {
 	// This is an array of IDs of images to delete.
-	DeletedImageIds []string `json:"deletedImageIds"`
+	DeletedImageIds []string `json:"deletedImageIds,omitempty"`
 	// This is the product object.
 	Product *Product `json:"product,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Specifies the product to delete.
 type ProductDeleteInput struct {
 	// The ID of the product.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 }
 
 // Return type for `productDeleteMedia` mutation.
 type ProductDeleteMediaPayload struct {
 	// List of media IDs which were deleted.
-	DeletedMediaIds []string `json:"deletedMediaIds"`
+	DeletedMediaIds []string `json:"deletedMediaIds,omitempty"`
 	// List of product image IDs which were deleted.
-	DeletedProductImageIds []string `json:"deletedProductImageIds"`
+	DeletedProductImageIds []string `json:"deletedProductImageIds,omitempty"`
 	// List of errors that occurred executing the mutation.
-	MediaUserErrors []*MediaUserError `json:"mediaUserErrors"`
+	MediaUserErrors []*MediaUserError `json:"mediaUserErrors,omitempty"`
 	// The product which media was deleted from.
 	Product *Product `json:"product,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `productDelete` mutation.
@@ -7672,7 +7672,7 @@ type ProductDeletePayload struct {
 	// The shop associated with the product.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `productDuplicate` mutation.
@@ -7684,13 +7684,13 @@ type ProductDuplicatePayload struct {
 	// The user's shop.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one Product and a cursor during pagination.
 type ProductEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of ProductEdge.
 	Node *Product `json:"node,omitempty"`
 }
@@ -7700,7 +7700,7 @@ type ProductImageUpdatePayload struct {
 	// Image updated.
 	Image *Image `json:"image,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Specifies the input fields required to create a product.
@@ -7717,7 +7717,7 @@ type ProductInput struct {
 	// The product type specified by the merchant.
 	ProductType *string `json:"productType,omitempty"`
 	// A comma separated list tags that have been added to the product.
-	Tags []string `json:"tags"`
+	Tags []string `json:"tags,omitempty"`
 	// The theme template used when viewing the product in a store.
 	TemplateSuffix *string `json:"templateSuffix,omitempty"`
 	// Whether the product is a gift card.
@@ -7731,23 +7731,23 @@ type ProductInput struct {
 	// A description of the product. Supports HTML formatting. This argument is deprecated: Use `descriptionHtml` instead.
 	BodyHTML *string `json:"bodyHtml,omitempty"`
 	// The IDs of the collections that this product will be added to.
-	CollectionsToJoin []string `json:"collectionsToJoin"`
+	CollectionsToJoin []string `json:"collectionsToJoin,omitempty"`
 	// The IDs of collections that will no longer include the product.
-	CollectionsToLeave []string `json:"collectionsToLeave"`
+	CollectionsToLeave []string `json:"collectionsToLeave,omitempty"`
 	// Specifies the product to update in productUpdate or creates a new product if absent in productCreate.
 	ID *string `json:"id,omitempty"`
 	// The images to associate with the product.
-	Images []*ImageInput `json:"images"`
+	Images []*ImageInput `json:"images,omitempty"`
 	// The metafields to associate with this product.
-	Metafields []*MetafieldInput `json:"metafields"`
+	Metafields []*MetafieldInput `json:"metafields,omitempty"`
 	// The private metafields to associated with this product.
-	PrivateMetafields []*PrivateMetafieldInput `json:"privateMetafields"`
+	PrivateMetafields []*PrivateMetafieldInput `json:"privateMetafields,omitempty"`
 	// List of custom product options (maximum of 3 per product).
-	Options []string `json:"options"`
+	Options []string `json:"options,omitempty"`
 	// A list of the channels where the product is published. This argument is deprecated: Use `PublishablePublish` instead.
-	ProductPublications []*ProductPublicationInput `json:"productPublications"`
+	ProductPublications []*ProductPublicationInput `json:"productPublications,omitempty"`
 	// A list of the channels where the product is published. This argument is deprecated: Use `PublishablePublish` instead.
-	Publications []*ProductPublicationInput `json:"publications"`
+	Publications []*ProductPublicationInput `json:"publications,omitempty"`
 	// Only products with an active status can be published. This argument is deprecated: Use `PublishablePublish` instead.
 	PublishDate *string `json:"publishDate,omitempty"`
 	// Only products with an active status can be published. This argument is deprecated: Use `PublishablePublish` instead.
@@ -7757,7 +7757,7 @@ type ProductInput struct {
 	// Only products with an active status can be published. This argument is deprecated: Use `PublishablePublish` instead.
 	PublishedAt *string `json:"publishedAt,omitempty"`
 	// A list of variants associated with the product.
-	Variants []*ProductVariantInput `json:"variants"`
+	Variants []*ProductVariantInput `json:"variants,omitempty"`
 	// The status of the product.
 	Status *ProductStatus `json:"status,omitempty"`
 	// Whether the product can only be purchased with a selling plan. If set to `true` on an already existing product, then the product will be marked unavailable on channels that don't support subscriptions.
@@ -7769,7 +7769,7 @@ type ProductJoinSellingPlanGroupsPayload struct {
 	// The product object.
 	Product *Product `json:"product,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SellingPlanGroupUserError `json:"userErrors"`
+	UserErrors []*SellingPlanGroupUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `productLeaveSellingPlanGroups` mutation.
@@ -7777,7 +7777,7 @@ type ProductLeaveSellingPlanGroupsPayload struct {
 	// The product object.
 	Product *Product `json:"product,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SellingPlanGroupUserError `json:"userErrors"`
+	UserErrors []*SellingPlanGroupUserError `json:"userErrors,omitempty"`
 }
 
 // Product property names like "Size", "Color", and "Material".
@@ -7785,15 +7785,15 @@ type ProductLeaveSellingPlanGroupsPayload struct {
 // 255 characters limit each.
 type ProductOption struct {
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The product option’s name.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The product option's position.
-	Position int `json:"position"`
+	Position int `json:"position,omitempty"`
 	// The translations associated with the resource.
-	Translations []*PublishedTranslation `json:"translations"`
+	Translations []*PublishedTranslation `json:"translations,omitempty"`
 	// The corresponding value to the product option name.
-	Values []string `json:"values"`
+	Values []string `json:"values,omitempty"`
 }
 
 func (ProductOption) IsNode()                     {}
@@ -7820,7 +7820,7 @@ type ProductPublication struct {
 	// The channel where the product was or is published.
 	Channel *Channel `json:"channel,omitempty"`
 	// Whether the publication is published or not.
-	IsPublished bool `json:"isPublished"`
+	IsPublished bool `json:"isPublished,omitempty"`
 	// The product that was or is going to be published on the channel.
 	Product *Product `json:"product,omitempty"`
 	// The date that the product was or is going to be published on the channel.
@@ -7830,7 +7830,7 @@ type ProductPublication struct {
 // An auto-generated type for paginating through multiple ProductPublications.
 type ProductPublicationConnection struct {
 	// A list of edges.
-	Edges []*ProductPublicationEdge `json:"edges"`
+	Edges []*ProductPublicationEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -7838,7 +7838,7 @@ type ProductPublicationConnection struct {
 // An auto-generated type which holds one ProductPublication and a cursor during pagination.
 type ProductPublicationEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of ProductPublicationEdge.
 	Node *ProductPublication `json:"node,omitempty"`
 }
@@ -7858,9 +7858,9 @@ type ProductPublicationInput struct {
 // Specifies a product to publish and the channels to publish it to.
 type ProductPublishInput struct {
 	// The product to create or update publications for.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The publication that the product is published to.
-	ProductPublications []*ProductPublicationInput `json:"productPublications"`
+	ProductPublications []*ProductPublicationInput `json:"productPublications,omitempty"`
 }
 
 // Return type for `productPublish` mutation.
@@ -7868,11 +7868,11 @@ type ProductPublishPayload struct {
 	// The product that has been published.
 	Product *Product `json:"product,omitempty"`
 	// The channels where the product is published.
-	ProductPublications []*ProductPublication `json:"productPublications"`
+	ProductPublications []*ProductPublication `json:"productPublications,omitempty"`
 	// The user's shop.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `productReorderImages` mutation.
@@ -7880,7 +7880,7 @@ type ProductReorderImagesPayload struct {
 	// The asynchronous job reordering the images.
 	Job *Job `json:"job,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `productReorderMedia` mutation.
@@ -7888,17 +7888,17 @@ type ProductReorderMediaPayload struct {
 	// The asynchronous job reordering the media.
 	Job *Job `json:"job,omitempty"`
 	// List of errors that occurred executing the mutation.
-	MediaUserErrors []*MediaUserError `json:"mediaUserErrors"`
+	MediaUserErrors []*MediaUserError `json:"mediaUserErrors,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Specifies a product to unpublish from a channel and the sales channels to unpublish it from.
 type ProductUnpublishInput struct {
 	// The ID of the product to create or update publications for.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The channels to unpublish the product from.
-	ProductPublications []*ProductPublicationInput `json:"productPublications"`
+	ProductPublications []*ProductPublicationInput `json:"productPublications,omitempty"`
 }
 
 // Return type for `productUnpublish` mutation.
@@ -7908,19 +7908,19 @@ type ProductUnpublishPayload struct {
 	// The user's shop.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `productUpdateMedia` mutation.
 type ProductUpdateMediaPayload struct {
 	// The updated media.
-	Media []Media `json:"media"`
+	Media []Media `json:"media,omitempty"`
 	// List of errors that occurred executing the mutation.
-	MediaUserErrors []*MediaUserError `json:"mediaUserErrors"`
+	MediaUserErrors []*MediaUserError `json:"mediaUserErrors,omitempty"`
 	// The product which media was updated on.
 	Product *Product `json:"product,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `productUpdate` mutation.
@@ -7928,25 +7928,25 @@ type ProductUpdatePayload struct {
 	// The updated product.
 	Product *Product `json:"product,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents a product variant.
 type ProductVariant struct {
 	// Whether the product variant is available for sale.
-	AvailableForSale bool `json:"availableForSale"`
+	AvailableForSale bool `json:"availableForSale,omitempty"`
 	// The value of the barcode associated with the product.
 	Barcode *string `json:"barcode,omitempty"`
 	// The compare-at price of the variant in the default shop currency.
 	CompareAtPrice *string `json:"compareAtPrice,omitempty"`
 	// The date and time when the variant was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// A default cursor for use in pagination.
-	DefaultCursor string `json:"defaultCursor"`
+	DefaultCursor string `json:"defaultCursor,omitempty"`
 	// The delivery profile for the variant.
 	DeliveryProfile *DeliveryProfile `json:"deliveryProfile,omitempty"`
 	// Display name of the variant, based on product's title + variant's title.
-	DisplayName string `json:"displayName"`
+	DisplayName string `json:"displayName,omitempty"`
 	// The fulfillment service associated with the product.
 	FulfillmentService *FulfillmentService `json:"fulfillmentService,omitempty"`
 	// Whether changes to the fulfillment service for the product variant are allowed.
@@ -7954,19 +7954,19 @@ type ProductVariant struct {
 	// The Harmonized System Code (or HS Tariff Code) for the variant.
 	HarmonizedSystemCode *string `json:"harmonizedSystemCode,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The featured image for the variant.
 	Image *Image `json:"image,omitempty"`
 	// The inventory item, which is used to query for inventory information.
 	InventoryItem *InventoryItem `json:"inventoryItem,omitempty"`
 	// The fulfillment service that tracks the number of items in stock for the product variant.
-	InventoryManagement ProductVariantInventoryManagement `json:"inventoryManagement"`
+	InventoryManagement ProductVariantInventoryManagement `json:"inventoryManagement,omitempty"`
 	// Whether customers are allowed to place an order for the product variant when it's out of stock.
-	InventoryPolicy ProductVariantInventoryPolicy `json:"inventoryPolicy"`
+	InventoryPolicy ProductVariantInventoryPolicy `json:"inventoryPolicy,omitempty"`
 	// The total sellable quantity of the variant.
 	InventoryQuantity *int `json:"inventoryQuantity,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// The media associated with the product variant.
 	Media *MediaConnection `json:"media,omitempty"`
 	// The metafield associated with the resource.
@@ -7974,11 +7974,11 @@ type ProductVariant struct {
 	// A paginated list of metafields associated with the resource.
 	Metafields *MetafieldConnection `json:"metafields,omitempty"`
 	// The order of the product variant in the list of product variants. The first position in the list is 1.
-	Position int `json:"position"`
+	Position int `json:"position,omitempty"`
 	// List of prices and compare-at prices in the presentment currencies for this shop.
 	PresentmentPrices *ProductVariantPricePairConnection `json:"presentmentPrices,omitempty"`
 	// The price of the product variant in the default shop currency.
-	Price string `json:"price"`
+	Price string `json:"price,omitempty"`
 	// Returns a private metafield found by namespace and key.
 	PrivateMetafield *PrivateMetafield `json:"privateMetafield,omitempty"`
 	// List of private metafields.
@@ -7986,29 +7986,29 @@ type ProductVariant struct {
 	// The product that this variant belongs to.
 	Product *Product `json:"product,omitempty"`
 	// Whether a customer needs to provide a shipping address when placing an order for the product variant.
-	RequiresShipping bool `json:"requiresShipping"`
+	RequiresShipping bool `json:"requiresShipping,omitempty"`
 	// List of product options applied to the variant.
-	SelectedOptions []*SelectedOption `json:"selectedOptions"`
+	SelectedOptions []*SelectedOption `json:"selectedOptions,omitempty"`
 	// Count of selling plan groups associated with the product variant.
-	SellingPlanGroupCount int `json:"sellingPlanGroupCount"`
+	SellingPlanGroupCount int `json:"sellingPlanGroupCount,omitempty"`
 	// An identifier for the product variant in the shop. Required in order to connect to a fulfillment service.
 	Sku *string `json:"sku,omitempty"`
 	// The storefront ID of the product variant.
-	StorefrontID string `json:"storefrontId"`
+	StorefrontID string `json:"storefrontId,omitempty"`
 	// The tax code for the product variant.
 	TaxCode *string `json:"taxCode,omitempty"`
 	// Whether a tax is charged when the product variant is sold.
-	Taxable bool `json:"taxable"`
+	Taxable bool `json:"taxable,omitempty"`
 	// The title of the product variant.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The translations associated with the resource.
-	Translations []*PublishedTranslation `json:"translations"`
+	Translations []*PublishedTranslation `json:"translations,omitempty"`
 	// The date and time (ISO 8601 format) when the product variant was last modified.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 	// The weight of the product variant in the unit system specified with weight_unit.
 	Weight *float64 `json:"weight,omitempty"`
 	// The unit of measurement that applies to the product variant's weight. If you don't specify a value for weight_unit, then the shop's default unit of measurement is applied. Valid values: `g`, `kg`, `oz`, `lb`.
-	WeightUnit WeightUnit `json:"weightUnit"`
+	WeightUnit WeightUnit `json:"weightUnit,omitempty"`
 }
 
 func (ProductVariant) IsCommentEventEmbed()        {}
@@ -8021,9 +8021,9 @@ func (ProductVariant) IsLegacyInteroperability()   {}
 // Specifies the input fields required to append media to a single variant.
 type ProductVariantAppendMediaInput struct {
 	// Specifies the variant to which media will be appended.
-	VariantID string `json:"variantId"`
+	VariantID string `json:"variantId,omitempty"`
 	// Specifies the media to append to the variant.
-	MediaIds []string `json:"mediaIds"`
+	MediaIds []string `json:"mediaIds,omitempty"`
 }
 
 // Return type for `productVariantAppendMedia` mutation.
@@ -8031,15 +8031,15 @@ type ProductVariantAppendMediaPayload struct {
 	// The product associated with the variants and media.
 	Product *Product `json:"product,omitempty"`
 	// The product variants that were updated.
-	ProductVariants []*ProductVariant `json:"productVariants"`
+	ProductVariants []*ProductVariant `json:"productVariants,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*MediaUserError `json:"userErrors"`
+	UserErrors []*MediaUserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple ProductVariants.
 type ProductVariantConnection struct {
 	// A list of edges.
-	Edges []*ProductVariantEdge `json:"edges"`
+	Edges []*ProductVariantEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -8051,7 +8051,7 @@ type ProductVariantCreatePayload struct {
 	// The successfully created variant.
 	ProductVariant *ProductVariant `json:"productVariant,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `productVariantDelete` mutation.
@@ -8061,15 +8061,15 @@ type ProductVariantDeletePayload struct {
 	// Product of the deleted product variant.
 	Product *Product `json:"product,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Specifies the input fields required to detach media from a single variant.
 type ProductVariantDetachMediaInput struct {
 	// Specifies the variant from which media will be detached.
-	VariantID string `json:"variantId"`
+	VariantID string `json:"variantId,omitempty"`
 	// Specifies the media to detach from the variant.
-	MediaIds []string `json:"mediaIds"`
+	MediaIds []string `json:"mediaIds,omitempty"`
 }
 
 // Return type for `productVariantDetachMedia` mutation.
@@ -8077,15 +8077,15 @@ type ProductVariantDetachMediaPayload struct {
 	// The product associated with the variants and media.
 	Product *Product `json:"product,omitempty"`
 	// The product variants that were updated.
-	ProductVariants []*ProductVariant `json:"productVariants"`
+	ProductVariants []*ProductVariant `json:"productVariants,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*MediaUserError `json:"userErrors"`
+	UserErrors []*MediaUserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one ProductVariant and a cursor during pagination.
 type ProductVariantEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of ProductVariantEdge.
 	Node *ProductVariant `json:"node,omitempty"`
 }
@@ -8107,22 +8107,22 @@ type ProductVariantInput struct {
 	// The URL of an image to associate with the variant.  This field can only be used through mutations that create product images and must match one of the URLs being created on the product.
 	ImageSrc *string `json:"imageSrc,omitempty"`
 	// The URL of the media to associate with the variant. This field can only be used in mutations that create media images and must match one of the URLs being created on the product. This field only accepts one value.
-	MediaSrc []string `json:"mediaSrc"`
+	MediaSrc []string `json:"mediaSrc,omitempty"`
 	// The fulfillment service that tracks the number of items in stock for the product variant. If you track the inventory yourself using the admin, then set the value to `shopify`. Valid values: `shopify` or the handle of a fulfillment service that has inventory management enabled.
 	//  This argument is deprecated: Use tracked attribute on `inventoryItem` instead.
 	InventoryManagement *ProductVariantInventoryManagement `json:"inventoryManagement,omitempty"`
 	// Whether customers are allowed to place an order for the product variant when it's out of stock.
 	InventoryPolicy *ProductVariantInventoryPolicy `json:"inventoryPolicy,omitempty"`
 	// Create only field. The inventory quantities at each location where the variant is stocked.
-	InventoryQuantities []*InventoryLevelInput `json:"inventoryQuantities"`
+	InventoryQuantities []*InventoryLevelInput `json:"inventoryQuantities,omitempty"`
 	// Inventory Item associated with the variant, used for unit cost.
 	InventoryItem *InventoryItemInput `json:"inventoryItem,omitempty"`
 	// Additional customizable information about the product variant.
-	Metafields []*MetafieldInput `json:"metafields"`
+	Metafields []*MetafieldInput `json:"metafields,omitempty"`
 	// The private metafields to associated with this product.
-	PrivateMetafields []*PrivateMetafieldInput `json:"privateMetafields"`
+	PrivateMetafields []*PrivateMetafieldInput `json:"privateMetafields,omitempty"`
 	// The custom properties that a shop owner uses to define product variants.
-	Options []string `json:"options"`
+	Options []string `json:"options,omitempty"`
 	// The order of the product variant in the list of product variants. The first position in the list is 1.
 	Position *int `json:"position,omitempty"`
 	// The price of the variant.
@@ -8150,7 +8150,7 @@ type ProductVariantJoinSellingPlanGroupsPayload struct {
 	// The product variant object.
 	ProductVariant *ProductVariant `json:"productVariant,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SellingPlanGroupUserError `json:"userErrors"`
+	UserErrors []*SellingPlanGroupUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `productVariantLeaveSellingPlanGroups` mutation.
@@ -8158,7 +8158,7 @@ type ProductVariantLeaveSellingPlanGroupsPayload struct {
 	// The product variant object.
 	ProductVariant *ProductVariant `json:"productVariant,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SellingPlanGroupUserError `json:"userErrors"`
+	UserErrors []*SellingPlanGroupUserError `json:"userErrors,omitempty"`
 }
 
 // The compare-at price and price of a variant sharing a currency.
@@ -8172,7 +8172,7 @@ type ProductVariantPricePair struct {
 // An auto-generated type for paginating through multiple ProductVariantPricePairs.
 type ProductVariantPricePairConnection struct {
 	// A list of edges.
-	Edges []*ProductVariantPricePairEdge `json:"edges"`
+	Edges []*ProductVariantPricePairEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -8180,7 +8180,7 @@ type ProductVariantPricePairConnection struct {
 // An auto-generated type which holds one ProductVariantPricePair and a cursor during pagination.
 type ProductVariantPricePairEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of ProductVariantPricePairEdge.
 	Node *ProductVariantPricePair `json:"node,omitempty"`
 }
@@ -8192,7 +8192,7 @@ type ProductVariantUpdatePayload struct {
 	// The updated variant.
 	ProductVariant *ProductVariant `json:"productVariant,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // A publication is a group of products and collections that is published to an app.
@@ -8204,17 +8204,17 @@ type Publication struct {
 	// The list of collections published to the publication.
 	Collections *CollectionConnection `json:"collections,omitempty"`
 	// Whether the collection is available to the publication.
-	HasCollection bool `json:"hasCollection"`
+	HasCollection bool `json:"hasCollection,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Name of the publication.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The product publications for the list of products published to the publication.
 	ProductPublicationsV3 *ResourcePublicationConnection `json:"productPublicationsV3,omitempty"`
 	// The list of products published to the publication.
 	Products *ProductConnection `json:"products,omitempty"`
 	// Whether or not this publication supports future publishing.
-	SupportsFuturePublishing bool `json:"supportsFuturePublishing"`
+	SupportsFuturePublishing bool `json:"supportsFuturePublishing,omitempty"`
 }
 
 func (Publication) IsNode() {}
@@ -8222,7 +8222,7 @@ func (Publication) IsNode() {}
 // An auto-generated type for paginating through multiple Publications.
 type PublicationConnection struct {
 	// A list of edges.
-	Edges []*PublicationEdge `json:"edges"`
+	Edges []*PublicationEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -8230,7 +8230,7 @@ type PublicationConnection struct {
 // An auto-generated type which holds one Publication and a cursor during pagination.
 type PublicationEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of PublicationEdge.
 	Node *Publication `json:"node,omitempty"`
 }
@@ -8249,49 +8249,49 @@ type PublicationInput struct {
 // Return type for `publishablePublish` mutation.
 type PublishablePublishPayload struct {
 	// Resource that has been published.
-	Publishable Publishable `json:"publishable"`
+	Publishable Publishable `json:"publishable,omitempty"`
 	// The user's shop.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `publishablePublishToCurrentChannel` mutation.
 type PublishablePublishToCurrentChannelPayload struct {
 	// Resource that has been published.
-	Publishable Publishable `json:"publishable"`
+	Publishable Publishable `json:"publishable,omitempty"`
 	// The user's shop.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `publishableUnpublish` mutation.
 type PublishableUnpublishPayload struct {
 	// Resource that has been unpublished.
-	Publishable Publishable `json:"publishable"`
+	Publishable Publishable `json:"publishable,omitempty"`
 	// The user's shop.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `publishableUnpublishToCurrentChannel` mutation.
 type PublishableUnpublishToCurrentChannelPayload struct {
 	// Resource that has been unpublished.
-	Publishable Publishable `json:"publishable"`
+	Publishable Publishable `json:"publishable,omitempty"`
 	// The user's shop.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Published translation of a field of a resource.
 type PublishedTranslation struct {
 	// Translation key.
-	Key string `json:"key"`
+	Key string `json:"key,omitempty"`
 	// Translation locale.
-	Locale string `json:"locale"`
+	Locale string `json:"locale,omitempty"`
 	// Translation value.
 	Value *string `json:"value,omitempty"`
 }
@@ -8301,11 +8301,11 @@ type Refund struct {
 	// When the refund was created.
 	CreatedAt *string `json:"createdAt,omitempty"`
 	// A list of the order's refunded duties.
-	Duties []*RefundDuty `json:"duties"`
+	Duties []*RefundDuty `json:"duties,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// Note associated with the refund.
 	Note *string `json:"note,omitempty"`
 	// The order associated with the refund.
@@ -8319,7 +8319,7 @@ type Refund struct {
 	// Transactions associated with the refund.
 	Transactions *OrderTransactionConnection `json:"transactions,omitempty"`
 	// When the refund was last updated.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 }
 
 func (Refund) IsNode()                   {}
@@ -8332,7 +8332,7 @@ type RefundCreatePayload struct {
 	// The created refund.
 	Refund *Refund `json:"refund,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents a refunded duty.
@@ -8346,7 +8346,7 @@ type RefundDuty struct {
 // Specifies the fields required to return duties on a refund.
 type RefundDutyInput struct {
 	// The ID of the duty in the refund.
-	DutyID string `json:"dutyId"`
+	DutyID string `json:"dutyId,omitempty"`
 	// The type of refund for this duty.
 	RefundType *RefundDutyRefundType `json:"refundType,omitempty"`
 }
@@ -8356,7 +8356,7 @@ type RefundInput struct {
 	// The currency (in ISO format) that is used to refund the order. This must be the presentment currency (the currency used by the customer) and is a required field for orders where the currency and presentment currency differ.
 	Currency *CurrencyCode `json:"currency,omitempty"`
 	// Order ID for which the refund is created.
-	OrderID string `json:"orderId"`
+	OrderID string `json:"orderId,omitempty"`
 	// An optional note attached to a refund.
 	Note *string `json:"note,omitempty"`
 	// Whether to send a refund notification to the customer.
@@ -8364,11 +8364,11 @@ type RefundInput struct {
 	// Specifies how much of the shipping cost to refund.
 	Shipping *ShippingRefundInput `json:"shipping,omitempty"`
 	// A list of line items to refund.
-	RefundLineItems []*RefundLineItemInput `json:"refundLineItems"`
+	RefundLineItems []*RefundLineItemInput `json:"refundLineItems,omitempty"`
 	// A list of duties to refund.
-	RefundDuties []*RefundDutyInput `json:"refundDuties"`
+	RefundDuties []*RefundDutyInput `json:"refundDuties,omitempty"`
 	// A list of transactions involved in the refund.
-	Transactions []*OrderTransactionInput `json:"transactions"`
+	Transactions []*OrderTransactionInput `json:"transactions,omitempty"`
 }
 
 // Represents the details about a refunded line item.
@@ -8378,21 +8378,21 @@ type RefundLineItem struct {
 	// The inventory restock location.
 	Location *Location `json:"location,omitempty"`
 	// Returns the price of a refunded line item.
-	Price string `json:"price"`
+	Price string `json:"price,omitempty"`
 	// Returns the price of a refunded line item in shop and presentment currencies.
 	PriceSet *MoneyBag `json:"priceSet,omitempty"`
 	// Returns the quantity of a refunded line item.
-	Quantity int `json:"quantity"`
+	Quantity int `json:"quantity,omitempty"`
 	// Represents the type of restock for the refunded line item.
-	RestockType RefundLineItemRestockType `json:"restockType"`
+	RestockType RefundLineItemRestockType `json:"restockType,omitempty"`
 	// Whether the refunded line item was restocked. Not applicable in the context of a SuggestedRefund.
-	Restocked bool `json:"restocked"`
+	Restocked bool `json:"restocked,omitempty"`
 	// Returns the subtotal price of a refunded line item.
-	Subtotal string `json:"subtotal"`
+	Subtotal string `json:"subtotal,omitempty"`
 	// Returns the subtotal price of a refunded line item in shop and presentment currencies.
 	SubtotalSet *MoneyBag `json:"subtotalSet,omitempty"`
 	// Returns the total tax charged on a refunded line item.
-	TotalTax string `json:"totalTax"`
+	TotalTax string `json:"totalTax,omitempty"`
 	// Returns the total tax charged on a refunded line item in shop and presentment currencies.
 	TotalTaxSet *MoneyBag `json:"totalTaxSet,omitempty"`
 }
@@ -8400,7 +8400,7 @@ type RefundLineItem struct {
 // An auto-generated type for paginating through multiple RefundLineItems.
 type RefundLineItemConnection struct {
 	// A list of edges.
-	Edges []*RefundLineItemEdge `json:"edges"`
+	Edges []*RefundLineItemEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -8408,7 +8408,7 @@ type RefundLineItemConnection struct {
 // An auto-generated type which holds one RefundLineItem and a cursor during pagination.
 type RefundLineItemEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of RefundLineItemEdge.
 	Node *RefundLineItem `json:"node,omitempty"`
 }
@@ -8416,9 +8416,9 @@ type RefundLineItemEdge struct {
 // Specifies the fields required to return line items on a refund.
 type RefundLineItemInput struct {
 	// The ID of the line item in the refund.
-	LineItemID string `json:"lineItemId"`
+	LineItemID string `json:"lineItemId,omitempty"`
 	// The quantity of the associated line item that was returned.
-	Quantity int `json:"quantity"`
+	Quantity int `json:"quantity,omitempty"`
 	// The type of restock for this line item.
 	RestockType *RefundLineItemRestockType `json:"restockType,omitempty"`
 	// The intended location for restocking if `refundType` is not `NO_RESTOCK`
@@ -8430,46 +8430,46 @@ type RefundLineItemInput struct {
 type ResourceAlert struct {
 	// Buttons in the alert that link to related information.
 	// For example, _View risk assessment_.
-	Actions []*ResourceAlertAction `json:"actions"`
+	Actions []*ResourceAlertAction `json:"actions,omitempty"`
 	// Details about the alert.
-	Content string `json:"content"`
+	Content string `json:"content,omitempty"`
 	// Unique identifier that appears when an alert is manually closed by the merchant.
 	// Most alerts cannot be manually closed.
 	DismissibleHandle *string `json:"dismissibleHandle,omitempty"`
 	// Icon that displays with the alert.
 	Icon *ResourceAlertIcon `json:"icon,omitempty"`
 	// Indication of how important the alert is.
-	Severity ResourceAlertSeverity `json:"severity"`
+	Severity ResourceAlertSeverity `json:"severity,omitempty"`
 	// The name of the alert.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 }
 
 // An action associated to a resource alert.
 type ResourceAlertAction struct {
 	// Whether the action is primary or not.
-	Primary bool `json:"primary"`
+	Primary bool `json:"primary,omitempty"`
 	// Resource for the action to show.
 	Show *string `json:"show,omitempty"`
 	// Action title.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// Action target URL.
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 }
 
 // Represents feedback from apps about a resource, and the steps required to set up the apps on the shop.
 type ResourceFeedback struct {
 	// Feedback from an app about the steps a merchant needs to take to set up the app on their store.
-	AppFeedback []*AppFeedback `json:"appFeedback"`
+	AppFeedback []*AppFeedback `json:"appFeedback,omitempty"`
 	// List of AppFeedback detailing issues regarding a resource.
-	Details []*AppFeedback `json:"details"`
+	Details []*AppFeedback `json:"details,omitempty"`
 	// Summary of resource feedback pertaining to the resource.
-	Summary string `json:"summary"`
+	Summary string `json:"summary,omitempty"`
 }
 
 // A resource limit represents the limits that the resource has.
 type ResourceLimit struct {
 	// Whether or not the resource is available.
-	Available bool `json:"available"`
+	Available bool `json:"available,omitempty"`
 	// Quantity available. If null the quantity available is unlimited.
 	QuantityAvailable *int `json:"quantityAvailable,omitempty"`
 	// Quantity limit of the resource. If null the quantity is unlimited.
@@ -8484,19 +8484,19 @@ type ResourcePublication struct {
 	Channel *Channel `json:"channel,omitempty"`
 	// Whether the resource publication is published. Also returns true if the resource publication is scheduled to be published.
 	// If false, then the resource publication is neither published nor scheduled to be published.
-	IsPublished bool `json:"isPublished"`
+	IsPublished bool `json:"isPublished,omitempty"`
 	// The publication the resource publication is published to.
 	Publication *Publication `json:"publication,omitempty"`
 	// The date that the resource publication was or is going to be published to the publication.
-	PublishDate string `json:"publishDate"`
+	PublishDate string `json:"publishDate,omitempty"`
 	// The resource published to the publication.
-	Publishable Publishable `json:"publishable"`
+	Publishable Publishable `json:"publishable,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple ResourcePublications.
 type ResourcePublicationConnection struct {
 	// A list of edges.
-	Edges []*ResourcePublicationEdge `json:"edges"`
+	Edges []*ResourcePublicationEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -8504,7 +8504,7 @@ type ResourcePublicationConnection struct {
 // An auto-generated type which holds one ResourcePublication and a cursor during pagination.
 type ResourcePublicationEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of ResourcePublicationEdge.
 	Node *ResourcePublication `json:"node,omitempty"`
 }
@@ -8513,19 +8513,19 @@ type ResourcePublicationEdge struct {
 type ResourcePublicationV2 struct {
 	// Whether the resource publication is published. If true, then the resource publication is published to the publication.
 	// If false, then the resource publication is staged to be published to the publication.
-	IsPublished bool `json:"isPublished"`
+	IsPublished bool `json:"isPublished,omitempty"`
 	// The publication the resource publication is published to.
 	Publication *Publication `json:"publication,omitempty"`
 	// The date that the resource publication was or is going to be published to the publication.
 	PublishDate *string `json:"publishDate,omitempty"`
 	// The resource published to the publication.
-	Publishable Publishable `json:"publishable"`
+	Publishable Publishable `json:"publishable,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple ResourcePublicationV2s.
 type ResourcePublicationV2Connection struct {
 	// A list of edges.
-	Edges []*ResourcePublicationV2Edge `json:"edges"`
+	Edges []*ResourcePublicationV2Edge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -8533,7 +8533,7 @@ type ResourcePublicationV2Connection struct {
 // An auto-generated type which holds one ResourcePublicationV2 and a cursor during pagination.
 type ResourcePublicationV2Edge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of ResourcePublicationV2Edge.
 	Node *ResourcePublicationV2 `json:"node,omitempty"`
 }
@@ -8557,19 +8557,19 @@ type SEOInput struct {
 // A saved search is a representation of a search query saved in the admin.
 type SavedSearch struct {
 	// The filters of a saved search.
-	Filters []*SearchFilter `json:"filters"`
+	Filters []*SearchFilter `json:"filters,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// The name of a saved search.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The query string of a saved search. This includes search terms and filters.
-	Query string `json:"query"`
+	Query string `json:"query,omitempty"`
 	// The type of resource this saved search is searching in.
-	ResourceType SearchResultType `json:"resourceType"`
+	ResourceType SearchResultType `json:"resourceType,omitempty"`
 	// The search terms of a saved search.
-	SearchTerms string `json:"searchTerms"`
+	SearchTerms string `json:"searchTerms,omitempty"`
 }
 
 func (SavedSearch) IsNode()                   {}
@@ -8578,7 +8578,7 @@ func (SavedSearch) IsLegacyInteroperability() {}
 // An auto-generated type for paginating through multiple SavedSearches.
 type SavedSearchConnection struct {
 	// A list of edges.
-	Edges []*SavedSearchEdge `json:"edges"`
+	Edges []*SavedSearchEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -8586,11 +8586,11 @@ type SavedSearchConnection struct {
 // Specifies the fields required to create a saved search.
 type SavedSearchCreateInput struct {
 	// The type of resouce this saved search is searching in.
-	ResourceType SearchResultType `json:"resourceType"`
+	ResourceType SearchResultType `json:"resourceType,omitempty"`
 	// A descriptive name of the saved search.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The query string of a saved search. This includes search terms and filters.
-	Query string `json:"query"`
+	Query string `json:"query,omitempty"`
 }
 
 // Return type for `savedSearchCreate` mutation.
@@ -8598,13 +8598,13 @@ type SavedSearchCreatePayload struct {
 	// The saved search that was created.
 	SavedSearch *SavedSearch `json:"savedSearch,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Specifies the fields to delete a saved search.
 type SavedSearchDeleteInput struct {
 	// ID of the saved search to delete.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 }
 
 // Return type for `savedSearchDelete` mutation.
@@ -8614,13 +8614,13 @@ type SavedSearchDeletePayload struct {
 	// The shop of the saved search that was deleted.
 	Shop *Shop `json:"shop,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one SavedSearch and a cursor during pagination.
 type SavedSearchEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of SavedSearchEdge.
 	Node *SavedSearch `json:"node,omitempty"`
 }
@@ -8628,7 +8628,7 @@ type SavedSearchEdge struct {
 // Specifies the fields required to update a saved search.
 type SavedSearchUpdateInput struct {
 	// ID of the saved search to update.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// A descriptive name of the saved search.
 	Name *string `json:"name,omitempty"`
 	// The query string of a saved search. This included search terms and filters.
@@ -8640,27 +8640,27 @@ type SavedSearchUpdatePayload struct {
 	// The saved search that was updated.
 	SavedSearch *SavedSearch `json:"savedSearch,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Script discount applications capture the intentions of a discount that
 // was created by a Shopify Script for an order's line item or shipping line.
 type ScriptDiscountApplication struct {
 	// The method by which the discount's value is allocated to its entitled items.
-	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod"`
+	AllocationMethod DiscountApplicationAllocationMethod `json:"allocationMethod,omitempty"`
 	// The description of the application as defined by the Script.
-	Description string `json:"description"`
+	Description string `json:"description,omitempty"`
 	// An ordered index that can be used to identify the discount application and indicate the precedence
 	// of the discount application for calculations.
-	Index int `json:"index"`
+	Index int `json:"index,omitempty"`
 	// How the discount amount is distributed on the discounted lines.
-	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection"`
+	TargetSelection DiscountApplicationTargetSelection `json:"targetSelection,omitempty"`
 	// Whether the discount is applied on line items or shipping lines.
-	TargetType DiscountApplicationTargetType `json:"targetType"`
+	TargetType DiscountApplicationTargetType `json:"targetType,omitempty"`
 	// The title of the application as defined by the Script.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The value of the discount application.
-	Value PricingValue `json:"value"`
+	Value PricingValue `json:"value,omitempty"`
 }
 
 func (ScriptDiscountApplication) IsDiscountApplication() {}
@@ -8671,19 +8671,19 @@ type ScriptTag struct {
 	// If `true`, then the script will be cached and served by the CDN.
 	// The cache expires 15 minutes after the script tag is successfully returned.
 	// If `false`, then the script will be served as is.
-	Cache bool `json:"cache"`
+	Cache bool `json:"cache,omitempty"`
 	// The date and time when the script tag was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The page or pages on the online store that the script should be included.
-	DisplayScope ScriptTagDisplayScope `json:"displayScope"`
+	DisplayScope ScriptTagDisplayScope `json:"displayScope,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// The URL to the remote script.
-	Src string `json:"src"`
+	Src string `json:"src,omitempty"`
 	// The date and time when the script tag was last updated.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 }
 
 func (ScriptTag) IsNode()                   {}
@@ -8692,7 +8692,7 @@ func (ScriptTag) IsLegacyInteroperability() {}
 // An auto-generated type for paginating through multiple ScriptTags.
 type ScriptTagConnection struct {
 	// A list of edges.
-	Edges []*ScriptTagEdge `json:"edges"`
+	Edges []*ScriptTagEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -8702,7 +8702,7 @@ type ScriptTagCreatePayload struct {
 	// The script tag that was created.
 	ScriptTag *ScriptTag `json:"scriptTag,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `scriptTagDelete` mutation.
@@ -8710,13 +8710,13 @@ type ScriptTagDeletePayload struct {
 	// The ID of the deleted script tag.
 	DeletedScriptTagID *string `json:"deletedScriptTagId,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one ScriptTag and a cursor during pagination.
 type ScriptTagEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of ScriptTagEdge.
 	Node *ScriptTag `json:"node,omitempty"`
 }
@@ -8739,21 +8739,21 @@ type ScriptTagUpdatePayload struct {
 	// The script tag that was updated.
 	ScriptTag *ScriptTag `json:"scriptTag,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // A filter in a search query represented by a key value pair.
 type SearchFilter struct {
 	// The key of the search filter.
-	Key string `json:"key"`
+	Key string `json:"key,omitempty"`
 	// The value of the search filter.
-	Value string `json:"value"`
+	Value string `json:"value,omitempty"`
 }
 
 // A list of search filters along with their specific options in value and label pair for filtering.
 type SearchFilterOptions struct {
 	// A list of options that can be use to filter product availability.
-	ProductAvailability []*FilterOption `json:"productAvailability"`
+	ProductAvailability []*FilterOption `json:"productAvailability,omitempty"`
 }
 
 // Represents an individual result returned from a search.
@@ -8763,27 +8763,27 @@ type SearchResult struct {
 	// Returns the Image resource presented to accompany a search result.
 	Image *Image `json:"image,omitempty"`
 	// Returns the ID of the resource returned in the search result.
-	Reference Node `json:"reference"`
+	Reference Node `json:"reference,omitempty"`
 	// Returns the resource title.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// Returns the absolute URL to the resource in the search result.
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 }
 
 // The connection type for SearchResult.
 type SearchResultConnection struct {
 	// A list of edges.
-	Edges []*SearchResultEdge `json:"edges"`
+	Edges []*SearchResultEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 	// Information to aid in pagination.
-	ResultsAfterCount int `json:"resultsAfterCount"`
+	ResultsAfterCount int `json:"resultsAfterCount,omitempty"`
 }
 
 // An auto-generated type which holds one SearchResult and a cursor during pagination.
 type SearchResultEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of SearchResultEdge.
 	Node *SearchResult `json:"node,omitempty"`
 }
@@ -8792,9 +8792,9 @@ type SearchResultEdge struct {
 // Products can have multiple options, like different sizes or colors.
 type SelectedOption struct {
 	// The product option’s name.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The product option’s value.
-	Value string `json:"value"`
+	Value string `json:"value,omitempty"`
 }
 
 // Represents how a product can be sold and purchased. Selling plans and associated records (selling plan groups
@@ -8802,23 +8802,23 @@ type SelectedOption struct {
 // up these records if you need to restore them later.
 type SellingPlan struct {
 	// Selling plan policy which describes the billing details.
-	BillingPolicy SellingPlanBillingPolicy `json:"billingPolicy"`
+	BillingPolicy SellingPlanBillingPolicy `json:"billingPolicy,omitempty"`
 	// The date and time when the selling plan was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// Selling plan policy which describes the delivery details.
-	DeliveryPolicy SellingPlanDeliveryPolicy `json:"deliveryPolicy"`
+	DeliveryPolicy SellingPlanDeliveryPolicy `json:"deliveryPolicy,omitempty"`
 	// Buyer facing string which describes the selling plan commitment.
 	Description *string `json:"description,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Buyer facing string which describes the selling plan content.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The values of all options available on the selling plan. Selling plans are grouped together in Liquid when they are created by the same app, and have the same `selling_plan_group.name` and `selling_plan_group.options` values.
-	Options []string `json:"options"`
+	Options []string `json:"options,omitempty"`
 	// Relative position of the selling plan for display. A lower position will be displayed before a higher position.
 	Position *int `json:"position,omitempty"`
 	// Selling plan pricing details.
-	PricingPolicies []SellingPlanPricingPolicy `json:"pricingPolicies"`
+	PricingPolicies []SellingPlanPricingPolicy `json:"pricingPolicies,omitempty"`
 }
 
 func (SellingPlan) IsNode() {}
@@ -8831,12 +8831,12 @@ type SellingPlanAnchor struct {
 	// the days of the week according to ISO 8601, where 1 is Monday.
 	//
 	// If `type` is not WEEKDAY, then the value must be between 1-31.
-	Day int `json:"day"`
+	Day int `json:"day,omitempty"`
 	// The month of the anchor. If type is different than YEARDAY, this field must be null, otherwise it must be
 	// between 1-12.
 	Month *int `json:"month,omitempty"`
 	// Represents the anchor type, it can be one one of WEEKDAY, MONTHDAY, YEARDAY.
-	Type SellingPlanAnchorType `json:"type"`
+	Type SellingPlanAnchorType `json:"type,omitempty"`
 }
 
 // Specifies the input fields required to create or update a selling plan anchor.
@@ -8864,7 +8864,7 @@ type SellingPlanBillingPolicyInput struct {
 // An auto-generated type for paginating through multiple SellingPlans.
 type SellingPlanConnection struct {
 	// A list of edges.
-	Edges []*SellingPlanEdge `json:"edges"`
+	Edges []*SellingPlanEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -8878,7 +8878,7 @@ type SellingPlanDeliveryPolicyInput struct {
 // An auto-generated type which holds one SellingPlan and a cursor during pagination.
 type SellingPlanEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of SellingPlanEdge.
 	Node *SellingPlan `json:"node,omitempty"`
 }
@@ -8886,11 +8886,11 @@ type SellingPlanEdge struct {
 // Represents a fixed selling plan pricing policy.
 type SellingPlanFixedPricingPolicy struct {
 	// The price adjustment type.
-	AdjustmentType SellingPlanPricingPolicyAdjustmentType `json:"adjustmentType"`
+	AdjustmentType SellingPlanPricingPolicyAdjustmentType `json:"adjustmentType,omitempty"`
 	// The price adjustment value.
-	AdjustmentValue SellingPlanPricingPolicyAdjustmentValue `json:"adjustmentValue"`
+	AdjustmentValue SellingPlanPricingPolicyAdjustmentValue `json:"adjustmentValue,omitempty"`
 	// The date and time when the fixed selling plan pricing policy was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 }
 
 func (SellingPlanFixedPricingPolicy) IsSellingPlanPricingPolicyBase() {}
@@ -8913,29 +8913,29 @@ type SellingPlanGroup struct {
 	// The identifier for app, exposed in Liquid and product JSON.
 	AppID *string `json:"appId,omitempty"`
 	// Whether the given product is directly associated to the selling plan group.
-	AppliesToProduct bool `json:"appliesToProduct"`
+	AppliesToProduct bool `json:"appliesToProduct,omitempty"`
 	// Whether the given product variant is directly associated to the selling plan group.
-	AppliesToProductVariant bool `json:"appliesToProductVariant"`
+	AppliesToProductVariant bool `json:"appliesToProductVariant,omitempty"`
 	// Whether any of the product variants of the given product are associated to the selling plan group.
-	AppliesToProductVariants bool `json:"appliesToProductVariants"`
+	AppliesToProductVariants bool `json:"appliesToProductVariants,omitempty"`
 	// The date and time when the selling plan group was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The merchant-facing description of the selling plan group.
 	Description *string `json:"description,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The merchant-facing label of the selling plan group.
-	MerchantCode string `json:"merchantCode"`
+	MerchantCode string `json:"merchantCode,omitempty"`
 	// The buyer-facing label of the selling plan group.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The values of all options available on the selling plan group. Selling plans are grouped together in Liquid when they are created by the same app, and have the same `selling_plan_group.name` and `selling_plan_group.options` values.
-	Options []string `json:"options"`
+	Options []string `json:"options,omitempty"`
 	// The relative position of the selling plan group for display.
 	Position *int `json:"position,omitempty"`
 	// A count of products associated to the selling plan group.
-	ProductCount int `json:"productCount"`
+	ProductCount int `json:"productCount,omitempty"`
 	// A count of product variants associated to the selling plan group.
-	ProductVariantCount int `json:"productVariantCount"`
+	ProductVariantCount int `json:"productVariantCount,omitempty"`
 	// Product variants associated to the selling plan group.
 	ProductVariants *ProductVariantConnection `json:"productVariants,omitempty"`
 	// Products associated to the selling plan group.
@@ -8953,7 +8953,7 @@ type SellingPlanGroupAddProductVariantsPayload struct {
 	// The updated selling plan group.
 	SellingPlanGroup *SellingPlanGroup `json:"sellingPlanGroup,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SellingPlanGroupUserError `json:"userErrors"`
+	UserErrors []*SellingPlanGroupUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `sellingPlanGroupAddProducts` mutation.
@@ -8961,13 +8961,13 @@ type SellingPlanGroupAddProductsPayload struct {
 	// The updated selling plan group.
 	SellingPlanGroup *SellingPlanGroup `json:"sellingPlanGroup,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SellingPlanGroupUserError `json:"userErrors"`
+	UserErrors []*SellingPlanGroupUserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple SellingPlanGroups.
 type SellingPlanGroupConnection struct {
 	// A list of edges.
-	Edges []*SellingPlanGroupEdge `json:"edges"`
+	Edges []*SellingPlanGroupEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -8977,7 +8977,7 @@ type SellingPlanGroupCreatePayload struct {
 	// The created selling plan group object.
 	SellingPlanGroup *SellingPlanGroup `json:"sellingPlanGroup,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SellingPlanGroupUserError `json:"userErrors"`
+	UserErrors []*SellingPlanGroupUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `sellingPlanGroupDelete` mutation.
@@ -8985,13 +8985,13 @@ type SellingPlanGroupDeletePayload struct {
 	// The id of the deleted selling plan group object.
 	DeletedSellingPlanGroupID *string `json:"deletedSellingPlanGroupId,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SellingPlanGroupUserError `json:"userErrors"`
+	UserErrors []*SellingPlanGroupUserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one SellingPlanGroup and a cursor during pagination.
 type SellingPlanGroupEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of SellingPlanGroupEdge.
 	Node *SellingPlanGroup `json:"node,omitempty"`
 }
@@ -9007,13 +9007,13 @@ type SellingPlanGroupInput struct {
 	// Merchant facing description of the selling plan group.
 	Description *string `json:"description,omitempty"`
 	// List of selling plans to create.
-	SellingPlansToCreate []*SellingPlanInput `json:"sellingPlansToCreate"`
+	SellingPlansToCreate []*SellingPlanInput `json:"sellingPlansToCreate,omitempty"`
 	// List of selling plans to update.
-	SellingPlansToUpdate []*SellingPlanInput `json:"sellingPlansToUpdate"`
+	SellingPlansToUpdate []*SellingPlanInput `json:"sellingPlansToUpdate,omitempty"`
 	// List of selling plans ids to delete.
-	SellingPlansToDelete []string `json:"sellingPlansToDelete"`
+	SellingPlansToDelete []string `json:"sellingPlansToDelete,omitempty"`
 	// The values of all options available on the selling plan group. Selling plans are grouped together in Liquid when they are created by the same app, and have the same `selling_plan_group.name` and `selling_plan_group.options` values.
-	Options []string `json:"options"`
+	Options []string `json:"options,omitempty"`
 	// Relative value for display purposes of the selling plan group. A lower position will be displayed before a higher one.
 	Position *int `json:"position,omitempty"`
 }
@@ -9021,35 +9021,35 @@ type SellingPlanGroupInput struct {
 // Return type for `sellingPlanGroupRemoveProductVariants` mutation.
 type SellingPlanGroupRemoveProductVariantsPayload struct {
 	// The removed product variant ids.
-	RemovedProductVariantIds []string `json:"removedProductVariantIds"`
+	RemovedProductVariantIds []string `json:"removedProductVariantIds,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SellingPlanGroupUserError `json:"userErrors"`
+	UserErrors []*SellingPlanGroupUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `sellingPlanGroupRemoveProducts` mutation.
 type SellingPlanGroupRemoveProductsPayload struct {
 	// The removed product ids.
-	RemovedProductIds []string `json:"removedProductIds"`
+	RemovedProductIds []string `json:"removedProductIds,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SellingPlanGroupUserError `json:"userErrors"`
+	UserErrors []*SellingPlanGroupUserError `json:"userErrors,omitempty"`
 }
 
 // Specifies resource association with a Selling Plan Group.
 type SellingPlanGroupResourceInput struct {
 	// The IDs of the Variants to add to the Selling Plan Group.
-	ProductVariantIds []string `json:"productVariantIds"`
+	ProductVariantIds []string `json:"productVariantIds,omitempty"`
 	// The IDs of the Products to add to the Selling Plan Group.
-	ProductIds []string `json:"productIds"`
+	ProductIds []string `json:"productIds,omitempty"`
 }
 
 // Return type for `sellingPlanGroupUpdate` mutation.
 type SellingPlanGroupUpdatePayload struct {
 	// The IDs of the deleted Subscription Plans.
-	DeletedSellingPlanIds []string `json:"deletedSellingPlanIds"`
+	DeletedSellingPlanIds []string `json:"deletedSellingPlanIds,omitempty"`
 	// The updated Selling Plan Group.
 	SellingPlanGroup *SellingPlanGroup `json:"sellingPlanGroup,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SellingPlanGroupUserError `json:"userErrors"`
+	UserErrors []*SellingPlanGroupUserError `json:"userErrors,omitempty"`
 }
 
 // Represents a selling plan group custom error.
@@ -9057,9 +9057,9 @@ type SellingPlanGroupUserError struct {
 	// Error code to uniquely identify the error.
 	Code *SellingPlanGroupUserErrorCode `json:"code,omitempty"`
 	// Path to the input field which caused the error.
-	Field []string `json:"field"`
+	Field []string `json:"field,omitempty"`
 	// The error message.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 func (SellingPlanGroupUserError) IsDisplayableError() {}
@@ -9078,9 +9078,9 @@ type SellingPlanInput struct {
 	DeliveryPolicy *SellingPlanDeliveryPolicyInput `json:"deliveryPolicy,omitempty"`
 	// Pricing policies which describe the pricing details. Each selling plan
 	// can only contain a maximum of 2 pricing policies.
-	PricingPolicies []*SellingPlanPricingPolicyInput `json:"pricingPolicies"`
+	PricingPolicies []*SellingPlanPricingPolicyInput `json:"pricingPolicies,omitempty"`
 	// The values of all options available on the selling plan. Selling plans are grouped together in Liquid when they are created by the same app, and have the same `selling_plan_group.name` and `selling_plan_group.options` values.
-	Options []string `json:"options"`
+	Options []string `json:"options,omitempty"`
 	// Relative value for display purposes of this plan. A lower position will be displayed before a higher one.
 	Position *int `json:"position,omitempty"`
 }
@@ -9096,7 +9096,7 @@ type SellingPlanPricingPolicyInput struct {
 // Represents the percentage value of a selling plan pricing policy percentage type.
 type SellingPlanPricingPolicyPercentageValue struct {
 	// The percentage value.
-	Percentage float64 `json:"percentage"`
+	Percentage float64 `json:"percentage,omitempty"`
 }
 
 func (SellingPlanPricingPolicyPercentageValue) IsSellingPlanPricingPolicyAdjustmentValue() {}
@@ -9112,13 +9112,13 @@ type SellingPlanPricingPolicyValueInput struct {
 // Represents a recurring selling plan billing policy.
 type SellingPlanRecurringBillingPolicy struct {
 	// Specific anchor dates upon which the billing interval calculations should be made.
-	Anchors []*SellingPlanAnchor `json:"anchors"`
+	Anchors []*SellingPlanAnchor `json:"anchors,omitempty"`
 	// The date and time when the selling plan billing policy was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The billing frequency, it can be either: day, week, month or year.
-	Interval SellingPlanInterval `json:"interval"`
+	Interval SellingPlanInterval `json:"interval,omitempty"`
 	// The number of intervals between billings.
-	IntervalCount int `json:"intervalCount"`
+	IntervalCount int `json:"intervalCount,omitempty"`
 	// Maximum number of billing iterations.
 	MaxCycles *int `json:"maxCycles,omitempty"`
 	// Minimum number of billing iterations.
@@ -9134,7 +9134,7 @@ type SellingPlanRecurringBillingPolicyInput struct {
 	// The number of intervals between billings.
 	IntervalCount *int `json:"intervalCount,omitempty"`
 	// Specific anchor dates upon which the billing interval calculations should be made.
-	Anchors []*SellingPlanAnchorInput `json:"anchors"`
+	Anchors []*SellingPlanAnchorInput `json:"anchors,omitempty"`
 	// Minimum number of billing iterations.
 	MinCycles *int `json:"minCycles,omitempty"`
 	// Maximum number of billing iterations.
@@ -9144,22 +9144,22 @@ type SellingPlanRecurringBillingPolicyInput struct {
 // Represents a recurring selling plan delivery policy.
 type SellingPlanRecurringDeliveryPolicy struct {
 	// Specific anchor dates upon which the delivery interval calculations should be made.
-	Anchors []*SellingPlanAnchor `json:"anchors"`
+	Anchors []*SellingPlanAnchor `json:"anchors,omitempty"`
 	// The date and time when the selling plan delivery policy was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// A buffer period for orders to be included in a cycle.
 	Cutoff *int `json:"cutoff,omitempty"`
 	// Specifies if the delivery policy is merchant or buyer-centric.
 	// Buyer-centric delivery policies state the time when the buyer will receive the goods.
 	// Merchant-centric delivery policies state the time when the fulfillment should be started.
 	// Currently, only merchant-centric delivery policies are supported.
-	Intent SellingPlanRecurringDeliveryPolicyIntent `json:"intent"`
+	Intent SellingPlanRecurringDeliveryPolicyIntent `json:"intent,omitempty"`
 	// The delivery frequency, it can be either: day, week, month or year.
-	Interval SellingPlanInterval `json:"interval"`
+	Interval SellingPlanInterval `json:"interval,omitempty"`
 	// The number of intervals between deliveries.
-	IntervalCount int `json:"intervalCount"`
+	IntervalCount int `json:"intervalCount,omitempty"`
 	// Fulfillment or delivery behavior of the first fulfillment when the order is placed before the anchor. The default value for this field is `ASAP`.
-	PreAnchorBehavior SellingPlanRecurringDeliveryPolicyPreAnchorBehavior `json:"preAnchorBehavior"`
+	PreAnchorBehavior SellingPlanRecurringDeliveryPolicyPreAnchorBehavior `json:"preAnchorBehavior,omitempty"`
 }
 
 func (SellingPlanRecurringDeliveryPolicy) IsSellingPlanDeliveryPolicy() {}
@@ -9171,7 +9171,7 @@ type SellingPlanRecurringDeliveryPolicyInput struct {
 	// The number of intervals between deliveries.
 	IntervalCount *int `json:"intervalCount,omitempty"`
 	// Specific anchor dates upon which the delivery interval calculations should be made.
-	Anchors []*SellingPlanAnchorInput `json:"anchors"`
+	Anchors []*SellingPlanAnchorInput `json:"anchors,omitempty"`
 	// A buffer period for orders to be included in a cycle.
 	Cutoff *int `json:"cutoff,omitempty"`
 	// Intention of this delivery policy, it can be either: delivery or fulfillment.
@@ -9183,13 +9183,13 @@ type SellingPlanRecurringDeliveryPolicyInput struct {
 // Represents a recurring selling plan pricing policy.
 type SellingPlanRecurringPricingPolicy struct {
 	// The price adjustment type.
-	AdjustmentType SellingPlanPricingPolicyAdjustmentType `json:"adjustmentType"`
+	AdjustmentType SellingPlanPricingPolicyAdjustmentType `json:"adjustmentType,omitempty"`
 	// The price adjustment value.
-	AdjustmentValue SellingPlanPricingPolicyAdjustmentValue `json:"adjustmentValue"`
+	AdjustmentValue SellingPlanPricingPolicyAdjustmentValue `json:"adjustmentValue,omitempty"`
 	// Cycle after which this pricing policy applies.
 	AfterCycle *int `json:"afterCycle,omitempty"`
 	// The date and time when the recurring selling plan pricing policy was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 }
 
 func (SellingPlanRecurringPricingPolicy) IsSellingPlanPricingPolicy()     {}
@@ -9204,7 +9204,7 @@ type SellingPlanRecurringPricingPolicyInput struct {
 	// Price adjustment value defined by the policy.
 	AdjustmentValue *SellingPlanPricingPolicyValueInput `json:"adjustmentValue,omitempty"`
 	// Cycle after which the pricing policy applies. If not provided the policy will be applicable from the first cycle.
-	AfterCycle int `json:"afterCycle"`
+	AfterCycle int `json:"afterCycle,omitempty"`
 }
 
 // Represents the shipping details that the customer chose for their order.
@@ -9215,11 +9215,11 @@ type ShippingLine struct {
 	// A reference to the shipping method.
 	Code *string `json:"code,omitempty"`
 	// Whether the shipping line is custom or not.
-	Custom bool `json:"custom"`
+	Custom bool `json:"custom,omitempty"`
 	// The general classification of the delivery method.
 	DeliveryCategory *string `json:"deliveryCategory,omitempty"`
 	// The discounts that have been allocated to the shipping line.
-	DiscountAllocations []*DiscountAllocation `json:"discountAllocations"`
+	DiscountAllocations []*DiscountAllocation `json:"discountAllocations,omitempty"`
 	// The pre-tax shipping price with discounts applied.
 	DiscountedPrice *MoneyV2 `json:"discountedPrice,omitempty"`
 	// The pre-tax shipping price with discounts applied.
@@ -9233,7 +9233,7 @@ type ShippingLine struct {
 	// The phone number at the shipping address.
 	Phone *string `json:"phone,omitempty"`
 	// Returns the price of the shipping line.
-	Price string `json:"price"`
+	Price string `json:"price,omitempty"`
 	// The fulfillment service requested for the shipping method.
 	// Present if the shipping method requires processing by a third party fulfillment service.
 	RequestedFulfillmentService *FulfillmentService `json:"requestedFulfillmentService,omitempty"`
@@ -9242,15 +9242,15 @@ type ShippingLine struct {
 	// Returns the rate source for the shipping line.
 	Source *string `json:"source,omitempty"`
 	// The TaxLine objects connected to this shipping line.
-	TaxLines []*TaxLine `json:"taxLines"`
+	TaxLines []*TaxLine `json:"taxLines,omitempty"`
 	// Returns the title of the shipping line.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple ShippingLines.
 type ShippingLineConnection struct {
 	// A list of edges.
-	Edges []*ShippingLineEdge `json:"edges"`
+	Edges []*ShippingLineEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -9258,7 +9258,7 @@ type ShippingLineConnection struct {
 // An auto-generated type which holds one ShippingLine and a cursor during pagination.
 type ShippingLineEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of ShippingLineEdge.
 	Node *ShippingLine `json:"node,omitempty"`
 }
@@ -9276,10 +9276,10 @@ type ShippingLineInput struct {
 // The shipping method for the delivery.
 type ShippingMethod struct {
 	// A unique code associated with the rate. For example: `expedited_mail`
-	Code string `json:"code"`
+	Code string `json:"code,omitempty"`
 	// A description of the rate, which customers will see at checkout.
 	// For example: `Includes tracking and insurance`.
-	Label string `json:"label"`
+	Label string `json:"label,omitempty"`
 }
 
 // Return type for `shippingPackageDelete` mutation.
@@ -9287,43 +9287,43 @@ type ShippingPackageDeletePayload struct {
 	// The ID of the deleted shipping package.
 	DeletedID *string `json:"deletedId,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `shippingPackageMakeDefault` mutation.
 type ShippingPackageMakeDefaultPayload struct {
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `shippingPackageUpdate` mutation.
 type ShippingPackageUpdatePayload struct {
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // A shipping rate to be applied to an order.
 type ShippingRate struct {
 	// Human-readable unique identifier for this shipping rate.
-	Handle string `json:"handle"`
+	Handle string `json:"handle,omitempty"`
 	// Price of this shipping rate.
 	Price *MoneyV2 `json:"price,omitempty"`
 	// Title of this shipping rate.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 }
 
 // Represents the shipping costs refunded on the Refund.
 type ShippingRefund struct {
 	// The monetary value of the shipping fees to be returned.
-	Amount string `json:"amount"`
+	Amount string `json:"amount,omitempty"`
 	// The monetary value of the shipping fees to be returned in shop and presentment currencies.
 	AmountSet *MoneyBag `json:"amountSet,omitempty"`
 	// The maximum amount of shipping fees currently refundable.
-	MaximumRefundable string `json:"maximumRefundable"`
+	MaximumRefundable string `json:"maximumRefundable,omitempty"`
 	// The maximum amount of shipping fees currently refundable in shop and presentment currencies.
 	MaximumRefundableSet *MoneyBag `json:"maximumRefundableSet,omitempty"`
 	// The monetary value of the tax allocated to shipping fees to be returned.
-	Tax string `json:"tax"`
+	Tax string `json:"tax,omitempty"`
 	// The monetary value of the tax allocated to shipping fees to be returned in shop and presentment currencies.
 	TaxSet *MoneyBag `json:"taxSet,omitempty"`
 }
@@ -9339,9 +9339,9 @@ type ShippingRefundInput struct {
 // Represents the shop object.
 type Shop struct {
 	// Alert message that appears in the Shopify admin.
-	Alerts []*ShopAlert `json:"alerts"`
+	Alerts []*ShopAlert `json:"alerts,omitempty"`
 	// The token required to query the shop's reports or dashboards.
-	AnalyticsToken string `json:"analyticsToken"`
+	AnalyticsToken string `json:"analyticsToken,omitempty"`
 	// Paginated list of fulfillment orders assigned to fulfillment services.
 	AssignedFulfillmentOrders *FulfillmentOrderConnection `json:"assignedFulfillmentOrders,omitempty"`
 	// List of sales channels not currently installed on the shop.
@@ -9349,11 +9349,11 @@ type Shop struct {
 	// The shop's billing address information.
 	BillingAddress *MailingAddress `json:"billingAddress,omitempty"`
 	// Exposes the number of channels.
-	ChannelCount int `json:"channelCount"`
+	ChannelCount int `json:"channelCount,omitempty"`
 	// List of the shop's active sales channels.
 	Channels *ChannelConnection `json:"channels,omitempty"`
 	// Specifies whether the shop supports checkouts via Checkout API.
-	CheckoutAPISupported bool `json:"checkoutApiSupported"`
+	CheckoutAPISupported bool `json:"checkoutApiSupported,omitempty"`
 	// Return a collection by its handle.
 	CollectionByHandle *Collection `json:"collectionByHandle,omitempty"`
 	// List of the shop's collection saved searches.
@@ -9362,17 +9362,17 @@ type Shop struct {
 	Collections *CollectionConnection `json:"collections,omitempty"`
 	// The public-facing contact email address for the shop.
 	// Customers will use this email to communicate with the shop owner.
-	ContactEmail string `json:"contactEmail"`
+	ContactEmail string `json:"contactEmail,omitempty"`
 	// Countries that have been defined in shipping zones for the shop.
 	CountriesInShippingZones *CountriesInShippingZones `json:"countriesInShippingZones,omitempty"`
 	// The three letter code for the shop's currency.
-	CurrencyCode CurrencyCode `json:"currencyCode"`
+	CurrencyCode CurrencyCode `json:"currencyCode,omitempty"`
 	// How currencies are displayed on your store.
 	CurrencyFormats *CurrencyFormats `json:"currencyFormats,omitempty"`
 	// The currency settings for the shop.
 	CurrencySettings *CurrencySettingConnection `json:"currencySettings,omitempty"`
 	// The shop's customer account requirement preference.
-	CustomerAccounts ShopCustomerAccountsSetting `json:"customerAccounts"`
+	CustomerAccounts ShopCustomerAccountsSetting `json:"customerAccounts,omitempty"`
 	// List of the shop's customer saved searches.
 	CustomerSavedSearches *SavedSearchConnection `json:"customerSavedSearches,omitempty"`
 	// A list of tags that have been added to customer accounts.
@@ -9382,7 +9382,7 @@ type Shop struct {
 	// The shop's meta description used in search engine results.
 	Description *string `json:"description,omitempty"`
 	// The domains configured for the shop.
-	Domains []*Domain `json:"domains"`
+	Domains []*Domain `json:"domains,omitempty"`
 	// List of the shop's draft order saved searches.
 	DraftOrderSavedSearches *SavedSearchConnection `json:"draftOrderSavedSearches,omitempty"`
 	// A list of tags that have been added to draft orders.
@@ -9391,19 +9391,19 @@ type Shop struct {
 	DraftOrders *DraftOrderConnection `json:"draftOrders,omitempty"`
 	// The shop owner's email address.
 	// Shopify will use this email address to communicate with the shop owner.
-	Email string `json:"email"`
+	Email string `json:"email,omitempty"`
 	// The presentment currencies enabled for the shop.
-	EnabledPresentmentCurrencies []CurrencyCode `json:"enabledPresentmentCurrencies"`
+	EnabledPresentmentCurrencies []CurrencyCode `json:"enabledPresentmentCurrencies,omitempty"`
 	// The shop's features.
 	Features *ShopFeatures `json:"features,omitempty"`
 	// Paginated list of merchant-managed and third-party fulfillment orders.
 	FulfillmentOrders *FulfillmentOrderConnection `json:"fulfillmentOrders,omitempty"`
 	// List of the shop's installed fulfillment services.
-	FulfillmentServices []*FulfillmentService `json:"fulfillmentServices"`
+	FulfillmentServices []*FulfillmentService `json:"fulfillmentServices,omitempty"`
 	// The shop's time zone as defined by the IANA.
-	IanaTimezone string `json:"ianaTimezone"`
+	IanaTimezone string `json:"ianaTimezone,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// List of the shop's inventory items.
 	InventoryItems *InventoryItemConnection `json:"inventoryItems,omitempty"`
 	// The number of pendings orders on the shop.
@@ -9418,15 +9418,15 @@ type Shop struct {
 	// A paginated list of metafields associated with the resource.
 	Metafields *MetafieldConnection `json:"metafields,omitempty"`
 	// The shop's .myshopify.com domain name.
-	MyshopifyDomain string `json:"myshopifyDomain"`
+	MyshopifyDomain string `json:"myshopifyDomain,omitempty"`
 	// The shop's name.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// The navigation settings of the shop.
-	NavigationSettings []*NavigationItem `json:"navigationSettings"`
+	NavigationSettings []*NavigationItem `json:"navigationSettings,omitempty"`
 	// The prefix that appears before order numbers.
-	OrderNumberFormatPrefix string `json:"orderNumberFormatPrefix"`
+	OrderNumberFormatPrefix string `json:"orderNumberFormatPrefix,omitempty"`
 	// The suffix that appears after order numbers.
-	OrderNumberFormatSuffix string `json:"orderNumberFormatSuffix"`
+	OrderNumberFormatSuffix string `json:"orderNumberFormatSuffix,omitempty"`
 	// List of the shop's order saved searches.
 	OrderSavedSearches *SavedSearchConnection `json:"orderSavedSearches,omitempty"`
 	// A list of tags that have been added to orders.
@@ -9436,7 +9436,7 @@ type Shop struct {
 	// Settings related to payments.
 	PaymentSettings *PaymentSettings `json:"paymentSettings,omitempty"`
 	// Number of pending orders on the shop.
-	PendingOrderCount int `json:"pendingOrderCount"`
+	PendingOrderCount int `json:"pendingOrderCount,omitempty"`
 	// The shop's plan.
 	Plan *ShopPlan `json:"plan,omitempty"`
 	// List of the shop's price rule saved searches.
@@ -9466,49 +9466,49 @@ type Shop struct {
 	// List of the shop's products.
 	Products *ProductConnection `json:"products,omitempty"`
 	// Exposes the number of publications.
-	PublicationCount int `json:"publicationCount"`
+	PublicationCount int `json:"publicationCount,omitempty"`
 	// Resource limits of a shop.
 	ResourceLimits *ShopResourceLimits `json:"resourceLimits,omitempty"`
 	// The URL of the rich text editor.
-	RichTextEditorURL string `json:"richTextEditorUrl"`
+	RichTextEditorURL string `json:"richTextEditorUrl,omitempty"`
 	// Return admin search results.
 	Search *SearchResultConnection `json:"search,omitempty"`
 	// List of search filter options.
 	SearchFilters *SearchFilterOptions `json:"searchFilters,omitempty"`
 	// Whether the shop has outstanding setup steps.
-	SetupRequired bool `json:"setupRequired"`
+	SetupRequired bool `json:"setupRequired,omitempty"`
 	// Countries that the shop ships to.
-	ShipsToCountries []CountryCode `json:"shipsToCountries"`
+	ShipsToCountries []CountryCode `json:"shipsToCountries,omitempty"`
 	// A list of all policies associated with a shop.
-	ShopPolicies []*ShopPolicy `json:"shopPolicies"`
+	ShopPolicies []*ShopPolicy `json:"shopPolicies,omitempty"`
 	// Shopify Payments account information, including balances and payouts.
 	ShopifyPaymentsAccount *ShopifyPaymentsAccount `json:"shopifyPaymentsAccount,omitempty"`
 	// Storefront access token of a private application. Scoped per-application.
 	StorefrontAccessTokens *StorefrontAccessTokenConnection `json:"storefrontAccessTokens,omitempty"`
 	// The URL of the shop's storefront.
-	StorefrontURL string `json:"storefrontUrl"`
+	StorefrontURL string `json:"storefrontUrl,omitempty"`
 	// Specifies whether or not taxes are charged for shipping.
-	TaxShipping bool `json:"taxShipping"`
+	TaxShipping bool `json:"taxShipping,omitempty"`
 	// The setting for whether applicable taxes are included in product prices.
-	TaxesIncluded bool `json:"taxesIncluded"`
+	TaxesIncluded bool `json:"taxesIncluded,omitempty"`
 	// The shop's time zone abbreviation.
-	TimezoneAbbreviation string `json:"timezoneAbbreviation"`
+	TimezoneAbbreviation string `json:"timezoneAbbreviation,omitempty"`
 	// The shop's time zone offset.
-	TimezoneOffset string `json:"timezoneOffset"`
+	TimezoneOffset string `json:"timezoneOffset,omitempty"`
 	// The shop's time zone offset expressed in number of minutes.
-	TimezoneOffsetMinutes int `json:"timezoneOffsetMinutes"`
+	TimezoneOffsetMinutes int `json:"timezoneOffsetMinutes,omitempty"`
 	// The translations associated with the resource.
-	Translations []*PublishedTranslation `json:"translations"`
+	Translations []*PublishedTranslation `json:"translations,omitempty"`
 	// The shop's unit system.
-	UnitSystem UnitSystem `json:"unitSystem"`
+	UnitSystem UnitSystem `json:"unitSystem,omitempty"`
 	// All images uploaded to the shop.
 	UploadedImages *ImageConnection `json:"uploadedImages,omitempty"`
 	// Fetch list of images uploaded to shop by ids.
-	UploadedImagesByIds []*Image `json:"uploadedImagesByIds"`
+	UploadedImagesByIds []*Image `json:"uploadedImagesByIds,omitempty"`
 	// The URL of the shop's storefront.
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 	// The shop's primary unit of weight for products and shipping.
-	WeightUnit WeightUnit `json:"weightUnit"`
+	WeightUnit WeightUnit `json:"weightUnit,omitempty"`
 }
 
 func (Shop) IsNode()                     {}
@@ -9520,75 +9520,75 @@ type ShopAlert struct {
 	// Button in the alert that links to related information.
 	Action *ShopAlertAction `json:"action,omitempty"`
 	// Description of the alert.
-	Description string `json:"description"`
+	Description string `json:"description,omitempty"`
 }
 
 // An action associated to a shop alert.
 type ShopAlertAction struct {
 	// Action title.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// Action target URL.
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 }
 
 // Represents the feature set available to the shop.
 type ShopFeatures struct {
 	// Whether a shop has access to avalara avatax.
-	AvalaraAvatax bool `json:"avalaraAvatax"`
+	AvalaraAvatax bool `json:"avalaraAvatax,omitempty"`
 	// Branding of the shop.
-	Branding ShopBranding `json:"branding"`
+	Branding ShopBranding `json:"branding,omitempty"`
 	// Whether a shop's storefront can have CAPTCHA protection.
-	Captcha bool `json:"captcha"`
+	Captcha bool `json:"captcha,omitempty"`
 	// Whether a shop's storefront can have CAPTCHA protection for domains not managed by Shopify.
-	CaptchaExternalDomains bool `json:"captchaExternalDomains"`
+	CaptchaExternalDomains bool `json:"captchaExternalDomains,omitempty"`
 	// Whether the delivery profiles functionality is enabled for this shop.
-	DeliveryProfiles bool `json:"deliveryProfiles"`
+	DeliveryProfiles bool `json:"deliveryProfiles,omitempty"`
 	// Whether a shop has access to the dynamic remarketing feature.
-	DynamicRemarketing bool `json:"dynamicRemarketing"`
+	DynamicRemarketing bool `json:"dynamicRemarketing,omitempty"`
 	// Whether a shop can be migrated to use Shopify subscriptions.
-	EligibleForSubscriptionMigration bool `json:"eligibleForSubscriptionMigration"`
+	EligibleForSubscriptionMigration bool `json:"eligibleForSubscriptionMigration,omitempty"`
 	// Whether a shop is configured properly to sell subscriptions.
-	EligibleForSubscriptions bool `json:"eligibleForSubscriptions"`
+	EligibleForSubscriptions bool `json:"eligibleForSubscriptions,omitempty"`
 	// Whether a shop can create gift cards.
-	GiftCards bool `json:"giftCards"`
+	GiftCards bool `json:"giftCards,omitempty"`
 	// Display Harmonized System codes on products.  Used for customs when shipping cross-border.
-	HarmonizedSystemCode bool `json:"harmonizedSystemCode"`
+	HarmonizedSystemCode bool `json:"harmonizedSystemCode,omitempty"`
 	// Whether a shop can enable international domains.
-	InternationalDomains bool `json:"internationalDomains"`
+	InternationalDomains bool `json:"internationalDomains,omitempty"`
 	// Whether a shop can enable international price overrides.
-	InternationalPriceOverrides bool `json:"internationalPriceOverrides"`
+	InternationalPriceOverrides bool `json:"internationalPriceOverrides,omitempty"`
 	// Whether a shop can enable international price rules.
-	InternationalPriceRules bool `json:"internationalPriceRules"`
+	InternationalPriceRules bool `json:"internationalPriceRules,omitempty"`
 	// Whether a shop has enabled a legacy subscription gateway to handle older subscriptions.
-	LegacySubscriptionGatewayEnabled bool `json:"legacySubscriptionGatewayEnabled"`
+	LegacySubscriptionGatewayEnabled bool `json:"legacySubscriptionGatewayEnabled,omitempty"`
 	// Whether to show the live view. Live view is hidden from merchants that are on a trial or don't have a storefront.
-	LiveView bool `json:"liveView"`
+	LiveView bool `json:"liveView,omitempty"`
 	// Whether the multi-location functionality is enabled for this shop.
-	MultiLocation bool `json:"multiLocation"`
+	MultiLocation bool `json:"multiLocation,omitempty"`
 	// Whether a shop has access to the onboarding visual.
-	OnboardingVisual bool `json:"onboardingVisual"`
+	OnboardingVisual bool `json:"onboardingVisual,omitempty"`
 	// Whether a shop has access to all reporting features.
-	Reports bool `json:"reports"`
+	Reports bool `json:"reports,omitempty"`
 	// Whether the shop has ever had subscription products.
-	SellsSubscriptions bool `json:"sellsSubscriptions"`
+	SellsSubscriptions bool `json:"sellsSubscriptions,omitempty"`
 	// Whether the shop has a Shopify Plus subscription.
-	ShopifyPlus bool `json:"shopifyPlus"`
+	ShopifyPlus bool `json:"shopifyPlus,omitempty"`
 	// Whether to show metrics. Metrics are hidden for new merchants until they become meaningful.
-	ShowMetrics bool `json:"showMetrics"`
+	ShowMetrics bool `json:"showMetrics,omitempty"`
 	// Whether the shop has an online storefront.
-	Storefront bool `json:"storefront"`
+	Storefront bool `json:"storefront,omitempty"`
 }
 
 // Available locale for a shop.
 type ShopLocale struct {
 	// Locale identifier.
-	Locale string `json:"locale"`
+	Locale string `json:"locale,omitempty"`
 	// Locale name.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// Whether or not this is the default locale for the shop.
-	Primary bool `json:"primary"`
+	Primary bool `json:"primary,omitempty"`
 	// Whether or not the locale is published.
-	Published bool `json:"published"`
+	Published bool `json:"published,omitempty"`
 }
 
 // Return type for `shopLocaleDisable` mutation.
@@ -9596,7 +9596,7 @@ type ShopLocaleDisablePayload struct {
 	// The locale identifier that was disabled.
 	Locale *string `json:"locale,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `shopLocaleEnable` mutation.
@@ -9604,7 +9604,7 @@ type ShopLocaleEnablePayload struct {
 	// The locale that was enabled.
 	ShopLocale *ShopLocale `json:"shopLocale,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Specifies the input fields for a shop locale.
@@ -9618,31 +9618,31 @@ type ShopLocaleUpdatePayload struct {
 	// The locale that was updated.
 	ShopLocale *ShopLocale `json:"shopLocale,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents the billing plan of the shop.
 type ShopPlan struct {
 	// The name of the shop's billing plan.
-	DisplayName string `json:"displayName"`
+	DisplayName string `json:"displayName,omitempty"`
 	// Whether the shop is a partner development shop for testing purposes.
-	PartnerDevelopment bool `json:"partnerDevelopment"`
+	PartnerDevelopment bool `json:"partnerDevelopment,omitempty"`
 	// Whether the shop has a Shopify Plus subscription.
-	ShopifyPlus bool `json:"shopifyPlus"`
+	ShopifyPlus bool `json:"shopifyPlus,omitempty"`
 }
 
 // Policy that a merchant has configured for their store, such as their refund or privacy policy.
 type ShopPolicy struct {
 	// The text of the policy. The maximum size is 512kb.
-	Body string `json:"body"`
+	Body string `json:"body,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The translations associated with the resource.
-	Translations []*PublishedTranslation `json:"translations"`
+	Translations []*PublishedTranslation `json:"translations,omitempty"`
 	// The shop policy type.
-	Type ShopPolicyType `json:"type"`
+	Type ShopPolicyType `json:"type,omitempty"`
 	// The public URL of the policy.
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 }
 
 func (ShopPolicy) IsNode()                     {}
@@ -9651,9 +9651,9 @@ func (ShopPolicy) IsHasPublishedTranslations() {}
 // Specifies the input fields required to update a policy.
 type ShopPolicyInput struct {
 	// The shop policy type.
-	Type ShopPolicyType `json:"type"`
+	Type ShopPolicyType `json:"type,omitempty"`
 	// Policy text, maximum size of 512kb.
-	Body string `json:"body"`
+	Body string `json:"body,omitempty"`
 }
 
 // Return type for `shopPolicyUpdate` mutation.
@@ -9661,7 +9661,7 @@ type ShopPolicyUpdatePayload struct {
 	// The shop policy that has been updated.
 	ShopPolicy *ShopPolicy `json:"shopPolicy,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*ShopPolicyUserError `json:"userErrors"`
+	UserErrors []*ShopPolicyUserError `json:"userErrors,omitempty"`
 }
 
 // An error that occurs during the execution of a shop policy mutation.
@@ -9669,9 +9669,9 @@ type ShopPolicyUserError struct {
 	// Error code to uniquely identify the error.
 	Code *ShopPolicyErrorCode `json:"code,omitempty"`
 	// Path to the input field which caused the error.
-	Field []string `json:"field"`
+	Field []string `json:"field,omitempty"`
 	// The error message.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 func (ShopPolicyUserError) IsDisplayableError() {}
@@ -9679,13 +9679,13 @@ func (ShopPolicyUserError) IsDisplayableError() {}
 // Resource limits of a shop.
 type ShopResourceLimits struct {
 	// Maximum number of locations allowed.
-	LocationLimit int `json:"locationLimit"`
+	LocationLimit int `json:"locationLimit,omitempty"`
 	// Maximum number of product options allowed.
-	MaxProductOptions int `json:"maxProductOptions"`
+	MaxProductOptions int `json:"maxProductOptions,omitempty"`
 	// The maximum number of variants allowed per product.
-	MaxProductVariants int `json:"maxProductVariants"`
+	MaxProductVariants int `json:"maxProductVariants,omitempty"`
 	// Whether the shop has reached the limit of the number of URL redirects it can make for resources.
-	RedirectLimitReached bool `json:"redirectLimitReached"`
+	RedirectLimitReached bool `json:"redirectLimitReached,omitempty"`
 	// The maximum number of variants allowed per shop. If the shop has unlimited SKUs, then the quantity used cannot be retrieved.
 	SkuResourceLimits *ResourceLimit `json:"skuResourceLimits,omitempty"`
 }
@@ -9696,9 +9696,9 @@ type ShopResourceLimits struct {
 // You can also query for a list of payouts, where each payout includes the corresponding currencyCode field.
 type ShopifyPaymentsAccount struct {
 	// Whether the Shopify Payments setup is completed.
-	Activated bool `json:"activated"`
+	Activated bool `json:"activated,omitempty"`
 	// Current balances in all currencies for the account.
-	Balance []*MoneyV2 `json:"balance"`
+	Balance []*MoneyV2 `json:"balance,omitempty"`
 	// All bank accounts configured for the Shopify Payments account.
 	BankAccounts *ShopifyPaymentsBankAccountConnection `json:"bankAccounts,omitempty"`
 	// Statement descriptor used for charges.
@@ -9708,21 +9708,21 @@ type ShopifyPaymentsAccount struct {
 	// Statement descriptors used for charges.
 	//
 	// This is what buyers will see on their credit card or bank statements when making a purchase.
-	ChargeStatementDescriptors ShopifyPaymentsChargeStatementDescriptor `json:"chargeStatementDescriptors"`
+	ChargeStatementDescriptors ShopifyPaymentsChargeStatementDescriptor `json:"chargeStatementDescriptors,omitempty"`
 	// The Shopify Payments account country.
-	Country string `json:"country"`
+	Country string `json:"country,omitempty"`
 	// The default payout currency for the Shopify Payments account.
-	DefaultCurrency CurrencyCode `json:"defaultCurrency"`
+	DefaultCurrency CurrencyCode `json:"defaultCurrency,omitempty"`
 	// All disputes related to the Shopify Payments account.
 	Disputes *ShopifyPaymentsDisputeConnection `json:"disputes,omitempty"`
 	// The fraud settings of the Shopify Payments account.
 	FraudSettings *ShopifyPaymentsFraudSettings `json:"fraudSettings,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The notifications settings for the account.
 	NotificationSettings *ShopifyPaymentsNotificationSettings `json:"notificationSettings,omitempty"`
 	// Whether the Shopify Payments account can be onboarded.
-	Onboardable bool `json:"onboardable"`
+	Onboardable bool `json:"onboardable,omitempty"`
 	// Payout schedule for the account.
 	PayoutSchedule *ShopifyPaymentsPayoutSchedule `json:"payoutSchedule,omitempty"`
 	// Descriptor used for payouts.
@@ -9732,9 +9732,9 @@ type ShopifyPaymentsAccount struct {
 	// All current and previous payouts made between the account and the bank account.
 	Payouts *ShopifyPaymentsPayoutConnection `json:"payouts,omitempty"`
 	// The permitted documents for identity verification.
-	PermittedVerificationDocuments []*ShopifyPaymentsVerificationDocument `json:"permittedVerificationDocuments"`
+	PermittedVerificationDocuments []*ShopifyPaymentsVerificationDocument `json:"permittedVerificationDocuments,omitempty"`
 	// The verifications necessary for this account.
-	Verifications []*ShopifyPaymentsVerification `json:"verifications"`
+	Verifications []*ShopifyPaymentsVerification `json:"verifications,omitempty"`
 }
 
 func (ShopifyPaymentsAccount) IsNode() {}
@@ -9742,25 +9742,25 @@ func (ShopifyPaymentsAccount) IsNode() {}
 // A bank account that can receive payouts.
 type ShopifyPaymentsBankAccount struct {
 	// The account number of the bank account.
-	AccountNumber string `json:"accountNumber"`
+	AccountNumber string `json:"accountNumber,omitempty"`
 	// The last digits of the account number (the rest is redacted).
-	AccountNumberLastDigits string `json:"accountNumberLastDigits"`
+	AccountNumberLastDigits string `json:"accountNumberLastDigits,omitempty"`
 	// The name of the bank.
 	BankName *string `json:"bankName,omitempty"`
 	// The country of the bank.
-	Country CountryCode `json:"country"`
+	Country CountryCode `json:"country,omitempty"`
 	// The date that the bank account was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The currency of the bank account.
-	Currency CurrencyCode `json:"currency"`
+	Currency CurrencyCode `json:"currency,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// All current and previous payouts made between the account and the bank account.
 	Payouts *ShopifyPaymentsPayoutConnection `json:"payouts,omitempty"`
 	// The routing number of the bank account.
-	RoutingNumber string `json:"routingNumber"`
+	RoutingNumber string `json:"routingNumber,omitempty"`
 	// The status of the bank account.
-	Status ShopifyPaymentsBankAccountStatus `json:"status"`
+	Status ShopifyPaymentsBankAccountStatus `json:"status,omitempty"`
 }
 
 func (ShopifyPaymentsBankAccount) IsNode() {}
@@ -9768,7 +9768,7 @@ func (ShopifyPaymentsBankAccount) IsNode() {}
 // An auto-generated type for paginating through multiple ShopifyPaymentsBankAccounts.
 type ShopifyPaymentsBankAccountConnection struct {
 	// A list of edges.
-	Edges []*ShopifyPaymentsBankAccountEdge `json:"edges"`
+	Edges []*ShopifyPaymentsBankAccountEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -9776,7 +9776,7 @@ type ShopifyPaymentsBankAccountConnection struct {
 // An auto-generated type which holds one ShopifyPaymentsBankAccount and a cursor during pagination.
 type ShopifyPaymentsBankAccountEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of ShopifyPaymentsBankAccountEdge.
 	Node *ShopifyPaymentsBankAccount `json:"node,omitempty"`
 }
@@ -9786,7 +9786,7 @@ type ShopifyPaymentsDefaultChargeStatementDescriptor struct {
 	// The default charge statement descriptor.
 	Default *string `json:"default,omitempty"`
 	// The prefix of the statement descriptor.
-	Prefix string `json:"prefix"`
+	Prefix string `json:"prefix,omitempty"`
 }
 
 func (ShopifyPaymentsDefaultChargeStatementDescriptor) IsShopifyPaymentsChargeStatementDescriptor() {}
@@ -9802,19 +9802,19 @@ type ShopifyPaymentsDispute struct {
 	// The date when this dispute was resolved. Returns null if the dispute is not yet resolved.
 	FinalizedOn *string `json:"finalizedOn,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The date when this dispute was initiated.
-	InitiatedAt string `json:"initiatedAt"`
+	InitiatedAt string `json:"initiatedAt,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// The order that contains the charge that is under dispute.
 	Order *Order `json:"order,omitempty"`
 	// The reason of the dispute.
 	ReasonDetails *ShopifyPaymentsDisputeReasonDetails `json:"reasonDetails,omitempty"`
 	// The current state of the dispute.
-	Status DisputeStatus `json:"status"`
+	Status DisputeStatus `json:"status,omitempty"`
 	// Indicates if this dispute is still in the inquiry phase or has turned into a chargeback.
-	Type DisputeType `json:"type"`
+	Type DisputeType `json:"type,omitempty"`
 }
 
 func (ShopifyPaymentsDispute) IsLegacyInteroperability() {}
@@ -9823,7 +9823,7 @@ func (ShopifyPaymentsDispute) IsNode()                   {}
 // An auto-generated type for paginating through multiple ShopifyPaymentsDisputes.
 type ShopifyPaymentsDisputeConnection struct {
 	// A list of edges.
-	Edges []*ShopifyPaymentsDisputeEdge `json:"edges"`
+	Edges []*ShopifyPaymentsDisputeEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -9831,7 +9831,7 @@ type ShopifyPaymentsDisputeConnection struct {
 // An auto-generated type which holds one ShopifyPaymentsDispute and a cursor during pagination.
 type ShopifyPaymentsDisputeEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of ShopifyPaymentsDisputeEdge.
 	Node *ShopifyPaymentsDispute `json:"node,omitempty"`
 }
@@ -9841,23 +9841,23 @@ type ShopifyPaymentsDisputeReasonDetails struct {
 	// The raw code provided by the payment network.
 	NetworkReasonCode *string `json:"networkReasonCode,omitempty"`
 	// The reason for the dispute provided by the cardholder's banks.
-	Reason ShopifyPaymentsDisputeReason `json:"reason"`
+	Reason ShopifyPaymentsDisputeReason `json:"reason,omitempty"`
 }
 
 // Presents all Shopify Payments information related to an extended authorization.
 type ShopifyPaymentsExtendedAuthorization struct {
 	// The time after which the extended authorization expires. After the expiry, the merchant is unable to capture the payment.
-	ExtendedAuthorizationExpiresAt string `json:"extendedAuthorizationExpiresAt"`
+	ExtendedAuthorizationExpiresAt string `json:"extendedAuthorizationExpiresAt,omitempty"`
 	// The time after which capture will incur an additional fee.
-	StandardAuthorizationExpiresAt string `json:"standardAuthorizationExpiresAt"`
+	StandardAuthorizationExpiresAt string `json:"standardAuthorizationExpiresAt,omitempty"`
 }
 
 // The fraud settings of a payments account.
 type ShopifyPaymentsFraudSettings struct {
 	// Decline a charge if there is an AVS failure.
-	DeclineChargeOnAvsFailure bool `json:"declineChargeOnAvsFailure"`
+	DeclineChargeOnAvsFailure bool `json:"declineChargeOnAvsFailure,omitempty"`
 	// Decline a charge if there is an CVC failure.
-	DeclineChargeOnCvcFailure bool `json:"declineChargeOnCvcFailure"`
+	DeclineChargeOnCvcFailure bool `json:"declineChargeOnCvcFailure,omitempty"`
 }
 
 // The charge descriptors for a Japanese payments account.
@@ -9869,7 +9869,7 @@ type ShopifyPaymentsJpChargeStatementDescriptor struct {
 	// The charge statement descriptor in kanji.
 	Kanji *string `json:"kanji,omitempty"`
 	// The prefix of the statement descriptor.
-	Prefix string `json:"prefix"`
+	Prefix string `json:"prefix,omitempty"`
 }
 
 func (ShopifyPaymentsJpChargeStatementDescriptor) IsShopifyPaymentsChargeStatementDescriptor() {}
@@ -9877,7 +9877,7 @@ func (ShopifyPaymentsJpChargeStatementDescriptor) IsShopifyPaymentsChargeStateme
 // The notification settings for the account.
 type ShopifyPaymentsNotificationSettings struct {
 	// Receive email notifications when new payouts are sent or payouts fail.
-	Payouts bool `json:"payouts"`
+	Payouts bool `json:"payouts,omitempty"`
 }
 
 // Payouts represent the movement of money between a merchant's Shopify
@@ -9888,20 +9888,20 @@ type ShopifyPaymentsPayout struct {
 	// The total amount and currency of the payout.
 	Gross *MoneyV2 `json:"gross,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The exact time when the payout was issued. The payout only contains
 	// balance transactions that were available at this time.
-	IssuedAt string `json:"issuedAt"`
+	IssuedAt string `json:"issuedAt,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// The total amount and currency of the payout.
 	Net *MoneyV2 `json:"net,omitempty"`
 	// The transfer status of the payout.
-	Status ShopifyPaymentsPayoutStatus `json:"status"`
+	Status ShopifyPaymentsPayoutStatus `json:"status,omitempty"`
 	// The summary of the payout.
 	Summary *ShopifyPaymentsPayoutSummary `json:"summary,omitempty"`
 	// The direction of the payout.
-	TransactionType ShopifyPaymentsPayoutTransactionType `json:"transactionType"`
+	TransactionType ShopifyPaymentsPayoutTransactionType `json:"transactionType,omitempty"`
 }
 
 func (ShopifyPaymentsPayout) IsLegacyInteroperability() {}
@@ -9910,7 +9910,7 @@ func (ShopifyPaymentsPayout) IsNode()                   {}
 // An auto-generated type for paginating through multiple ShopifyPaymentsPayouts.
 type ShopifyPaymentsPayoutConnection struct {
 	// A list of edges.
-	Edges []*ShopifyPaymentsPayoutEdge `json:"edges"`
+	Edges []*ShopifyPaymentsPayoutEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -9918,7 +9918,7 @@ type ShopifyPaymentsPayoutConnection struct {
 // An auto-generated type which holds one ShopifyPaymentsPayout and a cursor during pagination.
 type ShopifyPaymentsPayoutEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of ShopifyPaymentsPayoutEdge.
 	Node *ShopifyPaymentsPayout `json:"node,omitempty"`
 }
@@ -9926,7 +9926,7 @@ type ShopifyPaymentsPayoutEdge struct {
 // The payment schedule for a payments account.
 type ShopifyPaymentsPayoutSchedule struct {
 	// The interval at which payouts are sent to the connected bank account.
-	Interval ShopifyPaymentsPayoutInterval `json:"interval"`
+	Interval ShopifyPaymentsPayoutInterval `json:"interval,omitempty"`
 	// The day of the month funds will be paid out.
 	//
 	// The value can be any day of the month from the 1st to the 31st.
@@ -9975,9 +9975,9 @@ type ShopifyPaymentsTransactionSet struct {
 //  information about the verification state.
 type ShopifyPaymentsVerification struct {
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The status of the verification.
-	Status ShopifyPaymentsVerificationStatus `json:"status"`
+	Status ShopifyPaymentsVerificationStatus `json:"status,omitempty"`
 	// The subject/individual who has to be verified.
 	Subject *ShopifyPaymentsVerificationSubject `json:"subject,omitempty"`
 }
@@ -9987,29 +9987,29 @@ func (ShopifyPaymentsVerification) IsNode() {}
 // A document which can be used to verify an individual.
 type ShopifyPaymentsVerificationDocument struct {
 	// True if the back side of the document is required.
-	BackRequired bool `json:"backRequired"`
+	BackRequired bool `json:"backRequired,omitempty"`
 	// True if the front side of the document is required.
-	FrontRequired bool `json:"frontRequired"`
+	FrontRequired bool `json:"frontRequired,omitempty"`
 	// The type of the document which can be used for verification.
-	Type ShopifyPaymentsVerificationDocumentType `json:"type"`
+	Type ShopifyPaymentsVerificationDocumentType `json:"type,omitempty"`
 }
 
 // The verification subject represents an individual that has to be verified.
 type ShopifyPaymentsVerificationSubject struct {
 	// The family name of the individual to verify.
-	FamilyName string `json:"familyName"`
+	FamilyName string `json:"familyName,omitempty"`
 	// The given name of the individual to verify.
-	GivenName string `json:"givenName"`
+	GivenName string `json:"givenName,omitempty"`
 }
 
 // Image to be uploaded.
 type StageImageInput struct {
 	// Image resource.
-	Resource StagedUploadTargetGenerateUploadResource `json:"resource"`
+	Resource StagedUploadTargetGenerateUploadResource `json:"resource,omitempty"`
 	// Image filename.
-	Filename string `json:"filename"`
+	Filename string `json:"filename,omitempty"`
 	// Image MIME type.
-	MimeType string `json:"mimeType"`
+	MimeType string `json:"mimeType,omitempty"`
 	// HTTP method to be used by the Staged Upload.
 	HTTPMethod *StagedUploadHTTPMethodType `json:"httpMethod,omitempty"`
 }
@@ -10017,7 +10017,7 @@ type StageImageInput struct {
 // Staged media target information.
 type StagedMediaUploadTarget struct {
 	// Parameters of the media to be uploaded.
-	Parameters []*StagedUploadParameter `json:"parameters"`
+	Parameters []*StagedUploadParameter `json:"parameters,omitempty"`
 	// The url to be passed as the original_source for the product create media mutation input.
 	ResourceURL *string `json:"resourceUrl,omitempty"`
 	// Media URL.
@@ -10027,11 +10027,11 @@ type StagedMediaUploadTarget struct {
 // Media to be uploaded.
 type StagedUploadInput struct {
 	// Media resource.
-	Resource StagedUploadTargetGenerateUploadResource `json:"resource"`
+	Resource StagedUploadTargetGenerateUploadResource `json:"resource,omitempty"`
 	// Media filename.
-	Filename string `json:"filename"`
+	Filename string `json:"filename,omitempty"`
 	// Media MIME type.
-	MimeType string `json:"mimeType"`
+	MimeType string `json:"mimeType,omitempty"`
 	// HTTP method to be used by the Staged Upload.
 	HTTPMethod *StagedUploadHTTPMethodType `json:"httpMethod,omitempty"`
 	// Size of the file to upload, in bytes. This is required for VIDEO and MODEL_3D resources.
@@ -10041,27 +10041,27 @@ type StagedUploadInput struct {
 // Upload parameter of a Media.
 type StagedUploadParameter struct {
 	// Parameter name.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// Parameter value.
-	Value string `json:"value"`
+	Value string `json:"value,omitempty"`
 }
 
 // Staged target information.
 type StagedUploadTarget struct {
 	// Parameters of an image to be uploaded.
-	Parameters []*ImageUploadParameter `json:"parameters"`
+	Parameters []*ImageUploadParameter `json:"parameters,omitempty"`
 	// Image URL.
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 }
 
 // Specifies the fields required to generate the URL and parameters needed to upload an asset to Shopify.
 type StagedUploadTargetGenerateInput struct {
 	// The resource type being uploaded.
-	Resource StagedUploadTargetGenerateUploadResource `json:"resource"`
+	Resource StagedUploadTargetGenerateUploadResource `json:"resource,omitempty"`
 	// The filename of the asset being uploaded.
-	Filename string `json:"filename"`
+	Filename string `json:"filename,omitempty"`
 	// The MIME type of the asset being uploaded.
-	MimeType string `json:"mimeType"`
+	MimeType string `json:"mimeType,omitempty"`
 	// The HTTP method to be used by the staged upload.
 	HTTPMethod *StagedUploadHTTPMethodType `json:"httpMethod,omitempty"`
 	// The size of the file to upload, in bytes.
@@ -10071,43 +10071,43 @@ type StagedUploadTargetGenerateInput struct {
 // Return type for `stagedUploadTargetGenerate` mutation.
 type StagedUploadTargetGeneratePayload struct {
 	// The signed parameters that can be used to upload the asset.
-	Parameters []*MutationsStagedUploadTargetGenerateUploadParameter `json:"parameters"`
+	Parameters []*MutationsStagedUploadTargetGenerateUploadParameter `json:"parameters,omitempty"`
 	// The signed URL where the asset can be uploaded.
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `stagedUploadTargetsGenerate` mutation.
 type StagedUploadTargetsGeneratePayload struct {
 	// The staged upload targets that were generated.
-	Urls []*StagedUploadTarget `json:"urls"`
+	Urls []*StagedUploadTarget `json:"urls,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `stagedUploadsCreate` mutation.
 type StagedUploadsCreatePayload struct {
 	// The staged upload targets that were generated.
-	StagedTargets []*StagedMediaUploadTarget `json:"stagedTargets"`
+	StagedTargets []*StagedMediaUploadTarget `json:"stagedTargets,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Token used to delegate unauthenticated access scopes to clients that need to access the unautheticated Storefront API.
 type StorefrontAccessToken struct {
 	// List of permissions associated with the token.
-	AccessScopes []*AccessScope `json:"accessScopes"`
+	AccessScopes []*AccessScope `json:"accessScopes,omitempty"`
 	// The issued public access token.
-	AccessToken string `json:"accessToken"`
+	AccessToken string `json:"accessToken,omitempty"`
 	// The date and time when the public access token was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// An arbitrary title for each token determined by the developer, used for reference         purposes.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The date and time when the storefront access token was updated.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 }
 
 func (StorefrontAccessToken) IsNode() {}
@@ -10115,7 +10115,7 @@ func (StorefrontAccessToken) IsNode() {}
 // An auto-generated type for paginating through multiple StorefrontAccessTokens.
 type StorefrontAccessTokenConnection struct {
 	// A list of edges.
-	Edges []*StorefrontAccessTokenEdge `json:"edges"`
+	Edges []*StorefrontAccessTokenEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -10127,13 +10127,13 @@ type StorefrontAccessTokenCreatePayload struct {
 	// The storefront access token.
 	StorefrontAccessToken *StorefrontAccessToken `json:"storefrontAccessToken,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Specifies the input fields to delete a storefront access token.
 type StorefrontAccessTokenDeleteInput struct {
 	// The ID of the storefront access token to delete.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 }
 
 // Return type for `storefrontAccessTokenDelete` mutation.
@@ -10141,13 +10141,13 @@ type StorefrontAccessTokenDeletePayload struct {
 	// The ID of the deleted storefront access token.
 	DeletedStorefrontAccessTokenID *string `json:"deletedStorefrontAccessTokenId,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one StorefrontAccessToken and a cursor during pagination.
 type StorefrontAccessTokenEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of StorefrontAccessTokenEdge.
 	Node *StorefrontAccessToken `json:"node,omitempty"`
 }
@@ -10155,13 +10155,13 @@ type StorefrontAccessTokenEdge struct {
 // Specifies the input fields for a storefront access token.
 type StorefrontAccessTokenInput struct {
 	// A title for the storefront access token.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple Strings.
 type StringConnection struct {
 	// A list of edges.
-	Edges []*StringEdge `json:"edges"`
+	Edges []*StringEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -10169,17 +10169,17 @@ type StringConnection struct {
 // An auto-generated type which holds one String and a cursor during pagination.
 type StringEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of StringEdge.
-	Node string `json:"node"`
+	Node string `json:"node,omitempty"`
 }
 
 // Represents an applied code discount.
 type SubscriptionAppliedCodeDiscount struct {
 	// The unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The redeem code of the discount that applies on the subscription.
-	RedeemCode string `json:"redeemCode"`
+	RedeemCode string `json:"redeemCode,omitempty"`
 	// The reason that the discount on the subscription draft is rejected.
 	RejectionReason *SubscriptionDiscountRejectionReason `json:"rejectionReason,omitempty"`
 }
@@ -10191,21 +10191,21 @@ type SubscriptionBillingAttempt struct {
 	// The date and time when the billing attempt was completed.
 	CompletedAt *string `json:"completedAt,omitempty"`
 	// The date and time when the billing attempt was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// A code corresponding to a payment error during processing.
 	ErrorCode *SubscriptionBillingAttemptErrorCode `json:"errorCode,omitempty"`
 	// A message describing a payment error during processing.
 	ErrorMessage *string `json:"errorMessage,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// A unique key generated by the client to avoid duplicate payments.
-	IdempotencyKey string `json:"idempotencyKey"`
+	IdempotencyKey string `json:"idempotencyKey,omitempty"`
 	// The URL where the customer needs to be redirected so they can complete the 3D Secure payment flow.
 	NextActionURL *string `json:"nextActionUrl,omitempty"`
 	// The result of this billing attempt if completed successfully.
 	Order *Order `json:"order,omitempty"`
 	// Whether or not the billing attempt is still processing.
-	Ready bool `json:"ready"`
+	Ready bool `json:"ready,omitempty"`
 	// The subscription contract.
 	SubscriptionContract *SubscriptionContract `json:"subscriptionContract,omitempty"`
 }
@@ -10215,7 +10215,7 @@ func (SubscriptionBillingAttempt) IsNode() {}
 // An auto-generated type for paginating through multiple SubscriptionBillingAttempts.
 type SubscriptionBillingAttemptConnection struct {
 	// A list of edges.
-	Edges []*SubscriptionBillingAttemptEdge `json:"edges"`
+	Edges []*SubscriptionBillingAttemptEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -10225,13 +10225,13 @@ type SubscriptionBillingAttemptCreatePayload struct {
 	// The subscription billing attempt.
 	SubscriptionBillingAttempt *SubscriptionBillingAttempt `json:"subscriptionBillingAttempt,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*BillingAttemptUserError `json:"userErrors"`
+	UserErrors []*BillingAttemptUserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one SubscriptionBillingAttempt and a cursor during pagination.
 type SubscriptionBillingAttemptEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of SubscriptionBillingAttemptEdge.
 	Node *SubscriptionBillingAttempt `json:"node,omitempty"`
 }
@@ -10239,17 +10239,17 @@ type SubscriptionBillingAttemptEdge struct {
 // Specifies the fields required to complete a subscription billing attempt.
 type SubscriptionBillingAttemptInput struct {
 	// A unique key generated by the client to avoid duplicate payments.
-	IdempotencyKey string `json:"idempotencyKey"`
+	IdempotencyKey string `json:"idempotencyKey,omitempty"`
 }
 
 // Represents a Subscription Billing Policy.
 type SubscriptionBillingPolicy struct {
 	// Specific anchor dates upon which the billing interval calculations should be made.
-	Anchors []*SellingPlanAnchor `json:"anchors"`
+	Anchors []*SellingPlanAnchor `json:"anchors,omitempty"`
 	// The kind of interval that is associated with this schedule (e.g. Monthly, Weekly, etc).
-	Interval SellingPlanInterval `json:"interval"`
+	Interval SellingPlanInterval `json:"interval,omitempty"`
 	// The number of billing intervals between invoices.
-	IntervalCount int `json:"intervalCount"`
+	IntervalCount int `json:"intervalCount,omitempty"`
 	// Maximum amount of cycles after which the subscription ends.
 	MaxCycles *int `json:"maxCycles,omitempty"`
 	// Minimum amount of cycles required in the subscription.
@@ -10259,15 +10259,15 @@ type SubscriptionBillingPolicy struct {
 // Specifies the input fields for a Subscription Billing Policy.
 type SubscriptionBillingPolicyInput struct {
 	// The kind of interval that is associated with this schedule (e.g. Monthly, Weekly, etc).
-	Interval SellingPlanInterval `json:"interval"`
+	Interval SellingPlanInterval `json:"interval,omitempty"`
 	// The number of billing intervals between invoices.
-	IntervalCount int `json:"intervalCount"`
+	IntervalCount int `json:"intervalCount,omitempty"`
 	// Minimum amount of cycles required in the subscription.
 	MinCycles *int `json:"minCycles,omitempty"`
 	// Maximum amount of cycles required in the subscription.
 	MaxCycles *int `json:"maxCycles,omitempty"`
 	// Specific anchor dates upon which the billing interval calculations should be made.
-	Anchors []*SellingPlanAnchorInput `json:"anchors"`
+	Anchors []*SellingPlanAnchorInput `json:"anchors,omitempty"`
 }
 
 // Represents a Subscription Contract.
@@ -10281,15 +10281,15 @@ type SubscriptionContract struct {
 	// The billing policy associated with the subscription contract.
 	BillingPolicy *SubscriptionBillingPolicy `json:"billingPolicy,omitempty"`
 	// The date and time when the subscription contract was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// The currency used for the subscription contract.
-	CurrencyCode CurrencyCode `json:"currencyCode"`
+	CurrencyCode CurrencyCode `json:"currencyCode,omitempty"`
 	// The customer to whom the subscription contract belongs.
 	Customer *Customer `json:"customer,omitempty"`
 	// The customer payment method used for the subscription contract.
 	CustomerPaymentMethod *CustomerPaymentMethod `json:"customerPaymentMethod,omitempty"`
 	// The delivery method for each billing of the subscription contract.
-	DeliveryMethod SubscriptionDeliveryMethod `json:"deliveryMethod"`
+	DeliveryMethod SubscriptionDeliveryMethod `json:"deliveryMethod,omitempty"`
 	// The delivery policy associated with the subscription contract.
 	DeliveryPolicy *SubscriptionDeliveryPolicy `json:"deliveryPolicy,omitempty"`
 	// The delivery price for each billing of the subscription contract.
@@ -10297,11 +10297,11 @@ type SubscriptionContract struct {
 	// The list of subscription discounts associated with the subscription contract.
 	Discounts *SubscriptionManualDiscountConnection `json:"discounts,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The current status of the last payment.
 	LastPaymentStatus *SubscriptionContractLastPaymentStatus `json:"lastPaymentStatus,omitempty"`
 	// The number of lines associated with the subscription contract.
-	LineCount int `json:"lineCount"`
+	LineCount int `json:"lineCount,omitempty"`
 	// The list of subscription lines associated with the subscription contract.
 	Lines *SubscriptionLineConnection `json:"lines,omitempty"`
 	// The next billing date for the subscription contract.
@@ -10311,9 +10311,9 @@ type SubscriptionContract struct {
 	// The order from which this contract originated.
 	OriginOrder *Order `json:"originOrder,omitempty"`
 	// The current status of the subscription contract.
-	Status SubscriptionContractSubscriptionStatus `json:"status"`
+	Status SubscriptionContractSubscriptionStatus `json:"status,omitempty"`
 	// The date and time when the subscription contract was updated.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 }
 
 func (SubscriptionContract) IsNode() {}
@@ -10321,7 +10321,7 @@ func (SubscriptionContract) IsNode() {}
 // An auto-generated type for paginating through multiple SubscriptionContracts.
 type SubscriptionContractConnection struct {
 	// A list of edges.
-	Edges []*SubscriptionContractEdge `json:"edges"`
+	Edges []*SubscriptionContractEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -10329,11 +10329,11 @@ type SubscriptionContractConnection struct {
 // Specifies the input fields required to create a Subscription Contract.
 type SubscriptionContractCreateInput struct {
 	// The ID of the customer to associate with the subscription contract.
-	CustomerID string `json:"customerId"`
+	CustomerID string `json:"customerId,omitempty"`
 	// The next billing date for the subscription contract.
-	NextBillingDate string `json:"nextBillingDate"`
+	NextBillingDate string `json:"nextBillingDate,omitempty"`
 	// The currency used for the subscription contract.
-	CurrencyCode CurrencyCode `json:"currencyCode"`
+	CurrencyCode CurrencyCode `json:"currencyCode,omitempty"`
 	// The attributes used as input for the Subscription Draft.
 	Contract *SubscriptionDraftInput `json:"contract,omitempty"`
 }
@@ -10343,13 +10343,13 @@ type SubscriptionContractCreatePayload struct {
 	// The Subscription Contract object.
 	Draft *SubscriptionDraft `json:"draft,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SubscriptionDraftUserError `json:"userErrors"`
+	UserErrors []*SubscriptionDraftUserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one SubscriptionContract and a cursor during pagination.
 type SubscriptionContractEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of SubscriptionContractEdge.
 	Node *SubscriptionContract `json:"node,omitempty"`
 }
@@ -10359,7 +10359,7 @@ type SubscriptionContractSetNextBillingDatePayload struct {
 	// The updated Subscription Contract object.
 	Contract *SubscriptionContract `json:"contract,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SubscriptionContractUserError `json:"userErrors"`
+	UserErrors []*SubscriptionContractUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `subscriptionContractUpdate` mutation.
@@ -10367,7 +10367,7 @@ type SubscriptionContractUpdatePayload struct {
 	// The Subscription Contract object.
 	Draft *SubscriptionDraft `json:"draft,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SubscriptionDraftUserError `json:"userErrors"`
+	UserErrors []*SubscriptionDraftUserError `json:"userErrors,omitempty"`
 }
 
 // Represents a Subscription Contract error.
@@ -10375,9 +10375,9 @@ type SubscriptionContractUserError struct {
 	// Error code to uniquely identify the error.
 	Code *SubscriptionContractErrorCode `json:"code,omitempty"`
 	// Path to the input field which caused the error.
-	Field []string `json:"field"`
+	Field []string `json:"field,omitempty"`
 	// The error message.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 func (SubscriptionContractUserError) IsDisplayableError() {}
@@ -10385,11 +10385,11 @@ func (SubscriptionContractUserError) IsDisplayableError() {}
 // Represents a Subscription Line Pricing Cycle Adjustment.
 type SubscriptionCyclePriceAdjustment struct {
 	// Price adjustment type.
-	AdjustmentType SellingPlanPricingPolicyAdjustmentType `json:"adjustmentType"`
+	AdjustmentType SellingPlanPricingPolicyAdjustmentType `json:"adjustmentType,omitempty"`
 	// Price adjustment value.
-	AdjustmentValue SellingPlanPricingPolicyAdjustmentValue `json:"adjustmentValue"`
+	AdjustmentValue SellingPlanPricingPolicyAdjustmentValue `json:"adjustmentValue,omitempty"`
 	// The number of cycles required before this pricing policy applies.
-	AfterCycle int `json:"afterCycle"`
+	AfterCycle int `json:"afterCycle,omitempty"`
 	// The computed price after the adjustments applied.
 	ComputedPrice *MoneyV2 `json:"computedPrice,omitempty"`
 }
@@ -10457,21 +10457,21 @@ type SubscriptionDeliveryMethodShippingOptionInput struct {
 // Represents a Subscription Delivery Policy.
 type SubscriptionDeliveryPolicy struct {
 	// Specific anchor dates upon which the delivery interval calculations should be made.
-	Anchors []*SellingPlanAnchor `json:"anchors"`
+	Anchors []*SellingPlanAnchor `json:"anchors,omitempty"`
 	// The kind of interval that is associated with this schedule (e.g. Monthly, Weekly, etc).
-	Interval SellingPlanInterval `json:"interval"`
+	Interval SellingPlanInterval `json:"interval,omitempty"`
 	// The number of delivery intervals between deliveries.
-	IntervalCount int `json:"intervalCount"`
+	IntervalCount int `json:"intervalCount,omitempty"`
 }
 
 // Specifies the input fields for a Subscription Delivery Policy.
 type SubscriptionDeliveryPolicyInput struct {
 	// The kind of interval that is associated with this schedule (e.g. Monthly, Weekly, etc).
-	Interval SellingPlanInterval `json:"interval"`
+	Interval SellingPlanInterval `json:"interval,omitempty"`
 	// The number of billing intervals between invoices.
-	IntervalCount int `json:"intervalCount"`
+	IntervalCount int `json:"intervalCount,omitempty"`
 	// Specific anchor dates upon which the delivery interval calculations should be made.
-	Anchors []*SellingPlanAnchorInput `json:"anchors"`
+	Anchors []*SellingPlanAnchorInput `json:"anchors,omitempty"`
 }
 
 // Represents what a particular discount reduces from a line price.
@@ -10479,13 +10479,13 @@ type SubscriptionDiscountAllocation struct {
 	// Allocation amount.
 	Amount *MoneyV2 `json:"amount,omitempty"`
 	// Discount that created the allocation.
-	Discount SubscriptionDiscount `json:"discount"`
+	Discount SubscriptionDiscount `json:"discount,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple SubscriptionDiscounts.
 type SubscriptionDiscountConnection struct {
 	// A list of edges.
-	Edges []*SubscriptionDiscountEdge `json:"edges"`
+	Edges []*SubscriptionDiscountEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -10493,15 +10493,15 @@ type SubscriptionDiscountConnection struct {
 // An auto-generated type which holds one SubscriptionDiscount and a cursor during pagination.
 type SubscriptionDiscountEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of SubscriptionDiscountEdge.
-	Node SubscriptionDiscount `json:"node"`
+	Node SubscriptionDiscount `json:"node,omitempty"`
 }
 
 // Represents the subscription lines the discount applies on.
 type SubscriptionDiscountEntitledLines struct {
 	// Specify whether the subscription discount will apply on all subscription lines.
-	All bool `json:"all"`
+	All bool `json:"all,omitempty"`
 	// The list of subscription lines associated with the subscription discount.
 	Lines *SubscriptionLineConnection `json:"lines,omitempty"`
 }
@@ -10511,7 +10511,7 @@ type SubscriptionDiscountFixedAmountValue struct {
 	// The fixed amount value of the discount.
 	Amount *MoneyV2 `json:"amount,omitempty"`
 	// Whether the amount is applied per item.
-	AppliesOnEachItem bool `json:"appliesOnEachItem"`
+	AppliesOnEachItem bool `json:"appliesOnEachItem,omitempty"`
 }
 
 func (SubscriptionDiscountFixedAmountValue) IsSubscriptionDiscountValue() {}
@@ -10519,7 +10519,7 @@ func (SubscriptionDiscountFixedAmountValue) IsSubscriptionDiscountValue() {}
 // The percentage value of the discount.
 type SubscriptionDiscountPercentageValue struct {
 	// The percentage value of the discount.
-	Percentage int `json:"percentage"`
+	Percentage int `json:"percentage,omitempty"`
 }
 
 func (SubscriptionDiscountPercentageValue) IsSubscriptionDiscountValue() {}
@@ -10529,13 +10529,13 @@ type SubscriptionDraft struct {
 	// The billing policy for the subscription contract.
 	BillingPolicy *SubscriptionBillingPolicy `json:"billingPolicy,omitempty"`
 	// The currency used for the subscription contract.
-	CurrencyCode CurrencyCode `json:"currencyCode"`
+	CurrencyCode CurrencyCode `json:"currencyCode,omitempty"`
 	// The customer to whom the subscription contract belongs.
 	Customer *Customer `json:"customer,omitempty"`
 	// The customer payment method used for the subscription contract.
 	CustomerPaymentMethod *CustomerPaymentMethod `json:"customerPaymentMethod,omitempty"`
 	// The delivery method for each billing of the subscription contract.
-	DeliveryMethod SubscriptionDeliveryMethod `json:"deliveryMethod"`
+	DeliveryMethod SubscriptionDeliveryMethod `json:"deliveryMethod,omitempty"`
 	// The delivery policy for the subscription contract.
 	DeliveryPolicy *SubscriptionDeliveryPolicy `json:"deliveryPolicy,omitempty"`
 	// The delivery price for each billing the subscription contract.
@@ -10549,7 +10549,7 @@ type SubscriptionDraft struct {
 	// The list of subscription discounts to be updated on the subscription contract.
 	DiscountsUpdated *SubscriptionDiscountConnection `json:"discountsUpdated,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The list of subscription lines which will be associated with the subscription contract.
 	Lines *SubscriptionLineConnection `json:"lines,omitempty"`
 	// The list of subscription lines to be added to the subscription contract.
@@ -10561,7 +10561,7 @@ type SubscriptionDraft struct {
 	// The original subscription contract.
 	OriginalContract *SubscriptionContract `json:"originalContract,omitempty"`
 	// Available Shipping Options for a given delivery address. Returns NULL for pending requests.
-	ShippingOptions SubscriptionShippingOptionResult `json:"shippingOptions"`
+	ShippingOptions SubscriptionShippingOptionResult `json:"shippingOptions,omitempty"`
 	// The current status of the subscription contract.
 	Status *SubscriptionContractSubscriptionStatus `json:"status,omitempty"`
 }
@@ -10573,7 +10573,7 @@ type SubscriptionDraftCommitPayload struct {
 	// The updated Subscription Contract object.
 	Contract *SubscriptionContract `json:"contract,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SubscriptionDraftUserError `json:"userErrors"`
+	UserErrors []*SubscriptionDraftUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `subscriptionDraftDiscountAdd` mutation.
@@ -10583,7 +10583,7 @@ type SubscriptionDraftDiscountAddPayload struct {
 	// The Subscription Contract draft object.
 	Draft *SubscriptionDraft `json:"draft,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SubscriptionDraftUserError `json:"userErrors"`
+	UserErrors []*SubscriptionDraftUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `subscriptionDraftDiscountCodeApply` mutation.
@@ -10593,17 +10593,17 @@ type SubscriptionDraftDiscountCodeApplyPayload struct {
 	// The subscription contract draft object.
 	Draft *SubscriptionDraft `json:"draft,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SubscriptionDraftUserError `json:"userErrors"`
+	UserErrors []*SubscriptionDraftUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `subscriptionDraftDiscountRemove` mutation.
 type SubscriptionDraftDiscountRemovePayload struct {
 	// The removed subscription draft discount.
-	DiscountRemoved SubscriptionDiscount `json:"discountRemoved"`
+	DiscountRemoved SubscriptionDiscount `json:"discountRemoved,omitempty"`
 	// The subscription contract draft object.
 	Draft *SubscriptionDraft `json:"draft,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SubscriptionDraftUserError `json:"userErrors"`
+	UserErrors []*SubscriptionDraftUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `subscriptionDraftDiscountUpdate` mutation.
@@ -10613,7 +10613,7 @@ type SubscriptionDraftDiscountUpdatePayload struct {
 	// The Subscription Contract draft object.
 	Draft *SubscriptionDraft `json:"draft,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SubscriptionDraftUserError `json:"userErrors"`
+	UserErrors []*SubscriptionDraftUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `subscriptionDraftFreeShippingDiscountAdd` mutation.
@@ -10623,7 +10623,7 @@ type SubscriptionDraftFreeShippingDiscountAddPayload struct {
 	// The subscription contract draft object.
 	Draft *SubscriptionDraft `json:"draft,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SubscriptionDraftUserError `json:"userErrors"`
+	UserErrors []*SubscriptionDraftUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `subscriptionDraftFreeShippingDiscountUpdate` mutation.
@@ -10633,7 +10633,7 @@ type SubscriptionDraftFreeShippingDiscountUpdatePayload struct {
 	// The Subscription Contract draft object.
 	Draft *SubscriptionDraft `json:"draft,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SubscriptionDraftUserError `json:"userErrors"`
+	UserErrors []*SubscriptionDraftUserError `json:"userErrors,omitempty"`
 }
 
 // Specifies the input fields required to create a Subscription Draft.
@@ -10661,19 +10661,19 @@ type SubscriptionDraftLineAddPayload struct {
 	// The added Subscription Line.
 	LineAdded *SubscriptionLine `json:"lineAdded,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SubscriptionDraftUserError `json:"userErrors"`
+	UserErrors []*SubscriptionDraftUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `subscriptionDraftLineRemove` mutation.
 type SubscriptionDraftLineRemovePayload struct {
 	// The list of updated subscription discounts impacted by the removed line.
-	DiscountsUpdated []*SubscriptionManualDiscount `json:"discountsUpdated"`
+	DiscountsUpdated []*SubscriptionManualDiscount `json:"discountsUpdated,omitempty"`
 	// The Subscription Contract draft object.
 	Draft *SubscriptionDraft `json:"draft,omitempty"`
 	// The removed Subscription Line.
 	LineRemoved *SubscriptionLine `json:"lineRemoved,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SubscriptionDraftUserError `json:"userErrors"`
+	UserErrors []*SubscriptionDraftUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `subscriptionDraftLineUpdate` mutation.
@@ -10683,7 +10683,7 @@ type SubscriptionDraftLineUpdatePayload struct {
 	// The updated Subscription Line.
 	LineUpdated *SubscriptionLine `json:"lineUpdated,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SubscriptionDraftUserError `json:"userErrors"`
+	UserErrors []*SubscriptionDraftUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `subscriptionDraftUpdate` mutation.
@@ -10691,7 +10691,7 @@ type SubscriptionDraftUpdatePayload struct {
 	// The Subscription Draft object.
 	Draft *SubscriptionDraft `json:"draft,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*SubscriptionDraftUserError `json:"userErrors"`
+	UserErrors []*SubscriptionDraftUserError `json:"userErrors,omitempty"`
 }
 
 // Represents a Subscription Draft error.
@@ -10699,9 +10699,9 @@ type SubscriptionDraftUserError struct {
 	// Error code to uniquely identify the error.
 	Code *SubscriptionDraftErrorCode `json:"code,omitempty"`
 	// Path to the input field which caused the error.
-	Field []string `json:"field"`
+	Field []string `json:"field,omitempty"`
 	// The error message.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 func (SubscriptionDraftUserError) IsDisplayableError() {}
@@ -10719,11 +10719,11 @@ type SubscriptionLine struct {
 	// The price per unit for the subscription line in the contract's currency.
 	CurrentPrice *MoneyV2 `json:"currentPrice,omitempty"`
 	// List of custom attributes associated to the line item.
-	CustomAttributes []*Attribute `json:"customAttributes"`
+	CustomAttributes []*Attribute `json:"customAttributes,omitempty"`
 	// Discount allocations.
-	DiscountAllocations []*SubscriptionDiscountAllocation `json:"discountAllocations"`
+	DiscountAllocations []*SubscriptionDiscountAllocation `json:"discountAllocations,omitempty"`
 	// The unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Total line price including all discounts.
 	LineDiscountedPrice *MoneyV2 `json:"lineDiscountedPrice,omitempty"`
 	// Describe the price changes of the line over time.
@@ -10731,9 +10731,9 @@ type SubscriptionLine struct {
 	// The product id associated with the subscription line.
 	ProductID *string `json:"productId,omitempty"`
 	// The quantity of the unit selected for the subscription line.
-	Quantity int `json:"quantity"`
+	Quantity int `json:"quantity,omitempty"`
 	// Whether physical shipping is required for the variant.
-	RequiresShipping bool `json:"requiresShipping"`
+	RequiresShipping bool `json:"requiresShipping,omitempty"`
 	// The selling plan ID associated to the line.
 	//
 	// Indicates which selling plan was used to create this
@@ -10755,9 +10755,9 @@ type SubscriptionLine struct {
 	// Variant SKU number of the item associated with the subscription line.
 	Sku *string `json:"sku,omitempty"`
 	// Whether the variant is taxable.
-	Taxable bool `json:"taxable"`
+	Taxable bool `json:"taxable,omitempty"`
 	// Product title of the item associated with the subscription line.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 	// The product variant id associated with the subscription line.
 	VariantID *string `json:"variantId,omitempty"`
 	// The image associated with the line item's variant or product.
@@ -10769,7 +10769,7 @@ type SubscriptionLine struct {
 // An auto-generated type for paginating through multiple SubscriptionLines.
 type SubscriptionLineConnection struct {
 	// A list of edges.
-	Edges []*SubscriptionLineEdge `json:"edges"`
+	Edges []*SubscriptionLineEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -10777,7 +10777,7 @@ type SubscriptionLineConnection struct {
 // An auto-generated type which holds one SubscriptionLine and a cursor during pagination.
 type SubscriptionLineEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of SubscriptionLineEdge.
 	Node *SubscriptionLine `json:"node,omitempty"`
 }
@@ -10785,13 +10785,13 @@ type SubscriptionLineEdge struct {
 // Specifies the input fields required to add a new subscription line to a contract.
 type SubscriptionLineInput struct {
 	// The ID of the product variant the subscription line refers to.
-	ProductVariantID string `json:"productVariantId"`
+	ProductVariantID string `json:"productVariantId,omitempty"`
 	// The quantity of the product.
-	Quantity int `json:"quantity"`
+	Quantity int `json:"quantity,omitempty"`
 	// The price of the product.
-	CurrentPrice string `json:"currentPrice"`
+	CurrentPrice string `json:"currentPrice,omitempty"`
 	// The custom attributes for this subscription line.
-	CustomAttributes []*AttributeInput `json:"customAttributes"`
+	CustomAttributes []*AttributeInput `json:"customAttributes,omitempty"`
 	// The selling plan for the subscription line.
 	SellingPlanID *string `json:"sellingPlanId,omitempty"`
 	// The selling plan name for the subscription line.
@@ -10815,7 +10815,7 @@ type SubscriptionLineUpdateInput struct {
 	// The price of the product.
 	CurrentPrice *string `json:"currentPrice,omitempty"`
 	// The custom attributes for this subscription line.
-	CustomAttributes []*AttributeInput `json:"customAttributes"`
+	CustomAttributes []*AttributeInput `json:"customAttributes,omitempty"`
 	// Describes expected price changes of the subscription line over time.
 	PricingPolicy *SubscriptionPricingPolicyInput `json:"pricingPolicy,omitempty"`
 }
@@ -10859,21 +10859,21 @@ type SubscriptionManualDiscount struct {
 	// Entitled line items used to apply the subscription discount on.
 	EntitledLines *SubscriptionDiscountEntitledLines `json:"entitledLines,omitempty"`
 	// The unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The maximum number of times the subscription discount will be applied on orders.
 	RecurringCycleLimit *int `json:"recurringCycleLimit,omitempty"`
 	// The reason that the discount on the subscription draft is rejected.
 	RejectionReason *SubscriptionDiscountRejectionReason `json:"rejectionReason,omitempty"`
 	// Type of line the discount applies on.
-	TargetType DiscountTargetType `json:"targetType"`
+	TargetType DiscountTargetType `json:"targetType,omitempty"`
 	// The title associated with the subscription discount.
 	Title *string `json:"title,omitempty"`
 	// The type of the subscription discount.
-	Type DiscountType `json:"type"`
+	Type DiscountType `json:"type,omitempty"`
 	// The number of times the discount was applied.
-	UsageCount int `json:"usageCount"`
+	UsageCount int `json:"usageCount,omitempty"`
 	// The value of the subscription discount.
-	Value SubscriptionDiscountValue `json:"value"`
+	Value SubscriptionDiscountValue `json:"value,omitempty"`
 }
 
 func (SubscriptionManualDiscount) IsSubscriptionDiscount() {}
@@ -10881,7 +10881,7 @@ func (SubscriptionManualDiscount) IsSubscriptionDiscount() {}
 // An auto-generated type for paginating through multiple SubscriptionManualDiscounts.
 type SubscriptionManualDiscountConnection struct {
 	// A list of edges.
-	Edges []*SubscriptionManualDiscountEdge `json:"edges"`
+	Edges []*SubscriptionManualDiscountEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -10889,7 +10889,7 @@ type SubscriptionManualDiscountConnection struct {
 // An auto-generated type which holds one SubscriptionManualDiscount and a cursor during pagination.
 type SubscriptionManualDiscountEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of SubscriptionManualDiscountEdge.
 	Node *SubscriptionManualDiscount `json:"node,omitempty"`
 }
@@ -10925,9 +10925,9 @@ type SubscriptionManualDiscountInput struct {
 // Line items that a the discount refers to.
 type SubscriptionManualDiscountLinesInput struct {
 	// The ID of the lines to add to the subscription discount.
-	Add []string `json:"add"`
+	Add []string `json:"add,omitempty"`
 	// The ID of the lines to remove from the subscription discount.
-	Remove []string `json:"remove"`
+	Remove []string `json:"remove,omitempty"`
 }
 
 // Specifies the discount value and its distribution.
@@ -10943,27 +10943,27 @@ type SubscriptionPricingPolicy struct {
 	// The base price per unit for the subscription line in the contract's currency.
 	BasePrice *MoneyV2 `json:"basePrice,omitempty"`
 	// The adjustments per cycle for the subscription line.
-	CycleDiscounts []*SubscriptionCyclePriceAdjustment `json:"cycleDiscounts"`
+	CycleDiscounts []*SubscriptionCyclePriceAdjustment `json:"cycleDiscounts,omitempty"`
 }
 
 // An array containing all pricing changes for each billing cycle.
 type SubscriptionPricingPolicyCycleDiscountsInput struct {
 	// The cycle after which the pricing policy applies.
-	AfterCycle int `json:"afterCycle"`
+	AfterCycle int `json:"afterCycle,omitempty"`
 	// The price adjustment type.
-	AdjustmentType SellingPlanPricingPolicyAdjustmentType `json:"adjustmentType"`
+	AdjustmentType SellingPlanPricingPolicyAdjustmentType `json:"adjustmentType,omitempty"`
 	// The price adjustment value.
 	AdjustmentValue *SellingPlanPricingPolicyValueInput `json:"adjustmentValue,omitempty"`
 	// The computed price after the adjustments are applied.
-	ComputedPrice string `json:"computedPrice"`
+	ComputedPrice string `json:"computedPrice,omitempty"`
 }
 
 // Describes expected price changes of the subscription line over time.
 type SubscriptionPricingPolicyInput struct {
 	// The base price per unit for the subscription line in the contract's currency.
-	BasePrice string `json:"basePrice"`
+	BasePrice string `json:"basePrice,omitempty"`
 	// An array containing all pricing changes for each billing cycle.
-	CycleDiscounts []*SubscriptionPricingPolicyCycleDiscountsInput `json:"cycleDiscounts"`
+	CycleDiscounts []*SubscriptionPricingPolicyCycleDiscountsInput `json:"cycleDiscounts,omitempty"`
 }
 
 // A shipping option to deliver a subscription contract.
@@ -10972,7 +10972,7 @@ type SubscriptionShippingOption struct {
 	// This field isn't currently supported and returns null.
 	CarrierService *DeliveryCarrierService `json:"carrierService,omitempty"`
 	// The code of the shipping option.
-	Code string `json:"code"`
+	Code string `json:"code,omitempty"`
 	// The description of the shipping option.
 	Description *string `json:"description,omitempty"`
 	// If a phone number is required for the shipping option.
@@ -10982,7 +10982,7 @@ type SubscriptionShippingOption struct {
 	// The price of the shipping option.
 	Price *MoneyV2 `json:"price,omitempty"`
 	// The title of the shipping option.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 }
 
 // Failure determining available shipping options for delivery of a subscription contract.
@@ -10996,7 +10996,7 @@ func (SubscriptionShippingOptionResultFailure) IsSubscriptionShippingOptionResul
 // A shipping option for delivery of a subscription contract.
 type SubscriptionShippingOptionResultSuccess struct {
 	// Available shipping options.
-	ShippingOptions []*SubscriptionShippingOption `json:"shippingOptions"`
+	ShippingOptions []*SubscriptionShippingOption `json:"shippingOptions,omitempty"`
 }
 
 func (SubscriptionShippingOptionResultSuccess) IsSubscriptionShippingOptionResult() {}
@@ -11006,7 +11006,7 @@ type SuggestedOrderTransaction struct {
 	// The masked account number associated with the payment method.
 	AccountNumber *string `json:"accountNumber,omitempty"`
 	// The amount of the transaction.
-	Amount string `json:"amount"`
+	Amount string `json:"amount,omitempty"`
 	// The amount on the order transaction in applicable currencies.
 	AmountSet *MoneyBag `json:"amountSet,omitempty"`
 	// The human-readable payment gateway name used to process the transaction.
@@ -11014,7 +11014,7 @@ type SuggestedOrderTransaction struct {
 	// The payment gateway used to process the transaction.
 	Gateway *string `json:"gateway,omitempty"`
 	// Specifies the kind of the suggested order transaction.
-	Kind SuggestedOrderTransactionKind `json:"kind"`
+	Kind SuggestedOrderTransactionKind `json:"kind,omitempty"`
 	// Specifies the available amount to refund on the gateway. Only available within SuggestedRefund.
 	MaximumRefundable *string `json:"maximumRefundable,omitempty"`
 	// Specifies the available amount to refund on the gateway in shop and presentment currencies. Only available within SuggestedRefund.
@@ -11026,27 +11026,27 @@ type SuggestedOrderTransaction struct {
 // Represents the suggested refund to be submitted based on the items being returned.
 type SuggestedRefund struct {
 	// The total monetary value to be refunded.
-	Amount string `json:"amount"`
+	Amount string `json:"amount,omitempty"`
 	// The total monetary value to be refunded in shop and presentment currencies.
 	AmountSet *MoneyBag `json:"amountSet,omitempty"`
 	// The sum of all the discounted prices of the line items being refunded.
 	DiscountedSubtotalSet *MoneyBag `json:"discountedSubtotalSet,omitempty"`
 	// The total monetary value available to refund.
-	MaximumRefundable string `json:"maximumRefundable"`
+	MaximumRefundable string `json:"maximumRefundable,omitempty"`
 	// The total monetary value available to refund in shop and presentment currencies.
 	MaximumRefundableSet *MoneyBag `json:"maximumRefundableSet,omitempty"`
 	// An array of duties that will be refunded to the customer.
-	RefundDuties []*RefundDuty `json:"refundDuties"`
+	RefundDuties []*RefundDuty `json:"refundDuties,omitempty"`
 	// An array of line items that will be returned to the customer.
-	RefundLineItems []*RefundLineItem `json:"refundLineItems"`
+	RefundLineItems []*RefundLineItem `json:"refundLineItems,omitempty"`
 	// Refund details for shipping costs paid by customer.
 	Shipping *ShippingRefund `json:"shipping,omitempty"`
 	// The sum of all the prices of the line items being refunded.
-	Subtotal string `json:"subtotal"`
+	Subtotal string `json:"subtotal,omitempty"`
 	// The sum of all the prices of the line items being refunded in shop and presentment currencies.
 	SubtotalSet *MoneyBag `json:"subtotalSet,omitempty"`
 	// Array of SuggestedOrderTransaction items.
-	SuggestedTransactions []*SuggestedOrderTransaction `json:"suggestedTransactions"`
+	SuggestedTransactions []*SuggestedOrderTransaction `json:"suggestedTransactions,omitempty"`
 	// The total cart discount amount that was applied to all line items in this refund.
 	TotalCartDiscountAmountSet *MoneyBag `json:"totalCartDiscountAmountSet,omitempty"`
 	// The sum of all the duties being refunded from the order in shop and presentment currencies. Must be positive.
@@ -11054,29 +11054,29 @@ type SuggestedRefund struct {
 	// The sum of all the taxes being refunded from the order (must be positive) in shop and presentment currencies.
 	TotalTaxSet *MoneyBag `json:"totalTaxSet,omitempty"`
 	// The sum of all the taxes being refunded from the order (must be positive).
-	TotalTaxes string `json:"totalTaxes"`
+	TotalTaxes string `json:"totalTaxes,omitempty"`
 }
 
 // Return type for `tagsAdd` mutation.
 type TagsAddPayload struct {
 	// The object that was updated.
-	Node Node `json:"node"`
+	Node Node `json:"node,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `tagsRemove` mutation.
 type TagsRemovePayload struct {
 	// The object that was updated.
-	Node Node `json:"node"`
+	Node Node `json:"node,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Represents the information about the tax charged on the associated line item.
 type TaxLine struct {
 	// The amount of tax to be charged.
-	Price string `json:"price"`
+	Price string `json:"price,omitempty"`
 	// The amount of tax to be charged in shop and presentment currencies.
 	PriceSet *MoneyBag `json:"priceSet,omitempty"`
 	// The tax rate to be applied.
@@ -11084,7 +11084,7 @@ type TaxLine struct {
 	// The percentage of the price that the tax rate represents.
 	RatePercentage *float64 `json:"ratePercentage,omitempty"`
 	// The name of the tax.
-	Title string `json:"title"`
+	Title string `json:"title,omitempty"`
 }
 
 // A tender transaction represents a transaction which modifies the shop's balance.
@@ -11092,7 +11092,7 @@ type TenderTransaction struct {
 	// The amount and currency of the tender transaction.
 	Amount *MoneyV2 `json:"amount,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Information about the payment method used for this transaction.
 	PaymentMethod *string `json:"paymentMethod,omitempty"`
 	// Date and time when the transaction was processed.
@@ -11100,9 +11100,9 @@ type TenderTransaction struct {
 	// The remote gateway reference associated with the tender transaction.
 	RemoteReference *string `json:"remoteReference,omitempty"`
 	// Whether the transaction is a test transaction.
-	Test bool `json:"test"`
+	Test bool `json:"test,omitempty"`
 	// Information about the payment instrument used for this transaction.
-	TransactionDetails TenderTransactionDetails `json:"transactionDetails"`
+	TransactionDetails TenderTransactionDetails `json:"transactionDetails,omitempty"`
 }
 
 func (TenderTransaction) IsNode() {}
@@ -11110,7 +11110,7 @@ func (TenderTransaction) IsNode() {}
 // An auto-generated type for paginating through multiple TenderTransactions.
 type TenderTransactionConnection struct {
 	// A list of edges.
-	Edges []*TenderTransactionEdge `json:"edges"`
+	Edges []*TenderTransactionEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -11128,7 +11128,7 @@ func (TenderTransactionCreditCardDetails) IsTenderTransactionDetails() {}
 // An auto-generated type which holds one TenderTransaction and a cursor during pagination.
 type TenderTransactionEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of TenderTransactionEdge.
 	Node *TenderTransaction `json:"node,omitempty"`
 }
@@ -11144,7 +11144,7 @@ type TrackingInfoInput struct {
 // Specifies all possible fields for updating tracking information.
 type TrackingInfoUpdateInput struct {
 	// Tracking information consisting of one or more tracking URLs and numbers associated with the fulfillment.
-	TrackingDetails []*TrackingInfoInput `json:"trackingDetails"`
+	TrackingDetails []*TrackingInfoInput `json:"trackingDetails,omitempty"`
 	// The name of the tracking company.
 	TrackingCompany *string `json:"trackingCompany,omitempty"`
 	// Indicates whether the customer will be notified of this update and future updates for this fulfillment.
@@ -11160,15 +11160,15 @@ type TransactionFee struct {
 	// Name of the credit card flat fee.
 	FlatFeeName *string `json:"flatFeeName,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// Percentage charge.
-	Rate string `json:"rate"`
+	Rate string `json:"rate,omitempty"`
 	// Name of the credit card rate.
 	RateName *string `json:"rateName,omitempty"`
 	// Tax amount charged on the fee.
 	TaxAmount *MoneyV2 `json:"taxAmount,omitempty"`
 	// Name of the type of fee.
-	Type string `json:"type"`
+	Type string `json:"type,omitempty"`
 }
 
 func (TransactionFee) IsNode() {}
@@ -11178,9 +11178,9 @@ type TranslatableContent struct {
 	// Digest (hash) of the content.
 	Digest *string `json:"digest,omitempty"`
 	// Content key.
-	Key string `json:"key"`
+	Key string `json:"key,omitempty"`
 	// Content locale.
-	Locale string `json:"locale"`
+	Locale string `json:"locale,omitempty"`
 	// Content value.
 	Value *string `json:"value,omitempty"`
 }
@@ -11188,17 +11188,17 @@ type TranslatableContent struct {
 // A resource that has translatable fields.
 type TranslatableResource struct {
 	// GID of the resource.
-	ResourceID string `json:"resourceId"`
+	ResourceID string `json:"resourceId,omitempty"`
 	// Translatable content.
-	TranslatableContent []*TranslatableContent `json:"translatableContent"`
+	TranslatableContent []*TranslatableContent `json:"translatableContent,omitempty"`
 	// Translatable content translations.
-	Translations []*Translation `json:"translations"`
+	Translations []*Translation `json:"translations,omitempty"`
 }
 
 // An auto-generated type for paginating through multiple TranslatableResources.
 type TranslatableResourceConnection struct {
 	// A list of edges.
-	Edges []*TranslatableResourceEdge `json:"edges"`
+	Edges []*TranslatableResourceEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -11206,7 +11206,7 @@ type TranslatableResourceConnection struct {
 // An auto-generated type which holds one TranslatableResource and a cursor during pagination.
 type TranslatableResourceEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of TranslatableResourceEdge.
 	Node *TranslatableResource `json:"node,omitempty"`
 }
@@ -11214,11 +11214,11 @@ type TranslatableResourceEdge struct {
 // Translation of a field of a resource.
 type Translation struct {
 	// Translation key.
-	Key string `json:"key"`
+	Key string `json:"key,omitempty"`
 	// Translation locale.
-	Locale string `json:"locale"`
+	Locale string `json:"locale,omitempty"`
 	// Marked as outdated.
-	Outdated bool `json:"outdated"`
+	Outdated bool `json:"outdated,omitempty"`
 	// Translation value.
 	Value *string `json:"value,omitempty"`
 }
@@ -11226,13 +11226,13 @@ type Translation struct {
 // Provides the fields and values to use when creating or updating a translation.
 type TranslationInput struct {
 	// The locale of the translation.
-	Locale string `json:"locale"`
+	Locale string `json:"locale,omitempty"`
 	// The key of the translation.
-	Key string `json:"key"`
+	Key string `json:"key,omitempty"`
 	// The value of the translation.
-	Value string `json:"value"`
+	Value string `json:"value,omitempty"`
 	// The digest (hash) of the content being translated.
-	TranslatableContentDigest string `json:"translatableContentDigest"`
+	TranslatableContentDigest string `json:"translatableContentDigest,omitempty"`
 }
 
 // Represents an error that happens during the execution of a translation mutation.
@@ -11240,9 +11240,9 @@ type TranslationUserError struct {
 	// Error code to uniquely identify the error.
 	Code *TranslationErrorCode `json:"code,omitempty"`
 	// Path to the input field which caused the error.
-	Field []string `json:"field"`
+	Field []string `json:"field,omitempty"`
 	// The error message.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 func (TranslationUserError) IsDisplayableError() {}
@@ -11250,17 +11250,17 @@ func (TranslationUserError) IsDisplayableError() {}
 // Return type for `translationsRegister` mutation.
 type TranslationsRegisterPayload struct {
 	// The translations that were created or updated.
-	Translations []*Translation `json:"translations"`
+	Translations []*Translation `json:"translations,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*TranslationUserError `json:"userErrors"`
+	UserErrors []*TranslationUserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `translationsRemove` mutation.
 type TranslationsRemovePayload struct {
 	// The translations that were deleted.
-	Translations []*Translation `json:"translations"`
+	Translations []*Translation `json:"translations,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*TranslationUserError `json:"userErrors"`
+	UserErrors []*TranslationUserError `json:"userErrors,omitempty"`
 }
 
 // Specifies the
@@ -11268,11 +11268,11 @@ type TranslationsRemovePayload struct {
 // that are associated with a related marketing campaign.
 type UTMInput struct {
 	// The name of the UTM campaign.
-	Campaign string `json:"campaign"`
+	Campaign string `json:"campaign,omitempty"`
 	// The name of the website or application where the referral link exists.
-	Source string `json:"source"`
+	Source string `json:"source,omitempty"`
 	// The UTM campaign medium.
-	Medium string `json:"medium"`
+	Medium string `json:"medium,omitempty"`
 }
 
 // Represents a set of UTM parameters.
@@ -11292,7 +11292,7 @@ type UTMParameters struct {
 // Specifies the input fields required to update a media object.
 type UpdateMediaInput struct {
 	// Specifies the media to update.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The source from which to update the media preview image. May be an external URL or signed upload URL.
 	PreviewImageSource *string `json:"previewImageSource,omitempty"`
 	// The alt text associated to the media.
@@ -11302,9 +11302,9 @@ type UpdateMediaInput struct {
 // Represents an error in the input of a mutation.
 type UserError struct {
 	// Path to the input field which caused the error.
-	Field []string `json:"field"`
+	Field []string `json:"field,omitempty"`
 	// The error message.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 func (UserError) IsDisplayableError() {}
@@ -11314,21 +11314,21 @@ type Video struct {
 	// A word or phrase to share the nature or contents of a media.
 	Alt *string `json:"alt,omitempty"`
 	// The filename of the video.
-	Filename string `json:"filename"`
+	Filename string `json:"filename,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The media content type.
-	MediaContentType MediaContentType `json:"mediaContentType"`
+	MediaContentType MediaContentType `json:"mediaContentType,omitempty"`
 	// Any errors which have occurred on the media.
-	MediaErrors []*MediaError `json:"mediaErrors"`
+	MediaErrors []*MediaError `json:"mediaErrors,omitempty"`
 	// The original source for a video.
 	OriginalSource *VideoSource `json:"originalSource,omitempty"`
 	// The preview image for the media.
 	Preview *MediaPreviewImage `json:"preview,omitempty"`
 	// The sources for a video.
-	Sources []*VideoSource `json:"sources"`
+	Sources []*VideoSource `json:"sources,omitempty"`
 	// Current status of the media.
-	Status MediaStatus `json:"status"`
+	Status MediaStatus `json:"status,omitempty"`
 }
 
 func (Video) IsNode()  {}
@@ -11337,21 +11337,21 @@ func (Video) IsMedia() {}
 // Represents a source for a Shopify hosted video.
 type VideoSource struct {
 	// The format of the video source.
-	Format string `json:"format"`
+	Format string `json:"format,omitempty"`
 	// The height of the video.
-	Height int `json:"height"`
+	Height int `json:"height,omitempty"`
 	// The video MIME type.
-	MimeType string `json:"mimeType"`
+	MimeType string `json:"mimeType,omitempty"`
 	// The URL of the video.
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 	// The width of the video.
-	Width int `json:"width"`
+	Width int `json:"width,omitempty"`
 }
 
 // Amazon EventBridge event source.
 type WebhookEventBridgeEndpoint struct {
 	// ARN of this EventBridge event source.
-	Arn string `json:"arn"`
+	Arn string `json:"arn,omitempty"`
 }
 
 func (WebhookEventBridgeEndpoint) IsWebhookSubscriptionEndpoint() {}
@@ -11359,7 +11359,7 @@ func (WebhookEventBridgeEndpoint) IsWebhookSubscriptionEndpoint() {}
 // HTTP endpoint where POST requests will be made to.
 type WebhookHTTPEndpoint struct {
 	// URL of webhook endpoint to deliver webhooks to.
-	CallbackURL string `json:"callbackUrl"`
+	CallbackURL string `json:"callbackUrl,omitempty"`
 }
 
 func (WebhookHTTPEndpoint) IsWebhookSubscriptionEndpoint() {}
@@ -11367,25 +11367,25 @@ func (WebhookHTTPEndpoint) IsWebhookSubscriptionEndpoint() {}
 // Represents a subscription to a webhook.
 type WebhookSubscription struct {
 	// URL where the webhook subscription should send the POST request when the event occurs.
-	CallbackURL string `json:"callbackUrl"`
+	CallbackURL string `json:"callbackUrl,omitempty"`
 	// The date and time when the webhook subscription was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt string `json:"createdAt,omitempty"`
 	// Endpoint where webhooks will be delivered to.
-	Endpoint WebhookSubscriptionEndpoint `json:"endpoint"`
+	Endpoint WebhookSubscriptionEndpoint `json:"endpoint,omitempty"`
 	// The format in which the webhook subscription should send the data.
-	Format WebhookSubscriptionFormat `json:"format"`
+	Format WebhookSubscriptionFormat `json:"format,omitempty"`
 	// Globally unique identifier.
-	ID string `json:"id"`
+	ID string `json:"id,omitempty"`
 	// The list of fields to be included in the webhook subscription.
-	IncludeFields []string `json:"includeFields"`
+	IncludeFields []string `json:"includeFields,omitempty"`
 	// The ID of the corresponding resource in the REST Admin API.
-	LegacyResourceID string `json:"legacyResourceId"`
+	LegacyResourceID string `json:"legacyResourceId,omitempty"`
 	// The list of namespaces for any metafields that should be included in the webhook subscription.
-	MetafieldNamespaces []string `json:"metafieldNamespaces"`
+	MetafieldNamespaces []string `json:"metafieldNamespaces,omitempty"`
 	// The type of event that triggers the webhook.
-	Topic WebhookSubscriptionTopic `json:"topic"`
+	Topic WebhookSubscriptionTopic `json:"topic,omitempty"`
 	// The date and time when the webhook subscription was updated.
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt,omitempty"`
 }
 
 func (WebhookSubscription) IsNode()                   {}
@@ -11394,7 +11394,7 @@ func (WebhookSubscription) IsLegacyInteroperability() {}
 // An auto-generated type for paginating through multiple WebhookSubscriptions.
 type WebhookSubscriptionConnection struct {
 	// A list of edges.
-	Edges []*WebhookSubscriptionEdge `json:"edges"`
+	Edges []*WebhookSubscriptionEdge `json:"edges,omitempty"`
 	// Information to aid in pagination.
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
 }
@@ -11402,7 +11402,7 @@ type WebhookSubscriptionConnection struct {
 // Return type for `webhookSubscriptionCreate` mutation.
 type WebhookSubscriptionCreatePayload struct {
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 	// The webhook subscription that was created.
 	WebhookSubscription *WebhookSubscription `json:"webhookSubscription,omitempty"`
 }
@@ -11412,13 +11412,13 @@ type WebhookSubscriptionDeletePayload struct {
 	// The ID of the deleted webhook subscription.
 	DeletedWebhookSubscriptionID *string `json:"deletedWebhookSubscriptionId,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // An auto-generated type which holds one WebhookSubscription and a cursor during pagination.
 type WebhookSubscriptionEdge struct {
 	// A cursor for use in pagination.
-	Cursor string `json:"cursor"`
+	Cursor string `json:"cursor,omitempty"`
 	// The item at the end of WebhookSubscriptionEdge.
 	Node *WebhookSubscription `json:"node,omitempty"`
 }
@@ -11430,15 +11430,15 @@ type WebhookSubscriptionInput struct {
 	// The format in which the webhook subscription should send the data.
 	Format *WebhookSubscriptionFormat `json:"format,omitempty"`
 	// The list of fields to be included in the webhook subscription.
-	IncludeFields []string `json:"includeFields"`
+	IncludeFields []string `json:"includeFields,omitempty"`
 	// The list of namespaces for any metafields that should be included in the webhook subscription.
-	MetafieldNamespaces []string `json:"metafieldNamespaces"`
+	MetafieldNamespaces []string `json:"metafieldNamespaces,omitempty"`
 }
 
 // Return type for `webhookSubscriptionUpdate` mutation.
 type WebhookSubscriptionUpdatePayload struct {
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 	// The webhook subscription that was updated.
 	WebhookSubscription *WebhookSubscription `json:"webhookSubscription,omitempty"`
 }
@@ -11446,9 +11446,9 @@ type WebhookSubscriptionUpdatePayload struct {
 // Represents weight unit and value.
 type Weight struct {
 	// Unit of measurement for `value`.
-	Unit WeightUnit `json:"unit"`
+	Unit WeightUnit `json:"unit,omitempty"`
 	// The weight using the unit system specified with `unit`.
-	Value float64 `json:"value"`
+	Value float64 `json:"value,omitempty"`
 }
 
 func (Weight) IsDeliveryConditionCriteria() {}
@@ -11456,9 +11456,9 @@ func (Weight) IsDeliveryConditionCriteria() {}
 // Specifies the weight unit and value inputs.
 type WeightInput struct {
 	// The weight value using the unit system specified with `weight_unit`.
-	Value float64 `json:"value"`
+	Value float64 `json:"value,omitempty"`
 	// Unit of measurement for `value`.
-	Unit WeightUnit `json:"unit"`
+	Unit WeightUnit `json:"unit,omitempty"`
 }
 
 // Return type for `deliveryProfileCreate` mutation.
@@ -11466,7 +11466,7 @@ type DeliveryProfileCreatePayload struct {
 	// The delivery profile that was created.
 	Profile *DeliveryProfile `json:"profile,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `deliveryProfileRemove` mutation.
@@ -11474,7 +11474,7 @@ type DeliveryProfileRemovePayload struct {
 	// The profile deletion job triggered by the mutation.
 	Job *Job `json:"job,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Return type for `deliveryProfileUpdate` mutation.
@@ -11482,7 +11482,7 @@ type DeliveryProfileUpdatePayload struct {
 	// The delivery profile that was updated.
 	Profile *DeliveryProfile `json:"profile,omitempty"`
 	// List of errors that occurred executing the mutation.
-	UserErrors []*UserError `json:"userErrors"`
+	UserErrors []*UserError `json:"userErrors,omitempty"`
 }
 
 // Possible categories of an app installation.

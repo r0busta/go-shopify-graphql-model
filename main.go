@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"reflect"
 
 	"github.com/99designs/gqlgen/api"
 	"github.com/99designs/gqlgen/codegen/config"
@@ -14,9 +13,7 @@ import (
 func mutateHook(b *modelgen.ModelBuild) *modelgen.ModelBuild {
 	for _, model := range b.Models {
 		for _, field := range model.Fields {
-			if reflect.TypeOf(field.Type).Elem().String() == "types.Pointer" {
-				field.Tag = fmt.Sprintf(`json:"%s,omitempty"`, field.Name)
-			}
+			field.Tag = fmt.Sprintf(`json:"%s,omitempty"`, field.Name)
 		}
 	}
 
