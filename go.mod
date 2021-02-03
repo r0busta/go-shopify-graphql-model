@@ -1,4 +1,4 @@
-module github.com/r0busta/gqlgen-shopify
+module github.com/r0busta/go-shopify-graphql-schema
 
 go 1.15
 
