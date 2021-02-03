@@ -1,10 +1,10 @@
 {
-  "name": "shopify-graphql-schema",
-  "version": "1.0.0",
-  "main": "schema-fetcher.js",
-  "license": "MIT",
-  "dependencies": {
-    "graphql": "^15.5.0",
-    "node-fetch": "^2.6.1"
-  }
+    "name": "shopify-graphql-schema",
+    "version": "1.0.0",
+    "main": "schema-fetcher.js",
+    "license": "MIT",
+    "dependencies": {
+        "graphql": "^15.5.0",
+        "node-fetch": "^2.6.1"
+    }
 }
