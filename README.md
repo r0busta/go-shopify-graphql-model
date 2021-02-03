@@ -1,0 +1,1 @@
+# go-shopify-graphql-model
