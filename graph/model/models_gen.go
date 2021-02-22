@@ -11,9 +11,7 @@ import (
 )
 
 // Information about the price charged to a shop every plan period.
-type AppPricingDetails interface {
-	IsAppPricingDetails()
-}
+type AppPricingDetails map[string]interface{}
 
 // Services and features purchased once by the store.
 type AppPurchase interface {
@@ -26,9 +24,7 @@ type CalculatedDiscountApplication interface {
 }
 
 // The main embed of a comment event.
-type CommentEventEmbed interface {
-	IsCommentEventEmbed()
-}
+type CommentEventEmbed map[string]interface{}
 
 // The subject line of a comment event.
 type CommentEventSubject interface {
@@ -41,19 +37,13 @@ type CustomerMoment interface {
 }
 
 // All possible instruments for CustomerPaymentMethods.
-type CustomerPaymentInstrument interface {
-	IsCustomerPaymentInstrument()
-}
+type CustomerPaymentInstrument map[string]interface{}
 
 // The criteria (weight or price) that the field must meet based on the operator.
-type DeliveryConditionCriteria interface {
-	IsDeliveryConditionCriteria()
-}
+type DeliveryConditionCriteria map[string]interface{}
 
 // Rate provided by a rate definition or a participant.
-type DeliveryRateProvider interface {
-	IsDeliveryRateProvider()
-}
+type DeliveryRateProvider map[string]interface{}
 
 // Discount applications capture the intentions of a discount source at
 // the time of application on an order's line items or shipping lines.
@@ -62,49 +52,31 @@ type DiscountApplication interface {
 }
 
 // An automatic discount.
-type DiscountAutomatic interface {
-	IsDiscountAutomatic()
-}
+type DiscountAutomatic map[string]interface{}
 
 // A code discount.
-type DiscountCode interface {
-	IsDiscountCode()
-}
+type DiscountCode map[string]interface{}
 
 // The prerequisite quantity required for the discount to be applicable.
-type DiscountCustomerBuysValue interface {
-	IsDiscountCustomerBuysValue()
-}
+type DiscountCustomerBuysValue map[string]interface{}
 
 // The value of the discount and how it will be applied.
-type DiscountCustomerGetsValue interface {
-	IsDiscountCustomerGetsValue()
-}
+type DiscountCustomerGetsValue map[string]interface{}
 
 // The selection of customers who can use this discount.
-type DiscountCustomerSelection interface {
-	IsDiscountCustomerSelection()
-}
+type DiscountCustomerSelection map[string]interface{}
 
 // The type of discount that will be applied. Currently, only percentage off is supported.
-type DiscountEffect interface {
-	IsDiscountEffect()
-}
+type DiscountEffect map[string]interface{}
 
 // Entitled or prerequisite items on a discount. An item could be either collection or product or product_variant.
-type DiscountItems interface {
-	IsDiscountItems()
-}
+type DiscountItems map[string]interface{}
 
 // The minimum subtotal or quantity requirements for the discount.
-type DiscountMinimumRequirement interface {
-	IsDiscountMinimumRequirement()
-}
+type DiscountMinimumRequirement map[string]interface{}
 
 // The selection of shipping countries to which this discount applies.
-type DiscountShippingDestinationSelection interface {
-	IsDiscountShippingDestinationSelection()
-}
+type DiscountShippingDestinationSelection map[string]interface{}
 
 // Represents an error in the input of a mutation.
 type DisplayableError interface {
@@ -170,19 +142,13 @@ type OnlineStorePreviewable interface {
 }
 
 // A change that has been applied to an order.
-type OrderStagedChange interface {
-	IsOrderStagedChange()
-}
+type OrderStagedChange map[string]interface{}
 
 // The value of the price rule.
-type PriceRuleValue interface {
-	IsPriceRuleValue()
-}
+type PriceRuleValue map[string]interface{}
 
 // The value of the pricing object.
-type PricingValue interface {
-	IsPricingValue()
-}
+type PricingValue map[string]interface{}
 
 // Represents a resource that can be published to a channel.
 // A publishable resource can be either a Product or Collection.
@@ -194,31 +160,23 @@ type Publishable interface {
 // three months). The selling plan billing policy and associated records (selling plan groups, selling plans, pricing
 // policies, and delivery policy) are deleted 48 hours after a merchant uninstalls their subscriptions app.
 // We recommend backing up these records if you need to restore them later.
-type SellingPlanBillingPolicy interface {
-	IsSellingPlanBillingPolicy()
-}
+type SellingPlanBillingPolicy map[string]interface{}
 
 // Represents the delivery frequency associated to the selling plan (for example, deliver every month, or deliver
 // every other week). The selling plan delivery policy and associated records (selling plan groups, selling plans,
 // pricing policies, and billing policy) are deleted 48 hours after a merchant uninstalls their subscriptions app.
 // We recommend backing up these records if you need to restore them later.
-type SellingPlanDeliveryPolicy interface {
-	IsSellingPlanDeliveryPolicy()
-}
+type SellingPlanDeliveryPolicy map[string]interface{}
 
 // Represents the type of pricing associated to the selling plan (for example, a $10 or 20% discount that is set
 // for a limited period or that is fixed for the duration of the subscription). Selling plan pricing policies and
 // associated records (selling plan groups, selling plans, billing policy, and delivery policy) are deleted 48
 // hours after a merchant uninstalls their subscriptions app. We recommend backing up these records if you need
 // to restore them later.
-type SellingPlanPricingPolicy interface {
-	IsSellingPlanPricingPolicy()
-}
+type SellingPlanPricingPolicy map[string]interface{}
 
 // Represents a selling plan pricing policy adjustment value type.
-type SellingPlanPricingPolicyAdjustmentValue interface {
-	IsSellingPlanPricingPolicyAdjustmentValue()
-}
+type SellingPlanPricingPolicyAdjustmentValue map[string]interface{}
 
 // Represents selling plan pricing policy common fields.
 type SellingPlanPricingPolicyBase interface {
@@ -231,34 +189,22 @@ type ShopifyPaymentsChargeStatementDescriptor interface {
 }
 
 // Describes the delivery method to use to get the physical goods to the customer.
-type SubscriptionDeliveryMethod interface {
-	IsSubscriptionDeliveryMethod()
-}
+type SubscriptionDeliveryMethod map[string]interface{}
 
 // Subscription draft discount types.
-type SubscriptionDiscount interface {
-	IsSubscriptionDiscount()
-}
+type SubscriptionDiscount map[string]interface{}
 
 // The value of the discount and how it will be applied.
-type SubscriptionDiscountValue interface {
-	IsSubscriptionDiscountValue()
-}
+type SubscriptionDiscountValue map[string]interface{}
 
 // The result of the query to fetch shipping options for the subscription contract.
-type SubscriptionShippingOptionResult interface {
-	IsSubscriptionShippingOptionResult()
-}
+type SubscriptionShippingOptionResult map[string]interface{}
 
 // Information about the payment instrument used for this transaction.
-type TenderTransactionDetails interface {
-	IsTenderTransactionDetails()
-}
+type TenderTransactionDetails map[string]interface{}
 
 // Endpoint where webhooks will be delivered.
-type WebhookSubscriptionEndpoint interface {
-	IsWebhookSubscriptionEndpoint()
-}
+type WebhookSubscriptionEndpoint map[string]interface{}
 
 // Represents the access scope permission that is applicable to a merchant's shop, such as `read_orders`.
 type AccessScope struct {
@@ -11356,15 +11302,11 @@ type WebhookEventBridgeEndpoint struct {
 	Arn null.String `json:"arn,omitempty"`
 }
 
-func (WebhookEventBridgeEndpoint) IsWebhookSubscriptionEndpoint() {}
-
 // HTTP endpoint where POST requests will be made to.
 type WebhookHTTPEndpoint struct {
 	// URL of webhook endpoint to deliver webhooks to.
 	CallbackURL null.String `json:"callbackUrl,omitempty"`
 }
-
-func (WebhookHTTPEndpoint) IsWebhookSubscriptionEndpoint() {}
 
 // Represents a subscription to a webhook.
 type WebhookSubscription struct {
