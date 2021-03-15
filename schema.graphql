@@ -13782,11 +13782,11 @@ type Order implements Node & CommentEventSubject & HasMetafields & LegacyInterop
     query: String
   ): FulfillmentOrderConnection!
 
-  """List of shipments for the order."""
-  fulfillments(
-    """Truncate the array result to this size."""
-    first: Int
-  ): [Fulfillment!]!
+  # """List of shipments for the order."""
+  # fulfillments(
+  #   """Truncate the array result to this size."""
+  #   first: Int
+  # ): [Fulfillment!]!
 
   """Whether the order has been paid in full."""
   fullyPaid: Boolean!

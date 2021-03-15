@@ -6161,7 +6161,7 @@ type Order struct {
 	// List of fulfillment orders with pagination.
 	FulfillmentOrders *FulfillmentOrderConnection `json:"fulfillmentOrders,omitempty"`
 	// List of shipments for the order.
-	Fulfillments []*Fulfillment `json:"fulfillments,omitempty"`
+	// Fulfillments []*Fulfillment `json:"fulfillments,omitempty"`
 	// Whether the order has been paid in full.
 	FullyPaid bool `json:"fullyPaid,omitempty"`
 	// Whether the merchant added timeline comments to the order.
