@@ -355,7 +355,7 @@ type AppEdge struct {
 // to set up an app on their store.
 type AppFeedback struct {
 	// The application associated to the feedback.
-	App *App `json:"app,omitempty"`
+	// App *App `json:"app,omitempty"`
 	// A link to where merchants can resolve errors.
 	Link *Link `json:"link,omitempty"`
 	// The feedback message presented to the merchant.
@@ -603,7 +603,7 @@ type AppUsageRecord struct {
 	// The price of the usage record. The only permitted currency code is USD.
 	Price *MoneyV2 `json:"price,omitempty"`
 	// Defines the usage pricing plan the merchant is subscribed to.
-	SubscriptionLineItem *AppSubscriptionLineItem `json:"subscriptionLineItem,omitempty"`
+	// SubscriptionLineItem *AppSubscriptionLineItem `json:"subscriptionLineItem,omitempty"`
 }
 
 func (AppUsageRecord) IsNode() {}
@@ -4002,11 +4002,11 @@ type Fulfillment struct {
 	// The estimated date that this fulfillment will arrive.
 	EstimatedDeliveryAt *null.String `json:"estimatedDeliveryAt,omitempty"`
 	// The history of events associated with this fulfillment.
-	Events *FulfillmentEventConnection `json:"events,omitempty"`
+	// Events *FulfillmentEventConnection `json:"events,omitempty"`
 	// List of the fulfillment's line items.
-	FulfillmentLineItems *FulfillmentLineItemConnection `json:"fulfillmentLineItems,omitempty"`
+	// FulfillmentLineItems *FulfillmentLineItemConnection `json:"fulfillmentLineItems,omitempty"`
 	// A list of fulfillment orders for the fulfillment.
-	FulfillmentOrders *FulfillmentOrderConnection `json:"fulfillmentOrders,omitempty"`
+	// FulfillmentOrders *FulfillmentOrderConnection `json:"fulfillmentOrders,omitempty"`
 	// Globally unique identifier.
 	ID null.String `json:"id,omitempty"`
 	// The date and time when the fulfillment went into transit.
@@ -4014,15 +4014,15 @@ type Fulfillment struct {
 	// The ID of the corresponding resource in the REST Admin API.
 	LegacyResourceID null.String `json:"legacyResourceId,omitempty"`
 	// The location that the fulfillment was processed at.
-	Location *Location `json:"location,omitempty"`
+	// Location *Location `json:"location,omitempty"`
 	// Human readable reference identifier for this fulfillment.
 	Name null.String `json:"name,omitempty"`
 	// The order for which the fulfillment was created.
-	Order *Order `json:"order,omitempty"`
+	// Order *Order `json:"order,omitempty"`
 	// Whether any of the line items in the fulfillment require shipping.
 	RequiresShipping bool `json:"requiresShipping,omitempty"`
 	// Fulfillment service associated with the fulfillment.
-	Service *FulfillmentService `json:"service,omitempty"`
+	// Service *FulfillmentService `json:"service,omitempty"`
 	// The status of the fulfillment.
 	Status FulfillmentStatus `json:"status,omitempty"`
 	// Sum of all line item quantities for the fulfillment.
@@ -4524,7 +4524,7 @@ type FulfillmentService struct {
 	// Whether the fulfillment service tracks product inventory and provides updates to Shopify.
 	InventoryManagement bool `json:"inventoryManagement,omitempty"`
 	// Location associated with the fulfillment service.
-	Location *Location `json:"location,omitempty"`
+	// Location *Location `json:"location,omitempty"`
 	// Whether the fulfillment service supports local deliveries.
 	ProductBased bool `json:"productBased,omitempty"`
 	// The name of the fulfillment service as seen by merchants.
@@ -4834,7 +4834,7 @@ type InventoryLevel struct {
 	// Quantity of items incoming to the location.
 	Incoming int `json:"incoming,omitempty"`
 	// Inventory item associated with the inventory level.
-	Item *InventoryItem `json:"item,omitempty"`
+	// Item *InventoryItem `json:"item,omitempty"`
 	// Location associated with the inventory level.
 	Location *Location `json:"location,omitempty"`
 	// The date and time when the inventory level was updated.
@@ -4898,7 +4898,7 @@ type LineItem struct {
 	// Whether the line item's variant has an ID and inventory is managed by Shopify.
 	CanRestock bool `json:"canRestock,omitempty"`
 	// The subscription contract associated with this line item.
-	Contract *SubscriptionContract `json:"contract,omitempty"`
+	// Contract *SubscriptionContract `json:"contract,omitempty"`
 	// The line item's quantity minus the removed quantity.
 	CurrentQuantity int `json:"currentQuantity,omitempty"`
 	// List of additional information (metafields) about the line item.
@@ -5184,7 +5184,7 @@ type Location struct {
 	// Whether this location can be deleted.
 	Deletable bool `json:"deletable,omitempty"`
 	// Name of the service provider that fulfills from this location.
-	FulfillmentService *FulfillmentService `json:"fulfillmentService,omitempty"`
+	// FulfillmentService *FulfillmentService `json:"fulfillmentService,omitempty"`
 	// Indicates whether this location can fulfill online orders.
 	FulfillsOnlineOrders bool `json:"fulfillsOnlineOrders,omitempty"`
 	// Indicates whether or not this location has active inventory.

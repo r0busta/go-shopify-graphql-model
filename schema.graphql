@@ -218,8 +218,8 @@ to set up an app on their store.
 
 """
 type AppFeedback {
-  """The application associated to the feedback."""
-  app: App!
+  # """The application associated to the feedback."""
+  # app: App!
 
   """A link to where merchants can resolve errors."""
   link: Link
@@ -768,8 +768,8 @@ type AppUsageRecord implements Node {
   """
   price: MoneyV2!
 
-  """Defines the usage pricing plan the merchant is subscribed to."""
-  subscriptionLineItem: AppSubscriptionLineItem!
+  # """Defines the usage pricing plan the merchant is subscribed to."""
+  # subscriptionLineItem: AppSubscriptionLineItem!
 }
 
 """
@@ -9094,41 +9094,41 @@ type Fulfillment implements LegacyInteroperability & Node {
     sortKey: FulfillmentEventSortKeys = HAPPENED_AT
   ): FulfillmentEventConnection!
 
-  """List of the fulfillment's line items."""
-  fulfillmentLineItems(
-    """Returns up to the first `n` elements from the list."""
-    first: Int
+  # """List of the fulfillment's line items."""
+  # fulfillmentLineItems(
+  #   """Returns up to the first `n` elements from the list."""
+  #   first: Int
 
-    """Returns the elements that come after the specified cursor."""
-    after: String
+  #   """Returns the elements that come after the specified cursor."""
+  #   after: String
 
-    """Returns up to the last `n` elements from the list."""
-    last: Int
+  #   """Returns up to the last `n` elements from the list."""
+  #   last: Int
 
-    """Returns the elements that come before the specified cursor."""
-    before: String
+  #   """Returns the elements that come before the specified cursor."""
+  #   before: String
 
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): FulfillmentLineItemConnection!
+  #   """Reverse the order of the underlying list."""
+  #   reverse: Boolean = false
+  # ): FulfillmentLineItemConnection!
 
-  """A list of fulfillment orders for the fulfillment."""
-  fulfillmentOrders(
-    """Returns up to the first `n` elements from the list."""
-    first: Int
+  # """A list of fulfillment orders for the fulfillment."""
+  # fulfillmentOrders(
+  #   """Returns up to the first `n` elements from the list."""
+  #   first: Int
 
-    """Returns the elements that come after the specified cursor."""
-    after: String
+  #   """Returns the elements that come after the specified cursor."""
+  #   after: String
 
-    """Returns up to the last `n` elements from the list."""
-    last: Int
+  #   """Returns up to the last `n` elements from the list."""
+  #   last: Int
 
-    """Returns the elements that come before the specified cursor."""
-    before: String
+  #   """Returns the elements that come before the specified cursor."""
+  #   before: String
 
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): FulfillmentOrderConnection!
+  #   """Reverse the order of the underlying list."""
+  #   reverse: Boolean = false
+  # ): FulfillmentOrderConnection!
 
   """Globally unique identifier."""
   id: ID!
@@ -9139,20 +9139,20 @@ type Fulfillment implements LegacyInteroperability & Node {
   """The ID of the corresponding resource in the REST Admin API."""
   legacyResourceId: UnsignedInt64!
 
-  """The location that the fulfillment was processed at."""
-  location: Location
+  # """The location that the fulfillment was processed at."""
+  # location: Location
 
   """Human readable reference identifier for this fulfillment."""
   name: String!
 
-  """The order for which the fulfillment was created."""
-  order: Order!
+  # """The order for which the fulfillment was created."""
+  # order: Order!
 
   """Whether any of the line items in the fulfillment require shipping."""
   requiresShipping: Boolean!
 
-  """Fulfillment service associated with the fulfillment."""
-  service: FulfillmentService
+  # """Fulfillment service associated with the fulfillment."""
+  # service: FulfillmentService
 
   """The status of the fulfillment."""
   status: FulfillmentStatus!
