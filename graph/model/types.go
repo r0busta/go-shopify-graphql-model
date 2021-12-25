@@ -6,6 +6,10 @@ func NewNullString(v null.String) *null.String {
 	return &v
 }
 
+func NewString(v string) *string {
+	return &v
+}
+
 func NewBool(v bool) *bool {
 	return &v
 }

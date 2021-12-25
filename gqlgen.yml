@@ -7,20 +7,12 @@ model:
   filename: graph/model/models_gen.go
   package: model
 
-# This section declares type mapping between the GraphQL and go type systems
-#
-# The first line in each type will be used as defaults for resolver arguments and
-# modelgen, the others will be allowed when binding to fields. Configure them to
-# your liking
-# models:
-#   ID:
-#     model:
-#       - github.com/99designs/gqlgen/graphql.ID
-#       - github.com/99designs/gqlgen/graphql.Int
-#       - github.com/99designs/gqlgen/graphql.Int64
-#       - github.com/99designs/gqlgen/graphql.Int32
-#   Int:
-#     model:
-#       - github.com/99designs/gqlgen/graphql.Int
-#       - github.com/99designs/gqlgen/graphql.Int64
-#       - github.com/99designs/gqlgen/graphql.Int32
+omit_slice_element_pointers: true
+
+models:
+  Money:
+    model:
+      - github.com/r0busta/go-shopify-graphql-model/v2/graphql.Money
+  Decimal:
+    model:
+      - github.com/r0busta/go-shopify-graphql-model/v2/graphql.Decimal
