@@ -6,7 +6,7 @@ const { getIntrospectionQuery, printSchema, buildClientSchema } = require("graph
 async function main() {
     const introspectionQuery = getIntrospectionQuery()
 
-    const response = await fetch(`https://${process.env.STORE}.myshopify.com/admin/api/2021-04/graphql.json`, {
+    const response = await fetch(`https://${process.env.STORE}.myshopify.com/admin/api/2022-01/graphql.json`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
