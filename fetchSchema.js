@@ -1,12 +1,14 @@
-const path = require("path")
-const fs = require("fs")
-const fetch = require("node-fetch")
-const { getIntrospectionQuery, printSchema, buildClientSchema } = require("graphql")
+import { join } from "path"
+import { promises } from "fs"
+import fetch from "node-fetch"
+import { getIntrospectionQuery, printSchema, buildClientSchema } from "graphql"
+
+const __dirname = new URL(".", import.meta.url).pathname
 
 async function main() {
     const introspectionQuery = getIntrospectionQuery()
 
-    const response = await fetch(`https://${process.env.STORE}.myshopify.com/admin/api/2022-01/graphql.json`, {
+    const response = await fetch(`https://${process.env.STORE}.myshopify.com/admin/api/unstable/graphql.json`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -19,9 +21,9 @@ async function main() {
 
     const schema = buildClientSchema(data)
 
-    const outputFile = path.join(__dirname, "./result.graphql")
+    const outputFile = join(__dirname, "./result.graphql")
 
-    await fs.promises.writeFile(outputFile, printSchema(schema))
+    await promises.writeFile(outputFile, printSchema(schema))
 }
 
 main()

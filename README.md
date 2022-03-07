@@ -1,13 +1,19 @@
 # go-shopify-graphql-model
 
-This is a simple library to help you integrate Shopify's GraphQL API into your Go code.
+This is a simple library to help you use Shopify's GraphQL objects in your Go code.
 
 ## Getting started
+
+0. Install dependencies
+
+    ```bash
+    yarn
+    ```
 
 1. Fetch the Shopify graphql schema
 
     ```bash
-    STORE=my-store PASSWORD=my-pass node fetchSchema.js 
+    STORE=my-store PASSWORD=my-pass yarn fetch
     ```
 
 2. Rename or copy its content from `result.graphql` to `schema.graphql`
