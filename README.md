@@ -13,7 +13,7 @@ This is a simple library to help you use Shopify's GraphQL objects in your Go co
 1. Fetch the Shopify graphql schema
 
     ```bash
-    STORE=my-store PASSWORD=my-pass yarn fetch
+    STORE=my-store ACCESS_TOKEN=shpca_xxxxx API_VERSION=2023-07 yarn fetch
     ```
 
 2. Rename or copy its content from `result.graphql` to `schema.graphql`
