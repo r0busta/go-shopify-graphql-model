@@ -12,7 +12,7 @@ omit_slice_element_pointers: true
 models:
   Money:
     model:
-      - github.com/r0busta/go-shopify-graphql-model/v3/graphql.Money
+      - github.com/cutelittlebugs/go-shopify-graphql-model/v3/graphql.Money
   Decimal:
     model:
-      - github.com/r0busta/go-shopify-graphql-model/v3/graphql.Decimal
+      - github.com/cutelittlebugs/go-shopify-graphql-model/v3/graphql.Decimal
