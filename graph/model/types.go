@@ -34,7 +34,7 @@ func NewFloat64(v float64) *float64 {
 	return &v
 }
 
-func concludeObjectType(gid string) (reflect.Type, error) {
+func concludeMediaObjectType(gid string) (reflect.Type, error) {
 	submatches := gidRegex.FindStringSubmatch(gid)
 	if len(submatches) != 2 {
 		return reflect.TypeOf(nil), fmt.Errorf("malformed gid=`%s`", gid)
@@ -49,6 +49,21 @@ func concludeObjectType(gid string) (reflect.Type, error) {
 		return reflect.TypeOf(Model3d{}), nil
 	case "ExternalVideo":
 		return reflect.TypeOf(ExternalVideo{}), nil
+	default:
+		return reflect.TypeOf(nil), fmt.Errorf("`%s` not implemented type", resource)
+	}
+}
+
+func concludeConditionObjectType(resource string) (reflect.Type, error) {
+	switch resource {
+	case "CollectionRuleCategoryCondition":
+		return reflect.TypeOf(CollectionRuleCategoryCondition{}), nil
+	case "CollectionRuleMetafieldCondition":
+		return reflect.TypeOf(CollectionRuleMetafieldCondition{}), nil
+	case "CollectionRuleProductCategoryCondition":
+		return reflect.TypeOf(CollectionRuleProductCategoryCondition{}), nil
+	case "CollectionRuleTextCondition":
+		return reflect.TypeOf(CollectionRuleTextCondition{}), nil
 	default:
 		return reflect.TypeOf(nil), fmt.Errorf("`%s` not implemented type", resource)
 	}
