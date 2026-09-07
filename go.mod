@@ -4,6 +4,7 @@ go 1.23
 
 require (
 	github.com/99designs/gqlgen v0.17.55
+	github.com/mitchellh/mapstructure v1.5.0
 	github.com/stretchr/testify v1.9.0
 	github.com/vektah/gqlparser/v2 v2.5.18
 	gopkg.in/guregu/null.v4 v4.0.0
