@@ -63,7 +63,7 @@ func (s *MediaConnection) UnmarshalJSON(b []byte) error {
 
 func decodeMedia(node map[string]interface{}) (Media, error) {
 	if id, ok := node["id"].(string); ok {
-		mediaType, err := concludeObjectType(id)
+		mediaType, err := concludeMediaObjectType(id)
 		if err != nil {
 			return nil, fmt.Errorf("conclude object type: %w", err)
 		}
@@ -75,4 +75,49 @@ func decodeMedia(node map[string]interface{}) (Media, error) {
 		return media.(Media), nil
 	}
 	return nil, fmt.Errorf("must query id to decode Media")
+}
+
+func (s *CollectionRule) UnmarshalJSON(b []byte) error {
+	// ConditionObject is CollectionRuleConditionObject, which is an interface
+
+	var cr struct {
+		Column          CollectionRuleColumn   `json:"column"`
+		Condition       string                 `json:"condition"`
+		ConditionObject map[string]interface{} `json:"conditionObject,omitempty"`
+		Relation        CollectionRuleRelation `json:"relation"`
+	}
+	err := json.Unmarshal(b, &cr)
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
+	// assign files from temp object
+	s.Column = cr.Column
+	s.Condition = cr.Condition
+	s.Relation = cr.Relation
+
+	// fiddle with things to get the ConditionObject value
+	if len(cr.ConditionObject) > 0 {
+		s.ConditionObject, err = decodeConditionObject(cr.ConditionObject)
+		if err != nil {
+			return fmt.Errorf("decode condition object: %w", err)
+		}
+	}
+	return nil
+}
+
+func decodeConditionObject(condObj map[string]interface{}) (CollectionRuleConditionObject, error) {
+	if typeName, ok := condObj["__typename"].(string); ok {
+		conditionType, err := concludeConditionObjectType(typeName)
+		if err != nil {
+			return nil, fmt.Errorf("conclude object type: %w", err)
+		}
+		conditionObject := reflect.New(conditionType).Interface()
+		err = mapstructure.Decode(condObj, conditionObject)
+		if err != nil {
+			return nil, fmt.Errorf("decode condition object: %w", err)
+		}
+		return conditionObject.(CollectionRuleConditionObject), nil
+	}
+	return nil, fmt.Errorf("must query __typename to decode condition object")
 }
