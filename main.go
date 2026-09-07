@@ -49,7 +49,7 @@ func isSlice(v interface{}) bool {
 func mutateHook(b *modelgen.ModelBuild) *modelgen.ModelBuild {
 	for _, model := range b.Models {
 		for _, field := range model.Fields {
-			if isPointer(field.Type) || isSlice(field.Type) {
+			if !strings.Contains(field.Tag, ",omitempty") && (isPointer(field.Type) || isSlice(field.Type)) {
 				tag := strings.TrimSuffix(field.Tag, `"`)
 				field.Tag = fmt.Sprintf(`%v,omitempty"`, tag)
 			}
