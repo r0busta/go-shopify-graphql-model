@@ -70,3 +70,35 @@ func TestSanity(t *testing.T) {
 	got, _ := json.MarshalIndent(product, "", "    ")
 	assert.Equal(t, want, string(got))
 }
+
+func TestJSONValueString(t *testing.T) {
+	jsonStr := []byte(`{
+    "jsonValue": "Ash",
+    "key": "label",
+    "type": "single_line_text_field",
+    "value": "Ash"
+  }`)
+
+	want := "Ash"
+
+	var moField model.MetaobjectField
+	err := json.Unmarshal(jsonStr, &moField)
+	assert.Nil(t, err)
+
+	assert.Equal(t, want, *moField.JSONValue)
+}
+
+func TestJSONValueArray(t *testing.T) {
+	jsonStr := []byte(`{
+	"jsonValue": ["gid://shopify/TaxonomyValue/3"],
+    "key": "color_taxonomy_reference",
+    "type": "list.product_taxonomy_value_reference",
+    "value": "[\"gid://shopify/TaxonomyValue/3\"]"
+  }`)
+
+	var moField model.MetaobjectField
+	err := json.Unmarshal(jsonStr, &moField)
+	assert.Nil(t, err)
+
+	assert.Equal(t, "gid://shopify/TaxonomyValue/3", *moField.JSONValue)
+}
