@@ -2,6 +2,7 @@ package model
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"reflect"
 
@@ -120,4 +121,52 @@ func decodeConditionObject(condObj map[string]interface{}) (CollectionRuleCondit
 		return conditionObject.(CollectionRuleConditionObject), nil
 	}
 	return nil, fmt.Errorf("must query __typename to decode condition object")
+}
+
+// sometimes the JSONValue value for MetaobjectField's are []string rather than the expected string
+// seen where Metaobject.Type == "shopify--color-pattern" for
+func (s *MetaobjectField) UnmarshalJSON(b []byte) error {
+
+	var mof struct {
+		JSONValue  interface{}                   `json:"jsonValue,omitempty"`
+		Key        string                        `json:"key"`
+		Reference  MetafieldReference            `json:"reference,omitempty"`
+		References *MetafieldReferenceConnection `json:"references,omitempty"`
+		Thumbnail  *MetaobjectThumbnail          `json:"thumbnail,omitempty"`
+		Type       string                        `json:"type"`
+		Value      *string                       `json:"value,omitempty"`
+	}
+	err := json.Unmarshal(b, &mof)
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
+
+	// assign files from temp object
+	s.Key = mof.Key
+	s.Reference = mof.Reference
+	s.References = mof.References
+	s.Thumbnail = mof.Thumbnail
+	s.Type = mof.Type
+	s.Value = mof.Value
+
+	// deal with the variable JSONValue type
+	switch t := mof.JSONValue.(type) {
+	case nil:
+		// do nothing / save nothing
+	case string:
+		s.JSONValue = &t
+	case []interface{}:
+		if len(t) > 0 {
+			jvStr := t[0].(string)
+			for _, v := range t[1:] {
+				jvStr += ", " + v.(string)
+			}
+			s.JSONValue = &jvStr
+		}
+	default:
+		return errors.New(fmt.Sprintf("Unknown Type for JSONValue: %T", t))
+	}
+
+	return nil
 }
