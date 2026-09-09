@@ -36250,7 +36250,7 @@ func (e AbandonedCheckoutSortKeys) String() string {
 	return string(e)
 }
 
-func (e *AbandonedCheckoutSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *AbandonedCheckoutSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36264,7 +36264,7 @@ func (e *AbandonedCheckoutSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AbandonedCheckoutSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Specifies the abandonment type.
@@ -36297,7 +36297,7 @@ func (e AbandonmentAbandonmentType) String() string {
 	return string(e)
 }
 
-func (e *AbandonmentAbandonmentType) UnmarshalGQL(v interface{}) error {
+func (e *AbandonmentAbandonmentType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36311,7 +36311,7 @@ func (e *AbandonmentAbandonmentType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AbandonmentAbandonmentType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Specifies the delivery state of a marketing activity.
@@ -36344,7 +36344,7 @@ func (e AbandonmentDeliveryState) String() string {
 	return string(e)
 }
 
-func (e *AbandonmentDeliveryState) UnmarshalGQL(v interface{}) error {
+func (e *AbandonmentDeliveryState) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36358,7 +36358,7 @@ func (e *AbandonmentDeliveryState) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AbandonmentDeliveryState) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Specifies the email state.
@@ -36391,7 +36391,7 @@ func (e AbandonmentEmailState) String() string {
 	return string(e)
 }
 
-func (e *AbandonmentEmailState) UnmarshalGQL(v interface{}) error {
+func (e *AbandonmentEmailState) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36405,7 +36405,7 @@ func (e *AbandonmentEmailState) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AbandonmentEmailState) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `AbandonmentEmailStateUpdateUserError`.
@@ -36432,7 +36432,7 @@ func (e AbandonmentEmailStateUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *AbandonmentEmailStateUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *AbandonmentEmailStateUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36446,7 +36446,7 @@ func (e *AbandonmentEmailStateUpdateUserErrorCode) UnmarshalGQL(v interface{}) e
 }
 
 func (e AbandonmentEmailStateUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `AbandonmentUpdateActivitiesDeliveryStatusesUserError`.
@@ -36479,7 +36479,7 @@ func (e AbandonmentUpdateActivitiesDeliveryStatusesUserErrorCode) String() strin
 	return string(e)
 }
 
-func (e *AbandonmentUpdateActivitiesDeliveryStatusesUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *AbandonmentUpdateActivitiesDeliveryStatusesUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36493,7 +36493,7 @@ func (e *AbandonmentUpdateActivitiesDeliveryStatusesUserErrorCode) UnmarshalGQL(
 }
 
 func (e AbandonmentUpdateActivitiesDeliveryStatusesUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible account types that a staff member can have.
@@ -36541,7 +36541,7 @@ func (e AccountType) String() string {
 	return string(e)
 }
 
-func (e *AccountType) UnmarshalGQL(v interface{}) error {
+func (e *AccountType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36555,7 +36555,7 @@ func (e *AccountType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AccountType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Adjustments query.
@@ -36589,7 +36589,7 @@ func (e AdjustmentsSortKeys) String() string {
 	return string(e)
 }
 
-func (e *AdjustmentsSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *AdjustmentsSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36603,7 +36603,7 @@ func (e *AdjustmentsSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AdjustmentsSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible types of app developer.
@@ -36639,7 +36639,7 @@ func (e AppDeveloperType) String() string {
 	return string(e)
 }
 
-func (e *AppDeveloperType) UnmarshalGQL(v interface{}) error {
+func (e *AppDeveloperType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36653,7 +36653,7 @@ func (e *AppDeveloperType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AppDeveloperType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible categories of an app installation, based on their purpose
@@ -36684,7 +36684,7 @@ func (e AppInstallationCategory) String() string {
 	return string(e)
 }
 
-func (e *AppInstallationCategory) UnmarshalGQL(v interface{}) error {
+func (e *AppInstallationCategory) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36698,7 +36698,7 @@ func (e *AppInstallationCategory) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AppInstallationCategory) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The levels of privacy of an app installation.
@@ -36726,7 +36726,7 @@ func (e AppInstallationPrivacy) String() string {
 	return string(e)
 }
 
-func (e *AppInstallationPrivacy) UnmarshalGQL(v interface{}) error {
+func (e *AppInstallationPrivacy) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36740,7 +36740,7 @@ func (e *AppInstallationPrivacy) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AppInstallationPrivacy) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the AppInstallation query.
@@ -36777,7 +36777,7 @@ func (e AppInstallationSortKeys) String() string {
 	return string(e)
 }
 
-func (e *AppInstallationSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *AppInstallationSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36791,7 +36791,7 @@ func (e *AppInstallationSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AppInstallationSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The frequency at which the shop is billed for an app subscription.
@@ -36821,7 +36821,7 @@ func (e AppPricingInterval) String() string {
 	return string(e)
 }
 
-func (e *AppPricingInterval) UnmarshalGQL(v interface{}) error {
+func (e *AppPricingInterval) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36835,7 +36835,7 @@ func (e *AppPricingInterval) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AppPricingInterval) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The public-facing category for an app.
@@ -36871,7 +36871,7 @@ func (e AppPublicCategory) String() string {
 	return string(e)
 }
 
-func (e *AppPublicCategory) UnmarshalGQL(v interface{}) error {
+func (e *AppPublicCategory) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36885,7 +36885,7 @@ func (e *AppPublicCategory) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AppPublicCategory) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The approval status of the app purchase.
@@ -36930,7 +36930,7 @@ func (e AppPurchaseStatus) String() string {
 	return string(e)
 }
 
-func (e *AppPurchaseStatus) UnmarshalGQL(v interface{}) error {
+func (e *AppPurchaseStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36944,7 +36944,7 @@ func (e *AppPurchaseStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AppPurchaseStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the AppRevenueAttributionRecord query.
@@ -36978,7 +36978,7 @@ func (e AppRevenueAttributionRecordSortKeys) String() string {
 	return string(e)
 }
 
-func (e *AppRevenueAttributionRecordSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *AppRevenueAttributionRecordSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -36992,7 +36992,7 @@ func (e *AppRevenueAttributionRecordSortKeys) UnmarshalGQL(v interface{}) error 
 }
 
 func (e AppRevenueAttributionRecordSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents the billing types of revenue attribution.
@@ -37028,7 +37028,7 @@ func (e AppRevenueAttributionType) String() string {
 	return string(e)
 }
 
-func (e *AppRevenueAttributionType) UnmarshalGQL(v interface{}) error {
+func (e *AppRevenueAttributionType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37042,7 +37042,7 @@ func (e *AppRevenueAttributionType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AppRevenueAttributionType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `AppRevokeAccessScopesAppRevokeScopeError`.
@@ -37087,7 +37087,7 @@ func (e AppRevokeAccessScopesAppRevokeScopeErrorCode) String() string {
 	return string(e)
 }
 
-func (e *AppRevokeAccessScopesAppRevokeScopeErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *AppRevokeAccessScopesAppRevokeScopeErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37101,7 +37101,7 @@ func (e *AppRevokeAccessScopesAppRevokeScopeErrorCode) UnmarshalGQL(v interface{
 }
 
 func (e AppRevokeAccessScopesAppRevokeScopeErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The replacement behavior when creating an app subscription for a merchant with an already existing app subscription.
@@ -37138,7 +37138,7 @@ func (e AppSubscriptionReplacementBehavior) String() string {
 	return string(e)
 }
 
-func (e *AppSubscriptionReplacementBehavior) UnmarshalGQL(v interface{}) error {
+func (e *AppSubscriptionReplacementBehavior) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37152,7 +37152,7 @@ func (e *AppSubscriptionReplacementBehavior) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AppSubscriptionReplacementBehavior) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the AppSubscription query.
@@ -37186,7 +37186,7 @@ func (e AppSubscriptionSortKeys) String() string {
 	return string(e)
 }
 
-func (e *AppSubscriptionSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *AppSubscriptionSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37200,7 +37200,7 @@ func (e *AppSubscriptionSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AppSubscriptionSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of the app subscription.
@@ -37245,7 +37245,7 @@ func (e AppSubscriptionStatus) String() string {
 	return string(e)
 }
 
-func (e *AppSubscriptionStatus) UnmarshalGQL(v interface{}) error {
+func (e *AppSubscriptionStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37259,7 +37259,7 @@ func (e *AppSubscriptionStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AppSubscriptionStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `AppSubscriptionTrialExtendUserError`.
@@ -37292,7 +37292,7 @@ func (e AppSubscriptionTrialExtendUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *AppSubscriptionTrialExtendUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *AppSubscriptionTrialExtendUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37306,7 +37306,7 @@ func (e *AppSubscriptionTrialExtendUserErrorCode) UnmarshalGQL(v interface{}) er
 }
 
 func (e AppSubscriptionTrialExtendUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the AppTransaction query.
@@ -37340,7 +37340,7 @@ func (e AppTransactionSortKeys) String() string {
 	return string(e)
 }
 
-func (e *AppTransactionSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *AppTransactionSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37354,7 +37354,7 @@ func (e *AppTransactionSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AppTransactionSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the AppUsageRecord query.
@@ -37388,7 +37388,7 @@ func (e AppUsageRecordSortKeys) String() string {
 	return string(e)
 }
 
-func (e *AppUsageRecordSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *AppUsageRecordSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37402,7 +37402,7 @@ func (e *AppUsageRecordSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AppUsageRecordSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ArticleCreateUserError`.
@@ -37462,7 +37462,7 @@ func (e ArticleCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ArticleCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ArticleCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37476,7 +37476,7 @@ func (e *ArticleCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ArticleCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ArticleDeleteUserError`.
@@ -37503,7 +37503,7 @@ func (e ArticleDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ArticleDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ArticleDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37517,7 +37517,7 @@ func (e *ArticleDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ArticleDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Article query.
@@ -37563,7 +37563,7 @@ func (e ArticleSortKeys) String() string {
 	return string(e)
 }
 
-func (e *ArticleSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *ArticleSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37577,7 +37577,7 @@ func (e *ArticleSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ArticleSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible sort of tags.
@@ -37607,7 +37607,7 @@ func (e ArticleTagSort) String() string {
 	return string(e)
 }
 
-func (e *ArticleTagSort) UnmarshalGQL(v interface{}) error {
+func (e *ArticleTagSort) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37621,7 +37621,7 @@ func (e *ArticleTagSort) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ArticleTagSort) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ArticleUpdateUserError`.
@@ -37672,7 +37672,7 @@ func (e ArticleUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ArticleUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ArticleUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37686,7 +37686,7 @@ func (e *ArticleUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ArticleUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the AutomaticDiscount query.
@@ -37720,7 +37720,7 @@ func (e AutomaticDiscountSortKeys) String() string {
 	return string(e)
 }
 
-func (e *AutomaticDiscountSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *AutomaticDiscountSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37734,7 +37734,7 @@ func (e *AutomaticDiscountSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e AutomaticDiscountSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible types for a badge.
@@ -37773,7 +37773,7 @@ func (e BadgeType) String() string {
 	return string(e)
 }
 
-func (e *BadgeType) UnmarshalGQL(v interface{}) error {
+func (e *BadgeType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37787,7 +37787,7 @@ func (e *BadgeType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e BadgeType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the BalanceTransaction query.
@@ -37845,7 +37845,7 @@ func (e BalanceTransactionSortKeys) String() string {
 	return string(e)
 }
 
-func (e *BalanceTransactionSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *BalanceTransactionSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37859,7 +37859,7 @@ func (e *BalanceTransactionSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e BalanceTransactionSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `BillingAttemptUserError`.
@@ -37922,7 +37922,7 @@ func (e BillingAttemptUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *BillingAttemptUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *BillingAttemptUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37936,7 +37936,7 @@ func (e *BillingAttemptUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e BillingAttemptUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `BlogCreateUserError`.
@@ -37975,7 +37975,7 @@ func (e BlogCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *BlogCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *BlogCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -37989,7 +37989,7 @@ func (e *BlogCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e BlogCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `BlogDeleteUserError`.
@@ -38016,7 +38016,7 @@ func (e BlogDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *BlogDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *BlogDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38030,7 +38030,7 @@ func (e *BlogDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e BlogDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Blog query.
@@ -38067,7 +38067,7 @@ func (e BlogSortKeys) String() string {
 	return string(e)
 }
 
-func (e *BlogSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *BlogSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38081,7 +38081,7 @@ func (e *BlogSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e BlogSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `BlogUpdateUserError`.
@@ -38120,7 +38120,7 @@ func (e BlogUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *BlogUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *BlogUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38134,7 +38134,7 @@ func (e *BlogUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e BlogUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `BulkMutationUserError`.
@@ -38173,7 +38173,7 @@ func (e BulkMutationErrorCode) String() string {
 	return string(e)
 }
 
-func (e *BulkMutationErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *BulkMutationErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38187,7 +38187,7 @@ func (e *BulkMutationErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e BulkMutationErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Error codes for failed bulk operations.
@@ -38224,7 +38224,7 @@ func (e BulkOperationErrorCode) String() string {
 	return string(e)
 }
 
-func (e *BulkOperationErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *BulkOperationErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38238,7 +38238,7 @@ func (e *BulkOperationErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e BulkOperationErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The valid values for the status of a bulk operation.
@@ -38285,7 +38285,7 @@ func (e BulkOperationStatus) String() string {
 	return string(e)
 }
 
-func (e *BulkOperationStatus) UnmarshalGQL(v interface{}) error {
+func (e *BulkOperationStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38299,7 +38299,7 @@ func (e *BulkOperationStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e BulkOperationStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The valid values for the bulk operation's type.
@@ -38329,7 +38329,7 @@ func (e BulkOperationType) String() string {
 	return string(e)
 }
 
-func (e *BulkOperationType) UnmarshalGQL(v interface{}) error {
+func (e *BulkOperationType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38343,7 +38343,7 @@ func (e *BulkOperationType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e BulkOperationType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `BulkOperationUserError`.
@@ -38373,7 +38373,7 @@ func (e BulkOperationUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *BulkOperationUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *BulkOperationUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38387,7 +38387,7 @@ func (e *BulkOperationUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e BulkOperationUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `BulkProductResourceFeedbackCreateUserError`.
@@ -38432,7 +38432,7 @@ func (e BulkProductResourceFeedbackCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *BulkProductResourceFeedbackCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *BulkProductResourceFeedbackCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38446,7 +38446,7 @@ func (e *BulkProductResourceFeedbackCreateUserErrorCode) UnmarshalGQL(v interfac
 }
 
 func (e BulkProductResourceFeedbackCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `BusinessCustomerUserError`.
@@ -38506,7 +38506,7 @@ func (e BusinessCustomerErrorCode) String() string {
 	return string(e)
 }
 
-func (e *BusinessCustomerErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *BusinessCustomerErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38520,7 +38520,7 @@ func (e *BusinessCustomerErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e BusinessCustomerErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents the staged status of a CalculatedShippingLine on a CalculatedOrder.
@@ -38553,7 +38553,7 @@ func (e CalculatedShippingLineStagedStatus) String() string {
 	return string(e)
 }
 
-func (e *CalculatedShippingLineStagedStatus) UnmarshalGQL(v interface{}) error {
+func (e *CalculatedShippingLineStagedStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38567,7 +38567,7 @@ func (e *CalculatedShippingLineStagedStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CalculatedShippingLineStagedStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CarrierServiceCreateUserError`.
@@ -38594,7 +38594,7 @@ func (e CarrierServiceCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CarrierServiceCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CarrierServiceCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38608,7 +38608,7 @@ func (e *CarrierServiceCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CarrierServiceCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CarrierServiceDeleteUserError`.
@@ -38635,7 +38635,7 @@ func (e CarrierServiceDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CarrierServiceDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CarrierServiceDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38649,7 +38649,7 @@ func (e *CarrierServiceDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CarrierServiceDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the CarrierService query.
@@ -38686,7 +38686,7 @@ func (e CarrierServiceSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CarrierServiceSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CarrierServiceSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38700,7 +38700,7 @@ func (e *CarrierServiceSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CarrierServiceSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CarrierServiceUpdateUserError`.
@@ -38727,7 +38727,7 @@ func (e CarrierServiceUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CarrierServiceUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CarrierServiceUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38741,7 +38741,7 @@ func (e *CarrierServiceUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CarrierServiceUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CartTransformCreateUserError`.
@@ -38780,7 +38780,7 @@ func (e CartTransformCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CartTransformCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CartTransformCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38794,7 +38794,7 @@ func (e *CartTransformCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CartTransformCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CartTransformDeleteUserError`.
@@ -38824,7 +38824,7 @@ func (e CartTransformDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CartTransformDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CartTransformDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38838,7 +38838,7 @@ func (e *CartTransformDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CartTransformDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the CashTrackingSessionTransactions query.
@@ -38872,7 +38872,7 @@ func (e CashTrackingSessionTransactionsSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CashTrackingSessionTransactionsSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CashTrackingSessionTransactionsSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38886,7 +38886,7 @@ func (e *CashTrackingSessionTransactionsSortKeys) UnmarshalGQL(v interface{}) er
 }
 
 func (e CashTrackingSessionTransactionsSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the CashTrackingSessions query.
@@ -38935,7 +38935,7 @@ func (e CashTrackingSessionsSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CashTrackingSessionsSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CashTrackingSessionsSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38949,7 +38949,7 @@ func (e *CashTrackingSessionsSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CashTrackingSessionsSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Catalog query.
@@ -38983,7 +38983,7 @@ func (e CatalogSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CatalogSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CatalogSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -38997,7 +38997,7 @@ func (e *CatalogSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CatalogSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The state of a catalog.
@@ -39030,7 +39030,7 @@ func (e CatalogStatus) String() string {
 	return string(e)
 }
 
-func (e *CatalogStatus) UnmarshalGQL(v interface{}) error {
+func (e *CatalogStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39044,7 +39044,7 @@ func (e *CatalogStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CatalogStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The associated catalog's type.
@@ -39080,7 +39080,7 @@ func (e CatalogType) String() string {
 	return string(e)
 }
 
-func (e *CatalogType) UnmarshalGQL(v interface{}) error {
+func (e *CatalogType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39094,7 +39094,7 @@ func (e *CatalogType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CatalogType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CatalogUserError`.
@@ -39226,7 +39226,7 @@ func (e CatalogUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CatalogUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CatalogUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39240,7 +39240,7 @@ func (e *CatalogUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CatalogUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The container background style.
@@ -39273,7 +39273,7 @@ func (e CheckoutBrandingBackground) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingBackground) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingBackground) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39287,7 +39287,7 @@ func (e *CheckoutBrandingBackground) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingBackground) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible values for the background style.
@@ -39317,7 +39317,7 @@ func (e CheckoutBrandingBackgroundStyle) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingBackgroundStyle) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingBackgroundStyle) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39331,7 +39331,7 @@ func (e *CheckoutBrandingBackgroundStyle) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingBackgroundStyle) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible values for the border.
@@ -39364,7 +39364,7 @@ func (e CheckoutBrandingBorder) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingBorder) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingBorder) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39378,7 +39378,7 @@ func (e *CheckoutBrandingBorder) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingBorder) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The container border style.
@@ -39411,7 +39411,7 @@ func (e CheckoutBrandingBorderStyle) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingBorderStyle) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingBorderStyle) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39425,7 +39425,7 @@ func (e *CheckoutBrandingBorderStyle) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingBorderStyle) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The container border width.
@@ -39461,7 +39461,7 @@ func (e CheckoutBrandingBorderWidth) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingBorderWidth) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingBorderWidth) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39475,7 +39475,7 @@ func (e *CheckoutBrandingBorderWidth) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingBorderWidth) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible values for the cart link content type for the header.
@@ -39508,7 +39508,7 @@ func (e CheckoutBrandingCartLinkContentType) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingCartLinkContentType) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingCartLinkContentType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39522,7 +39522,7 @@ func (e *CheckoutBrandingCartLinkContentType) UnmarshalGQL(v interface{}) error 
 }
 
 func (e CheckoutBrandingCartLinkContentType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible color schemes.
@@ -39561,7 +39561,7 @@ func (e CheckoutBrandingColorSchemeSelection) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingColorSchemeSelection) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingColorSchemeSelection) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39575,7 +39575,7 @@ func (e *CheckoutBrandingColorSchemeSelection) UnmarshalGQL(v interface{}) error
 }
 
 func (e CheckoutBrandingColorSchemeSelection) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible colors.
@@ -39602,7 +39602,7 @@ func (e CheckoutBrandingColorSelection) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingColorSelection) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingColorSelection) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39616,7 +39616,7 @@ func (e *CheckoutBrandingColorSelection) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingColorSelection) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The options for customizing the corner radius of checkout-related objects. Examples include the primary
@@ -39659,7 +39659,7 @@ func (e CheckoutBrandingCornerRadius) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingCornerRadius) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingCornerRadius) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39673,7 +39673,7 @@ func (e *CheckoutBrandingCornerRadius) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingCornerRadius) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The font loading strategy determines how a font face is displayed after it is loaded or failed to load.
@@ -39713,7 +39713,7 @@ func (e CheckoutBrandingFontLoadingStrategy) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingFontLoadingStrategy) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingFontLoadingStrategy) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39727,7 +39727,7 @@ func (e *CheckoutBrandingFontLoadingStrategy) UnmarshalGQL(v interface{}) error 
 }
 
 func (e CheckoutBrandingFontLoadingStrategy) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible values for the footer alignment.
@@ -39760,7 +39760,7 @@ func (e CheckoutBrandingFooterAlignment) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingFooterAlignment) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingFooterAlignment) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39774,7 +39774,7 @@ func (e *CheckoutBrandingFooterAlignment) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingFooterAlignment) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible values for the footer position.
@@ -39804,7 +39804,7 @@ func (e CheckoutBrandingFooterPosition) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingFooterPosition) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingFooterPosition) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39818,7 +39818,7 @@ func (e *CheckoutBrandingFooterPosition) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingFooterPosition) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible choices to override corner radius customizations on all applicable objects. Note that this selection
@@ -39849,7 +39849,7 @@ func (e CheckoutBrandingGlobalCornerRadius) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingGlobalCornerRadius) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingGlobalCornerRadius) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39863,7 +39863,7 @@ func (e *CheckoutBrandingGlobalCornerRadius) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingGlobalCornerRadius) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible header alignments.
@@ -39896,7 +39896,7 @@ func (e CheckoutBrandingHeaderAlignment) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingHeaderAlignment) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingHeaderAlignment) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39910,7 +39910,7 @@ func (e *CheckoutBrandingHeaderAlignment) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingHeaderAlignment) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible header positions.
@@ -39943,7 +39943,7 @@ func (e CheckoutBrandingHeaderPosition) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingHeaderPosition) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingHeaderPosition) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -39957,7 +39957,7 @@ func (e *CheckoutBrandingHeaderPosition) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingHeaderPosition) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible values for the label position.
@@ -39987,7 +39987,7 @@ func (e CheckoutBrandingLabelPosition) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingLabelPosition) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingLabelPosition) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40001,7 +40001,7 @@ func (e *CheckoutBrandingLabelPosition) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingLabelPosition) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The container shadow.
@@ -40040,7 +40040,7 @@ func (e CheckoutBrandingShadow) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingShadow) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingShadow) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40054,7 +40054,7 @@ func (e *CheckoutBrandingShadow) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingShadow) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible values for the simple border.
@@ -40084,7 +40084,7 @@ func (e CheckoutBrandingSimpleBorder) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingSimpleBorder) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingSimpleBorder) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40098,7 +40098,7 @@ func (e *CheckoutBrandingSimpleBorder) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingSimpleBorder) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible values for the spacing.
@@ -40140,7 +40140,7 @@ func (e CheckoutBrandingSpacing) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingSpacing) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingSpacing) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40154,7 +40154,7 @@ func (e *CheckoutBrandingSpacing) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingSpacing) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The spacing between UI elements.
@@ -40220,7 +40220,7 @@ func (e CheckoutBrandingSpacingKeyword) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingSpacingKeyword) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingSpacingKeyword) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40234,7 +40234,7 @@ func (e *CheckoutBrandingSpacingKeyword) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingSpacingKeyword) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The font selection.
@@ -40264,7 +40264,7 @@ func (e CheckoutBrandingTypographyFont) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingTypographyFont) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingTypographyFont) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40278,7 +40278,7 @@ func (e *CheckoutBrandingTypographyFont) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingTypographyFont) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible values for the typography kerning.
@@ -40311,7 +40311,7 @@ func (e CheckoutBrandingTypographyKerning) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingTypographyKerning) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingTypographyKerning) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40325,7 +40325,7 @@ func (e *CheckoutBrandingTypographyKerning) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingTypographyKerning) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible values for the typography letter case.
@@ -40361,7 +40361,7 @@ func (e CheckoutBrandingTypographyLetterCase) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingTypographyLetterCase) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingTypographyLetterCase) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40375,7 +40375,7 @@ func (e *CheckoutBrandingTypographyLetterCase) UnmarshalGQL(v interface{}) error
 }
 
 func (e CheckoutBrandingTypographyLetterCase) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible choices for the font size.
@@ -40425,7 +40425,7 @@ func (e CheckoutBrandingTypographySize) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingTypographySize) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingTypographySize) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40439,7 +40439,7 @@ func (e *CheckoutBrandingTypographySize) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingTypographySize) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible values for the font weight.
@@ -40469,7 +40469,7 @@ func (e CheckoutBrandingTypographyWeight) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingTypographyWeight) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingTypographyWeight) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40483,7 +40483,7 @@ func (e *CheckoutBrandingTypographyWeight) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingTypographyWeight) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CheckoutBrandingUpsertUserError`.
@@ -40510,7 +40510,7 @@ func (e CheckoutBrandingUpsertUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingUpsertUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingUpsertUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40524,7 +40524,7 @@ func (e *CheckoutBrandingUpsertUserErrorCode) UnmarshalGQL(v interface{}) error 
 }
 
 func (e CheckoutBrandingUpsertUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible visibility states.
@@ -40554,7 +40554,7 @@ func (e CheckoutBrandingVisibility) String() string {
 	return string(e)
 }
 
-func (e *CheckoutBrandingVisibility) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutBrandingVisibility) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40568,7 +40568,7 @@ func (e *CheckoutBrandingVisibility) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutBrandingVisibility) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the CheckoutProfile query.
@@ -40611,7 +40611,7 @@ func (e CheckoutProfileSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CheckoutProfileSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CheckoutProfileSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40625,7 +40625,7 @@ func (e *CheckoutProfileSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CheckoutProfileSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the CodeDiscount query.
@@ -40671,7 +40671,7 @@ func (e CodeDiscountSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CodeDiscountSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CodeDiscountSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40685,7 +40685,7 @@ func (e *CodeDiscountSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CodeDiscountSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CollectionAddProductsV2UserError`.
@@ -40715,7 +40715,7 @@ func (e CollectionAddProductsV2UserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CollectionAddProductsV2UserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CollectionAddProductsV2UserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40729,7 +40729,7 @@ func (e *CollectionAddProductsV2UserErrorCode) UnmarshalGQL(v interface{}) error
 }
 
 func (e CollectionAddProductsV2UserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Specifies the attribute of a product being used to populate the smart collection.
@@ -40797,7 +40797,7 @@ func (e CollectionRuleColumn) String() string {
 	return string(e)
 }
 
-func (e *CollectionRuleColumn) UnmarshalGQL(v interface{}) error {
+func (e *CollectionRuleColumn) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40811,7 +40811,7 @@ func (e *CollectionRuleColumn) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CollectionRuleColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Specifies the relationship between the `column` and the `condition`.
@@ -40865,7 +40865,7 @@ func (e CollectionRuleRelation) String() string {
 	return string(e)
 }
 
-func (e *CollectionRuleRelation) UnmarshalGQL(v interface{}) error {
+func (e *CollectionRuleRelation) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40879,7 +40879,7 @@ func (e *CollectionRuleRelation) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CollectionRuleRelation) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Collection query.
@@ -40916,7 +40916,7 @@ func (e CollectionSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CollectionSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CollectionSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40930,7 +40930,7 @@ func (e *CollectionSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CollectionSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Specifies the sort order for the products in the collection.
@@ -40978,7 +40978,7 @@ func (e CollectionSortOrder) String() string {
 	return string(e)
 }
 
-func (e *CollectionSortOrder) UnmarshalGQL(v interface{}) error {
+func (e *CollectionSortOrder) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -40992,7 +40992,7 @@ func (e *CollectionSortOrder) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CollectionSortOrder) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CombinedListingUpdateUserError`.
@@ -41103,7 +41103,7 @@ func (e CombinedListingUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CombinedListingUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CombinedListingUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41117,7 +41117,7 @@ func (e *CombinedListingUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CombinedListingUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The role of the combined listing.
@@ -41147,7 +41147,7 @@ func (e CombinedListingsRole) String() string {
 	return string(e)
 }
 
-func (e *CombinedListingsRole) UnmarshalGQL(v interface{}) error {
+func (e *CombinedListingsRole) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41161,7 +41161,7 @@ func (e *CombinedListingsRole) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CombinedListingsRole) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CommentApproveUserError`.
@@ -41188,7 +41188,7 @@ func (e CommentApproveUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CommentApproveUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CommentApproveUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41202,7 +41202,7 @@ func (e *CommentApproveUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CommentApproveUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CommentDeleteUserError`.
@@ -41229,7 +41229,7 @@ func (e CommentDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CommentDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CommentDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41243,7 +41243,7 @@ func (e *CommentDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CommentDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CommentNotSpamUserError`.
@@ -41270,7 +41270,7 @@ func (e CommentNotSpamUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CommentNotSpamUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CommentNotSpamUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41284,7 +41284,7 @@ func (e *CommentNotSpamUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CommentNotSpamUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible comment policies for a blog.
@@ -41317,7 +41317,7 @@ func (e CommentPolicy) String() string {
 	return string(e)
 }
 
-func (e *CommentPolicy) UnmarshalGQL(v interface{}) error {
+func (e *CommentPolicy) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41331,7 +41331,7 @@ func (e *CommentPolicy) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CommentPolicy) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Comment query.
@@ -41365,7 +41365,7 @@ func (e CommentSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CommentSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CommentSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41379,7 +41379,7 @@ func (e *CommentSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CommentSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CommentSpamUserError`.
@@ -41406,7 +41406,7 @@ func (e CommentSpamUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CommentSpamUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CommentSpamUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41420,7 +41420,7 @@ func (e *CommentSpamUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CommentSpamUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of a comment.
@@ -41459,7 +41459,7 @@ func (e CommentStatus) String() string {
 	return string(e)
 }
 
-func (e *CommentStatus) UnmarshalGQL(v interface{}) error {
+func (e *CommentStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41473,7 +41473,7 @@ func (e *CommentStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CommentStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The valid values for the address type of a company.
@@ -41503,7 +41503,7 @@ func (e CompanyAddressType) String() string {
 	return string(e)
 }
 
-func (e *CompanyAddressType) UnmarshalGQL(v interface{}) error {
+func (e *CompanyAddressType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41517,7 +41517,7 @@ func (e *CompanyAddressType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CompanyAddressType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the CompanyContactRoleAssignment query.
@@ -41557,7 +41557,7 @@ func (e CompanyContactRoleAssignmentSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CompanyContactRoleAssignmentSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CompanyContactRoleAssignmentSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41571,7 +41571,7 @@ func (e *CompanyContactRoleAssignmentSortKeys) UnmarshalGQL(v interface{}) error
 }
 
 func (e CompanyContactRoleAssignmentSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the CompanyContactRole query.
@@ -41608,7 +41608,7 @@ func (e CompanyContactRoleSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CompanyContactRoleSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CompanyContactRoleSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41622,7 +41622,7 @@ func (e *CompanyContactRoleSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CompanyContactRoleSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the CompanyContact query.
@@ -41674,7 +41674,7 @@ func (e CompanyContactSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CompanyContactSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CompanyContactSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41688,7 +41688,7 @@ func (e *CompanyContactSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CompanyContactSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the CompanyLocation query.
@@ -41734,7 +41734,7 @@ func (e CompanyLocationSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CompanyLocationSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CompanyLocationSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41748,7 +41748,7 @@ func (e *CompanyLocationSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CompanyLocationSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the CompanyLocationStaffMemberAssignment query.
@@ -41785,7 +41785,7 @@ func (e CompanyLocationStaffMemberAssignmentSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CompanyLocationStaffMemberAssignmentSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CompanyLocationStaffMemberAssignmentSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41799,7 +41799,7 @@ func (e *CompanyLocationStaffMemberAssignmentSortKeys) UnmarshalGQL(v interface{
 }
 
 func (e CompanyLocationStaffMemberAssignmentSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Company query.
@@ -41848,7 +41848,7 @@ func (e CompanySortKeys) String() string {
 	return string(e)
 }
 
-func (e *CompanySortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CompanySortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41862,7 +41862,7 @@ func (e *CompanySortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CompanySortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The precision of the value returned by a count field.
@@ -41892,7 +41892,7 @@ func (e CountPrecision) String() string {
 	return string(e)
 }
 
-func (e *CountPrecision) UnmarshalGQL(v interface{}) error {
+func (e *CountPrecision) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -41906,7 +41906,7 @@ func (e *CountPrecision) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CountPrecision) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The code designating a country/region, which generally follows ISO 3166-1 alpha-2 guidelines.
@@ -42668,7 +42668,7 @@ func (e CountryCode) String() string {
 	return string(e)
 }
 
-func (e *CountryCode) UnmarshalGQL(v interface{}) error {
+func (e *CountryCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -42682,7 +42682,7 @@ func (e *CountryCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CountryCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The part of the image that should remain after cropping.
@@ -42721,7 +42721,7 @@ func (e CropRegion) String() string {
 	return string(e)
 }
 
-func (e *CropRegion) UnmarshalGQL(v interface{}) error {
+func (e *CropRegion) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -42735,7 +42735,7 @@ func (e *CropRegion) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CropRegion) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The three-letter currency codes that represent the world currencies used in stores. These include standard ISO 4217 codes, legacy codes,
@@ -43243,7 +43243,7 @@ func (e CurrencyCode) String() string {
 	return string(e)
 }
 
-func (e *CurrencyCode) UnmarshalGQL(v interface{}) error {
+func (e *CurrencyCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43257,7 +43257,7 @@ func (e *CurrencyCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CurrencyCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The type of customer account native page.
@@ -43293,7 +43293,7 @@ func (e CustomerAccountNativePagePageType) String() string {
 	return string(e)
 }
 
-func (e *CustomerAccountNativePagePageType) UnmarshalGQL(v interface{}) error {
+func (e *CustomerAccountNativePagePageType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43307,7 +43307,7 @@ func (e *CustomerAccountNativePagePageType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerAccountNativePagePageType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The login redirection target for customer accounts.
@@ -43337,7 +43337,7 @@ func (e CustomerAccountsVersion) String() string {
 	return string(e)
 }
 
-func (e *CustomerAccountsVersion) UnmarshalGQL(v interface{}) error {
+func (e *CustomerAccountsVersion) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43351,7 +43351,7 @@ func (e *CustomerAccountsVersion) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerAccountsVersion) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CustomerCancelDataErasureUserError`.
@@ -43384,7 +43384,7 @@ func (e CustomerCancelDataErasureErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CustomerCancelDataErasureErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CustomerCancelDataErasureErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43398,7 +43398,7 @@ func (e *CustomerCancelDataErasureErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerCancelDataErasureErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The source that collected the customer's consent to receive marketing materials.
@@ -43428,7 +43428,7 @@ func (e CustomerConsentCollectedFrom) String() string {
 	return string(e)
 }
 
-func (e *CustomerConsentCollectedFrom) UnmarshalGQL(v interface{}) error {
+func (e *CustomerConsentCollectedFrom) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43442,7 +43442,7 @@ func (e *CustomerConsentCollectedFrom) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerConsentCollectedFrom) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible marketing states for the customer’s email address.
@@ -43481,7 +43481,7 @@ func (e CustomerEmailAddressMarketingState) String() string {
 	return string(e)
 }
 
-func (e *CustomerEmailAddressMarketingState) UnmarshalGQL(v interface{}) error {
+func (e *CustomerEmailAddressMarketingState) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43495,7 +43495,7 @@ func (e *CustomerEmailAddressMarketingState) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerEmailAddressMarketingState) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The different levels related to whether a customer has opted in to having their opened emails tracked.
@@ -43528,7 +43528,7 @@ func (e CustomerEmailAddressOpenTrackingLevel) String() string {
 	return string(e)
 }
 
-func (e *CustomerEmailAddressOpenTrackingLevel) UnmarshalGQL(v interface{}) error {
+func (e *CustomerEmailAddressOpenTrackingLevel) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43542,7 +43542,7 @@ func (e *CustomerEmailAddressOpenTrackingLevel) UnmarshalGQL(v interface{}) erro
 }
 
 func (e CustomerEmailAddressOpenTrackingLevel) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CustomerEmailMarketingConsentUpdateUserError`.
@@ -43578,7 +43578,7 @@ func (e CustomerEmailMarketingConsentUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CustomerEmailMarketingConsentUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CustomerEmailMarketingConsentUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43592,7 +43592,7 @@ func (e *CustomerEmailMarketingConsentUpdateUserErrorCode) UnmarshalGQL(v interf
 }
 
 func (e CustomerEmailMarketingConsentUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible email marketing states for a customer.
@@ -43634,7 +43634,7 @@ func (e CustomerEmailMarketingState) String() string {
 	return string(e)
 }
 
-func (e *CustomerEmailMarketingState) UnmarshalGQL(v interface{}) error {
+func (e *CustomerEmailMarketingState) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43648,7 +43648,7 @@ func (e *CustomerEmailMarketingState) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerEmailMarketingState) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible values for the marketing subscription opt-in level enabled at the time the customer consented to receive marketing information.
@@ -43687,7 +43687,7 @@ func (e CustomerMarketingOptInLevel) String() string {
 	return string(e)
 }
 
-func (e *CustomerMarketingOptInLevel) UnmarshalGQL(v interface{}) error {
+func (e *CustomerMarketingOptInLevel) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43701,7 +43701,7 @@ func (e *CustomerMarketingOptInLevel) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerMarketingOptInLevel) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CustomerMergeUserError`.
@@ -43743,7 +43743,7 @@ func (e CustomerMergeErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CustomerMergeErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CustomerMergeErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43757,7 +43757,7 @@ func (e *CustomerMergeErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerMergeErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The types of the hard blockers preventing a customer from being merged to another customer.
@@ -43811,7 +43811,7 @@ func (e CustomerMergeErrorFieldType) String() string {
 	return string(e)
 }
 
-func (e *CustomerMergeErrorFieldType) UnmarshalGQL(v interface{}) error {
+func (e *CustomerMergeErrorFieldType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43825,7 +43825,7 @@ func (e *CustomerMergeErrorFieldType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerMergeErrorFieldType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of the customer merge request.
@@ -43861,7 +43861,7 @@ func (e CustomerMergeRequestStatus) String() string {
 	return string(e)
 }
 
-func (e *CustomerMergeRequestStatus) UnmarshalGQL(v interface{}) error {
+func (e *CustomerMergeRequestStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43875,7 +43875,7 @@ func (e *CustomerMergeRequestStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerMergeRequestStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CustomerPaymentMethodCreateFromDuplicationDataUserError`.
@@ -43908,7 +43908,7 @@ func (e CustomerPaymentMethodCreateFromDuplicationDataUserErrorCode) String() st
 	return string(e)
 }
 
-func (e *CustomerPaymentMethodCreateFromDuplicationDataUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CustomerPaymentMethodCreateFromDuplicationDataUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43922,7 +43922,7 @@ func (e *CustomerPaymentMethodCreateFromDuplicationDataUserErrorCode) UnmarshalG
 }
 
 func (e CustomerPaymentMethodCreateFromDuplicationDataUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CustomerPaymentMethodGetDuplicationDataUserError`.
@@ -43964,7 +43964,7 @@ func (e CustomerPaymentMethodGetDuplicationDataUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CustomerPaymentMethodGetDuplicationDataUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CustomerPaymentMethodGetDuplicationDataUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -43978,7 +43978,7 @@ func (e *CustomerPaymentMethodGetDuplicationDataUserErrorCode) UnmarshalGQL(v in
 }
 
 func (e CustomerPaymentMethodGetDuplicationDataUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CustomerPaymentMethodGetUpdateUrlUserError`.
@@ -44014,7 +44014,7 @@ func (e CustomerPaymentMethodGetUpdateURLUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CustomerPaymentMethodGetUpdateURLUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CustomerPaymentMethodGetUpdateURLUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44028,7 +44028,7 @@ func (e *CustomerPaymentMethodGetUpdateURLUserErrorCode) UnmarshalGQL(v interfac
 }
 
 func (e CustomerPaymentMethodGetUpdateURLUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CustomerPaymentMethodRemoteUserError`.
@@ -44070,7 +44070,7 @@ func (e CustomerPaymentMethodRemoteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CustomerPaymentMethodRemoteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CustomerPaymentMethodRemoteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44084,7 +44084,7 @@ func (e *CustomerPaymentMethodRemoteUserErrorCode) UnmarshalGQL(v interface{}) e
 }
 
 func (e CustomerPaymentMethodRemoteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The revocation reason types for a customer payment method.
@@ -44153,7 +44153,7 @@ func (e CustomerPaymentMethodRevocationReason) String() string {
 	return string(e)
 }
 
-func (e *CustomerPaymentMethodRevocationReason) UnmarshalGQL(v interface{}) error {
+func (e *CustomerPaymentMethodRevocationReason) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44167,7 +44167,7 @@ func (e *CustomerPaymentMethodRevocationReason) UnmarshalGQL(v interface{}) erro
 }
 
 func (e CustomerPaymentMethodRevocationReason) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CustomerPaymentMethodUserError`.
@@ -44200,7 +44200,7 @@ func (e CustomerPaymentMethodUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CustomerPaymentMethodUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CustomerPaymentMethodUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44214,7 +44214,7 @@ func (e *CustomerPaymentMethodUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerPaymentMethodUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The valid tiers for the predicted spend of a customer with a shop.
@@ -44247,7 +44247,7 @@ func (e CustomerPredictedSpendTier) String() string {
 	return string(e)
 }
 
-func (e *CustomerPredictedSpendTier) UnmarshalGQL(v interface{}) error {
+func (e *CustomerPredictedSpendTier) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44261,7 +44261,7 @@ func (e *CustomerPredictedSpendTier) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerPredictedSpendTier) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible product subscription states for a customer, as defined by the customer's subscription contracts.
@@ -44307,7 +44307,7 @@ func (e CustomerProductSubscriberStatus) String() string {
 	return string(e)
 }
 
-func (e *CustomerProductSubscriberStatus) UnmarshalGQL(v interface{}) error {
+func (e *CustomerProductSubscriberStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44321,7 +44321,7 @@ func (e *CustomerProductSubscriberStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerProductSubscriberStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CustomerRequestDataErasureUserError`.
@@ -44351,7 +44351,7 @@ func (e CustomerRequestDataErasureErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CustomerRequestDataErasureErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CustomerRequestDataErasureErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44365,7 +44365,7 @@ func (e *CustomerRequestDataErasureErrorCode) UnmarshalGQL(v interface{}) error 
 }
 
 func (e CustomerRequestDataErasureErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the CustomerSavedSearch query.
@@ -44399,7 +44399,7 @@ func (e CustomerSavedSearchSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CustomerSavedSearchSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CustomerSavedSearchSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44413,7 +44413,7 @@ func (e *CustomerSavedSearchSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerSavedSearchSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CustomerSegmentMembersQueryUserError`.
@@ -44440,7 +44440,7 @@ func (e CustomerSegmentMembersQueryUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CustomerSegmentMembersQueryUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CustomerSegmentMembersQueryUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44454,7 +44454,7 @@ func (e *CustomerSegmentMembersQueryUserErrorCode) UnmarshalGQL(v interface{}) e
 }
 
 func (e CustomerSegmentMembersQueryUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CustomerSendAccountInviteEmailUserError`.
@@ -44481,7 +44481,7 @@ func (e CustomerSendAccountInviteEmailUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CustomerSendAccountInviteEmailUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CustomerSendAccountInviteEmailUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44495,7 +44495,7 @@ func (e *CustomerSendAccountInviteEmailUserErrorCode) UnmarshalGQL(v interface{}
 }
 
 func (e CustomerSendAccountInviteEmailUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `CustomerSmsMarketingConsentError`.
@@ -44531,7 +44531,7 @@ func (e CustomerSmsMarketingConsentErrorCode) String() string {
 	return string(e)
 }
 
-func (e *CustomerSmsMarketingConsentErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *CustomerSmsMarketingConsentErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44545,7 +44545,7 @@ func (e *CustomerSmsMarketingConsentErrorCode) UnmarshalGQL(v interface{}) error
 }
 
 func (e CustomerSmsMarketingConsentErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The valid SMS marketing states for a customer’s phone number.
@@ -44584,7 +44584,7 @@ func (e CustomerSmsMarketingState) String() string {
 	return string(e)
 }
 
-func (e *CustomerSmsMarketingState) UnmarshalGQL(v interface{}) error {
+func (e *CustomerSmsMarketingState) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44598,7 +44598,7 @@ func (e *CustomerSmsMarketingState) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerSmsMarketingState) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Customer query.
@@ -44641,7 +44641,7 @@ func (e CustomerSortKeys) String() string {
 	return string(e)
 }
 
-func (e *CustomerSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *CustomerSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44655,7 +44655,7 @@ func (e *CustomerSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The valid values for the state of a customer's account with a shop.
@@ -44691,7 +44691,7 @@ func (e CustomerState) String() string {
 	return string(e)
 }
 
-func (e *CustomerState) UnmarshalGQL(v interface{}) error {
+func (e *CustomerState) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44705,7 +44705,7 @@ func (e *CustomerState) UnmarshalGQL(v interface{}) error {
 }
 
 func (e CustomerState) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `DataSaleOptOutUserError`.
@@ -44732,7 +44732,7 @@ func (e DataSaleOptOutUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *DataSaleOptOutUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *DataSaleOptOutUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44746,7 +44746,7 @@ func (e *DataSaleOptOutUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DataSaleOptOutUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Days of the week from Monday to Sunday.
@@ -44791,7 +44791,7 @@ func (e DayOfTheWeek) String() string {
 	return string(e)
 }
 
-func (e *DayOfTheWeek) UnmarshalGQL(v interface{}) error {
+func (e *DayOfTheWeek) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44805,7 +44805,7 @@ func (e *DayOfTheWeek) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DayOfTheWeek) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `DelegateAccessTokenCreateUserError`.
@@ -44850,7 +44850,7 @@ func (e DelegateAccessTokenCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *DelegateAccessTokenCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *DelegateAccessTokenCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44864,7 +44864,7 @@ func (e *DelegateAccessTokenCreateUserErrorCode) UnmarshalGQL(v interface{}) err
 }
 
 func (e DelegateAccessTokenCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `DelegateAccessTokenDestroyUserError`.
@@ -44900,7 +44900,7 @@ func (e DelegateAccessTokenDestroyUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *DelegateAccessTokenDestroyUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *DelegateAccessTokenDestroyUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44914,7 +44914,7 @@ func (e *DelegateAccessTokenDestroyUserErrorCode) UnmarshalGQL(v interface{}) er
 }
 
 func (e DelegateAccessTokenDestroyUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the DeletionEvent query.
@@ -44948,7 +44948,7 @@ func (e DeletionEventSortKeys) String() string {
 	return string(e)
 }
 
-func (e *DeletionEventSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *DeletionEventSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -44962,7 +44962,7 @@ func (e *DeletionEventSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DeletionEventSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The supported subject types of deletion events.
@@ -44990,7 +44990,7 @@ func (e DeletionEventSubjectType) String() string {
 	return string(e)
 }
 
-func (e *DeletionEventSubjectType) UnmarshalGQL(v interface{}) error {
+func (e *DeletionEventSubjectType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45004,7 +45004,7 @@ func (e *DeletionEventSubjectType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DeletionEventSubjectType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The field type that the condition will be applied to.
@@ -45034,7 +45034,7 @@ func (e DeliveryConditionField) String() string {
 	return string(e)
 }
 
-func (e *DeliveryConditionField) UnmarshalGQL(v interface{}) error {
+func (e *DeliveryConditionField) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45048,7 +45048,7 @@ func (e *DeliveryConditionField) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DeliveryConditionField) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The operator to use to determine if the condition passes.
@@ -45078,7 +45078,7 @@ func (e DeliveryConditionOperator) String() string {
 	return string(e)
 }
 
-func (e *DeliveryConditionOperator) UnmarshalGQL(v interface{}) error {
+func (e *DeliveryConditionOperator) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45092,7 +45092,7 @@ func (e *DeliveryConditionOperator) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DeliveryConditionOperator) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `DeliveryCustomizationError`.
@@ -45152,7 +45152,7 @@ func (e DeliveryCustomizationErrorCode) String() string {
 	return string(e)
 }
 
-func (e *DeliveryCustomizationErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *DeliveryCustomizationErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45166,7 +45166,7 @@ func (e *DeliveryCustomizationErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DeliveryCustomizationErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Reasons the shop is blocked from converting to full multi-location delivery profiles mode.
@@ -45196,7 +45196,7 @@ func (e DeliveryLegacyModeBlockedReason) String() string {
 	return string(e)
 }
 
-func (e *DeliveryLegacyModeBlockedReason) UnmarshalGQL(v interface{}) error {
+func (e *DeliveryLegacyModeBlockedReason) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45210,7 +45210,7 @@ func (e *DeliveryLegacyModeBlockedReason) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DeliveryLegacyModeBlockedReason) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible pickup time values that a location enabled for local pickup can have.
@@ -45252,7 +45252,7 @@ func (e DeliveryLocalPickupTime) String() string {
 	return string(e)
 }
 
-func (e *DeliveryLocalPickupTime) UnmarshalGQL(v interface{}) error {
+func (e *DeliveryLocalPickupTime) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45266,7 +45266,7 @@ func (e *DeliveryLocalPickupTime) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DeliveryLocalPickupTime) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `DeliveryLocationLocalPickupSettingsError`.
@@ -45296,7 +45296,7 @@ func (e DeliveryLocationLocalPickupSettingsErrorCode) String() string {
 	return string(e)
 }
 
-func (e *DeliveryLocationLocalPickupSettingsErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *DeliveryLocationLocalPickupSettingsErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45310,7 +45310,7 @@ func (e *DeliveryLocationLocalPickupSettingsErrorCode) UnmarshalGQL(v interface{
 }
 
 func (e DeliveryLocationLocalPickupSettingsErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The different types of method definitions to filter by.
@@ -45340,7 +45340,7 @@ func (e DeliveryMethodDefinitionType) String() string {
 	return string(e)
 }
 
-func (e *DeliveryMethodDefinitionType) UnmarshalGQL(v interface{}) error {
+func (e *DeliveryMethodDefinitionType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45354,7 +45354,7 @@ func (e *DeliveryMethodDefinitionType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DeliveryMethodDefinitionType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible method types that a delivery method can have.
@@ -45396,7 +45396,7 @@ func (e DeliveryMethodType) String() string {
 	return string(e)
 }
 
-func (e *DeliveryMethodType) UnmarshalGQL(v interface{}) error {
+func (e *DeliveryMethodType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45410,7 +45410,7 @@ func (e *DeliveryMethodType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DeliveryMethodType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `DeliveryPromiseProviderUpsertUserError`.
@@ -45446,7 +45446,7 @@ func (e DeliveryPromiseProviderUpsertUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *DeliveryPromiseProviderUpsertUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *DeliveryPromiseProviderUpsertUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45460,7 +45460,7 @@ func (e *DeliveryPromiseProviderUpsertUserErrorCode) UnmarshalGQL(v interface{})
 }
 
 func (e DeliveryPromiseProviderUpsertUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Digital wallet, such as Apple Pay, which can be used for accelerated checkouts.
@@ -45496,7 +45496,7 @@ func (e DigitalWallet) String() string {
 	return string(e)
 }
 
-func (e *DigitalWallet) UnmarshalGQL(v interface{}) error {
+func (e *DigitalWallet) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45510,7 +45510,7 @@ func (e *DigitalWallet) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DigitalWallet) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The method by which the discount's value is allocated onto its entitled lines.
@@ -45543,7 +45543,7 @@ func (e DiscountApplicationAllocationMethod) String() string {
 	return string(e)
 }
 
-func (e *DiscountApplicationAllocationMethod) UnmarshalGQL(v interface{}) error {
+func (e *DiscountApplicationAllocationMethod) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45557,7 +45557,7 @@ func (e *DiscountApplicationAllocationMethod) UnmarshalGQL(v interface{}) error 
 }
 
 func (e DiscountApplicationAllocationMethod) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The level at which the discount's value is applied.
@@ -45589,7 +45589,7 @@ func (e DiscountApplicationLevel) String() string {
 	return string(e)
 }
 
-func (e *DiscountApplicationLevel) UnmarshalGQL(v interface{}) error {
+func (e *DiscountApplicationLevel) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45603,7 +45603,7 @@ func (e *DiscountApplicationLevel) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DiscountApplicationLevel) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The lines on the order to which the discount is applied, of the type defined by
@@ -45639,7 +45639,7 @@ func (e DiscountApplicationTargetSelection) String() string {
 	return string(e)
 }
 
-func (e *DiscountApplicationTargetSelection) UnmarshalGQL(v interface{}) error {
+func (e *DiscountApplicationTargetSelection) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45653,7 +45653,7 @@ func (e *DiscountApplicationTargetSelection) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DiscountApplicationTargetSelection) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The type of line (i.e. line item or shipping line) on an order that the discount is applicable towards.
@@ -45683,7 +45683,7 @@ func (e DiscountApplicationTargetType) String() string {
 	return string(e)
 }
 
-func (e *DiscountApplicationTargetType) UnmarshalGQL(v interface{}) error {
+func (e *DiscountApplicationTargetType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45697,7 +45697,7 @@ func (e *DiscountApplicationTargetType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DiscountApplicationTargetType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The class of the discount for combining purposes.
@@ -45730,7 +45730,7 @@ func (e DiscountClass) String() string {
 	return string(e)
 }
 
-func (e *DiscountClass) UnmarshalGQL(v interface{}) error {
+func (e *DiscountClass) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45744,7 +45744,7 @@ func (e *DiscountClass) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DiscountClass) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the DiscountCode query.
@@ -45781,7 +45781,7 @@ func (e DiscountCodeSortKeys) String() string {
 	return string(e)
 }
 
-func (e *DiscountCodeSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *DiscountCodeSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45795,7 +45795,7 @@ func (e *DiscountCodeSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DiscountCodeSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `DiscountUserError`.
@@ -45894,7 +45894,7 @@ func (e DiscountErrorCode) String() string {
 	return string(e)
 }
 
-func (e *DiscountErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *DiscountErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45908,7 +45908,7 @@ func (e *DiscountErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DiscountErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The type of page where a shareable discount URL lands.
@@ -45941,7 +45941,7 @@ func (e DiscountShareableURLTargetType) String() string {
 	return string(e)
 }
 
-func (e *DiscountShareableURLTargetType) UnmarshalGQL(v interface{}) error {
+func (e *DiscountShareableURLTargetType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -45955,7 +45955,7 @@ func (e *DiscountShareableURLTargetType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DiscountShareableURLTargetType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Discount query.
@@ -46001,7 +46001,7 @@ func (e DiscountSortKeys) String() string {
 	return string(e)
 }
 
-func (e *DiscountSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *DiscountSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46015,7 +46015,7 @@ func (e *DiscountSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DiscountSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of the discount.
@@ -46048,7 +46048,7 @@ func (e DiscountStatus) String() string {
 	return string(e)
 }
 
-func (e *DiscountStatus) UnmarshalGQL(v interface{}) error {
+func (e *DiscountStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46062,7 +46062,7 @@ func (e *DiscountStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DiscountStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The type of line (line item or shipping line) on an order that the subscription discount is applicable towards.
@@ -46092,7 +46092,7 @@ func (e DiscountTargetType) String() string {
 	return string(e)
 }
 
-func (e *DiscountTargetType) UnmarshalGQL(v interface{}) error {
+func (e *DiscountTargetType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46106,7 +46106,7 @@ func (e *DiscountTargetType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DiscountTargetType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The type of the subscription discount.
@@ -46139,7 +46139,7 @@ func (e DiscountType) String() string {
 	return string(e)
 }
 
-func (e *DiscountType) UnmarshalGQL(v interface{}) error {
+func (e *DiscountType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46153,7 +46153,7 @@ func (e *DiscountType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DiscountType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `DisputeEvidenceUpdateUserError`.
@@ -46195,7 +46195,7 @@ func (e DisputeEvidenceUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *DisputeEvidenceUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *DisputeEvidenceUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46209,7 +46209,7 @@ func (e *DisputeEvidenceUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DisputeEvidenceUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible statuses of a dispute.
@@ -46246,7 +46246,7 @@ func (e DisputeStatus) String() string {
 	return string(e)
 }
 
-func (e *DisputeStatus) UnmarshalGQL(v interface{}) error {
+func (e *DisputeStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46260,7 +46260,7 @@ func (e *DisputeStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DisputeStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible types for a dispute.
@@ -46290,7 +46290,7 @@ func (e DisputeType) String() string {
 	return string(e)
 }
 
-func (e *DisputeType) UnmarshalGQL(v interface{}) error {
+func (e *DisputeType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46304,7 +46304,7 @@ func (e *DisputeType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DisputeType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The valid discount types that can be applied to a draft order.
@@ -46334,7 +46334,7 @@ func (e DraftOrderAppliedDiscountType) String() string {
 	return string(e)
 }
 
-func (e *DraftOrderAppliedDiscountType) UnmarshalGQL(v interface{}) error {
+func (e *DraftOrderAppliedDiscountType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46348,7 +46348,7 @@ func (e *DraftOrderAppliedDiscountType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DraftOrderAppliedDiscountType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the DraftOrder query.
@@ -46394,7 +46394,7 @@ func (e DraftOrderSortKeys) String() string {
 	return string(e)
 }
 
-func (e *DraftOrderSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *DraftOrderSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46408,7 +46408,7 @@ func (e *DraftOrderSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DraftOrderSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The valid statuses for a draft order.
@@ -46441,7 +46441,7 @@ func (e DraftOrderStatus) String() string {
 	return string(e)
 }
 
-func (e *DraftOrderStatus) UnmarshalGQL(v interface{}) error {
+func (e *DraftOrderStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46455,7 +46455,7 @@ func (e *DraftOrderStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e DraftOrderStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ErrorsServerPixelUserError`.
@@ -46491,7 +46491,7 @@ func (e ErrorsServerPixelUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ErrorsServerPixelUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ErrorsServerPixelUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46505,7 +46505,7 @@ func (e *ErrorsServerPixelUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ErrorsServerPixelUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ErrorsWebPixelUserError`.
@@ -46544,7 +46544,7 @@ func (e ErrorsWebPixelUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ErrorsWebPixelUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ErrorsWebPixelUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46558,7 +46558,7 @@ func (e *ErrorsWebPixelUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ErrorsWebPixelUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Event query.
@@ -46592,7 +46592,7 @@ func (e EventSortKeys) String() string {
 	return string(e)
 }
 
-func (e *EventSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *EventSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46606,7 +46606,7 @@ func (e *EventSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e EventSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The type of the resource that generated the event.
@@ -46685,7 +46685,7 @@ func (e EventSubjectType) String() string {
 	return string(e)
 }
 
-func (e *EventSubjectType) UnmarshalGQL(v interface{}) error {
+func (e *EventSubjectType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46699,7 +46699,7 @@ func (e *EventSubjectType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e EventSubjectType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible content types for a file object.
@@ -46738,7 +46738,7 @@ func (e FileContentType) String() string {
 	return string(e)
 }
 
-func (e *FileContentType) UnmarshalGQL(v interface{}) error {
+func (e *FileContentType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46752,7 +46752,7 @@ func (e *FileContentType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FileContentType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The input fields for handling if filename is already in use.
@@ -46785,7 +46785,7 @@ func (e FileCreateInputDuplicateResolutionMode) String() string {
 	return string(e)
 }
 
-func (e *FileCreateInputDuplicateResolutionMode) UnmarshalGQL(v interface{}) error {
+func (e *FileCreateInputDuplicateResolutionMode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46799,7 +46799,7 @@ func (e *FileCreateInputDuplicateResolutionMode) UnmarshalGQL(v interface{}) err
 }
 
 func (e FileCreateInputDuplicateResolutionMode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The error types for a file.
@@ -46922,7 +46922,7 @@ func (e FileErrorCode) String() string {
 	return string(e)
 }
 
-func (e *FileErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *FileErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46936,7 +46936,7 @@ func (e *FileErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FileErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the File query.
@@ -46979,7 +46979,7 @@ func (e FileSortKeys) String() string {
 	return string(e)
 }
 
-func (e *FileSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *FileSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -46993,7 +46993,7 @@ func (e *FileSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FileSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible statuses for a file object.
@@ -47029,7 +47029,7 @@ func (e FileStatus) String() string {
 	return string(e)
 }
 
-func (e *FileStatus) UnmarshalGQL(v interface{}) error {
+func (e *FileStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47043,7 +47043,7 @@ func (e *FileStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FileStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `FilesUserError`.
@@ -47142,7 +47142,7 @@ func (e FilesErrorCode) String() string {
 	return string(e)
 }
 
-func (e *FilesErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *FilesErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47156,7 +47156,7 @@ func (e *FilesErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FilesErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `FulfillmentConstraintRuleCreateUserError`.
@@ -47201,7 +47201,7 @@ func (e FulfillmentConstraintRuleCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentConstraintRuleCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentConstraintRuleCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47215,7 +47215,7 @@ func (e *FulfillmentConstraintRuleCreateUserErrorCode) UnmarshalGQL(v interface{
 }
 
 func (e FulfillmentConstraintRuleCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `FulfillmentConstraintRuleDeleteUserError`.
@@ -47245,7 +47245,7 @@ func (e FulfillmentConstraintRuleDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentConstraintRuleDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentConstraintRuleDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47259,7 +47259,7 @@ func (e *FulfillmentConstraintRuleDeleteUserErrorCode) UnmarshalGQL(v interface{
 }
 
 func (e FulfillmentConstraintRuleDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `FulfillmentConstraintRuleUpdateUserError`.
@@ -47289,7 +47289,7 @@ func (e FulfillmentConstraintRuleUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentConstraintRuleUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentConstraintRuleUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47303,7 +47303,7 @@ func (e *FulfillmentConstraintRuleUpdateUserErrorCode) UnmarshalGQL(v interface{
 }
 
 func (e FulfillmentConstraintRuleUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The display status of a fulfillment.
@@ -47378,7 +47378,7 @@ func (e FulfillmentDisplayStatus) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentDisplayStatus) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentDisplayStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47392,7 +47392,7 @@ func (e *FulfillmentDisplayStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentDisplayStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the FulfillmentEvent query.
@@ -47426,7 +47426,7 @@ func (e FulfillmentEventSortKeys) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentEventSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentEventSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47440,7 +47440,7 @@ func (e *FulfillmentEventSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentEventSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status that describes a fulfillment or delivery event.
@@ -47494,7 +47494,7 @@ func (e FulfillmentEventStatus) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentEventStatus) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentEventStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47508,7 +47508,7 @@ func (e *FulfillmentEventStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentEventStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The reason for a fulfillment hold.
@@ -47556,7 +47556,7 @@ func (e FulfillmentHoldReason) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentHoldReason) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentHoldReason) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47570,7 +47570,7 @@ func (e *FulfillmentHoldReason) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentHoldReason) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The actions that can be taken on a fulfillment order.
@@ -47627,7 +47627,7 @@ func (e FulfillmentOrderAction) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentOrderAction) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentOrderAction) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47641,7 +47641,7 @@ func (e *FulfillmentOrderAction) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentOrderAction) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The assigment status to be used to filter fulfillment orders.
@@ -47680,7 +47680,7 @@ func (e FulfillmentOrderAssignmentStatus) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentOrderAssignmentStatus) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentOrderAssignmentStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47694,7 +47694,7 @@ func (e *FulfillmentOrderAssignmentStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentOrderAssignmentStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `FulfillmentOrderHoldUserError`.
@@ -47730,7 +47730,7 @@ func (e FulfillmentOrderHoldUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentOrderHoldUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentOrderHoldUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47744,7 +47744,7 @@ func (e *FulfillmentOrderHoldUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentOrderHoldUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `FulfillmentOrderLineItemsPreparedForPickupUserError`.
@@ -47777,7 +47777,7 @@ func (e FulfillmentOrderLineItemsPreparedForPickupUserErrorCode) String() string
 	return string(e)
 }
 
-func (e *FulfillmentOrderLineItemsPreparedForPickupUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentOrderLineItemsPreparedForPickupUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47791,7 +47791,7 @@ func (e *FulfillmentOrderLineItemsPreparedForPickupUserErrorCode) UnmarshalGQL(v
 }
 
 func (e FulfillmentOrderLineItemsPreparedForPickupUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The kinds of request merchants can make to a fulfillment service.
@@ -47821,7 +47821,7 @@ func (e FulfillmentOrderMerchantRequestKind) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentOrderMerchantRequestKind) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentOrderMerchantRequestKind) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47835,7 +47835,7 @@ func (e *FulfillmentOrderMerchantRequestKind) UnmarshalGQL(v interface{}) error 
 }
 
 func (e FulfillmentOrderMerchantRequestKind) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `FulfillmentOrderMergeUserError`.
@@ -47868,7 +47868,7 @@ func (e FulfillmentOrderMergeUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentOrderMergeUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentOrderMergeUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47882,7 +47882,7 @@ func (e *FulfillmentOrderMergeUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentOrderMergeUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The reason for a fulfillment order rejection.
@@ -47921,7 +47921,7 @@ func (e FulfillmentOrderRejectionReason) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentOrderRejectionReason) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentOrderRejectionReason) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47935,7 +47935,7 @@ func (e *FulfillmentOrderRejectionReason) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentOrderRejectionReason) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `FulfillmentOrderReleaseHoldUserError`.
@@ -47965,7 +47965,7 @@ func (e FulfillmentOrderReleaseHoldUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentOrderReleaseHoldUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentOrderReleaseHoldUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -47979,7 +47979,7 @@ func (e *FulfillmentOrderReleaseHoldUserErrorCode) UnmarshalGQL(v interface{}) e
 }
 
 func (e FulfillmentOrderReleaseHoldUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The request status of a fulfillment order.
@@ -48028,7 +48028,7 @@ func (e FulfillmentOrderRequestStatus) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentOrderRequestStatus) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentOrderRequestStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48042,7 +48042,7 @@ func (e *FulfillmentOrderRequestStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentOrderRequestStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `FulfillmentOrderRescheduleUserError`.
@@ -48069,7 +48069,7 @@ func (e FulfillmentOrderRescheduleUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentOrderRescheduleUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentOrderRescheduleUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48083,7 +48083,7 @@ func (e *FulfillmentOrderRescheduleUserErrorCode) UnmarshalGQL(v interface{}) er
 }
 
 func (e FulfillmentOrderRescheduleUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the FulfillmentOrder query.
@@ -48117,7 +48117,7 @@ func (e FulfillmentOrderSortKeys) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentOrderSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentOrderSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48131,7 +48131,7 @@ func (e *FulfillmentOrderSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentOrderSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `FulfillmentOrderSplitUserError`.
@@ -48167,7 +48167,7 @@ func (e FulfillmentOrderSplitUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentOrderSplitUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentOrderSplitUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48181,7 +48181,7 @@ func (e *FulfillmentOrderSplitUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentOrderSplitUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of a fulfillment order.
@@ -48226,7 +48226,7 @@ func (e FulfillmentOrderStatus) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentOrderStatus) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentOrderStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48240,7 +48240,7 @@ func (e *FulfillmentOrderStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentOrderStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `FulfillmentOrdersSetFulfillmentDeadlineUserError`.
@@ -48267,7 +48267,7 @@ func (e FulfillmentOrdersSetFulfillmentDeadlineUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentOrdersSetFulfillmentDeadlineUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentOrdersSetFulfillmentDeadlineUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48281,7 +48281,7 @@ func (e *FulfillmentOrdersSetFulfillmentDeadlineUserErrorCode) UnmarshalGQL(v in
 }
 
 func (e FulfillmentOrdersSetFulfillmentDeadlineUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Actions that can be taken at the location when a client requests the deletion of the fulfillment service.
@@ -48314,7 +48314,7 @@ func (e FulfillmentServiceDeleteInventoryAction) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentServiceDeleteInventoryAction) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentServiceDeleteInventoryAction) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48328,7 +48328,7 @@ func (e *FulfillmentServiceDeleteInventoryAction) UnmarshalGQL(v interface{}) er
 }
 
 func (e FulfillmentServiceDeleteInventoryAction) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The type of a fulfillment service.
@@ -48361,7 +48361,7 @@ func (e FulfillmentServiceType) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentServiceType) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentServiceType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48375,7 +48375,7 @@ func (e *FulfillmentServiceType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentServiceType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of a fulfillment.
@@ -48417,7 +48417,7 @@ func (e FulfillmentStatus) String() string {
 	return string(e)
 }
 
-func (e *FulfillmentStatus) UnmarshalGQL(v interface{}) error {
+func (e *FulfillmentStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48431,7 +48431,7 @@ func (e *FulfillmentStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e FulfillmentStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `GiftCardDeactivateUserError`.
@@ -48458,7 +48458,7 @@ func (e GiftCardDeactivateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *GiftCardDeactivateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *GiftCardDeactivateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48472,7 +48472,7 @@ func (e *GiftCardDeactivateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e GiftCardDeactivateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `GiftCardUserError`.
@@ -48523,7 +48523,7 @@ func (e GiftCardErrorCode) String() string {
 	return string(e)
 }
 
-func (e *GiftCardErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *GiftCardErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48537,7 +48537,7 @@ func (e *GiftCardErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e GiftCardErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `GiftCardSendNotificationToCustomerUserError`.
@@ -48570,7 +48570,7 @@ func (e GiftCardSendNotificationToCustomerUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *GiftCardSendNotificationToCustomerUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *GiftCardSendNotificationToCustomerUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48584,7 +48584,7 @@ func (e *GiftCardSendNotificationToCustomerUserErrorCode) UnmarshalGQL(v interfa
 }
 
 func (e GiftCardSendNotificationToCustomerUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `GiftCardSendNotificationToRecipientUserError`.
@@ -48617,7 +48617,7 @@ func (e GiftCardSendNotificationToRecipientUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *GiftCardSendNotificationToRecipientUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *GiftCardSendNotificationToRecipientUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48631,7 +48631,7 @@ func (e *GiftCardSendNotificationToRecipientUserErrorCode) UnmarshalGQL(v interf
 }
 
 func (e GiftCardSendNotificationToRecipientUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the GiftCard query.
@@ -48689,7 +48689,7 @@ func (e GiftCardSortKeys) String() string {
 	return string(e)
 }
 
-func (e *GiftCardSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *GiftCardSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48703,7 +48703,7 @@ func (e *GiftCardSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e GiftCardSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `GiftCardTransactionUserError`.
@@ -48748,7 +48748,7 @@ func (e GiftCardTransactionUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *GiftCardTransactionUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *GiftCardTransactionUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48762,7 +48762,7 @@ func (e *GiftCardTransactionUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e GiftCardTransactionUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // List of supported image content types.
@@ -48795,7 +48795,7 @@ func (e ImageContentType) String() string {
 	return string(e)
 }
 
-func (e *ImageContentType) UnmarshalGQL(v interface{}) error {
+func (e *ImageContentType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48809,7 +48809,7 @@ func (e *ImageContentType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ImageContentType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `InventoryAdjustQuantitiesUserError`.
@@ -48878,7 +48878,7 @@ func (e InventoryAdjustQuantitiesUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *InventoryAdjustQuantitiesUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *InventoryAdjustQuantitiesUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48892,7 +48892,7 @@ func (e *InventoryAdjustQuantitiesUserErrorCode) UnmarshalGQL(v interface{}) err
 }
 
 func (e InventoryAdjustQuantitiesUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `InventoryBulkToggleActivationUserError`.
@@ -48955,7 +48955,7 @@ func (e InventoryBulkToggleActivationUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *InventoryBulkToggleActivationUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *InventoryBulkToggleActivationUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -48969,7 +48969,7 @@ func (e *InventoryBulkToggleActivationUserErrorCode) UnmarshalGQL(v interface{})
 }
 
 func (e InventoryBulkToggleActivationUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `InventoryMoveQuantitiesUserError`.
@@ -49044,7 +49044,7 @@ func (e InventoryMoveQuantitiesUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *InventoryMoveQuantitiesUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *InventoryMoveQuantitiesUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -49058,7 +49058,7 @@ func (e *InventoryMoveQuantitiesUserErrorCode) UnmarshalGQL(v interface{}) error
 }
 
 func (e InventoryMoveQuantitiesUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `InventorySetOnHandQuantitiesUserError`.
@@ -49109,7 +49109,7 @@ func (e InventorySetOnHandQuantitiesUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *InventorySetOnHandQuantitiesUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *InventorySetOnHandQuantitiesUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -49123,7 +49123,7 @@ func (e *InventorySetOnHandQuantitiesUserErrorCode) UnmarshalGQL(v interface{}) 
 }
 
 func (e InventorySetOnHandQuantitiesUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `InventorySetQuantitiesUserError`.
@@ -49183,7 +49183,7 @@ func (e InventorySetQuantitiesUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *InventorySetQuantitiesUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *InventorySetQuantitiesUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -49197,7 +49197,7 @@ func (e *InventorySetQuantitiesUserErrorCode) UnmarshalGQL(v interface{}) error 
 }
 
 func (e InventorySetQuantitiesUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `InventorySetScheduledChangesUserError`.
@@ -49260,7 +49260,7 @@ func (e InventorySetScheduledChangesUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *InventorySetScheduledChangesUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *InventorySetScheduledChangesUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -49274,7 +49274,7 @@ func (e *InventorySetScheduledChangesUserErrorCode) UnmarshalGQL(v interface{}) 
 }
 
 func (e InventorySetScheduledChangesUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Language codes supported by Shopify.
@@ -49721,7 +49721,7 @@ func (e LanguageCode) String() string {
 	return string(e)
 }
 
-func (e *LanguageCode) UnmarshalGQL(v interface{}) error {
+func (e *LanguageCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -49735,7 +49735,7 @@ func (e *LanguageCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e LanguageCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Units of measurement for length.
@@ -49777,7 +49777,7 @@ func (e LengthUnit) String() string {
 	return string(e)
 }
 
-func (e *LengthUnit) UnmarshalGQL(v interface{}) error {
+func (e *LengthUnit) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -49791,7 +49791,7 @@ func (e *LengthUnit) UnmarshalGQL(v interface{}) error {
 }
 
 func (e LengthUnit) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Specifies the type of the underlying localizable content. This can be used to conditionally render different UI elements such as input fields.
@@ -49866,7 +49866,7 @@ func (e LocalizableContentType) String() string {
 	return string(e)
 }
 
-func (e *LocalizableContentType) UnmarshalGQL(v interface{}) error {
+func (e *LocalizableContentType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -49880,7 +49880,7 @@ func (e *LocalizableContentType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e LocalizableContentType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The key of a localization extension.
@@ -50012,7 +50012,7 @@ func (e LocalizationExtensionKey) String() string {
 	return string(e)
 }
 
-func (e *LocalizationExtensionKey) UnmarshalGQL(v interface{}) error {
+func (e *LocalizationExtensionKey) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50026,7 +50026,7 @@ func (e *LocalizationExtensionKey) UnmarshalGQL(v interface{}) error {
 }
 
 func (e LocalizationExtensionKey) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The purpose of a localization extension.
@@ -50056,7 +50056,7 @@ func (e LocalizationExtensionPurpose) String() string {
 	return string(e)
 }
 
-func (e *LocalizationExtensionPurpose) UnmarshalGQL(v interface{}) error {
+func (e *LocalizationExtensionPurpose) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50070,7 +50070,7 @@ func (e *LocalizationExtensionPurpose) UnmarshalGQL(v interface{}) error {
 }
 
 func (e LocalizationExtensionPurpose) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `LocationActivateUserError`.
@@ -50109,7 +50109,7 @@ func (e LocationActivateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *LocationActivateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *LocationActivateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50123,7 +50123,7 @@ func (e *LocationActivateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e LocationActivateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `LocationAddUserError`.
@@ -50195,7 +50195,7 @@ func (e LocationAddUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *LocationAddUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *LocationAddUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50209,7 +50209,7 @@ func (e *LocationAddUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e LocationAddUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `LocationDeactivateUserError`.
@@ -50275,7 +50275,7 @@ func (e LocationDeactivateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *LocationDeactivateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *LocationDeactivateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50289,7 +50289,7 @@ func (e *LocationDeactivateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e LocationDeactivateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `LocationDeleteUserError`.
@@ -50331,7 +50331,7 @@ func (e LocationDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *LocationDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *LocationDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50345,7 +50345,7 @@ func (e *LocationDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e LocationDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `LocationEditUserError`.
@@ -50426,7 +50426,7 @@ func (e LocationEditUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *LocationEditUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *LocationEditUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50440,7 +50440,7 @@ func (e *LocationEditUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e LocationEditUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Location query.
@@ -50474,7 +50474,7 @@ func (e LocationSortKeys) String() string {
 	return string(e)
 }
 
-func (e *LocationSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *LocationSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50488,7 +50488,7 @@ func (e *LocationSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e LocationSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Highest level of validation concerns identified for the address.
@@ -50521,7 +50521,7 @@ func (e MailingAddressValidationResult) String() string {
 	return string(e)
 }
 
-func (e *MailingAddressValidationResult) UnmarshalGQL(v interface{}) error {
+func (e *MailingAddressValidationResult) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50535,7 +50535,7 @@ func (e *MailingAddressValidationResult) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MailingAddressValidationResult) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MarketCurrencySettingsUserError`.
@@ -50577,7 +50577,7 @@ func (e MarketCurrencySettingsUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MarketCurrencySettingsUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MarketCurrencySettingsUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50591,7 +50591,7 @@ func (e *MarketCurrencySettingsUserErrorCode) UnmarshalGQL(v interface{}) error 
 }
 
 func (e MarketCurrencySettingsUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The type of resources that are market localizable.
@@ -50621,7 +50621,7 @@ func (e MarketLocalizableResourceType) String() string {
 	return string(e)
 }
 
-func (e *MarketLocalizableResourceType) UnmarshalGQL(v interface{}) error {
+func (e *MarketLocalizableResourceType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50635,7 +50635,7 @@ func (e *MarketLocalizableResourceType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MarketLocalizableResourceType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MarketUserError`.
@@ -50758,7 +50758,7 @@ func (e MarketUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MarketUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MarketUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50772,7 +50772,7 @@ func (e *MarketUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MarketUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The error code resulted from the marketing activity extension integration.
@@ -50811,7 +50811,7 @@ func (e MarketingActivityExtensionAppErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MarketingActivityExtensionAppErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MarketingActivityExtensionAppErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50825,7 +50825,7 @@ func (e *MarketingActivityExtensionAppErrorCode) UnmarshalGQL(v interface{}) err
 }
 
 func (e MarketingActivityExtensionAppErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Set of possible statuses for an external marketing activity.
@@ -50867,7 +50867,7 @@ func (e MarketingActivityExternalStatus) String() string {
 	return string(e)
 }
 
-func (e *MarketingActivityExternalStatus) UnmarshalGQL(v interface{}) error {
+func (e *MarketingActivityExternalStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50881,7 +50881,7 @@ func (e *MarketingActivityExternalStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MarketingActivityExternalStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Hierarchy levels for external marketing activities.
@@ -50914,7 +50914,7 @@ func (e MarketingActivityHierarchyLevel) String() string {
 	return string(e)
 }
 
-func (e *MarketingActivityHierarchyLevel) UnmarshalGQL(v interface{}) error {
+func (e *MarketingActivityHierarchyLevel) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50928,7 +50928,7 @@ func (e *MarketingActivityHierarchyLevel) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MarketingActivityHierarchyLevel) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the MarketingActivity query.
@@ -50965,7 +50965,7 @@ func (e MarketingActivitySortKeys) String() string {
 	return string(e)
 }
 
-func (e *MarketingActivitySortKeys) UnmarshalGQL(v interface{}) error {
+func (e *MarketingActivitySortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -50979,7 +50979,7 @@ func (e *MarketingActivitySortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MarketingActivitySortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Status helps to identify if this marketing activity has been completed, queued, failed etc.
@@ -51036,7 +51036,7 @@ func (e MarketingActivityStatus) String() string {
 	return string(e)
 }
 
-func (e *MarketingActivityStatus) UnmarshalGQL(v interface{}) error {
+func (e *MarketingActivityStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51050,7 +51050,7 @@ func (e *MarketingActivityStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MarketingActivityStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // StatusBadgeType helps to identify the color of the status badge.
@@ -51089,7 +51089,7 @@ func (e MarketingActivityStatusBadgeType) String() string {
 	return string(e)
 }
 
-func (e *MarketingActivityStatusBadgeType) UnmarshalGQL(v interface{}) error {
+func (e *MarketingActivityStatusBadgeType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51103,7 +51103,7 @@ func (e *MarketingActivityStatusBadgeType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MarketingActivityStatusBadgeType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MarketingActivityUserError`.
@@ -51202,7 +51202,7 @@ func (e MarketingActivityUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MarketingActivityUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MarketingActivityUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51216,7 +51216,7 @@ func (e *MarketingActivityUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MarketingActivityUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The budget type for a marketing activity.
@@ -51246,7 +51246,7 @@ func (e MarketingBudgetBudgetType) String() string {
 	return string(e)
 }
 
-func (e *MarketingBudgetBudgetType) UnmarshalGQL(v interface{}) error {
+func (e *MarketingBudgetBudgetType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51260,7 +51260,7 @@ func (e *MarketingBudgetBudgetType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MarketingBudgetBudgetType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
@@ -51299,7 +51299,7 @@ func (e MarketingChannel) String() string {
 	return string(e)
 }
 
-func (e *MarketingChannel) UnmarshalGQL(v interface{}) error {
+func (e *MarketingChannel) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51313,7 +51313,7 @@ func (e *MarketingChannel) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MarketingChannel) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the MarketingEvent query.
@@ -51347,7 +51347,7 @@ func (e MarketingEventSortKeys) String() string {
 	return string(e)
 }
 
-func (e *MarketingEventSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *MarketingEventSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51361,7 +51361,7 @@ func (e *MarketingEventSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MarketingEventSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The available types of tactics for a marketing activity.
@@ -51424,7 +51424,7 @@ func (e MarketingTactic) String() string {
 	return string(e)
 }
 
-func (e *MarketingTactic) UnmarshalGQL(v interface{}) error {
+func (e *MarketingTactic) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51438,7 +51438,7 @@ func (e *MarketingTactic) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MarketingTactic) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible content types for a media object.
@@ -51474,7 +51474,7 @@ func (e MediaContentType) String() string {
 	return string(e)
 }
 
-func (e *MediaContentType) UnmarshalGQL(v interface{}) error {
+func (e *MediaContentType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51488,7 +51488,7 @@ func (e *MediaContentType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MediaContentType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Error types for media.
@@ -51611,7 +51611,7 @@ func (e MediaErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MediaErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MediaErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51625,7 +51625,7 @@ func (e *MediaErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MediaErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Host for a Media Resource.
@@ -51655,7 +51655,7 @@ func (e MediaHost) String() string {
 	return string(e)
 }
 
-func (e *MediaHost) UnmarshalGQL(v interface{}) error {
+func (e *MediaHost) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51669,7 +51669,7 @@ func (e *MediaHost) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MediaHost) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible statuses for a media preview image.
@@ -51705,7 +51705,7 @@ func (e MediaPreviewImageStatus) String() string {
 	return string(e)
 }
 
-func (e *MediaPreviewImageStatus) UnmarshalGQL(v interface{}) error {
+func (e *MediaPreviewImageStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51719,7 +51719,7 @@ func (e *MediaPreviewImageStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MediaPreviewImageStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible statuses for a media object.
@@ -51755,7 +51755,7 @@ func (e MediaStatus) String() string {
 	return string(e)
 }
 
-func (e *MediaStatus) UnmarshalGQL(v interface{}) error {
+func (e *MediaStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51769,7 +51769,7 @@ func (e *MediaStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MediaStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MediaUserError`.
@@ -51856,7 +51856,7 @@ func (e MediaUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MediaUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MediaUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51870,7 +51870,7 @@ func (e *MediaUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MediaUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Warning types for media.
@@ -51900,7 +51900,7 @@ func (e MediaWarningCode) String() string {
 	return string(e)
 }
 
-func (e *MediaWarningCode) UnmarshalGQL(v interface{}) error {
+func (e *MediaWarningCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51914,7 +51914,7 @@ func (e *MediaWarningCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MediaWarningCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MenuCreateUserError`.
@@ -51944,7 +51944,7 @@ func (e MenuCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MenuCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MenuCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -51958,7 +51958,7 @@ func (e *MenuCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MenuCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MenuDeleteUserError`.
@@ -51988,7 +51988,7 @@ func (e MenuDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MenuDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MenuDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52002,7 +52002,7 @@ func (e *MenuDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MenuDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // A menu item type.
@@ -52065,7 +52065,7 @@ func (e MenuItemType) String() string {
 	return string(e)
 }
 
-func (e *MenuItemType) UnmarshalGQL(v interface{}) error {
+func (e *MenuItemType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52079,7 +52079,7 @@ func (e *MenuItemType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MenuItemType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Menu query.
@@ -52116,7 +52116,7 @@ func (e MenuSortKeys) String() string {
 	return string(e)
 }
 
-func (e *MenuSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *MenuSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52130,7 +52130,7 @@ func (e *MenuSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MenuSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MenuUpdateUserError`.
@@ -52160,7 +52160,7 @@ func (e MenuUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MenuUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MenuUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52174,7 +52174,7 @@ func (e *MenuUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MenuUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The class of the discount for combining purposes.
@@ -52204,7 +52204,7 @@ func (e MerchandiseDiscountClass) String() string {
 	return string(e)
 }
 
-func (e *MerchandiseDiscountClass) UnmarshalGQL(v interface{}) error {
+func (e *MerchandiseDiscountClass) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52218,7 +52218,7 @@ func (e *MerchandiseDiscountClass) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MerchandiseDiscountClass) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible admin access settings for metafields.
@@ -52257,7 +52257,7 @@ func (e MetafieldAdminAccess) String() string {
 	return string(e)
 }
 
-func (e *MetafieldAdminAccess) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldAdminAccess) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52271,7 +52271,7 @@ func (e *MetafieldAdminAccess) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetafieldAdminAccess) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible values for setting metafield Admin API access.
@@ -52310,7 +52310,7 @@ func (e MetafieldAdminAccessInput) String() string {
 	return string(e)
 }
 
-func (e *MetafieldAdminAccessInput) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldAdminAccessInput) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52324,7 +52324,7 @@ func (e *MetafieldAdminAccessInput) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetafieldAdminAccessInput) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Defines how the metafields of a definition can be accessed in the Customer Account API.
@@ -52357,7 +52357,7 @@ func (e MetafieldCustomerAccountAccess) String() string {
 	return string(e)
 }
 
-func (e *MetafieldCustomerAccountAccess) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldCustomerAccountAccess) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52371,7 +52371,7 @@ func (e *MetafieldCustomerAccountAccess) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetafieldCustomerAccountAccess) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible values for setting metafield Customer Account API access.
@@ -52404,7 +52404,7 @@ func (e MetafieldCustomerAccountAccessInput) String() string {
 	return string(e)
 }
 
-func (e *MetafieldCustomerAccountAccessInput) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldCustomerAccountAccessInput) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52418,7 +52418,7 @@ func (e *MetafieldCustomerAccountAccessInput) UnmarshalGQL(v interface{}) error 
 }
 
 func (e MetafieldCustomerAccountAccessInput) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible filter statuses associated with a metafield definition for use in admin filtering.
@@ -52454,7 +52454,7 @@ func (e MetafieldDefinitionAdminFilterStatus) String() string {
 	return string(e)
 }
 
-func (e *MetafieldDefinitionAdminFilterStatus) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldDefinitionAdminFilterStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52468,7 +52468,7 @@ func (e *MetafieldDefinitionAdminFilterStatus) UnmarshalGQL(v interface{}) error
 }
 
 func (e MetafieldDefinitionAdminFilterStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Metafield definition constraint criteria to filter metafield definitions by.
@@ -52501,7 +52501,7 @@ func (e MetafieldDefinitionConstraintStatus) String() string {
 	return string(e)
 }
 
-func (e *MetafieldDefinitionConstraintStatus) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldDefinitionConstraintStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52515,7 +52515,7 @@ func (e *MetafieldDefinitionConstraintStatus) UnmarshalGQL(v interface{}) error 
 }
 
 func (e MetafieldDefinitionConstraintStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MetafieldDefinitionCreateUserError`.
@@ -52596,7 +52596,7 @@ func (e MetafieldDefinitionCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MetafieldDefinitionCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldDefinitionCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52610,7 +52610,7 @@ func (e *MetafieldDefinitionCreateUserErrorCode) UnmarshalGQL(v interface{}) err
 }
 
 func (e MetafieldDefinitionCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MetafieldDefinitionDeleteUserError`.
@@ -52655,7 +52655,7 @@ func (e MetafieldDefinitionDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MetafieldDefinitionDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldDefinitionDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52669,7 +52669,7 @@ func (e *MetafieldDefinitionDeleteUserErrorCode) UnmarshalGQL(v interface{}) err
 }
 
 func (e MetafieldDefinitionDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MetafieldDefinitionPinUserError`.
@@ -52708,7 +52708,7 @@ func (e MetafieldDefinitionPinUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MetafieldDefinitionPinUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldDefinitionPinUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52722,7 +52722,7 @@ func (e *MetafieldDefinitionPinUserErrorCode) UnmarshalGQL(v interface{}) error 
 }
 
 func (e MetafieldDefinitionPinUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible metafield definition pinned statuses.
@@ -52755,7 +52755,7 @@ func (e MetafieldDefinitionPinnedStatus) String() string {
 	return string(e)
 }
 
-func (e *MetafieldDefinitionPinnedStatus) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldDefinitionPinnedStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52769,7 +52769,7 @@ func (e *MetafieldDefinitionPinnedStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetafieldDefinitionPinnedStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the MetafieldDefinition query.
@@ -52806,7 +52806,7 @@ func (e MetafieldDefinitionSortKeys) String() string {
 	return string(e)
 }
 
-func (e *MetafieldDefinitionSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldDefinitionSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52820,7 +52820,7 @@ func (e *MetafieldDefinitionSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetafieldDefinitionSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MetafieldDefinitionUnpinUserError`.
@@ -52856,7 +52856,7 @@ func (e MetafieldDefinitionUnpinUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MetafieldDefinitionUnpinUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldDefinitionUnpinUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52870,7 +52870,7 @@ func (e *MetafieldDefinitionUnpinUserErrorCode) UnmarshalGQL(v interface{}) erro
 }
 
 func (e MetafieldDefinitionUnpinUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MetafieldDefinitionUpdateUserError`.
@@ -52936,7 +52936,7 @@ func (e MetafieldDefinitionUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MetafieldDefinitionUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldDefinitionUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52950,7 +52950,7 @@ func (e *MetafieldDefinitionUpdateUserErrorCode) UnmarshalGQL(v interface{}) err
 }
 
 func (e MetafieldDefinitionUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible metafield definition validation statuses.
@@ -52983,7 +52983,7 @@ func (e MetafieldDefinitionValidationStatus) String() string {
 	return string(e)
 }
 
-func (e *MetafieldDefinitionValidationStatus) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldDefinitionValidationStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -52997,7 +52997,7 @@ func (e *MetafieldDefinitionValidationStatus) UnmarshalGQL(v interface{}) error 
 }
 
 func (e MetafieldDefinitionValidationStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible access levels for explicit metafield access grants.
@@ -53027,7 +53027,7 @@ func (e MetafieldGrantAccessLevel) String() string {
 	return string(e)
 }
 
-func (e *MetafieldGrantAccessLevel) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldGrantAccessLevel) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53041,7 +53041,7 @@ func (e *MetafieldGrantAccessLevel) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetafieldGrantAccessLevel) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible types of a metafield's owner resource.
@@ -53140,7 +53140,7 @@ func (e MetafieldOwnerType) String() string {
 	return string(e)
 }
 
-func (e *MetafieldOwnerType) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldOwnerType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53154,7 +53154,7 @@ func (e *MetafieldOwnerType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetafieldOwnerType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Defines how the metafields of a definition can be accessed in Storefront API surface areas, including Liquid and the GraphQL Storefront API.
@@ -53187,7 +53187,7 @@ func (e MetafieldStorefrontAccess) String() string {
 	return string(e)
 }
 
-func (e *MetafieldStorefrontAccess) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldStorefrontAccess) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53201,7 +53201,7 @@ func (e *MetafieldStorefrontAccess) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetafieldStorefrontAccess) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible values for setting metafield storefront access.
@@ -53232,7 +53232,7 @@ func (e MetafieldStorefrontAccessInput) String() string {
 	return string(e)
 }
 
-func (e *MetafieldStorefrontAccessInput) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldStorefrontAccessInput) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53246,7 +53246,7 @@ func (e *MetafieldStorefrontAccessInput) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetafieldStorefrontAccessInput) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible metafield validation statuses.
@@ -53279,7 +53279,7 @@ func (e MetafieldValidationStatus) String() string {
 	return string(e)
 }
 
-func (e *MetafieldValidationStatus) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldValidationStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53293,7 +53293,7 @@ func (e *MetafieldValidationStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetafieldValidationStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Legacy type information for the stored value.
@@ -53330,7 +53330,7 @@ func (e MetafieldValueType) String() string {
 	return string(e)
 }
 
-func (e *MetafieldValueType) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldValueType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53344,7 +53344,7 @@ func (e *MetafieldValueType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetafieldValueType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MetafieldsSetUserError`.
@@ -53407,7 +53407,7 @@ func (e MetafieldsSetUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MetafieldsSetUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MetafieldsSetUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53421,7 +53421,7 @@ func (e *MetafieldsSetUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetafieldsSetUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Defines how the metaobjects of a definition can be accessed in admin API surface areas.
@@ -53463,7 +53463,7 @@ func (e MetaobjectAdminAccess) String() string {
 	return string(e)
 }
 
-func (e *MetaobjectAdminAccess) UnmarshalGQL(v interface{}) error {
+func (e *MetaobjectAdminAccess) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53477,7 +53477,7 @@ func (e *MetaobjectAdminAccess) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetaobjectAdminAccess) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Defines visibility status for metaobjects.
@@ -53507,7 +53507,7 @@ func (e MetaobjectStatus) String() string {
 	return string(e)
 }
 
-func (e *MetaobjectStatus) UnmarshalGQL(v interface{}) error {
+func (e *MetaobjectStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53521,7 +53521,7 @@ func (e *MetaobjectStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetaobjectStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Defines how the metaobjects of a definition can be accessed in Storefront API surface areas, including Liquid and the GraphQL Storefront API.
@@ -53552,7 +53552,7 @@ func (e MetaobjectStorefrontAccess) String() string {
 	return string(e)
 }
 
-func (e *MetaobjectStorefrontAccess) UnmarshalGQL(v interface{}) error {
+func (e *MetaobjectStorefrontAccess) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53566,7 +53566,7 @@ func (e *MetaobjectStorefrontAccess) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetaobjectStorefrontAccess) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MetaobjectUserError`.
@@ -53677,7 +53677,7 @@ func (e MetaobjectUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MetaobjectUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MetaobjectUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53691,7 +53691,7 @@ func (e *MetaobjectUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MetaobjectUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the MethodDefinition query.
@@ -53725,7 +53725,7 @@ func (e MethodDefinitionSortKeys) String() string {
 	return string(e)
 }
 
-func (e *MethodDefinitionSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *MethodDefinitionSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53739,7 +53739,7 @@ func (e *MethodDefinitionSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e MethodDefinitionSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `MobilePlatformApplicationUserError`.
@@ -53772,7 +53772,7 @@ func (e MobilePlatformApplicationUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *MobilePlatformApplicationUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *MobilePlatformApplicationUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53786,7 +53786,7 @@ func (e *MobilePlatformApplicationUserErrorCode) UnmarshalGQL(v interface{}) err
 }
 
 func (e MobilePlatformApplicationUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The input type for a theme file body.
@@ -53819,7 +53819,7 @@ func (e OnlineStoreThemeFileBodyInputType) String() string {
 	return string(e)
 }
 
-func (e *OnlineStoreThemeFileBodyInputType) UnmarshalGQL(v interface{}) error {
+func (e *OnlineStoreThemeFileBodyInputType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53833,7 +53833,7 @@ func (e *OnlineStoreThemeFileBodyInputType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OnlineStoreThemeFileBodyInputType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Type of a theme file operation result.
@@ -53878,7 +53878,7 @@ func (e OnlineStoreThemeFileResultType) String() string {
 	return string(e)
 }
 
-func (e *OnlineStoreThemeFileResultType) UnmarshalGQL(v interface{}) error {
+func (e *OnlineStoreThemeFileResultType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53892,7 +53892,7 @@ func (e *OnlineStoreThemeFileResultType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OnlineStoreThemeFileResultType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `OnlineStoreThemeFilesUserErrors`.
@@ -53940,7 +53940,7 @@ func (e OnlineStoreThemeFilesUserErrorsCode) String() string {
 	return string(e)
 }
 
-func (e *OnlineStoreThemeFilesUserErrorsCode) UnmarshalGQL(v interface{}) error {
+func (e *OnlineStoreThemeFilesUserErrorsCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -53954,7 +53954,7 @@ func (e *OnlineStoreThemeFilesUserErrorsCode) UnmarshalGQL(v interface{}) error 
 }
 
 func (e OnlineStoreThemeFilesUserErrorsCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible order action types for a
@@ -53994,7 +53994,7 @@ func (e OrderActionType) String() string {
 	return string(e)
 }
 
-func (e *OrderActionType) UnmarshalGQL(v interface{}) error {
+func (e *OrderActionType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54008,7 +54008,7 @@ func (e *OrderActionType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderActionType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Discrepancy reasons for order adjustments.
@@ -54050,7 +54050,7 @@ func (e OrderAdjustmentDiscrepancyReason) String() string {
 	return string(e)
 }
 
-func (e *OrderAdjustmentDiscrepancyReason) UnmarshalGQL(v interface{}) error {
+func (e *OrderAdjustmentDiscrepancyReason) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54064,7 +54064,7 @@ func (e *OrderAdjustmentDiscrepancyReason) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderAdjustmentDiscrepancyReason) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Discrepancy reasons for order adjustments.
@@ -54100,7 +54100,7 @@ func (e OrderAdjustmentInputDiscrepancyReason) String() string {
 	return string(e)
 }
 
-func (e *OrderAdjustmentInputDiscrepancyReason) UnmarshalGQL(v interface{}) error {
+func (e *OrderAdjustmentInputDiscrepancyReason) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54114,7 +54114,7 @@ func (e *OrderAdjustmentInputDiscrepancyReason) UnmarshalGQL(v interface{}) erro
 }
 
 func (e OrderAdjustmentInputDiscrepancyReason) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents the reason for the order's cancellation.
@@ -54156,7 +54156,7 @@ func (e OrderCancelReason) String() string {
 	return string(e)
 }
 
-func (e *OrderCancelReason) UnmarshalGQL(v interface{}) error {
+func (e *OrderCancelReason) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54170,7 +54170,7 @@ func (e *OrderCancelReason) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderCancelReason) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `OrderCancelUserError`.
@@ -54203,7 +54203,7 @@ func (e OrderCancelUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *OrderCancelUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *OrderCancelUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54217,7 +54217,7 @@ func (e *OrderCancelUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderCancelUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of payments associated with the order. Can only be set when the order is created.
@@ -54265,7 +54265,7 @@ func (e OrderCreateFinancialStatus) String() string {
 	return string(e)
 }
 
-func (e *OrderCreateFinancialStatus) UnmarshalGQL(v interface{}) error {
+func (e *OrderCreateFinancialStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54279,7 +54279,7 @@ func (e *OrderCreateFinancialStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderCreateFinancialStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The order's status in terms of fulfilled line items.
@@ -54312,7 +54312,7 @@ func (e OrderCreateFulfillmentStatus) String() string {
 	return string(e)
 }
 
-func (e *OrderCreateFulfillmentStatus) UnmarshalGQL(v interface{}) error {
+func (e *OrderCreateFulfillmentStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54326,7 +54326,7 @@ func (e *OrderCreateFulfillmentStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderCreateFulfillmentStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The types of behavior to use when updating inventory.
@@ -54359,7 +54359,7 @@ func (e OrderCreateInputsInventoryBehavior) String() string {
 	return string(e)
 }
 
-func (e *OrderCreateInputsInventoryBehavior) UnmarshalGQL(v interface{}) error {
+func (e *OrderCreateInputsInventoryBehavior) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54373,7 +54373,7 @@ func (e *OrderCreateInputsInventoryBehavior) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderCreateInputsInventoryBehavior) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `OrderCreateMandatePaymentUserError`.
@@ -54400,7 +54400,7 @@ func (e OrderCreateMandatePaymentUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *OrderCreateMandatePaymentUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *OrderCreateMandatePaymentUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54414,7 +54414,7 @@ func (e *OrderCreateMandatePaymentUserErrorCode) UnmarshalGQL(v interface{}) err
 }
 
 func (e OrderCreateMandatePaymentUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `OrderCreateUserError`.
@@ -54459,7 +54459,7 @@ func (e OrderCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *OrderCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *OrderCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54473,7 +54473,7 @@ func (e *OrderCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `OrderDeleteUserError`.
@@ -54503,7 +54503,7 @@ func (e OrderDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *OrderDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *OrderDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54517,7 +54517,7 @@ func (e *OrderDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents the order's current financial status.
@@ -54565,7 +54565,7 @@ func (e OrderDisplayFinancialStatus) String() string {
 	return string(e)
 }
 
-func (e *OrderDisplayFinancialStatus) UnmarshalGQL(v interface{}) error {
+func (e *OrderDisplayFinancialStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54579,7 +54579,7 @@ func (e *OrderDisplayFinancialStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderDisplayFinancialStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents the order's aggregated fulfillment status for display purposes.
@@ -54633,7 +54633,7 @@ func (e OrderDisplayFulfillmentStatus) String() string {
 	return string(e)
 }
 
-func (e *OrderDisplayFulfillmentStatus) UnmarshalGQL(v interface{}) error {
+func (e *OrderDisplayFulfillmentStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54647,7 +54647,7 @@ func (e *OrderDisplayFulfillmentStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderDisplayFulfillmentStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `OrderEditAddShippingLineUserError`.
@@ -54674,7 +54674,7 @@ func (e OrderEditAddShippingLineUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *OrderEditAddShippingLineUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *OrderEditAddShippingLineUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54688,7 +54688,7 @@ func (e *OrderEditAddShippingLineUserErrorCode) UnmarshalGQL(v interface{}) erro
 }
 
 func (e OrderEditAddShippingLineUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `OrderEditRemoveDiscountUserError`.
@@ -54715,7 +54715,7 @@ func (e OrderEditRemoveDiscountUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *OrderEditRemoveDiscountUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *OrderEditRemoveDiscountUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54729,7 +54729,7 @@ func (e *OrderEditRemoveDiscountUserErrorCode) UnmarshalGQL(v interface{}) error
 }
 
 func (e OrderEditRemoveDiscountUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `OrderEditRemoveShippingLineUserError`.
@@ -54756,7 +54756,7 @@ func (e OrderEditRemoveShippingLineUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *OrderEditRemoveShippingLineUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *OrderEditRemoveShippingLineUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54770,7 +54770,7 @@ func (e *OrderEditRemoveShippingLineUserErrorCode) UnmarshalGQL(v interface{}) e
 }
 
 func (e OrderEditRemoveShippingLineUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `OrderEditUpdateDiscountUserError`.
@@ -54797,7 +54797,7 @@ func (e OrderEditUpdateDiscountUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *OrderEditUpdateDiscountUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *OrderEditUpdateDiscountUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54811,7 +54811,7 @@ func (e *OrderEditUpdateDiscountUserErrorCode) UnmarshalGQL(v interface{}) error
 }
 
 func (e OrderEditUpdateDiscountUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `OrderEditUpdateShippingLineUserError`.
@@ -54838,7 +54838,7 @@ func (e OrderEditUpdateShippingLineUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *OrderEditUpdateShippingLineUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *OrderEditUpdateShippingLineUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54852,7 +54852,7 @@ func (e *OrderEditUpdateShippingLineUserErrorCode) UnmarshalGQL(v interface{}) e
 }
 
 func (e OrderEditUpdateShippingLineUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `OrderInvoiceSendUserError`.
@@ -54879,7 +54879,7 @@ func (e OrderInvoiceSendUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *OrderInvoiceSendUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *OrderInvoiceSendUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54893,7 +54893,7 @@ func (e *OrderInvoiceSendUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderInvoiceSendUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The type of a payment status.
@@ -54956,7 +54956,7 @@ func (e OrderPaymentStatusResult) String() string {
 	return string(e)
 }
 
-func (e *OrderPaymentStatusResult) UnmarshalGQL(v interface{}) error {
+func (e *OrderPaymentStatusResult) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -54970,7 +54970,7 @@ func (e *OrderPaymentStatusResult) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderPaymentStatusResult) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The order's aggregated return status that's used for display purposes.
@@ -55014,7 +55014,7 @@ func (e OrderReturnStatus) String() string {
 	return string(e)
 }
 
-func (e *OrderReturnStatus) UnmarshalGQL(v interface{}) error {
+func (e *OrderReturnStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55028,7 +55028,7 @@ func (e *OrderReturnStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderReturnStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `OrderRiskAssessmentCreateUserError`.
@@ -55064,7 +55064,7 @@ func (e OrderRiskAssessmentCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *OrderRiskAssessmentCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *OrderRiskAssessmentCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55078,7 +55078,7 @@ func (e *OrderRiskAssessmentCreateUserErrorCode) UnmarshalGQL(v interface{}) err
 }
 
 func (e OrderRiskAssessmentCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The likelihood that an order is fraudulent.
@@ -55111,7 +55111,7 @@ func (e OrderRiskLevel) String() string {
 	return string(e)
 }
 
-func (e *OrderRiskLevel) UnmarshalGQL(v interface{}) error {
+func (e *OrderRiskLevel) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55125,7 +55125,7 @@ func (e *OrderRiskLevel) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderRiskLevel) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // List of possible values for an OrderRiskRecommendation recommendation.
@@ -55161,7 +55161,7 @@ func (e OrderRiskRecommendationResult) String() string {
 	return string(e)
 }
 
-func (e *OrderRiskRecommendationResult) UnmarshalGQL(v interface{}) error {
+func (e *OrderRiskRecommendationResult) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55175,7 +55175,7 @@ func (e *OrderRiskRecommendationResult) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderRiskRecommendationResult) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Order query.
@@ -55239,7 +55239,7 @@ func (e OrderSortKeys) String() string {
 	return string(e)
 }
 
-func (e *OrderSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *OrderSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55253,7 +55253,7 @@ func (e *OrderSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // A standardized error code, independent of the payment provider.
@@ -55358,7 +55358,7 @@ func (e OrderTransactionErrorCode) String() string {
 	return string(e)
 }
 
-func (e *OrderTransactionErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *OrderTransactionErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55372,7 +55372,7 @@ func (e *OrderTransactionErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderTransactionErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The different kinds of order transactions.
@@ -55422,7 +55422,7 @@ func (e OrderTransactionKind) String() string {
 	return string(e)
 }
 
-func (e *OrderTransactionKind) UnmarshalGQL(v interface{}) error {
+func (e *OrderTransactionKind) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55436,7 +55436,7 @@ func (e *OrderTransactionKind) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderTransactionKind) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The different states that an `OrderTransaction` can have.
@@ -55478,7 +55478,7 @@ func (e OrderTransactionStatus) String() string {
 	return string(e)
 }
 
-func (e *OrderTransactionStatus) UnmarshalGQL(v interface{}) error {
+func (e *OrderTransactionStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55492,7 +55492,7 @@ func (e *OrderTransactionStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e OrderTransactionStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `PageCreateUserError`.
@@ -55531,7 +55531,7 @@ func (e PageCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *PageCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *PageCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55545,7 +55545,7 @@ func (e *PageCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PageCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `PageDeleteUserError`.
@@ -55572,7 +55572,7 @@ func (e PageDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *PageDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *PageDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55586,7 +55586,7 @@ func (e *PageDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PageDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `PageUpdateUserError`.
@@ -55625,7 +55625,7 @@ func (e PageUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *PageUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *PageUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55639,7 +55639,7 @@ func (e *PageUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PageUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `PaymentCustomizationError`.
@@ -55696,7 +55696,7 @@ func (e PaymentCustomizationErrorCode) String() string {
 	return string(e)
 }
 
-func (e *PaymentCustomizationErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *PaymentCustomizationErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55710,7 +55710,7 @@ func (e *PaymentCustomizationErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PaymentCustomizationErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Some of the payment methods used in Shopify.
@@ -55774,7 +55774,7 @@ func (e PaymentMethods) String() string {
 	return string(e)
 }
 
-func (e *PaymentMethods) UnmarshalGQL(v interface{}) error {
+func (e *PaymentMethods) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55788,7 +55788,7 @@ func (e *PaymentMethods) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PaymentMethods) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `PaymentReminderSendUserError`.
@@ -55815,7 +55815,7 @@ func (e PaymentReminderSendUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *PaymentReminderSendUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *PaymentReminderSendUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55829,7 +55829,7 @@ func (e *PaymentReminderSendUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PaymentReminderSendUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `PaymentTermsCreateUserError`.
@@ -55856,7 +55856,7 @@ func (e PaymentTermsCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *PaymentTermsCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *PaymentTermsCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55870,7 +55870,7 @@ func (e *PaymentTermsCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PaymentTermsCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `PaymentTermsDeleteUserError`.
@@ -55897,7 +55897,7 @@ func (e PaymentTermsDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *PaymentTermsDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *PaymentTermsDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55911,7 +55911,7 @@ func (e *PaymentTermsDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PaymentTermsDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The type of a payment terms or a payment terms template.
@@ -55950,7 +55950,7 @@ func (e PaymentTermsType) String() string {
 	return string(e)
 }
 
-func (e *PaymentTermsType) UnmarshalGQL(v interface{}) error {
+func (e *PaymentTermsType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -55964,7 +55964,7 @@ func (e *PaymentTermsType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PaymentTermsType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `PaymentTermsUpdateUserError`.
@@ -55991,7 +55991,7 @@ func (e PaymentTermsUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *PaymentTermsUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *PaymentTermsUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56005,7 +56005,7 @@ func (e *PaymentTermsUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PaymentTermsUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Payout query.
@@ -56066,7 +56066,7 @@ func (e PayoutSortKeys) String() string {
 	return string(e)
 }
 
-func (e *PayoutSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *PayoutSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56080,7 +56080,7 @@ func (e *PayoutSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PayoutSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents a valid PayPal Express subscriptions gateway status.
@@ -56113,7 +56113,7 @@ func (e PaypalExpressSubscriptionsGatewayStatus) String() string {
 	return string(e)
 }
 
-func (e *PaypalExpressSubscriptionsGatewayStatus) UnmarshalGQL(v interface{}) error {
+func (e *PaypalExpressSubscriptionsGatewayStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56127,7 +56127,7 @@ func (e *PaypalExpressSubscriptionsGatewayStatus) UnmarshalGQL(v interface{}) er
 }
 
 func (e PaypalExpressSubscriptionsGatewayStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // How to caluclate the parent product variant's price while bulk updating variant relationships.
@@ -56160,7 +56160,7 @@ func (e PriceCalculationType) String() string {
 	return string(e)
 }
 
-func (e *PriceCalculationType) UnmarshalGQL(v interface{}) error {
+func (e *PriceCalculationType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56174,7 +56174,7 @@ func (e *PriceCalculationType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PriceCalculationType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents a percentage price adjustment type.
@@ -56204,7 +56204,7 @@ func (e PriceListAdjustmentType) String() string {
 	return string(e)
 }
 
-func (e *PriceListAdjustmentType) UnmarshalGQL(v interface{}) error {
+func (e *PriceListAdjustmentType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56218,7 +56218,7 @@ func (e *PriceListAdjustmentType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PriceListAdjustmentType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents how the compare at price will be determined for a price list.
@@ -56248,7 +56248,7 @@ func (e PriceListCompareAtMode) String() string {
 	return string(e)
 }
 
-func (e *PriceListCompareAtMode) UnmarshalGQL(v interface{}) error {
+func (e *PriceListCompareAtMode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56262,7 +56262,7 @@ func (e *PriceListCompareAtMode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PriceListCompareAtMode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `PriceListFixedPricesByProductBulkUpdateUserError`.
@@ -56307,7 +56307,7 @@ func (e PriceListFixedPricesByProductBulkUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *PriceListFixedPricesByProductBulkUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *PriceListFixedPricesByProductBulkUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56321,7 +56321,7 @@ func (e *PriceListFixedPricesByProductBulkUpdateUserErrorCode) UnmarshalGQL(v in
 }
 
 func (e PriceListFixedPricesByProductBulkUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents the origin of a price, either fixed (defined on the price list) or relative (calculated using a price list adjustment configuration). For examples, refer to [PriceList](https://shopify.dev/api/admin-graphql/latest/queries/priceList#section-examples).
@@ -56351,7 +56351,7 @@ func (e PriceListPriceOriginType) String() string {
 	return string(e)
 }
 
-func (e *PriceListPriceOriginType) UnmarshalGQL(v interface{}) error {
+func (e *PriceListPriceOriginType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56365,7 +56365,7 @@ func (e *PriceListPriceOriginType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PriceListPriceOriginType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `PriceListPriceUserError`.
@@ -56404,7 +56404,7 @@ func (e PriceListPriceUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *PriceListPriceUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *PriceListPriceUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56418,7 +56418,7 @@ func (e *PriceListPriceUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PriceListPriceUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the PriceList query.
@@ -56452,7 +56452,7 @@ func (e PriceListSortKeys) String() string {
 	return string(e)
 }
 
-func (e *PriceListSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *PriceListSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56466,7 +56466,7 @@ func (e *PriceListSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PriceListSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `PriceListUserError`.
@@ -56583,7 +56583,7 @@ func (e PriceListUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *PriceListUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *PriceListUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56597,7 +56597,7 @@ func (e *PriceListUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PriceListUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The method by which the price rule's value is allocated to its entitled items.
@@ -56627,7 +56627,7 @@ func (e PriceRuleAllocationMethod) String() string {
 	return string(e)
 }
 
-func (e *PriceRuleAllocationMethod) UnmarshalGQL(v interface{}) error {
+func (e *PriceRuleAllocationMethod) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56641,7 +56641,7 @@ func (e *PriceRuleAllocationMethod) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PriceRuleAllocationMethod) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The list of features that can be supported by a price rule.
@@ -56680,7 +56680,7 @@ func (e PriceRuleFeature) String() string {
 	return string(e)
 }
 
-func (e *PriceRuleFeature) UnmarshalGQL(v interface{}) error {
+func (e *PriceRuleFeature) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56694,7 +56694,7 @@ func (e *PriceRuleFeature) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PriceRuleFeature) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The type of page where a shareable price rule URL lands.
@@ -56727,7 +56727,7 @@ func (e PriceRuleShareableURLTargetType) String() string {
 	return string(e)
 }
 
-func (e *PriceRuleShareableURLTargetType) UnmarshalGQL(v interface{}) error {
+func (e *PriceRuleShareableURLTargetType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56741,7 +56741,7 @@ func (e *PriceRuleShareableURLTargetType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PriceRuleShareableURLTargetType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of the price rule.
@@ -56774,7 +56774,7 @@ func (e PriceRuleStatus) String() string {
 	return string(e)
 }
 
-func (e *PriceRuleStatus) UnmarshalGQL(v interface{}) error {
+func (e *PriceRuleStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56788,7 +56788,7 @@ func (e *PriceRuleStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PriceRuleStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The type of lines (line_item or shipping_line) to which the price rule applies.
@@ -56818,7 +56818,7 @@ func (e PriceRuleTarget) String() string {
 	return string(e)
 }
 
-func (e *PriceRuleTarget) UnmarshalGQL(v interface{}) error {
+func (e *PriceRuleTarget) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56832,7 +56832,7 @@ func (e *PriceRuleTarget) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PriceRuleTarget) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The list of features that can be supported by a price rule.
@@ -56871,7 +56871,7 @@ func (e PriceRuleTrait) String() string {
 	return string(e)
 }
 
-func (e *PriceRuleTrait) UnmarshalGQL(v interface{}) error {
+func (e *PriceRuleTrait) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56885,7 +56885,7 @@ func (e *PriceRuleTrait) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PriceRuleTrait) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Supported private metafield value types.
@@ -56918,7 +56918,7 @@ func (e PrivateMetafieldValueType) String() string {
 	return string(e)
 }
 
-func (e *PrivateMetafieldValueType) UnmarshalGQL(v interface{}) error {
+func (e *PrivateMetafieldValueType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56932,7 +56932,7 @@ func (e *PrivateMetafieldValueType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PrivateMetafieldValueType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of a component option value related to a bundle.
@@ -56968,7 +56968,7 @@ func (e ProductBundleComponentOptionSelectionStatus) String() string {
 	return string(e)
 }
 
-func (e *ProductBundleComponentOptionSelectionStatus) UnmarshalGQL(v interface{}) error {
+func (e *ProductBundleComponentOptionSelectionStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -56982,7 +56982,7 @@ func (e *ProductBundleComponentOptionSelectionStatus) UnmarshalGQL(v interface{}
 }
 
 func (e ProductBundleComponentOptionSelectionStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductBundleMutationUserError`.
@@ -57018,7 +57018,7 @@ func (e ProductBundleMutationUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductBundleMutationUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductBundleMutationUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57032,7 +57032,7 @@ func (e *ProductBundleMutationUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductBundleMutationUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductChangeStatusUserError`.
@@ -57062,7 +57062,7 @@ func (e ProductChangeStatusUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductChangeStatusUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductChangeStatusUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57076,7 +57076,7 @@ func (e *ProductChangeStatusUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductChangeStatusUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the ProductCollection query.
@@ -57125,7 +57125,7 @@ func (e ProductCollectionSortKeys) String() string {
 	return string(e)
 }
 
-func (e *ProductCollectionSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *ProductCollectionSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57139,7 +57139,7 @@ func (e *ProductCollectionSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductCollectionSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductFeedCreateUserError`.
@@ -57169,7 +57169,7 @@ func (e ProductFeedCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductFeedCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductFeedCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57183,7 +57183,7 @@ func (e *ProductFeedCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductFeedCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductFeedDeleteUserError`.
@@ -57210,7 +57210,7 @@ func (e ProductFeedDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductFeedDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductFeedDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57224,7 +57224,7 @@ func (e *ProductFeedDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductFeedDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The valid values for the status of product feed.
@@ -57254,7 +57254,7 @@ func (e ProductFeedStatus) String() string {
 	return string(e)
 }
 
-func (e *ProductFeedStatus) UnmarshalGQL(v interface{}) error {
+func (e *ProductFeedStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57268,7 +57268,7 @@ func (e *ProductFeedStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductFeedStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductFullSyncUserError`.
@@ -57295,7 +57295,7 @@ func (e ProductFullSyncUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductFullSyncUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductFullSyncUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57309,7 +57309,7 @@ func (e *ProductFullSyncUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductFullSyncUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the ProductImage query.
@@ -57346,7 +57346,7 @@ func (e ProductImageSortKeys) String() string {
 	return string(e)
 }
 
-func (e *ProductImageSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *ProductImageSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57360,7 +57360,7 @@ func (e *ProductImageSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductImageSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the ProductMedia query.
@@ -57394,7 +57394,7 @@ func (e ProductMediaSortKeys) String() string {
 	return string(e)
 }
 
-func (e *ProductMediaSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *ProductMediaSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57408,7 +57408,7 @@ func (e *ProductMediaSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductMediaSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents the state of this product operation.
@@ -57441,7 +57441,7 @@ func (e ProductOperationStatus) String() string {
 	return string(e)
 }
 
-func (e *ProductOperationStatus) UnmarshalGQL(v interface{}) error {
+func (e *ProductOperationStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57455,7 +57455,7 @@ func (e *ProductOperationStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductOperationStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of variant strategies available for use in the `productOptionsCreate` mutation.
@@ -57487,7 +57487,7 @@ func (e ProductOptionCreateVariantStrategy) String() string {
 	return string(e)
 }
 
-func (e *ProductOptionCreateVariantStrategy) UnmarshalGQL(v interface{}) error {
+func (e *ProductOptionCreateVariantStrategy) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57501,7 +57501,7 @@ func (e *ProductOptionCreateVariantStrategy) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductOptionCreateVariantStrategy) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of strategies available for use on the `productOptionDelete` mutation.
@@ -57534,7 +57534,7 @@ func (e ProductOptionDeleteStrategy) String() string {
 	return string(e)
 }
 
-func (e *ProductOptionDeleteStrategy) UnmarshalGQL(v interface{}) error {
+func (e *ProductOptionDeleteStrategy) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57548,7 +57548,7 @@ func (e *ProductOptionDeleteStrategy) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductOptionDeleteStrategy) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductOptionUpdateUserError`.
@@ -57662,7 +57662,7 @@ func (e ProductOptionUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductOptionUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductOptionUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57676,7 +57676,7 @@ func (e *ProductOptionUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductOptionUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of variant strategies available for use in the `productOptionUpdate` mutation.
@@ -57714,7 +57714,7 @@ func (e ProductOptionUpdateVariantStrategy) String() string {
 	return string(e)
 }
 
-func (e *ProductOptionUpdateVariantStrategy) UnmarshalGQL(v interface{}) error {
+func (e *ProductOptionUpdateVariantStrategy) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57728,7 +57728,7 @@ func (e *ProductOptionUpdateVariantStrategy) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductOptionUpdateVariantStrategy) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductOptionsCreateUserError`.
@@ -57824,7 +57824,7 @@ func (e ProductOptionsCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductOptionsCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductOptionsCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57838,7 +57838,7 @@ func (e *ProductOptionsCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductOptionsCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductOptionsDeleteUserError`.
@@ -57886,7 +57886,7 @@ func (e ProductOptionsDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductOptionsDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductOptionsDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57900,7 +57900,7 @@ func (e *ProductOptionsDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductOptionsDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductOptionsReorderUserError`.
@@ -57960,7 +57960,7 @@ func (e ProductOptionsReorderUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductOptionsReorderUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductOptionsReorderUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -57974,7 +57974,7 @@ func (e *ProductOptionsReorderUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductOptionsReorderUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductSetUserError`.
@@ -58082,7 +58082,7 @@ func (e ProductSetUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductSetUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductSetUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58096,7 +58096,7 @@ func (e *ProductSetUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductSetUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Product query.
@@ -58149,7 +58149,7 @@ func (e ProductSortKeys) String() string {
 	return string(e)
 }
 
-func (e *ProductSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *ProductSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58163,7 +58163,7 @@ func (e *ProductSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible product statuses.
@@ -58196,7 +58196,7 @@ func (e ProductStatus) String() string {
 	return string(e)
 }
 
-func (e *ProductStatus) UnmarshalGQL(v interface{}) error {
+func (e *ProductStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58210,7 +58210,7 @@ func (e *ProductStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The valid values for the inventory policy of a product variant once it is out of stock.
@@ -58240,7 +58240,7 @@ func (e ProductVariantInventoryPolicy) String() string {
 	return string(e)
 }
 
-func (e *ProductVariantInventoryPolicy) UnmarshalGQL(v interface{}) error {
+func (e *ProductVariantInventoryPolicy) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58254,7 +58254,7 @@ func (e *ProductVariantInventoryPolicy) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductVariantInventoryPolicy) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductVariantRelationshipBulkUpdateUserError`.
@@ -58344,7 +58344,7 @@ func (e ProductVariantRelationshipBulkUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductVariantRelationshipBulkUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductVariantRelationshipBulkUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58358,7 +58358,7 @@ func (e *ProductVariantRelationshipBulkUpdateUserErrorCode) UnmarshalGQL(v inter
 }
 
 func (e ProductVariantRelationshipBulkUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the ProductVariant query.
@@ -58420,7 +58420,7 @@ func (e ProductVariantSortKeys) String() string {
 	return string(e)
 }
 
-func (e *ProductVariantSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *ProductVariantSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58434,7 +58434,7 @@ func (e *ProductVariantSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductVariantSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of strategies available for use on the `productVariantsBulkCreate` mutation.
@@ -58464,7 +58464,7 @@ func (e ProductVariantsBulkCreateStrategy) String() string {
 	return string(e)
 }
 
-func (e *ProductVariantsBulkCreateStrategy) UnmarshalGQL(v interface{}) error {
+func (e *ProductVariantsBulkCreateStrategy) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58478,7 +58478,7 @@ func (e *ProductVariantsBulkCreateStrategy) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProductVariantsBulkCreateStrategy) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductVariantsBulkCreateUserError`.
@@ -58553,7 +58553,7 @@ func (e ProductVariantsBulkCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductVariantsBulkCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductVariantsBulkCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58567,7 +58567,7 @@ func (e *ProductVariantsBulkCreateUserErrorCode) UnmarshalGQL(v interface{}) err
 }
 
 func (e ProductVariantsBulkCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductVariantsBulkDeleteUserError`.
@@ -58603,7 +58603,7 @@ func (e ProductVariantsBulkDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductVariantsBulkDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductVariantsBulkDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58617,7 +58617,7 @@ func (e *ProductVariantsBulkDeleteUserErrorCode) UnmarshalGQL(v interface{}) err
 }
 
 func (e ProductVariantsBulkDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductVariantsBulkReorderUserError`.
@@ -58653,7 +58653,7 @@ func (e ProductVariantsBulkReorderUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductVariantsBulkReorderUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductVariantsBulkReorderUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58667,7 +58667,7 @@ func (e *ProductVariantsBulkReorderUserErrorCode) UnmarshalGQL(v interface{}) er
 }
 
 func (e ProductVariantsBulkReorderUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ProductVariantsBulkUpdateUserError`.
@@ -58748,7 +58748,7 @@ func (e ProductVariantsBulkUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ProductVariantsBulkUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ProductVariantsBulkUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58762,7 +58762,7 @@ func (e *ProductVariantsBulkUpdateUserErrorCode) UnmarshalGQL(v interface{}) err
 }
 
 func (e ProductVariantsBulkUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the ProfileItem query.
@@ -58814,7 +58814,7 @@ func (e ProfileItemSortKeys) String() string {
 	return string(e)
 }
 
-func (e *ProfileItemSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *ProfileItemSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58828,7 +58828,7 @@ func (e *ProfileItemSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ProfileItemSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `PubSubWebhookSubscriptionCreateUserError`.
@@ -58858,7 +58858,7 @@ func (e PubSubWebhookSubscriptionCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *PubSubWebhookSubscriptionCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *PubSubWebhookSubscriptionCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58872,7 +58872,7 @@ func (e *PubSubWebhookSubscriptionCreateUserErrorCode) UnmarshalGQL(v interface{
 }
 
 func (e PubSubWebhookSubscriptionCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `PubSubWebhookSubscriptionUpdateUserError`.
@@ -58899,7 +58899,7 @@ func (e PubSubWebhookSubscriptionUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *PubSubWebhookSubscriptionUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *PubSubWebhookSubscriptionUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58913,7 +58913,7 @@ func (e *PubSubWebhookSubscriptionUpdateUserErrorCode) UnmarshalGQL(v interface{
 }
 
 func (e PubSubWebhookSubscriptionUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The input fields for the possible values for the default state of a publication.
@@ -58943,7 +58943,7 @@ func (e PublicationCreateInputPublicationDefaultState) String() string {
 	return string(e)
 }
 
-func (e *PublicationCreateInputPublicationDefaultState) UnmarshalGQL(v interface{}) error {
+func (e *PublicationCreateInputPublicationDefaultState) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -58957,7 +58957,7 @@ func (e *PublicationCreateInputPublicationDefaultState) UnmarshalGQL(v interface
 }
 
 func (e PublicationCreateInputPublicationDefaultState) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `PublicationUserError`.
@@ -59035,7 +59035,7 @@ func (e PublicationUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *PublicationUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *PublicationUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59049,7 +59049,7 @@ func (e *PublicationUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e PublicationUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the QuantityPriceBreak query.
@@ -59083,7 +59083,7 @@ func (e QuantityPriceBreakSortKeys) String() string {
 	return string(e)
 }
 
-func (e *QuantityPriceBreakSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *QuantityPriceBreakSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59097,7 +59097,7 @@ func (e *QuantityPriceBreakSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e QuantityPriceBreakSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `QuantityPricingByVariantUserError`.
@@ -59226,7 +59226,7 @@ func (e QuantityPricingByVariantUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *QuantityPricingByVariantUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *QuantityPricingByVariantUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59240,7 +59240,7 @@ func (e *QuantityPricingByVariantUserErrorCode) UnmarshalGQL(v interface{}) erro
 }
 
 func (e QuantityPricingByVariantUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The origin of quantity rule on a price list.
@@ -59270,7 +59270,7 @@ func (e QuantityRuleOriginType) String() string {
 	return string(e)
 }
 
-func (e *QuantityRuleOriginType) UnmarshalGQL(v interface{}) error {
+func (e *QuantityRuleOriginType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59284,7 +59284,7 @@ func (e *QuantityRuleOriginType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e QuantityRuleOriginType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `QuantityRuleUserError`.
@@ -59353,7 +59353,7 @@ func (e QuantityRuleUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *QuantityRuleUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *QuantityRuleUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59367,7 +59367,7 @@ func (e *QuantityRuleUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e QuantityRuleUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The type of refund to perform for a particular refund duty.
@@ -59397,7 +59397,7 @@ func (e RefundDutyRefundType) String() string {
 	return string(e)
 }
 
-func (e *RefundDutyRefundType) UnmarshalGQL(v interface{}) error {
+func (e *RefundDutyRefundType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59411,7 +59411,7 @@ func (e *RefundDutyRefundType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e RefundDutyRefundType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The type of restock performed for a particular refund line item.
@@ -59447,7 +59447,7 @@ func (e RefundLineItemRestockType) String() string {
 	return string(e)
 }
 
-func (e *RefundLineItemRestockType) UnmarshalGQL(v interface{}) error {
+func (e *RefundLineItemRestockType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59461,7 +59461,7 @@ func (e *RefundLineItemRestockType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e RefundLineItemRestockType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The available icons for resource alerts.
@@ -59491,7 +59491,7 @@ func (e ResourceAlertIcon) String() string {
 	return string(e)
 }
 
-func (e *ResourceAlertIcon) UnmarshalGQL(v interface{}) error {
+func (e *ResourceAlertIcon) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59505,7 +59505,7 @@ func (e *ResourceAlertIcon) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ResourceAlertIcon) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible severity levels for a resource alert.
@@ -59546,7 +59546,7 @@ func (e ResourceAlertSeverity) String() string {
 	return string(e)
 }
 
-func (e *ResourceAlertSeverity) UnmarshalGQL(v interface{}) error {
+func (e *ResourceAlertSeverity) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59560,7 +59560,7 @@ func (e *ResourceAlertSeverity) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ResourceAlertSeverity) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The state of the resource feedback.
@@ -59590,7 +59590,7 @@ func (e ResourceFeedbackState) String() string {
 	return string(e)
 }
 
-func (e *ResourceFeedbackState) UnmarshalGQL(v interface{}) error {
+func (e *ResourceFeedbackState) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59604,7 +59604,7 @@ func (e *ResourceFeedbackState) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ResourceFeedbackState) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents the state of this catalog operation.
@@ -59637,7 +59637,7 @@ func (e ResourceOperationStatus) String() string {
 	return string(e)
 }
 
-func (e *ResourceOperationStatus) UnmarshalGQL(v interface{}) error {
+func (e *ResourceOperationStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59651,7 +59651,7 @@ func (e *ResourceOperationStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ResourceOperationStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The reason why the merchant declined a customer's return request.
@@ -59684,7 +59684,7 @@ func (e ReturnDeclineReason) String() string {
 	return string(e)
 }
 
-func (e *ReturnDeclineReason) UnmarshalGQL(v interface{}) error {
+func (e *ReturnDeclineReason) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59698,7 +59698,7 @@ func (e *ReturnDeclineReason) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ReturnDeclineReason) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ReturnUserError`.
@@ -59794,7 +59794,7 @@ func (e ReturnErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ReturnErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ReturnErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59808,7 +59808,7 @@ func (e *ReturnErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ReturnErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The reason for returning the return line item.
@@ -59862,7 +59862,7 @@ func (e ReturnReason) String() string {
 	return string(e)
 }
 
-func (e *ReturnReason) UnmarshalGQL(v interface{}) error {
+func (e *ReturnReason) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59876,7 +59876,7 @@ func (e *ReturnReason) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ReturnReason) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of a return.
@@ -59915,7 +59915,7 @@ func (e ReturnStatus) String() string {
 	return string(e)
 }
 
-func (e *ReturnStatus) UnmarshalGQL(v interface{}) error {
+func (e *ReturnStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59929,7 +59929,7 @@ func (e *ReturnStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ReturnStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The final arrangement of an item from a reverse fulfillment order.
@@ -59965,7 +59965,7 @@ func (e ReverseFulfillmentOrderDispositionType) String() string {
 	return string(e)
 }
 
-func (e *ReverseFulfillmentOrderDispositionType) UnmarshalGQL(v interface{}) error {
+func (e *ReverseFulfillmentOrderDispositionType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -59979,7 +59979,7 @@ func (e *ReverseFulfillmentOrderDispositionType) UnmarshalGQL(v interface{}) err
 }
 
 func (e ReverseFulfillmentOrderDispositionType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of a reverse fulfillment order.
@@ -60012,7 +60012,7 @@ func (e ReverseFulfillmentOrderStatus) String() string {
 	return string(e)
 }
 
-func (e *ReverseFulfillmentOrderStatus) UnmarshalGQL(v interface{}) error {
+func (e *ReverseFulfillmentOrderStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60026,7 +60026,7 @@ func (e *ReverseFulfillmentOrderStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ReverseFulfillmentOrderStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of a reverse fulfillment order third-party confirmation.
@@ -60068,7 +60068,7 @@ func (e ReverseFulfillmentOrderThirdPartyConfirmationStatus) String() string {
 	return string(e)
 }
 
-func (e *ReverseFulfillmentOrderThirdPartyConfirmationStatus) UnmarshalGQL(v interface{}) error {
+func (e *ReverseFulfillmentOrderThirdPartyConfirmationStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60082,7 +60082,7 @@ func (e *ReverseFulfillmentOrderThirdPartyConfirmationStatus) UnmarshalGQL(v int
 }
 
 func (e ReverseFulfillmentOrderThirdPartyConfirmationStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // List of possible values for a RiskAssessment result.
@@ -60121,7 +60121,7 @@ func (e RiskAssessmentResult) String() string {
 	return string(e)
 }
 
-func (e *RiskAssessmentResult) UnmarshalGQL(v interface{}) error {
+func (e *RiskAssessmentResult) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60135,7 +60135,7 @@ func (e *RiskAssessmentResult) UnmarshalGQL(v interface{}) error {
 }
 
 func (e RiskAssessmentResult) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // List of possible values for a RiskFact sentiment.
@@ -60168,7 +60168,7 @@ func (e RiskFactSentiment) String() string {
 	return string(e)
 }
 
-func (e *RiskFactSentiment) UnmarshalGQL(v interface{}) error {
+func (e *RiskFactSentiment) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60182,7 +60182,7 @@ func (e *RiskFactSentiment) UnmarshalGQL(v interface{}) error {
 }
 
 func (e RiskFactSentiment) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible order action types for a sale.
@@ -60218,7 +60218,7 @@ func (e SaleActionType) String() string {
 	return string(e)
 }
 
-func (e *SaleActionType) UnmarshalGQL(v interface{}) error {
+func (e *SaleActionType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60232,7 +60232,7 @@ func (e *SaleActionType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SaleActionType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible line types for a sale record. One of the possible order line types for a sale is an adjustment. Sales adjustments occur when a refund is issued for a line item that is either more or less than the total value of the line item. Examples are restocking fees and goodwill payments. When this happens, Shopify produces a sales agreement with sale records for each line item that is returned or refunded and an additional sale record for the adjustment (for example, a restocking fee). The sales records for the returned or refunded items represent the reversal of the original line item sale value. The additional adjustment sale record represents the difference between the original total value of all line items that were refunded, and the actual amount refunded.
@@ -60283,7 +60283,7 @@ func (e SaleLineType) String() string {
 	return string(e)
 }
 
-func (e *SaleLineType) UnmarshalGQL(v interface{}) error {
+func (e *SaleLineType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60297,7 +60297,7 @@ func (e *SaleLineType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SaleLineType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the ScheduledChange query.
@@ -60331,7 +60331,7 @@ func (e ScheduledChangeSortKeys) String() string {
 	return string(e)
 }
 
-func (e *ScheduledChangeSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *ScheduledChangeSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60345,7 +60345,7 @@ func (e *ScheduledChangeSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ScheduledChangeSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The page or pages on the online store where the script should be included.
@@ -60378,7 +60378,7 @@ func (e ScriptTagDisplayScope) String() string {
 	return string(e)
 }
 
-func (e *ScriptTagDisplayScope) UnmarshalGQL(v interface{}) error {
+func (e *ScriptTagDisplayScope) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60392,7 +60392,7 @@ func (e *ScriptTagDisplayScope) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ScriptTagDisplayScope) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Specifies the type of resources to be returned from a search.
@@ -60449,7 +60449,7 @@ func (e SearchResultType) String() string {
 	return string(e)
 }
 
-func (e *SearchResultType) UnmarshalGQL(v interface{}) error {
+func (e *SearchResultType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60463,7 +60463,7 @@ func (e *SearchResultType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SearchResultType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Segment query.
@@ -60500,7 +60500,7 @@ func (e SegmentSortKeys) String() string {
 	return string(e)
 }
 
-func (e *SegmentSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *SegmentSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60514,7 +60514,7 @@ func (e *SegmentSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SegmentSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents the anchor type.
@@ -60547,7 +60547,7 @@ func (e SellingPlanAnchorType) String() string {
 	return string(e)
 }
 
-func (e *SellingPlanAnchorType) UnmarshalGQL(v interface{}) error {
+func (e *SellingPlanAnchorType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60561,7 +60561,7 @@ func (e *SellingPlanAnchorType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SellingPlanAnchorType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The category of the selling plan. For the `OTHER` category,
@@ -60600,7 +60600,7 @@ func (e SellingPlanCategory) String() string {
 	return string(e)
 }
 
-func (e *SellingPlanCategory) UnmarshalGQL(v interface{}) error {
+func (e *SellingPlanCategory) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60614,7 +60614,7 @@ func (e *SellingPlanCategory) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SellingPlanCategory) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The checkout charge when the full amount isn't charged at checkout.
@@ -60644,7 +60644,7 @@ func (e SellingPlanCheckoutChargeType) String() string {
 	return string(e)
 }
 
-func (e *SellingPlanCheckoutChargeType) UnmarshalGQL(v interface{}) error {
+func (e *SellingPlanCheckoutChargeType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60658,7 +60658,7 @@ func (e *SellingPlanCheckoutChargeType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SellingPlanCheckoutChargeType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible intentions of a Delivery Policy.
@@ -60685,7 +60685,7 @@ func (e SellingPlanFixedDeliveryPolicyIntent) String() string {
 	return string(e)
 }
 
-func (e *SellingPlanFixedDeliveryPolicyIntent) UnmarshalGQL(v interface{}) error {
+func (e *SellingPlanFixedDeliveryPolicyIntent) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60699,7 +60699,7 @@ func (e *SellingPlanFixedDeliveryPolicyIntent) UnmarshalGQL(v interface{}) error
 }
 
 func (e SellingPlanFixedDeliveryPolicyIntent) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The fulfillment or delivery behavior of the first fulfillment when the orderis placed before the anchor.
@@ -60731,7 +60731,7 @@ func (e SellingPlanFixedDeliveryPolicyPreAnchorBehavior) String() string {
 	return string(e)
 }
 
-func (e *SellingPlanFixedDeliveryPolicyPreAnchorBehavior) UnmarshalGQL(v interface{}) error {
+func (e *SellingPlanFixedDeliveryPolicyPreAnchorBehavior) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60745,7 +60745,7 @@ func (e *SellingPlanFixedDeliveryPolicyPreAnchorBehavior) UnmarshalGQL(v interfa
 }
 
 func (e SellingPlanFixedDeliveryPolicyPreAnchorBehavior) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Describes what triggers fulfillment.
@@ -60781,7 +60781,7 @@ func (e SellingPlanFulfillmentTrigger) String() string {
 	return string(e)
 }
 
-func (e *SellingPlanFulfillmentTrigger) UnmarshalGQL(v interface{}) error {
+func (e *SellingPlanFulfillmentTrigger) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60795,7 +60795,7 @@ func (e *SellingPlanFulfillmentTrigger) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SellingPlanFulfillmentTrigger) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the SellingPlanGroup query.
@@ -60835,7 +60835,7 @@ func (e SellingPlanGroupSortKeys) String() string {
 	return string(e)
 }
 
-func (e *SellingPlanGroupSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *SellingPlanGroupSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -60849,7 +60849,7 @@ func (e *SellingPlanGroupSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SellingPlanGroupSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `SellingPlanGroupUserError`.
@@ -61062,7 +61062,7 @@ func (e SellingPlanGroupUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *SellingPlanGroupUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *SellingPlanGroupUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61076,7 +61076,7 @@ func (e *SellingPlanGroupUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SellingPlanGroupUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents valid selling plan interval.
@@ -61112,7 +61112,7 @@ func (e SellingPlanInterval) String() string {
 	return string(e)
 }
 
-func (e *SellingPlanInterval) UnmarshalGQL(v interface{}) error {
+func (e *SellingPlanInterval) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61126,7 +61126,7 @@ func (e *SellingPlanInterval) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SellingPlanInterval) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents a selling plan pricing policy adjustment type.
@@ -61159,7 +61159,7 @@ func (e SellingPlanPricingPolicyAdjustmentType) String() string {
 	return string(e)
 }
 
-func (e *SellingPlanPricingPolicyAdjustmentType) UnmarshalGQL(v interface{}) error {
+func (e *SellingPlanPricingPolicyAdjustmentType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61173,7 +61173,7 @@ func (e *SellingPlanPricingPolicyAdjustmentType) UnmarshalGQL(v interface{}) err
 }
 
 func (e SellingPlanPricingPolicyAdjustmentType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Whether the delivery policy is merchant or buyer-centric.
@@ -61200,7 +61200,7 @@ func (e SellingPlanRecurringDeliveryPolicyIntent) String() string {
 	return string(e)
 }
 
-func (e *SellingPlanRecurringDeliveryPolicyIntent) UnmarshalGQL(v interface{}) error {
+func (e *SellingPlanRecurringDeliveryPolicyIntent) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61214,7 +61214,7 @@ func (e *SellingPlanRecurringDeliveryPolicyIntent) UnmarshalGQL(v interface{}) e
 }
 
 func (e SellingPlanRecurringDeliveryPolicyIntent) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The fulfillment or delivery behaviors of the first fulfillment when the orderis placed before the anchor.
@@ -61246,7 +61246,7 @@ func (e SellingPlanRecurringDeliveryPolicyPreAnchorBehavior) String() string {
 	return string(e)
 }
 
-func (e *SellingPlanRecurringDeliveryPolicyPreAnchorBehavior) UnmarshalGQL(v interface{}) error {
+func (e *SellingPlanRecurringDeliveryPolicyPreAnchorBehavior) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61260,7 +61260,7 @@ func (e *SellingPlanRecurringDeliveryPolicyPreAnchorBehavior) UnmarshalGQL(v int
 }
 
 func (e SellingPlanRecurringDeliveryPolicyPreAnchorBehavior) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // When to capture the payment for the remaining amount due.
@@ -61293,7 +61293,7 @@ func (e SellingPlanRemainingBalanceChargeTrigger) String() string {
 	return string(e)
 }
 
-func (e *SellingPlanRemainingBalanceChargeTrigger) UnmarshalGQL(v interface{}) error {
+func (e *SellingPlanRemainingBalanceChargeTrigger) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61307,7 +61307,7 @@ func (e *SellingPlanRemainingBalanceChargeTrigger) UnmarshalGQL(v interface{}) e
 }
 
 func (e SellingPlanRemainingBalanceChargeTrigger) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // When to reserve inventory for a selling plan.
@@ -61337,7 +61337,7 @@ func (e SellingPlanReserve) String() string {
 	return string(e)
 }
 
-func (e *SellingPlanReserve) UnmarshalGQL(v interface{}) error {
+func (e *SellingPlanReserve) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61351,7 +61351,7 @@ func (e *SellingPlanReserve) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SellingPlanReserve) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The current state of a server pixel.
@@ -61384,7 +61384,7 @@ func (e ServerPixelStatus) String() string {
 	return string(e)
 }
 
-func (e *ServerPixelStatus) UnmarshalGQL(v interface{}) error {
+func (e *ServerPixelStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61398,7 +61398,7 @@ func (e *ServerPixelStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ServerPixelStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The class of the discount for combining purposes.
@@ -61425,7 +61425,7 @@ func (e ShippingDiscountClass) String() string {
 	return string(e)
 }
 
-func (e *ShippingDiscountClass) UnmarshalGQL(v interface{}) error {
+func (e *ShippingDiscountClass) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61439,7 +61439,7 @@ func (e *ShippingDiscountClass) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShippingDiscountClass) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Type of a shipping package.
@@ -61475,7 +61475,7 @@ func (e ShippingPackageType) String() string {
 	return string(e)
 }
 
-func (e *ShippingPackageType) UnmarshalGQL(v interface{}) error {
+func (e *ShippingPackageType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61489,7 +61489,7 @@ func (e *ShippingPackageType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShippingPackageType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible branding of a shop.
@@ -61526,7 +61526,7 @@ func (e ShopBranding) String() string {
 	return string(e)
 }
 
-func (e *ShopBranding) UnmarshalGQL(v interface{}) error {
+func (e *ShopBranding) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61540,7 +61540,7 @@ func (e *ShopBranding) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShopBranding) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents the shop's customer account requirement preference.
@@ -61570,7 +61570,7 @@ func (e ShopCustomerAccountsSetting) String() string {
 	return string(e)
 }
 
-func (e *ShopCustomerAccountsSetting) UnmarshalGQL(v interface{}) error {
+func (e *ShopCustomerAccountsSetting) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61584,7 +61584,7 @@ func (e *ShopCustomerAccountsSetting) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShopCustomerAccountsSetting) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ShopPolicyUserError`.
@@ -61611,7 +61611,7 @@ func (e ShopPolicyErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ShopPolicyErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ShopPolicyErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61625,7 +61625,7 @@ func (e *ShopPolicyErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShopPolicyErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Available shop policy types.
@@ -61673,7 +61673,7 @@ func (e ShopPolicyType) String() string {
 	return string(e)
 }
 
-func (e *ShopPolicyType) UnmarshalGQL(v interface{}) error {
+func (e *ShopPolicyType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61687,7 +61687,7 @@ func (e *ShopPolicyType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShopPolicyType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ShopResourceFeedbackCreateUserError`.
@@ -61723,7 +61723,7 @@ func (e ShopResourceFeedbackCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ShopResourceFeedbackCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ShopResourceFeedbackCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61737,7 +61737,7 @@ func (e *ShopResourceFeedbackCreateUserErrorCode) UnmarshalGQL(v interface{}) er
 }
 
 func (e ShopResourceFeedbackCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible sort of tags.
@@ -61767,7 +61767,7 @@ func (e ShopTagSort) String() string {
 	return string(e)
 }
 
-func (e *ShopTagSort) UnmarshalGQL(v interface{}) error {
+func (e *ShopTagSort) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61781,7 +61781,7 @@ func (e *ShopTagSort) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShopTagSort) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The payout status of the balance transaction.
@@ -61827,7 +61827,7 @@ func (e ShopifyPaymentsBalanceTransactionPayoutStatus) String() string {
 	return string(e)
 }
 
-func (e *ShopifyPaymentsBalanceTransactionPayoutStatus) UnmarshalGQL(v interface{}) error {
+func (e *ShopifyPaymentsBalanceTransactionPayoutStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61841,7 +61841,7 @@ func (e *ShopifyPaymentsBalanceTransactionPayoutStatus) UnmarshalGQL(v interface
 }
 
 func (e ShopifyPaymentsBalanceTransactionPayoutStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The bank account status.
@@ -61877,7 +61877,7 @@ func (e ShopifyPaymentsBankAccountStatus) String() string {
 	return string(e)
 }
 
-func (e *ShopifyPaymentsBankAccountStatus) UnmarshalGQL(v interface{}) error {
+func (e *ShopifyPaymentsBankAccountStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61891,7 +61891,7 @@ func (e *ShopifyPaymentsBankAccountStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShopifyPaymentsBankAccountStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible dispute evidence file types.
@@ -61933,7 +61933,7 @@ func (e ShopifyPaymentsDisputeEvidenceFileType) String() string {
 	return string(e)
 }
 
-func (e *ShopifyPaymentsDisputeEvidenceFileType) UnmarshalGQL(v interface{}) error {
+func (e *ShopifyPaymentsDisputeEvidenceFileType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -61947,7 +61947,7 @@ func (e *ShopifyPaymentsDisputeEvidenceFileType) UnmarshalGQL(v interface{}) err
 }
 
 func (e ShopifyPaymentsDisputeEvidenceFileType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The reason for the dispute provided by the cardholder's bank.
@@ -62010,7 +62010,7 @@ func (e ShopifyPaymentsDisputeReason) String() string {
 	return string(e)
 }
 
-func (e *ShopifyPaymentsDisputeReason) UnmarshalGQL(v interface{}) error {
+func (e *ShopifyPaymentsDisputeReason) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -62024,7 +62024,7 @@ func (e *ShopifyPaymentsDisputeReason) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShopifyPaymentsDisputeReason) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The interval at which payouts are sent to the connected bank account.
@@ -62060,7 +62060,7 @@ func (e ShopifyPaymentsPayoutInterval) String() string {
 	return string(e)
 }
 
-func (e *ShopifyPaymentsPayoutInterval) UnmarshalGQL(v interface{}) error {
+func (e *ShopifyPaymentsPayoutInterval) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -62074,7 +62074,7 @@ func (e *ShopifyPaymentsPayoutInterval) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShopifyPaymentsPayoutInterval) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The transfer status of the payout.
@@ -62114,7 +62114,7 @@ func (e ShopifyPaymentsPayoutStatus) String() string {
 	return string(e)
 }
 
-func (e *ShopifyPaymentsPayoutStatus) UnmarshalGQL(v interface{}) error {
+func (e *ShopifyPaymentsPayoutStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -62128,7 +62128,7 @@ func (e *ShopifyPaymentsPayoutStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShopifyPaymentsPayoutStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible transaction types for a payout.
@@ -62158,7 +62158,7 @@ func (e ShopifyPaymentsPayoutTransactionType) String() string {
 	return string(e)
 }
 
-func (e *ShopifyPaymentsPayoutTransactionType) UnmarshalGQL(v interface{}) error {
+func (e *ShopifyPaymentsPayoutTransactionType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -62172,7 +62172,7 @@ func (e *ShopifyPaymentsPayoutTransactionType) UnmarshalGQL(v interface{}) error
 }
 
 func (e ShopifyPaymentsPayoutTransactionType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible source types for a balance transaction.
@@ -62217,7 +62217,7 @@ func (e ShopifyPaymentsSourceType) String() string {
 	return string(e)
 }
 
-func (e *ShopifyPaymentsSourceType) UnmarshalGQL(v interface{}) error {
+func (e *ShopifyPaymentsSourceType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -62231,7 +62231,7 @@ func (e *ShopifyPaymentsSourceType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShopifyPaymentsSourceType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible types of transactions.
@@ -62534,7 +62534,7 @@ func (e ShopifyPaymentsTransactionType) String() string {
 	return string(e)
 }
 
-func (e *ShopifyPaymentsTransactionType) UnmarshalGQL(v interface{}) error {
+func (e *ShopifyPaymentsTransactionType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -62548,7 +62548,7 @@ func (e *ShopifyPaymentsTransactionType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShopifyPaymentsTransactionType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of a verification.
@@ -62581,7 +62581,7 @@ func (e ShopifyPaymentsVerificationStatus) String() string {
 	return string(e)
 }
 
-func (e *ShopifyPaymentsVerificationStatus) UnmarshalGQL(v interface{}) error {
+func (e *ShopifyPaymentsVerificationStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -62595,7 +62595,7 @@ func (e *ShopifyPaymentsVerificationStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShopifyPaymentsVerificationStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of an order's eligibility for protection against fraudulent chargebacks by Shopify Protect.
@@ -62629,7 +62629,7 @@ func (e ShopifyProtectEligibilityStatus) String() string {
 	return string(e)
 }
 
-func (e *ShopifyProtectEligibilityStatus) UnmarshalGQL(v interface{}) error {
+func (e *ShopifyProtectEligibilityStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -62643,7 +62643,7 @@ func (e *ShopifyProtectEligibilityStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShopifyProtectEligibilityStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The status of an order's protection with Shopify Protect.
@@ -62683,7 +62683,7 @@ func (e ShopifyProtectStatus) String() string {
 	return string(e)
 }
 
-func (e *ShopifyProtectStatus) UnmarshalGQL(v interface{}) error {
+func (e *ShopifyProtectStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -62697,7 +62697,7 @@ func (e *ShopifyProtectStatus) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ShopifyProtectStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents the fallback avatar image for a staff member. This is used only if the staff member has no avatar image.
@@ -62730,7 +62730,7 @@ func (e StaffMemberDefaultImage) String() string {
 	return string(e)
 }
 
-func (e *StaffMemberDefaultImage) UnmarshalGQL(v interface{}) error {
+func (e *StaffMemberDefaultImage) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -62744,7 +62744,7 @@ func (e *StaffMemberDefaultImage) UnmarshalGQL(v interface{}) error {
 }
 
 func (e StaffMemberDefaultImage) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Represents access permissions for a staff member.
@@ -62861,7 +62861,7 @@ func (e StaffMemberPermission) String() string {
 	return string(e)
 }
 
-func (e *StaffMemberPermission) UnmarshalGQL(v interface{}) error {
+func (e *StaffMemberPermission) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -62875,7 +62875,7 @@ func (e *StaffMemberPermission) UnmarshalGQL(v interface{}) error {
 }
 
 func (e StaffMemberPermission) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the StaffMembers query.
@@ -62911,7 +62911,7 @@ func (e StaffMembersSortKeys) String() string {
 	return string(e)
 }
 
-func (e *StaffMembersSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *StaffMembersSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -62925,7 +62925,7 @@ func (e *StaffMembersSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e StaffMembersSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible HTTP methods that can be used when sending a request to upload a file using information from a
@@ -62956,7 +62956,7 @@ func (e StagedUploadHTTPMethodType) String() string {
 	return string(e)
 }
 
-func (e *StagedUploadHTTPMethodType) UnmarshalGQL(v interface{}) error {
+func (e *StagedUploadHTTPMethodType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -62970,7 +62970,7 @@ func (e *StagedUploadHTTPMethodType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e StagedUploadHTTPMethodType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The resource type to receive.
@@ -63063,7 +63063,7 @@ func (e StagedUploadTargetGenerateUploadResource) String() string {
 	return string(e)
 }
 
-func (e *StagedUploadTargetGenerateUploadResource) UnmarshalGQL(v interface{}) error {
+func (e *StagedUploadTargetGenerateUploadResource) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63077,7 +63077,7 @@ func (e *StagedUploadTargetGenerateUploadResource) UnmarshalGQL(v interface{}) e
 }
 
 func (e StagedUploadTargetGenerateUploadResource) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `StandardMetafieldDefinitionEnableUserError`.
@@ -63122,7 +63122,7 @@ func (e StandardMetafieldDefinitionEnableUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *StandardMetafieldDefinitionEnableUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *StandardMetafieldDefinitionEnableUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63136,7 +63136,7 @@ func (e *StandardMetafieldDefinitionEnableUserErrorCode) UnmarshalGQL(v interfac
 }
 
 func (e StandardMetafieldDefinitionEnableUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `StoreCreditAccountCreditUserError`.
@@ -63178,7 +63178,7 @@ func (e StoreCreditAccountCreditUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *StoreCreditAccountCreditUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *StoreCreditAccountCreditUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63192,7 +63192,7 @@ func (e *StoreCreditAccountCreditUserErrorCode) UnmarshalGQL(v interface{}) erro
 }
 
 func (e StoreCreditAccountCreditUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `StoreCreditAccountDebitUserError`.
@@ -63228,7 +63228,7 @@ func (e StoreCreditAccountDebitUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *StoreCreditAccountDebitUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *StoreCreditAccountDebitUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63242,7 +63242,7 @@ func (e *StoreCreditAccountDebitUserErrorCode) UnmarshalGQL(v interface{}) error
 }
 
 func (e StoreCreditAccountDebitUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible error codes associated with making billing attempts. The error codes supplement the
@@ -63339,7 +63339,7 @@ func (e SubscriptionBillingAttemptErrorCode) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionBillingAttemptErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionBillingAttemptErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63353,7 +63353,7 @@ func (e *SubscriptionBillingAttemptErrorCode) UnmarshalGQL(v interface{}) error 
 }
 
 func (e SubscriptionBillingAttemptErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the SubscriptionBillingAttempts query.
@@ -63387,7 +63387,7 @@ func (e SubscriptionBillingAttemptsSortKeys) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionBillingAttemptsSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionBillingAttemptsSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63401,7 +63401,7 @@ func (e *SubscriptionBillingAttemptsSortKeys) UnmarshalGQL(v interface{}) error 
 }
 
 func (e SubscriptionBillingAttemptsSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The presence of billing attempts on Billing Cycles.
@@ -63434,7 +63434,7 @@ func (e SubscriptionBillingCycleBillingAttemptStatus) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionBillingCycleBillingAttemptStatus) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionBillingCycleBillingAttemptStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63448,7 +63448,7 @@ func (e *SubscriptionBillingCycleBillingAttemptStatus) UnmarshalGQL(v interface{
 }
 
 func (e SubscriptionBillingCycleBillingAttemptStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible status values of a subscription billing cycle.
@@ -63478,7 +63478,7 @@ func (e SubscriptionBillingCycleBillingCycleStatus) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionBillingCycleBillingCycleStatus) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionBillingCycleBillingCycleStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63492,7 +63492,7 @@ func (e *SubscriptionBillingCycleBillingCycleStatus) UnmarshalGQL(v interface{})
 }
 
 func (e SubscriptionBillingCycleBillingCycleStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `SubscriptionBillingCycleBulkUserError`.
@@ -63531,7 +63531,7 @@ func (e SubscriptionBillingCycleBulkUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionBillingCycleBulkUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionBillingCycleBulkUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63545,7 +63545,7 @@ func (e *SubscriptionBillingCycleBulkUserErrorCode) UnmarshalGQL(v interface{}) 
 }
 
 func (e SubscriptionBillingCycleBulkUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `SubscriptionBillingCycleUserError`.
@@ -63605,7 +63605,7 @@ func (e SubscriptionBillingCycleErrorCode) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionBillingCycleErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionBillingCycleErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63619,7 +63619,7 @@ func (e *SubscriptionBillingCycleErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SubscriptionBillingCycleErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The input fields for possible reasons for editing the billing cycle's schedule.
@@ -63652,7 +63652,7 @@ func (e SubscriptionBillingCycleScheduleEditInputScheduleEditReason) String() st
 	return string(e)
 }
 
-func (e *SubscriptionBillingCycleScheduleEditInputScheduleEditReason) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionBillingCycleScheduleEditInputScheduleEditReason) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63666,7 +63666,7 @@ func (e *SubscriptionBillingCycleScheduleEditInputScheduleEditReason) UnmarshalG
 }
 
 func (e SubscriptionBillingCycleScheduleEditInputScheduleEditReason) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `SubscriptionBillingCycleSkipUserError`.
@@ -63693,7 +63693,7 @@ func (e SubscriptionBillingCycleSkipUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionBillingCycleSkipUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionBillingCycleSkipUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63707,7 +63707,7 @@ func (e *SubscriptionBillingCycleSkipUserErrorCode) UnmarshalGQL(v interface{}) 
 }
 
 func (e SubscriptionBillingCycleSkipUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `SubscriptionBillingCycleUnskipUserError`.
@@ -63734,7 +63734,7 @@ func (e SubscriptionBillingCycleUnskipUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionBillingCycleUnskipUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionBillingCycleUnskipUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63748,7 +63748,7 @@ func (e *SubscriptionBillingCycleUnskipUserErrorCode) UnmarshalGQL(v interface{}
 }
 
 func (e SubscriptionBillingCycleUnskipUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the SubscriptionBillingCycles query.
@@ -63782,7 +63782,7 @@ func (e SubscriptionBillingCyclesSortKeys) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionBillingCyclesSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionBillingCyclesSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63796,7 +63796,7 @@ func (e *SubscriptionBillingCyclesSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SubscriptionBillingCyclesSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Select subscription billing cycles to be targeted.
@@ -63823,7 +63823,7 @@ func (e SubscriptionBillingCyclesTargetSelection) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionBillingCyclesTargetSelection) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionBillingCyclesTargetSelection) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63837,7 +63837,7 @@ func (e *SubscriptionBillingCyclesTargetSelection) UnmarshalGQL(v interface{}) e
 }
 
 func (e SubscriptionBillingCyclesTargetSelection) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `SubscriptionContractUserError`.
@@ -63864,7 +63864,7 @@ func (e SubscriptionContractErrorCode) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionContractErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionContractErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63878,7 +63878,7 @@ func (e *SubscriptionContractErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SubscriptionContractErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible values of the last billing error on a subscription contract.
@@ -63914,7 +63914,7 @@ func (e SubscriptionContractLastBillingErrorType) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionContractLastBillingErrorType) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionContractLastBillingErrorType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63928,7 +63928,7 @@ func (e *SubscriptionContractLastBillingErrorType) UnmarshalGQL(v interface{}) e
 }
 
 func (e SubscriptionContractLastBillingErrorType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible status values of the last payment on a subscription contract.
@@ -63958,7 +63958,7 @@ func (e SubscriptionContractLastPaymentStatus) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionContractLastPaymentStatus) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionContractLastPaymentStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -63972,7 +63972,7 @@ func (e *SubscriptionContractLastPaymentStatus) UnmarshalGQL(v interface{}) erro
 }
 
 func (e SubscriptionContractLastPaymentStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `SubscriptionContractStatusUpdateUserError`.
@@ -64002,7 +64002,7 @@ func (e SubscriptionContractStatusUpdateErrorCode) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionContractStatusUpdateErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionContractStatusUpdateErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -64016,7 +64016,7 @@ func (e *SubscriptionContractStatusUpdateErrorCode) UnmarshalGQL(v interface{}) 
 }
 
 func (e SubscriptionContractStatusUpdateErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The possible status values of a subscription.
@@ -64055,7 +64055,7 @@ func (e SubscriptionContractSubscriptionStatus) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionContractSubscriptionStatus) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionContractSubscriptionStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -64069,7 +64069,7 @@ func (e *SubscriptionContractSubscriptionStatus) UnmarshalGQL(v interface{}) err
 }
 
 func (e SubscriptionContractSubscriptionStatus) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The reason a discount on a subscription draft was rejected.
@@ -64126,7 +64126,7 @@ func (e SubscriptionDiscountRejectionReason) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionDiscountRejectionReason) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionDiscountRejectionReason) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -64140,7 +64140,7 @@ func (e *SubscriptionDiscountRejectionReason) UnmarshalGQL(v interface{}) error 
 }
 
 func (e SubscriptionDiscountRejectionReason) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `SubscriptionDraftUserError`.
@@ -64290,7 +64290,7 @@ func (e SubscriptionDraftErrorCode) String() string {
 	return string(e)
 }
 
-func (e *SubscriptionDraftErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *SubscriptionDraftErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -64304,7 +64304,7 @@ func (e *SubscriptionDraftErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SubscriptionDraftErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Specifies the kind of the suggested order transaction.
@@ -64331,7 +64331,7 @@ func (e SuggestedOrderTransactionKind) String() string {
 	return string(e)
 }
 
-func (e *SuggestedOrderTransactionKind) UnmarshalGQL(v interface{}) error {
+func (e *SuggestedOrderTransactionKind) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -64345,7 +64345,7 @@ func (e *SuggestedOrderTransactionKind) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SuggestedOrderTransactionKind) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `TaxAppConfigureUserError`.
@@ -64378,7 +64378,7 @@ func (e TaxAppConfigureUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *TaxAppConfigureUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *TaxAppConfigureUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -64392,7 +64392,7 @@ func (e *TaxAppConfigureUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e TaxAppConfigureUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Available customer tax exemptions.
@@ -64632,7 +64632,7 @@ func (e TaxExemption) String() string {
 	return string(e)
 }
 
-func (e *TaxExemption) UnmarshalGQL(v interface{}) error {
+func (e *TaxExemption) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -64646,7 +64646,7 @@ func (e *TaxExemption) UnmarshalGQL(v interface{}) error {
 }
 
 func (e TaxExemption) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // State of the tax app configuration.
@@ -64679,7 +64679,7 @@ func (e TaxPartnerState) String() string {
 	return string(e)
 }
 
-func (e *TaxPartnerState) UnmarshalGQL(v interface{}) error {
+func (e *TaxPartnerState) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -64693,7 +64693,7 @@ func (e *TaxPartnerState) UnmarshalGQL(v interface{}) error {
 }
 
 func (e TaxPartnerState) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ThemeCreateUserError`.
@@ -64727,7 +64727,7 @@ func (e ThemeCreateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ThemeCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ThemeCreateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -64741,7 +64741,7 @@ func (e *ThemeCreateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ThemeCreateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ThemeDeleteUserError`.
@@ -64768,7 +64768,7 @@ func (e ThemeDeleteUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ThemeDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ThemeDeleteUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -64782,7 +64782,7 @@ func (e *ThemeDeleteUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ThemeDeleteUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ThemePublishUserError`.
@@ -64815,7 +64815,7 @@ func (e ThemePublishUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ThemePublishUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ThemePublishUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -64829,7 +64829,7 @@ func (e *ThemePublishUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ThemePublishUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The role of the theme.
@@ -64874,7 +64874,7 @@ func (e ThemeRole) String() string {
 	return string(e)
 }
 
-func (e *ThemeRole) UnmarshalGQL(v interface{}) error {
+func (e *ThemeRole) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -64888,7 +64888,7 @@ func (e *ThemeRole) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ThemeRole) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ThemeUpdateUserError`.
@@ -64921,7 +64921,7 @@ func (e ThemeUpdateUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ThemeUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ThemeUpdateUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -64935,7 +64935,7 @@ func (e *ThemeUpdateUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ThemeUpdateUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Transaction query.
@@ -64965,7 +64965,7 @@ func (e TransactionSortKeys) String() string {
 	return string(e)
 }
 
-func (e *TransactionSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *TransactionSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -64979,7 +64979,7 @@ func (e *TransactionSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e TransactionSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `TransactionVoidUserError`.
@@ -65015,7 +65015,7 @@ func (e TransactionVoidUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *TransactionVoidUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *TransactionVoidUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65029,7 +65029,7 @@ func (e *TransactionVoidUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e TransactionVoidUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Specifies the type of resources that are translatable.
@@ -65135,7 +65135,7 @@ func (e TranslatableResourceType) String() string {
 	return string(e)
 }
 
-func (e *TranslatableResourceType) UnmarshalGQL(v interface{}) error {
+func (e *TranslatableResourceType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65149,7 +65149,7 @@ func (e *TranslatableResourceType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e TranslatableResourceType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `TranslationUserError`.
@@ -65227,7 +65227,7 @@ func (e TranslationErrorCode) String() string {
 	return string(e)
 }
 
-func (e *TranslationErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *TranslationErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65241,7 +65241,7 @@ func (e *TranslationErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e TranslationErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The accepted types of unit of measurement.
@@ -65277,7 +65277,7 @@ func (e UnitPriceMeasurementMeasuredType) String() string {
 	return string(e)
 }
 
-func (e *UnitPriceMeasurementMeasuredType) UnmarshalGQL(v interface{}) error {
+func (e *UnitPriceMeasurementMeasuredType) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65291,7 +65291,7 @@ func (e *UnitPriceMeasurementMeasuredType) UnmarshalGQL(v interface{}) error {
 }
 
 func (e UnitPriceMeasurementMeasuredType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The valid units of measurement for a unit price measurement.
@@ -65348,7 +65348,7 @@ func (e UnitPriceMeasurementMeasuredUnit) String() string {
 	return string(e)
 }
 
-func (e *UnitPriceMeasurementMeasuredUnit) UnmarshalGQL(v interface{}) error {
+func (e *UnitPriceMeasurementMeasuredUnit) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65362,7 +65362,7 @@ func (e *UnitPriceMeasurementMeasuredUnit) UnmarshalGQL(v interface{}) error {
 }
 
 func (e UnitPriceMeasurementMeasuredUnit) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Systems of weights and measures.
@@ -65392,7 +65392,7 @@ func (e UnitSystem) String() string {
 	return string(e)
 }
 
-func (e *UnitSystem) UnmarshalGQL(v interface{}) error {
+func (e *UnitSystem) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65406,7 +65406,7 @@ func (e *UnitSystem) UnmarshalGQL(v interface{}) error {
 }
 
 func (e UnitSystem) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `UrlRedirectBulkDeleteByIdsUserError`.
@@ -65435,7 +65435,7 @@ func (e URLRedirectBulkDeleteByIdsUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *URLRedirectBulkDeleteByIdsUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *URLRedirectBulkDeleteByIdsUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65449,7 +65449,7 @@ func (e *URLRedirectBulkDeleteByIdsUserErrorCode) UnmarshalGQL(v interface{}) er
 }
 
 func (e URLRedirectBulkDeleteByIdsUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `UrlRedirectBulkDeleteBySavedSearchUserError`.
@@ -65479,7 +65479,7 @@ func (e URLRedirectBulkDeleteBySavedSearchUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *URLRedirectBulkDeleteBySavedSearchUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *URLRedirectBulkDeleteBySavedSearchUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65493,7 +65493,7 @@ func (e *URLRedirectBulkDeleteBySavedSearchUserErrorCode) UnmarshalGQL(v interfa
 }
 
 func (e URLRedirectBulkDeleteBySavedSearchUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `UrlRedirectBulkDeleteBySearchUserError`.
@@ -65520,7 +65520,7 @@ func (e URLRedirectBulkDeleteBySearchUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *URLRedirectBulkDeleteBySearchUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *URLRedirectBulkDeleteBySearchUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65534,7 +65534,7 @@ func (e *URLRedirectBulkDeleteBySearchUserErrorCode) UnmarshalGQL(v interface{})
 }
 
 func (e URLRedirectBulkDeleteBySearchUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `UrlRedirectUserError`.
@@ -65570,7 +65570,7 @@ func (e URLRedirectErrorCode) String() string {
 	return string(e)
 }
 
-func (e *URLRedirectErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *URLRedirectErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65584,7 +65584,7 @@ func (e *URLRedirectErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e URLRedirectErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `UrlRedirectImportUserError`.
@@ -65620,7 +65620,7 @@ func (e URLRedirectImportErrorCode) String() string {
 	return string(e)
 }
 
-func (e *URLRedirectImportErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *URLRedirectImportErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65634,7 +65634,7 @@ func (e *URLRedirectImportErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e URLRedirectImportErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the UrlRedirect query.
@@ -65668,7 +65668,7 @@ func (e URLRedirectSortKeys) String() string {
 	return string(e)
 }
 
-func (e *URLRedirectSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *URLRedirectSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65682,7 +65682,7 @@ func (e *URLRedirectSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e URLRedirectSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the Validation query.
@@ -65713,7 +65713,7 @@ func (e ValidationSortKeys) String() string {
 	return string(e)
 }
 
-func (e *ValidationSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *ValidationSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65727,7 +65727,7 @@ func (e *ValidationSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ValidationSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Possible error codes that can be returned by `ValidationUserError`.
@@ -65808,7 +65808,7 @@ func (e ValidationUserErrorCode) String() string {
 	return string(e)
 }
 
-func (e *ValidationUserErrorCode) UnmarshalGQL(v interface{}) error {
+func (e *ValidationUserErrorCode) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65822,7 +65822,7 @@ func (e *ValidationUserErrorCode) UnmarshalGQL(v interface{}) error {
 }
 
 func (e ValidationUserErrorCode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The supported formats for webhook subscriptions.
@@ -65850,7 +65850,7 @@ func (e WebhookSubscriptionFormat) String() string {
 	return string(e)
 }
 
-func (e *WebhookSubscriptionFormat) UnmarshalGQL(v interface{}) error {
+func (e *WebhookSubscriptionFormat) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65864,7 +65864,7 @@ func (e *WebhookSubscriptionFormat) UnmarshalGQL(v interface{}) error {
 }
 
 func (e WebhookSubscriptionFormat) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The set of valid sort keys for the WebhookSubscription query.
@@ -65898,7 +65898,7 @@ func (e WebhookSubscriptionSortKeys) String() string {
 	return string(e)
 }
 
-func (e *WebhookSubscriptionSortKeys) UnmarshalGQL(v interface{}) error {
+func (e *WebhookSubscriptionSortKeys) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -65912,7 +65912,7 @@ func (e *WebhookSubscriptionSortKeys) UnmarshalGQL(v interface{}) error {
 }
 
 func (e WebhookSubscriptionSortKeys) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // The supported topics for webhook subscriptions. You can use webhook subscriptions to receive
@@ -66542,7 +66542,7 @@ func (e WebhookSubscriptionTopic) String() string {
 	return string(e)
 }
 
-func (e *WebhookSubscriptionTopic) UnmarshalGQL(v interface{}) error {
+func (e *WebhookSubscriptionTopic) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -66556,7 +66556,7 @@ func (e *WebhookSubscriptionTopic) UnmarshalGQL(v interface{}) error {
 }
 
 func (e WebhookSubscriptionTopic) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
 // Units of measurement for weight.
@@ -66592,7 +66592,7 @@ func (e WeightUnit) String() string {
 	return string(e)
 }
 
-func (e *WeightUnit) UnmarshalGQL(v interface{}) error {
+func (e *WeightUnit) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
@@ -66606,5 +66606,5 @@ func (e *WeightUnit) UnmarshalGQL(v interface{}) error {
 }
 
 func (e WeightUnit) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
