@@ -87,3 +87,39 @@ func TestCollectionRuleConditionObjectRegistryMatchesSchema(t *testing.T) {
 		}
 	}
 }
+
+func TestCollectionSourceRegistryMatchesSchema(t *testing.T) {
+	want := interfaceImplementers(t, loadSchema(t), "CollectionSource")
+	if got := registryNames(collectionSourceTypes); !reflect.DeepEqual(got, want) {
+		t.Errorf("collectionSourceTypes = %v, schema has %v", got, want)
+	}
+	for name, typ := range collectionSourceTypes {
+		if _, ok := reflect.New(typ).Interface().(CollectionSource); !ok {
+			t.Errorf("%s does not implement CollectionSource", name)
+		}
+	}
+}
+
+func TestCollectionSourceConditionRegistriesMatchSchema(t *testing.T) {
+	schema := loadSchema(t)
+
+	want := interfaceImplementers(t, schema, "CollectionSourceInclusionCondition")
+	if got := registryNames(collectionSourceInclusionConditionTypes); !reflect.DeepEqual(got, want) {
+		t.Errorf("collectionSourceInclusionConditionTypes = %v, schema has %v", got, want)
+	}
+	for name, typ := range collectionSourceInclusionConditionTypes {
+		if _, ok := reflect.New(typ).Interface().(CollectionSourceInclusionCondition); !ok {
+			t.Errorf("%s does not implement CollectionSourceInclusionCondition", name)
+		}
+	}
+
+	want = interfaceImplementers(t, schema, "CollectionSourceExclusionCondition")
+	if got := registryNames(collectionSourceExclusionConditionTypes); !reflect.DeepEqual(got, want) {
+		t.Errorf("collectionSourceExclusionConditionTypes = %v, schema has %v", got, want)
+	}
+	for name, typ := range collectionSourceExclusionConditionTypes {
+		if _, ok := reflect.New(typ).Interface().(CollectionSourceExclusionCondition); !ok {
+			t.Errorf("%s does not implement CollectionSourceExclusionCondition", name)
+		}
+	}
+}
