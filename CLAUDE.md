@@ -1,7 +1,7 @@
 # go-shopify-graphql-model
 
 Go types for the Shopify GraphQL Admin API, generated with gqlgen's modelgen
-plugin. Module path `github.com/r0busta/go-shopify-graphql-model/v4`.
+plugin. Module path `github.com/r0busta/go-shopify-graphql-model/v5`.
 
 ## Layout
 

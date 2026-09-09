@@ -4,7 +4,7 @@ Go types for the Shopify GraphQL Admin API, generated from the API schema
 with [gqlgen](https://github.com/99designs/gqlgen).
 
 ```go
-import "github.com/r0busta/go-shopify-graphql-model/v4/graph/model"
+import "github.com/r0busta/go-shopify-graphql-model/v5/graph/model"
 ```
 
 The generated models live in `graph/model`. The major version of this module

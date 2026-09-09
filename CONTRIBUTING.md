@@ -7,7 +7,7 @@ merge.
 ## Before opening a pull request
 
 - Run `gofmt`, `go vet ./...` and `go test ./...`. CI runs the same checks.
-- Keep the module path as `github.com/r0busta/go-shopify-graphql-model/v4`.
+- Keep the module path as `github.com/r0busta/go-shopify-graphql-model/v5`.
   If you develop in a fork, use a `replace` directive locally instead of
   renaming the module in `go.mod`.
 - `graph/model/models_gen.go` is generated. Do not edit it by hand; change
