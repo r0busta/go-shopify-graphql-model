@@ -12584,7 +12584,21 @@ type Collection implements HasEvents & HasMetafieldDefinitions & HasMetafields &
   id: ID!
 
   """The image associated with the collection."""
-  image: Image
+  image(
+    """Image width in pixels between 1 and 2048."""
+    maxWidth: Int @deprecated(reason: "Use `Image.url(transform: { maxWidth:})` instead.")
+
+    """Image height in pixels between 1 and 2048."""
+    maxHeight: Int @deprecated(reason: "Use `Image.url(transform: { maxHeight:})` instead.")
+
+    """Crops the image according to the specified region."""
+    crop: CropRegion @deprecated(reason: "Use `Image.url(transform: { crop:})` instead.")
+
+    """
+    Image size multiplier for high-resolution retina displays. Must be between 1 and 3.
+    """
+    scale: Int = 1 @deprecated(reason: "Use `Image.url(transform: { scale:})` instead.")
+  ): Image
 
   """The ID of the corresponding resource in the REST Admin API."""
   legacyResourceId: UnsignedInt64!
@@ -13787,6 +13801,11 @@ input CollectionInput {
   products: [ID!]
 
   """
+  Initial list of collection publications. Only valid with `collectionCreate`.
+  """
+  publications: [CollectionPublicationInput!] @deprecated(reason: "Use PublishablePublish instead.")
+
+  """
   The rules used to assign products to the collection. This is the legacy smart-collection model;
   use `sources` with `conditions` instead. Each `ruleSet` rule has an equivalent `condition`.
   """
@@ -13896,6 +13915,10 @@ The input fields for publications to which a collection will be published.
 input CollectionPublicationInput {
   """The ID of the publication."""
   publicationId: ID
+
+  """The ID of the channel."""
+  channelId: ID @deprecated(reason: "Use publicationId instead.")
+  channelHandle: String @deprecated(reason: "Use publicationId instead.")
 }
 
 """
@@ -16807,7 +16830,21 @@ type CommentEventAttachment {
   id: ID!
 
   """The image attached to the comment event."""
-  image: Image
+  image(
+    """Image width in pixels between 1 and 2048."""
+    maxWidth: Int @deprecated(reason: "Use `Image.url(transform: { maxWidth:})` instead.")
+
+    """Image height in pixels between 1 and 2048."""
+    maxHeight: Int @deprecated(reason: "Use `Image.url(transform: { maxHeight:})` instead.")
+
+    """Crops the image according to the specified region."""
+    crop: CropRegion @deprecated(reason: "Use `Image.url(transform: { crop:})` instead.")
+
+    """
+    Image size multiplier for high-resolution retina displays. Must be between 1 and 3.
+    """
+    scale: Int = 1 @deprecated(reason: "Use `Image.url(transform: { scale:})` instead.")
+  ): Image
 
   """The filename of the comment event attachment."""
   name: String!
@@ -20681,7 +20718,10 @@ type Customer implements CommentEventSubject & HasEvents & HasMetafieldDefinitio
   identityProviderSubjects: [IdentityProviderSubject!]!
 
   """The image associated with the customer."""
-  image: Image!
+  image(
+    """Image width and height (1 - 2048 pixels)."""
+    size: Int @deprecated(reason: "Use `maxWidth` or `maxHeight` on `Image.transformedSrc` instead.")
+  ): Image!
 
   """The customer's last name."""
   lastName: String
@@ -21605,6 +21645,9 @@ input CustomerIdentifierInput {
 The input fields and values to use when creating or updating a customer.
 """
 input CustomerInput {
+  """The addresses for a customer."""
+  addresses: [MailingAddressInput!] @deprecated(reason: "Use the dedicated address mutations (`customerAddressCreate`, `customerAddressUpdate`, `customerAddressDelete`) instead.\n")
+
   """The unique email address of the customer."""
   email: String
 
@@ -23318,6 +23361,11 @@ input CustomerSetInput {
 
   """The customer's first name."""
   firstName: String
+
+  """
+  Specifies the customer to update. If absent, a new customer is created.
+  """
+  id: ID @deprecated(reason: "To update a customer use `identifier` argument instead.")
 
   """The customer's last name."""
   lastName: String
@@ -25106,6 +25154,9 @@ enum DeliveryCustomizationErrorCode {
 
 """The input fields to create and update a delivery customization."""
 input DeliveryCustomizationInput {
+  """The ID of the function providing the delivery customization."""
+  functionId: String @deprecated(reason: "Use `functionHandle` instead.")
+
   """
   Function handle scoped to your current app ID. Only finds functions within your app.
   """
@@ -26141,6 +26192,11 @@ type DeliveryProfile implements Node {
 
     """Reverse the order of the underlying list."""
     reverse: Boolean = false
+
+    """
+    Sort the underlying list using a key. If your query is slow or returns an error, then [try specifying a sort key that matches the field used in the search](https://shopify.dev/api/usage/pagination-graphql#search-performance-considerations).
+    """
+    sortKey: ProfileItemSortKeys = ID @deprecated(reason: "Profile item sorting is no longer supported.")
   ): DeliveryProfileItemConnection!
 
   """The location groups and associated zones using this profile."""
@@ -26356,6 +26412,11 @@ type DeliveryProfileItem implements Node {
 
     """Reverse the order of the underlying list."""
     reverse: Boolean = false
+
+    """
+    Sort the underlying list using a key. If your query is slow or returns an error, then [try specifying a sort key that matches the field used in the search](https://shopify.dev/api/usage/pagination-graphql#search-performance-considerations).
+    """
+    sortKey: ProductVariantSortKeys = ID @deprecated(reason: "Profile item variant sorting is no longer supported.")
   ): ProductVariantConnection!
 }
 
@@ -28063,6 +28124,9 @@ input DiscountAutomaticAppInput {
   """
   tags: [String!]
 
+  """The ID of the function providing the discount."""
+  functionId: String @deprecated(reason: "Use `functionHandle` instead.")
+
   """The handle of the function providing the discount."""
   functionHandle: String
 
@@ -29388,6 +29452,9 @@ input DiscountCodeAppInput {
   """The code that customers use to apply the discount."""
   code: String
 
+  """The customers that can use the discount."""
+  customerSelection: DiscountCustomerSelectionInput @deprecated(reason: "Use `context` instead.")
+
   """
   The maximum number of times the discount can be redeemed.
   For unlimited usage, specify `null`.
@@ -29416,6 +29483,9 @@ input DiscountCodeAppInput {
   mutation.
   """
   tags: [String!]
+
+  """The ID of the function providing the discount."""
+  functionId: String @deprecated(reason: "Use `functionHandle` instead.")
 
   """The handle of the function providing the discount."""
   functionHandle: String
@@ -29717,6 +29787,9 @@ input DiscountCodeBasicInput {
 
   """The code that customers use to apply the discount."""
   code: String
+
+  """The customers that can use the discount."""
+  customerSelection: DiscountCustomerSelectionInput @deprecated(reason: "Use `context` instead.")
 
   """
   The maximum number of times the discount can be redeemed.
@@ -30031,6 +30104,9 @@ input DiscountCodeBxgyInput {
 
   """The code that customers use to apply the discount."""
   code: String
+
+  """The customers that can use the discount."""
+  customerSelection: DiscountCustomerSelectionInput @deprecated(reason: "Use `context` instead.")
 
   """
   The maximum number of times the discount can be redeemed.
@@ -30364,6 +30440,9 @@ input DiscountCodeFreeShippingInput {
 
   """The code that customers use to apply the discount."""
   code: String
+
+  """The customers that can use the discount."""
+  customerSelection: DiscountCustomerSelectionInput @deprecated(reason: "Use `context` instead.")
 
   """
   The maximum number of times the discount can be redeemed.
@@ -32628,6 +32707,9 @@ type DraftOrderAppliedDiscount {
 The input fields for applying an order-level discount to a draft order.
 """
 input DraftOrderAppliedDiscountInput {
+  """The applied amount of the discount in your shop currency."""
+  amount: Money @deprecated(reason: "Please use `amountWithCurrency` instead.")
+
   """The applied amount of the discount in the specified currency."""
   amountWithCurrency: MoneyInput
 
@@ -32895,6 +32977,9 @@ input DraftOrderInput {
   """The mailing address associated with the payment method."""
   billingAddress: MailingAddressInput
 
+  """The customer associated with the draft order."""
+  customerId: ID @deprecated(reason: "Use `purchasingEntity` instead, which can be used for either a D2C or B2B customer.")
+
   """
   The extra information added to the draft order on behalf of the customer.
   """
@@ -32916,6 +33001,11 @@ input DraftOrderInput {
   The list of metafields attached to the draft order. An existing metafield can not be used when creating a draft order.
   """
   metafields: [MetafieldInput!]
+
+  """
+  The localization extensions attached to the draft order. For example, Tax IDs.
+  """
+  localizationExtensions: [LocalizationExtensionInput!] @deprecated(reason: "This field will be removed in a future version. Use `localizedFields` instead.")
 
   """
   The localized fields attached to the draft order. For example, Tax IDs.
@@ -32958,6 +33048,11 @@ input DraftOrderInput {
 
   """The payment currency of the customer for this draft order."""
   presentmentCurrencyCode: CurrencyCode
+
+  """
+  The selected country code that determines the pricing of the draft order.
+  """
+  marketRegionCountryCode: CountryCode @deprecated(reason: "This field is now incompatible with Markets.\n")
 
   """The customer's phone number."""
   phone: String
@@ -33081,7 +33176,21 @@ type DraftOrderLineItem implements Node {
   id: ID!
 
   """The image of the product variant."""
-  image: Image
+  image(
+    """Image width in pixels between 1 and 2048."""
+    maxWidth: Int @deprecated(reason: "Use `Image.url(transform: { maxWidth:})` instead.")
+
+    """Image height in pixels between 1 and 2048."""
+    maxHeight: Int @deprecated(reason: "Use `Image.url(transform: { maxHeight:})` instead.")
+
+    """Crops the image according to the specified region."""
+    crop: CropRegion @deprecated(reason: "Use `Image.url(transform: { crop:})` instead.")
+
+    """
+    Image size multiplier for high-resolution retina displays. Must be between 1 and 3.
+    """
+    scale: Int = 1 @deprecated(reason: "Use `Image.url(transform: { scale:})` instead.")
+  ): Image
 
   """Whether the line item represents the purchase of a gift card."""
   isGiftCard: Boolean!
@@ -33219,6 +33328,16 @@ input DraftOrderLineItemInput {
   customAttributes: [AttributeInput!]
 
   """
+  The weight in grams for custom line items. This field is ignored when `variantId` is provided.
+  """
+  grams: Int @deprecated(reason: "`weight` should be used instead, allowing different units to be used.")
+
+  """
+  The custom line item price without any discounts applied in shop currency. This field is ignored when `variantId` is provided.
+  """
+  originalUnitPrice: Money @deprecated(reason: "`originalUnitPriceWithCurrency` should be used instead, where currency can be specified.")
+
+  """
   The price in presentment currency, without any discounts applied, for a custom line item.
   If this value is provided, `original_unit_price` will be ignored. This field is ignored when `variantId` is provided.
   Note: All presentment currencies for a single draft should be the same and match the
@@ -33266,6 +33385,9 @@ input DraftOrderLineItemInput {
   This field is mandatory in order to manipulate drafts with bundles.
   """
   uuid: String
+
+  """The bundle components when the line item is a bundle."""
+  bundleComponents: [BundlesDraftOrderBundleLineItemComponentInput!] @deprecated(reason: "Use `components` instead.")
 
   """The components of the draft order line item."""
   components: [DraftOrderLineItemComponentInput!]
@@ -38413,6 +38535,9 @@ type GiftCardConnection {
 
 """The input fields to issue a gift card."""
 input GiftCardCreateInput {
+  """The initial value of the gift card."""
+  initialValue: Decimal @deprecated(reason: "Use `initialAmount` instead.")
+
   """The initial amount of the gift card."""
   initialAmount: MoneyInput
 
@@ -43983,7 +44108,21 @@ type LineItem implements Node {
   id: ID!
 
   """The image associated to the line item's variant."""
-  image: Image
+  image(
+    """Image width in pixels between 1 and 2048."""
+    maxWidth: Int @deprecated(reason: "Use `Image.url(transform: { maxWidth:})` instead.")
+
+    """Image height in pixels between 1 and 2048."""
+    maxHeight: Int @deprecated(reason: "Use `Image.url(transform: { maxHeight:})` instead.")
+
+    """Crops the image according to the specified region."""
+    crop: CropRegion @deprecated(reason: "Use `Image.url(transform: { crop:})` instead.")
+
+    """
+    Image size multiplier for high-resolution retina displays. Must be between 1 and 3.
+    """
+    scale: Int = 1 @deprecated(reason: "Use `Image.url(transform: { scale:})` instead.")
+  ): Image
 
   """Whether the line item represents the purchase of a gift card."""
   isGiftCard: Boolean!
@@ -45773,11 +45912,15 @@ input MailingAddressInput {
   """The name of the customer's company or organization."""
   company: String
 
+  """The name of the country."""
+  country: String @deprecated(reason: "Use `countryCode` instead.")
+
   """The two-letter code for the country of the address."""
   countryCode: CountryCode
 
   """The first name of the customer."""
   firstName: String
+  id: ID @deprecated(reason: "Not needed for 90% of mutations, and provided separately where it is needed.")
 
   """The last name of the customer."""
   lastName: String
@@ -45788,6 +45931,9 @@ input MailingAddressInput {
   Formatted using E.164 standard. For example, _+16135551111_.
   """
   phone: String
+
+  """The region of the address, such as the province, state, or district."""
+  province: String @deprecated(reason: "Use `provinceCode` instead.")
 
   """
   The code for the region of the address, such as the province, state, or district.
@@ -46422,11 +46568,31 @@ input MarketCreateInput {
   """
   handle: String
 
+  """
+  Whether the market is enabled to receive visitors and sales. If a
+  value isn't provided, then the market is enabled by default if all
+  included regions have shipping rates, and disabled if any regions don't
+  have shipping rates.
+  
+  **Note**: Regions in inactive markets can't be selected on the
+  storefront or in checkout.
+  """
+  enabled: Boolean @deprecated(reason: "Use `status` instead.")
+
+  """
+  The regions to be included in the market. Each region can only be included in one market at
+  a time.
+  """
+  regions: [MarketRegionCreateInput!] @deprecated(reason: "Use `conditions` instead.")
+
   """The conditions that apply to the market."""
   conditions: MarketConditionsInput
 
   """Catalog IDs to include in the market."""
   catalogs: [ID!]
+
+  """Whether to update duplicate market's status to draft."""
+  makeDuplicateRegionMarketsDraft: Boolean @deprecated(reason: "Use `makeDuplicateUniqueMarketsDraft` instead.")
 
   """
   Whether to update duplicate region or wildcard markets' status to draft.
@@ -46925,6 +47091,12 @@ input MarketUpdateInput {
   """A unique identifier for the market. For example `"ca"`."""
   handle: String
 
+  """
+  Whether the market is enabled to receive visitors and sales. **Note**: Regions in
+  inactive markets cannot be selected on the storefront or in checkout.
+  """
+  enabled: Boolean @deprecated(reason: "Use `status` instead.")
+
   """The conditions to update."""
   conditions: MarketConditionsUpdateInput
 
@@ -46945,6 +47117,9 @@ input MarketUpdateInput {
 
   """The discounts to remove from the market."""
   discountsToDelete: [ID!]
+
+  """Whether to update duplicate market's status to draft."""
+  makeDuplicateRegionMarketsDraft: Boolean @deprecated(reason: "Use `makeDuplicateUniqueMarketsDraft` instead.")
 
   """
   Whether to update duplicate region or wildcard markets' status to draft.
@@ -47752,6 +47927,11 @@ input MarketingActivityCreateExternalInput {
   """
   The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
   """
+  channel: MarketingChannel @deprecated(reason: "This field was renamed for clarity, please switch to using marketingChannelType when migrating to the latest API version.")
+
+  """
+  The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
+  """
   marketingChannelType: MarketingChannel!
 
   """The domain from which ad clicks are forwarded to the shop."""
@@ -47807,11 +47987,36 @@ type MarketingActivityCreateExternalPayload {
 The input fields required to create a marketing activity. Marketing activity app extensions are deprecated and will be removed in the near future.
 """
 input MarketingActivityCreateInput {
+  """The title of the marketing activity."""
+  marketingActivityTitle: String @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
+
+  """The form data in JSON serialized as a string."""
+  formData: String @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
+
   """The ID of the marketing activity extension."""
   marketingActivityExtensionId: ID!
 
+  """Encoded context containing marketing campaign id."""
+  context: String @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
+
+  """
+  Specifies the
+  [Urchin Traffic Module (UTM) parameters](https://en.wikipedia.org/wiki/UTM_parameters)
+  that are associated with a related marketing campaign. UTMInput is required for all Marketing
+  tactics except Storefront App.
+  """
+  utm: UTMInput @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
+
+  """
+  Value for a query parameter that gets inserted into storefront URLs for matching storefront traffic to this activity. This feature is currently available on a limited basis to some partners only. UTMs should continue to be used for most partners. Both the URL parameter value and UTM parameters can be set.
+  """
+  urlParameterValue: String @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
+
   """The current state of the marketing activity."""
   status: MarketingActivityStatus!
+
+  """The budget for this marketing activity."""
+  budget: MarketingActivityBudgetInput @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
 }
 
 """Return type for `marketingActivityCreate` mutation."""
@@ -48022,6 +48227,11 @@ input MarketingActivityUpdateExternalInput {
   """
   The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
   """
+  channel: MarketingChannel @deprecated(reason: "This field was renamed for clarity, please switch to using marketingChannelType when migrating to the latest API version.")
+
+  """
+  The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
+  """
   marketingChannelType: MarketingChannel
 
   """The domain from which ad clicks are forwarded to the shop."""
@@ -48058,6 +48268,69 @@ The input fields required to update a marketing activity. Marketing activity app
 input MarketingActivityUpdateInput {
   """The ID of the marketing activity."""
   id: ID!
+
+  """
+  The ID of the recommendation that the marketing activity was created from, if one exists.
+  """
+  marketingRecommendationId: ID @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
+
+  """The title of the marketing activity."""
+  title: String @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
+
+  """The budget for the marketing activity."""
+  budget: MarketingActivityBudgetInput @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
+
+  """The cumulative amount spent on the marketing activity."""
+  adSpend: MoneyInput @deprecated(reason: "Use `MarketingEngagementCreate.MarketingEngagementInput.adSpend` GraphQL to send the ad spend.")
+
+  """
+  The current state of the marketing activity. Learn more about
+  [marketing activities statuses](/api/marketing-activities/statuses).
+  """
+  status: MarketingActivityStatus @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
+
+  """
+  The target state that the marketing activity is transitioning to. Learn more about [marketing activities statuses](/api/marketing-activities/statuses).
+  """
+  targetStatus: MarketingActivityStatus @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
+
+  """
+  The form data of the marketing activity. This is only used if the marketing activity is
+                integrated with the external editor.
+  """
+  formData: String @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
+
+  """
+  Specifies the
+  [Urchin Traffic Module (UTM) parameters](https://en.wikipedia.org/wiki/UTM_parameters)
+  that are associated with a related marketing campaign. UTMInput is required for all Marketing
+  tactics except Storefront App. The utm field can only be set once and never modified.
+  """
+  utm: UTMInput @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
+
+  """
+  Value for a query parameter that gets inserted into storefront URLs for matching storefront traffic to this activity. This feature is currently available on a limited basis to some partners only. UTMs should continue to be used for most partners. Both the URL parameter value and UTM parameters can be set.
+  """
+  urlParameterValue: String @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
+
+  """
+  A list of the item IDs that were marketed in this marketing activity. Valid types for these items are:
+  * `Product`
+  * `Shop`
+  """
+  marketedResources: [ID!] @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
+
+  """
+  Encoded context provided by Shopify during the update marketing activity callback.
+  """
+  context: String @deprecated(reason: "This context is no longer needed by Shopify in the callback.")
+
+  """
+  The error messages that were generated when the app was trying to complete the activity.
+  Learn more about the
+  [JSON format expected for error messages](/api/marketing-activities/statuses#failed-status).
+  """
+  errors: JSON @deprecated(reason: "Marketing activity app extensions are deprecated and will be removed in the near future.")
 }
 
 """Return type for `marketingActivityUpdate` mutation."""
@@ -48522,6 +48795,11 @@ input MarketingEngagementInput {
   The total ad spend for the marketing content. Recurring weekly, monthly, or yearly spend needs to be divided into daily amounts.
   """
   adSpend: MoneyInput
+
+  """
+  Specifies how the provided metrics have been aggregated. Cumulative metrics are aggregated from the first day of reporting up to and including `occuredOn`. Non-cumulative metrics are aggregated over the single day indicated in `occuredOn`. Cumulative metrics will monotonically increase in time as each record includes the previous day's values, and so on. Non-cumulative metrics are required going forward; cumulative metrics are deprecated.
+  """
+  isCumulative: Boolean = false @deprecated(reason: "Cumulative metrics are being phased out. Send non-cumulative engagement metrics instead (values aggregated over the single day indicated in `occurredOn`, with `isCumulative: false`). Existing activities that have been sending cumulative metrics can migrate to non-cumulative at any time.")
 
   """
   The UTC offset for the time zone in which the metrics are being reported, in the format `"+HH:MM"` or `"-HH:MM"`. Used in combination with occurredOn when aggregating daily metrics. Must match the account settings for the shop to minimize eventual discrepancies in reporting.
@@ -50718,6 +50996,11 @@ input MetafieldDefinitionInput {
   validations: [MetafieldDefinitionValidationInput!]
 
   """
+  Whether the metafield definition can be used as a collection condition.
+  """
+  useAsCollectionCondition: Boolean = false @deprecated(reason: "Use `smartCollectionCondition` instead.")
+
+  """
   Whether to [pin](https://help.shopify.com/manual/custom-data/metafields/pinning-metafield-definitions)
   the metafield definition.
   """
@@ -50932,6 +51215,11 @@ input MetafieldDefinitionUpdateInput {
 
   """Whether to pin the metafield definition."""
   pin: Boolean
+
+  """
+  Whether the metafield definition can be used as a collection condition.
+  """
+  useAsCollectionCondition: Boolean = false @deprecated(reason: "Use `smartCollectionCondition` instead.")
 
   """
   The access settings that apply to each of the metafields that belong to the metafield definition.
@@ -53375,6 +53663,11 @@ type Mutation {
     """The staged upload path of the file containing mutation variables."""
     stagedUploadPath: String!
 
+    """
+    Enables grouping objects directly under their corresponding parent objects in the JSONL output. Enabling grouping slows down bulk operations and increases the likelihood of timeouts. Only enable grouping if you depend on the grouped format.
+    """
+    groupObjects: Boolean = true @deprecated(reason: "This argument has no effect on output order.")
+
     """An optional identifier which may be used for querying."""
     clientIdentifier: String
   ): BulkOperationRunMutationPayload
@@ -53447,6 +53740,9 @@ type Mutation {
   Learn more about [customized bundles](https://shopify.dev/docs/apps/selling-strategies/bundles/add-a-customized-bundle).
   """
   cartTransformCreate(
+    """The identifier of the Function providing the cart transform."""
+    functionId: String @deprecated(reason: "Use `functionHandle` instead.")
+
     """The handle of the Function providing the cart transform."""
     functionHandle: String
 
@@ -53790,6 +54086,11 @@ type Mutation {
   """
   collectionCreate(
     """
+    The properties to use when creating the collection. Deprecated in favor of `collection`, which defines membership with `sources` instead of the legacy `ruleSet`.
+    """
+    input: CollectionInput @deprecated(reason: "Use `collection` instead.")
+
+    """
     The properties and sources to use when creating the collection. Define product membership with `sources` (conditions and manual selections) instead of the legacy `ruleSet`.
     """
     collection: CollectionCreateInput
@@ -53931,6 +54232,9 @@ type Mutation {
   Learn more about [using metafields with collection conditions](https://shopify.dev/docs/apps/build/custom-data/metafields/use-metafield-capabilities).
   """
   collectionUpdate(
+    """The updated properties for the collection."""
+    input: CollectionInput @deprecated(reason: "This argument does not support new collection model features, such as multiple sources. Use `collection` to ensure compatibility with all collections.")
+
     """The properties and sources to use when updating the collection."""
     collection: CollectionUpdateInput
   ): CollectionUpdatePayload
@@ -55594,6 +55898,9 @@ type Mutation {
     """The draft order to complete."""
     id: ID!
 
+    """Whether the payment is pending."""
+    paymentPending: Boolean = false @deprecated(reason: "Create a draft with payment terms rather than marking the draft as pending.")
+
     """The gateway for the completed draft order."""
     paymentGatewayId: ID
 
@@ -55643,6 +55950,9 @@ type Mutation {
 
   """Duplicates a draft order."""
   draftOrderDuplicate(
+    """The ID of the draft order to duplicate."""
+    draftOrderId: ID @deprecated(reason: "Use `id` instead.")
+
     """The ID of the draft order to duplicate."""
     id: ID
   ): DraftOrderDuplicatePayload
@@ -55872,6 +56182,9 @@ type Mutation {
   Triggers any workflows that begin with the trigger specified in the request body. To learn more, refer to [_Create Shopify Flow triggers_](https://shopify.dev/apps/flow/triggers).
   """
   flowTriggerReceive(
+    """The payload needed to run the Trigger."""
+    body: String @deprecated(reason: "Use `payload` and `handle` to execute your Flow trigger.")
+
     """The handle of the trigger."""
     handle: String
 
@@ -55893,6 +56206,9 @@ type Mutation {
 
   """Creates a fulfillment constraint rule and its metafield."""
   fulfillmentConstraintRuleCreate(
+    """The identifier of the function providing the constraint rule."""
+    functionId: String @deprecated(reason: "Use `functionHandle` instead.")
+
     """The handle of the function providing the constraint rule."""
     functionHandle: String
 
@@ -56352,6 +56668,23 @@ type Mutation {
     trackingSupport: Boolean = false
 
     """
+    Whether the fulfillment service uses the [fulfillment order based workflow](
+      https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments
+    ) for managing fulfillments.
+    
+    [As of 2022-07 API version](https://shopify.dev/changelog/legacy-fulfillment-api-deprecation),
+    the fulfillment order based workflow is the only way to manage fulfillments.
+    As the migration is now finished, the `fulfillmentOrdersOptIn` property is deprecated
+    and is always set to `true` on correctly functioning fulfillment services.
+    
+    The `fulfillmentOrdersOptIn` input field is [deprecated and will be removed in the next API version](
+    https://shopify.dev/changelog/deprecation-of-the-fulfillmentservice-fulfillmentordersoptin-field).
+    This API version makes it optional and defaults to `true` for a smooth migration experience.
+    Do not set the `fulfillmentOrdersOptIn` argument, and you are ready for the next API version release.
+    """
+    fulfillmentOrdersOptIn: Boolean = true @deprecated(reason: "Migration period ended. Defaults to `true`.")
+
+    """
     Whether the fulfillment service manages product inventory and provides updates to Shopify.
     
     If `callbackUrl` is provided ([optional as of API version "2026-01"](https://shopify.dev/changelog/fulfillment-service-callback-url-is-now-optional)), Shopify will periodically fetch inventory levels via the callback endpoint.
@@ -56429,6 +56762,17 @@ type Mutation {
     If no `callbackUrl` is provided you need to submit this information via the api, see our docs on [building for fulfillment services](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services).
     """
     trackingSupport: Boolean
+
+    """
+    Whether the fulfillment service uses the [fulfillment order based workflow](
+      https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments
+    ) for managing fulfillments.
+    
+    [As of 2022-07 API version](https://shopify.dev/changelog/legacy-fulfillment-api-deprecation),
+    the fulfillment order based workflow is the only way to manage fulfillments,
+    and `true` is the only valid value for `fulfillmentOrdersOptIn`.
+    """
+    fulfillmentOrdersOptIn: Boolean @deprecated(reason: "Migration period has ended.")
 
     """
     Whether the fulfillment service manages product inventory and provides updates to Shopify.
@@ -57637,6 +57981,11 @@ type Mutation {
     orderId: ID!
 
     """
+    Indicates whether to refund the amount paid by the customer. Authorized payments will be voided regardless of this setting.
+    """
+    refund: Boolean @deprecated(reason: "Use `refundMethod` instead.")
+
+    """
     Indicates how to refund the amount paid by the customer. Authorized payments will be voided regardless of this setting.
     """
     refundMethod: OrderCancelRefundMethodInput
@@ -58039,6 +58388,12 @@ type Mutation {
     Whether or not to restock the line item when the updated quantity is less than the original quantity.
     """
     restock: Boolean
+
+    """
+    The ID of the location. If 'restock' is set to true, the restocked item will be made available
+    at the specified location.
+    """
+    locationId: ID @deprecated(reason: "No longer supported.")
   ): OrderEditSetQuantityPayload
 
   """
@@ -58570,6 +58925,9 @@ type Mutation {
   and [adding product data](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/add-data).
   """
   productCreate(
+    """The properties of the new product."""
+    input: ProductInput @deprecated(reason: "Use `product` instead.")
+
     """The attributes of the new product."""
     product: ProductCreateInput
 
@@ -59105,6 +59463,9 @@ type Mutation {
   """
   productUpdate(
     """The updated properties for a product."""
+    input: ProductInput @deprecated(reason: "Use `product` instead.")
+
+    """The updated properties for a product."""
     product: ProductUpdateInput
 
     """List of new media to be added to the product."""
@@ -59572,6 +59933,11 @@ type Mutation {
   returnCancel(
     """The ID of the return to cancel."""
     id: ID!
+
+    """
+    Whether the customer receives an email notification regarding the canceled return.
+    """
+    notifyCustomer: Boolean = false @deprecated(reason: "Not supported. This argument will be removed in a future version.")
   ): ReturnCancelPayload
 
   """
@@ -60108,6 +60474,16 @@ type Mutation {
 
     """Whether to pin the metafield definition."""
     pin: Boolean = null
+
+    """
+    Whether metafields for the definition are visible using the Storefront API.
+    """
+    visibleToStorefrontApi: Boolean = null @deprecated(reason: "Use `access.storefront` instead.")
+
+    """
+    Whether the metafield definition can be used as a collection condition. Defaults to false.
+    """
+    useAsCollectionCondition: Boolean = null @deprecated(reason: "Use `capabilities.smartCollectionCondition` instead.")
 
     """The capabilities of the metafield definition."""
     capabilities: MetafieldCapabilityCreateInput
@@ -63780,6 +64156,9 @@ input OrderCreateOrderInput {
   customAttributes: [OrderCreateCustomAttributeInput!]
 
   """The customer to associate to the order."""
+  customerId: ID @deprecated(reason: "This is replaced by the `customer` field in a future version.")
+
+  """The customer to associate to the order."""
   customer: OrderCreateCustomerInput
 
   """A discount code applied to the order."""
@@ -64746,6 +65125,11 @@ input OrderInput {
   metafields: [MetafieldInput!]
 
   """
+  A list of new [localization extensions](https://shopify.dev/api/admin-graphql/latest/objects/localizationextension) to add to the existing list of localization extensions for the order.
+  """
+  localizationExtensions: [LocalizationExtensionInput!] @deprecated(reason: "This field will be removed in a future version. Use `localizedFields` instead.")
+
+  """
   A list of new [localized fields](https://shopify.dev/api/admin-graphql/latest/objects/localizedfield) to add to the existing list of localized fields for the order.
   """
   localizedFields: [LocalizedFieldInput!]
@@ -65379,7 +65763,21 @@ type OrderTransaction implements Node {
   paymentDetails: PaymentDetails
 
   """The payment icon to display for the transaction."""
-  paymentIcon: Image
+  paymentIcon(
+    """Image width in pixels between 1 and 2048."""
+    maxWidth: Int @deprecated(reason: "Use `Image.url(transform: { maxWidth:})` instead.")
+
+    """Image height in pixels between 1 and 2048."""
+    maxHeight: Int @deprecated(reason: "Use `Image.url(transform: { maxHeight:})` instead.")
+
+    """Crops the image according to the specified region."""
+    crop: CropRegion @deprecated(reason: "Use `Image.url(transform: { crop:})` instead.")
+
+    """
+    Image size multiplier for high-resolution retina displays. Must be between 1 and 3.
+    """
+    scale: Int = 1 @deprecated(reason: "Use `Image.url(transform: { scale:})` instead.")
+  ): Image
 
   """The payment ID associated with the transaction."""
   paymentId: String
@@ -66446,6 +66844,9 @@ enum PaymentCustomizationErrorCode {
 
 """The input fields to create and update a payment customization."""
 input PaymentCustomizationInput {
+  """The ID of the function providing the payment customization."""
+  functionId: String @deprecated(reason: "Use `functionHandle` instead.")
+
   """Function handle scoped to your app ID."""
   functionHandle: String
 
@@ -70022,6 +70423,20 @@ type Product implements HasEvents & HasMetafieldDefinitions & HasMetafields & Ha
 
   """The images associated with the product."""
   images(
+    """Image width in pixels between 1 and 2048."""
+    maxWidth: Int @deprecated(reason: "Use `Image.url(transform: { maxWidth:})` instead.")
+
+    """Image height in pixels between 1 and 2048."""
+    maxHeight: Int @deprecated(reason: "Use `Image.url(transform: { maxHeight:})` instead.")
+
+    """Crops the image according to the specified region."""
+    crop: CropRegion @deprecated(reason: "Use `Image.url(transform: { crop:})` instead.")
+
+    """
+    Image size multiplier for high-resolution retina displays. Must be between 1 and 3.
+    """
+    scale: Int = 1 @deprecated(reason: "Use `Image.url(transform: { scale:})` instead.")
+
     """
     The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
     """
@@ -72043,6 +72458,24 @@ input ProductInput {
   """
   productOptions: [OptionCreateInput!]
 
+  """A list of the channels where the product is published."""
+  productPublications: [ProductPublicationInput!] @deprecated(reason: "Use [`PublishablePublish`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/publishablePublish)\ninstead.\n")
+
+  """A list of the channels where the product is published."""
+  publications: [ProductPublicationInput!] @deprecated(reason: "Use [`PublishablePublish`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/publishablePublish)\ninstead.\n")
+
+  """Only products with an active status can be published."""
+  publishDate: DateTime @deprecated(reason: "Use [`PublishablePublish`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/publishablePublish)\ninstead.\n")
+
+  """Only products with an active status can be published."""
+  publishOn: DateTime @deprecated(reason: "Use [`PublishablePublish`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/publishablePublish)\ninstead.\n")
+
+  """Only products with an active status can be published."""
+  published: Boolean @deprecated(reason: "Use [`PublishablePublish`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/publishablePublish)\ninstead.\n")
+
+  """Only products with an active status can be published."""
+  publishedAt: DateTime @deprecated(reason: "Use [`PublishablePublish`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/publishablePublish)\ninstead.\n")
+
   """
   The [product status](https://help.shopify.com/manual/products/details/product-details-page#product-status),
   which controls visibility across all sales channels.
@@ -72693,6 +73126,10 @@ input ProductPublicationInput {
   """ID of the publication."""
   publicationId: ID
 
+  """ID of the channel."""
+  channelId: ID @deprecated(reason: "Use publicationId instead.")
+  channelHandle: String @deprecated(reason: "Use publicationId instead.")
+
   """The date and time that the product was (or will be) published."""
   publishDate: DateTime
 }
@@ -72939,6 +73376,17 @@ input ProductSetInput {
   List of custom product options and option values (maximum of 3 per product).
   """
   productOptions: [OptionSetInput!]
+
+  """
+  The product's ID.
+  
+  If you're creating a product, then you don't need to pass the `id` as input to the
+  [`productCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productCreate) mutation.
+  If you're updating a product, then you do need to pass the `id` as input to the
+  [`productUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productUpdate) mutation
+  to identify which product you want to update.
+  """
+  id: ID @deprecated(reason: "Use `identifier` instead to get the product's ID")
 
   """
   A list of variants associated with the product.
@@ -73513,7 +73961,21 @@ type ProductVariant implements HasEvents & HasMetafieldDefinitions & HasMetafiel
   id: ID!
 
   """The featured image for the variant."""
-  image: Image @deprecated(reason: "Use `media` instead.")
+  image(
+    """Image width in pixels between 1 and 2048."""
+    maxWidth: Int @deprecated(reason: "Use `Image.url(transform: { maxWidth:})` instead.")
+
+    """Image height in pixels between 1 and 2048."""
+    maxHeight: Int @deprecated(reason: "Use `Image.url(transform: { maxHeight:})` instead.")
+
+    """Crops the image according to the specified region."""
+    crop: CropRegion @deprecated(reason: "Use `Image.url(transform: { crop:})` instead.")
+
+    """
+    Image size multiplier for high-resolution retina displays. Must be between 1 and 3.
+    """
+    scale: Int = 1 @deprecated(reason: "Use `Image.url(transform: { scale:})` instead.")
+  ): Image @deprecated(reason: "Use `media` instead.")
 
   """The inventory item, which is used to query for inventory information."""
   inventoryItem: InventoryItem!
@@ -75454,6 +75916,9 @@ type PublicationEdge {
 
 """The input fields required to publish a resource."""
 input PublicationInput {
+  """ID of the channel."""
+  channelId: ID @deprecated(reason: "Use publicationId instead.")
+
   """ID of the publication."""
   publicationId: ID
 
@@ -79501,6 +79966,9 @@ type QueryRoot {
   Use this query to inspect a definition's configuration, including its data type, validations, access settings, and the count of [metafields](https://shopify.dev/docs/api/admin-graphql/current/objects/Metafield) using it.
   """
   metafieldDefinition(
+    """The ID of the MetafieldDefinition to return."""
+    id: ID @deprecated(reason: "This field will be removed in a future version. Use the identifier input instead.")
+
     """The identifier of the MetafieldDefinition to return."""
     identifier: MetafieldDefinitionIdentifierInput
   ): MetafieldDefinition
@@ -81802,6 +82270,9 @@ type QueryRoot {
   Building an app? If you only use app-specific webhooks, you won't need this. App-specific webhook subscriptions specified in your `shopify.app.toml` may be easier. They are automatically kept up to date by Shopify & require less maintenance. Please read [About managing webhook subscriptions](https://shopify.dev/docs/apps/build/webhooks/subscribe).
   """
   webhookSubscriptions(
+    """Callback URL to filter by."""
+    callbackUrl: URL @deprecated(reason: "Use `uri` instead.")
+
     """
     URI to filter by. Supports an HTTPS URL, a Google Pub/Sub URI (pubsub://{project-id}:{topic-id}) or an Amazon EventBridge event source ARN.
     """
@@ -83104,6 +83575,11 @@ input ReturnApproveRequestInput {
   The customer will only receive a notification if `Order.email` is present.
   """
   notifyCustomer: Boolean = false
+
+  """
+  When `true` the return will be created in an unprocessed state; returns must subsequently be processed via Return Processing APIs in order to take further action on them. Creating returns in an unprocessed state will soon be the default behavior. After July 1st, 2025, this field is only available to merchants who have created exchanges or returns with fees using API up that date. It will be ignored otherwise.
+  """
+  unprocessed: Boolean = false @deprecated(reason: "This field is temporary to support the transition to Returns Processing APIs.")
 }
 
 """Return type for `returnApproveRequest` mutation."""
@@ -83334,6 +83810,16 @@ input ReturnInput {
 
   """The return shipping fee to capture."""
   returnShippingFee: ReturnShippingFeeInput
+
+  """
+  When `true` the customer will receive a notification if there's an `Order.email` present.
+  """
+  notifyCustomer: Boolean = false @deprecated(reason: "This field is no longer supported and any value provided to it is currently ignored.")
+
+  """
+  When `true` the return will be created in an unprocessed state; returns must subsequently be processed via Return Processing APIs in order to take further action on them. Creating returns in an unprocessed state will soon be the default behavior. After July 1st, 2025, this field is only available to merchants who have created exchanges or returns with fees using API up that date. It will be ignored otherwise.
+  """
+  unprocessed: Boolean = false @deprecated(reason: "This field is temporary to support the transition to Returns Processing APIs.")
 }
 
 """
@@ -83400,6 +83886,9 @@ type ReturnLineItem implements Node & ReturnLineItemType {
 input ReturnLineItemInput {
   """The quantity of the item to be returned."""
   quantity: Int!
+
+  """The reason for the item to be returned."""
+  returnReason: ReturnReason @deprecated(reason: "Use `returnReasonDefinitionId` instead. This field will be removed in the future.")
 
   """
   The ID of a [`ReturnReasonDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ReturnReasonDefinition). Accepts any ID from the full library of reasons available via [`returnReasonDefinitions`](https://shopify.dev/docs/api/admin-graphql/latest/queries/returnReasonDefinitions), not limited to the suggested reasons for the line item.
@@ -83827,6 +84316,9 @@ input ReturnRequestLineItemInput {
 
   """The restocking fee to capture."""
   restockingFee: RestockingFeeInput
+
+  """The reason why the line item is being returned."""
+  returnReason: ReturnReason @deprecated(reason: "Use `returnReasonDefinitionId` instead. This field will be removed in the future.")
 
   """
   The ID of a [`ReturnReasonDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ReturnReasonDefinition). Accepts any ID from the full library of reasons available via [`returnReasonDefinitions`](https://shopify.dev/docs/api/admin-graphql/latest/queries/returnReasonDefinitions), not limited to the suggested reasons for the line item.
@@ -87681,6 +88173,9 @@ The input fields for specifying the shipping details for the draft order.
 > A custom shipping line includes a title and price with `shippingRateHandle` set to `nil`. A shipping line with a carrier-provided shipping rate (currently set via the Shopify admin) includes the shipping rate handle.
 """
 input ShippingLineInput {
+  """Price of the shipping rate in shop currency."""
+  price: Money @deprecated(reason: "`priceWithCurrency` should be used instead, where currencies can be specified.")
+
   """
   Price of the shipping rate with currency. If provided, `price` will be ignored.
   """
@@ -88447,6 +88942,20 @@ type Shop implements HasMetafieldDefinitions & HasMetafields & HasPublishedTrans
 
   """The list of all images of all products for the shop."""
   productImages(
+    """Image width in pixels between 1 and 2048."""
+    maxWidth: Int @deprecated(reason: "Use `Image.url(transform: { maxWidth:})` instead.")
+
+    """Image height in pixels between 1 and 2048."""
+    maxHeight: Int @deprecated(reason: "Use `Image.url(transform: { maxHeight:})` instead.")
+
+    """Crops the image according to the specified region."""
+    crop: CropRegion @deprecated(reason: "Use `Image.url(transform: { crop:})` instead.")
+
+    """
+    Image size multiplier for high-resolution retina displays. Must be between 1 and 3.
+    """
+    scale: Int = 1 @deprecated(reason: "Use `Image.url(transform: { scale:})` instead.")
+
     """
     The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
     """
@@ -91562,6 +92071,12 @@ type StaffMember implements Node {
 
   """The image used as the staff member's avatar in the Shopify admin."""
   avatar(
+    """The image width in pixels between 1 and 2048."""
+    maxWidth: Int @deprecated(reason: "Use `maxWidth` on argument `image` instead.")
+
+    """The image height in pixels between 1 and 2048."""
+    maxHeight: Int @deprecated(reason: "Use `maxHeight` argument on `image` instead.")
+
     """The default image returned if the staff member has no avatar."""
     fallback: StaffMemberDefaultImage = DEFAULT
   ): Image!
@@ -99266,6 +99781,9 @@ type ValidationConnection {
 
 """The input fields required to install a validation."""
 input ValidationCreateInput {
+  """The function ID representing the extension to install."""
+  functionId: String @deprecated(reason: "Use `functionHandle` instead.")
+
   """The function handle representing the extension to install."""
   functionHandle: String
 
@@ -99926,6 +100444,11 @@ input WebhookSubscriptionInput {
 
   """A human-readable name for the webhook subscription."""
   name: String
+
+  """
+  URL where the webhook subscription should send the POST request when the event occurs.
+  """
+  callbackUrl: URL @deprecated(reason: "Use `uri` instead.")
 
   """
   The URI where the webhook subscription should send events. Supports an HTTPS URL, a Google Pub/Sub URI (pubsub://{project-id}:{topic-id}) or an Amazon EventBridge event source ARN.

@@ -173,3 +173,117 @@ func (s *MetaobjectField) UnmarshalJSON(b []byte) error {
 
 	return nil
 }
+
+func decodeCollectionSource(raw json.RawMessage) (CollectionSource, error) {
+	if isJSONNull(raw) {
+		return nil, nil
+	}
+	v, err := decodeByTypename(raw, collectionSourceTypes, "CollectionSource")
+	if err != nil {
+		return nil, err
+	}
+	return v.(CollectionSource), nil
+}
+
+// UnmarshalJSON decodes the sources into their concrete types. The query must
+// select __typename on each source.
+func (s *Collection) UnmarshalJSON(b []byte) error {
+	type alias Collection
+	tmp := struct {
+		*alias
+		Sources []json.RawMessage `json:"sources"`
+	}{alias: (*alias)(s)}
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+
+	s.Sources = nil
+	if tmp.Sources != nil {
+		s.Sources = make([]CollectionSource, len(tmp.Sources))
+		for i, raw := range tmp.Sources {
+			src, err := decodeCollectionSource(raw)
+			if err != nil {
+				return err
+			}
+			s.Sources[i] = src
+		}
+	}
+
+	return nil
+}
+
+func decodeInclusionCondition(raw json.RawMessage) (CollectionSourceInclusionCondition, error) {
+	if isJSONNull(raw) {
+		return nil, nil
+	}
+	v, err := decodeByTypename(raw, collectionSourceInclusionConditionTypes, "CollectionSourceInclusionCondition")
+	if err != nil {
+		return nil, err
+	}
+	return v.(CollectionSourceInclusionCondition), nil
+}
+
+func decodeExclusionCondition(raw json.RawMessage) (CollectionSourceExclusionCondition, error) {
+	if isJSONNull(raw) {
+		return nil, nil
+	}
+	v, err := decodeByTypename(raw, collectionSourceExclusionConditionTypes, "CollectionSourceExclusionCondition")
+	if err != nil {
+		return nil, err
+	}
+	return v.(CollectionSourceExclusionCondition), nil
+}
+
+// UnmarshalJSON decodes the conditions into their concrete types. The query
+// must select __typename on each condition.
+func (s *CollectionSourceInclusion) UnmarshalJSON(b []byte) error {
+	type alias CollectionSourceInclusion
+	tmp := struct {
+		*alias
+		Conditions []json.RawMessage `json:"conditions"`
+	}{alias: (*alias)(s)}
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+
+	s.Conditions = nil
+	if tmp.Conditions != nil {
+		s.Conditions = make([]CollectionSourceInclusionCondition, len(tmp.Conditions))
+		for i, raw := range tmp.Conditions {
+			c, err := decodeInclusionCondition(raw)
+			if err != nil {
+				return err
+			}
+			s.Conditions[i] = c
+		}
+	}
+
+	return nil
+}
+
+// UnmarshalJSON decodes the conditions into their concrete types. The query
+// must select __typename on each condition.
+func (s *CollectionSourceExclusion) UnmarshalJSON(b []byte) error {
+	type alias CollectionSourceExclusion
+	tmp := struct {
+		*alias
+		Conditions []json.RawMessage `json:"conditions"`
+	}{alias: (*alias)(s)}
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+
+	s.Conditions = nil
+	if tmp.Conditions != nil {
+		s.Conditions = make([]CollectionSourceExclusionCondition, len(tmp.Conditions))
+		for i, raw := range tmp.Conditions {
+			c, err := decodeExclusionCondition(raw)
+			if err != nil {
+				return err
+			}
+			s.Conditions[i] = c
+		}
+	}
+
+	return nil
+}
