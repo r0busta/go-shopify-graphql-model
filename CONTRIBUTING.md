@@ -7,7 +7,7 @@ merge.
 ## Before opening a pull request
 
 - Run `gofmt`, `go vet ./...` and `go test ./...`. CI runs the same checks.
-- Keep the module path as `github.com/r0busta/go-shopify-graphql-model/v4`.
+- Keep the module path as `github.com/r0busta/go-shopify-graphql-model/v5`.
   If you develop in a fork, use a `replace` directive locally instead of
   renaming the module in `go.mod`.
 - `graph/model/models_gen.go` is generated. Do not edit it by hand; change
@@ -29,6 +29,7 @@ ship as minor or patch releases.
 
 ## Regenerating the models
 
-See the README for the current fetch and generate steps. Fetching the schema
-needs an Admin API access token for a store; keep it in `.env`, which is
+See the README for the fetch and generate steps. The default fetch uses the
+public introspection endpoint on shopify.dev and needs no credentials. If
+you introspect a store instead, keep its access token in `.env`, which is
 gitignored, and never commit it.

@@ -9,7 +9,12 @@ model:
 
 omit_slice_element_pointers: true
 
-# we don't use generated.go and it causes mod.tidy to change go.mod it is included
+# Newer gqlgen adds MarshalJSON/UnmarshalJSON to enums. That makes a JSON null
+# in a non-pointer enum field a decode error instead of a no-op, so keep the
+# plain string behaviour that encoding/json gives us.
+omit_enum_json_marshalers: true
+
+# We don't use generated.go, and it causes `go mod tidy` to change go.mod if it is included.
 exec:
   filename: _tmp/generated.go
 
