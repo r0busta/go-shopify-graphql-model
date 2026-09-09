@@ -15,9 +15,11 @@ plugin. Module path `github.com/r0busta/go-shopify-graphql-model/v4`.
 - `graphql/`: custom scalar types (`Money`, `Decimal`) mapped in
   `gqlgen.yml`.
 - `main.go`: the generator entry point. Its mutate hook adds `omitempty` to
-  pointer and slice fields.
-- `fetchSchema.js` and `package.json`: schema fetcher. Instructions are in
-  the README.
+  pointer and slice fields. `gqlgen.yml` sets `omit_enum_json_marshalers`
+  so enums stay plain strings; `enum_json_test.go` guards that.
+- `cmd/fetchschema`: fetches the schema for an API version from the public
+  introspection endpoint on shopify.dev (no token needed) and prints it in
+  graphql-js `printSchema` format. Instructions are in the README.
 
 ## Known gaps
 
@@ -30,6 +32,7 @@ plugin. Module path `github.com/r0busta/go-shopify-graphql-model/v4`.
 
 - `go build ./... && go vet ./... && go test ./...` must pass. The test
   compiles the very large generated file, so the first run takes a while.
-- `.env` holds a live store token and is gitignored. Never stage it.
+- `.env` may hold a live store token for `cmd/fetchschema -store` and is
+  gitignored. Never stage it.
 - Consumers: `github.com/r0busta/go-shopify-graphql` pins a specific major
   version of this module. A schema bump here forces a major bump there.

@@ -29,6 +29,7 @@ ship as minor or patch releases.
 
 ## Regenerating the models
 
-See the README for the current fetch and generate steps. Fetching the schema
-needs an Admin API access token for a store; keep it in `.env`, which is
+See the README for the fetch and generate steps. The default fetch uses the
+public introspection endpoint on shopify.dev and needs no credentials. If
+you introspect a store instead, keep its access token in `.env`, which is
 gitignored, and never commit it.
