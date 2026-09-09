@@ -1,7 +1,7 @@
 // Command fetchschema downloads the Shopify Admin API GraphQL schema for one
 // API version and writes it as SDL, ready for the model generator.
 //
-// By default it uses the public introspection proxy on shopify.dev, which
+// By default it uses the public introspection endpoint on shopify.dev, which
 // needs no store or access token:
 //
 //	go run ./cmd/fetchschema -version 2026-07
@@ -10,32 +10,44 @@
 //
 //	ACCESS_TOKEN=shpat_... go run ./cmd/fetchschema -version 2026-07 -store my-store
 //
-// The output follows graphql-js printSchema so that schema diffs between API
-// versions stay readable. The `schema { ... }` block is omitted because the
-// generator does not need it.
+// The output follows graphql-js 16.7's printSchema so that schema diffs
+// between API versions stay readable; for 2026-07 it is byte-identical apart
+// from a trailing newline. Unlike graphql-js's default introspection query,
+// deprecated arguments and input fields are included, since the API still
+// accepts them. The `schema { ... }` block is omitted because the generator
+// does not need it.
 package main
 
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"flag"
 	"fmt"
 	"io"
 	"net/http"
 	"os"
+	"regexp"
 	"strings"
+	"time"
 )
 
 const proxyURL = "https://shopify.dev/admin-graphql-direct-proxy/"
 
+var (
+	versionPattern = regexp.MustCompile(`^(\d{4}-\d{2}|unstable)$`)
+	storePattern   = regexp.MustCompile(`^[a-z0-9][a-z0-9-]*$`)
+)
+
 func main() {
-	version := flag.String("version", os.Getenv("API_VERSION"), "Admin API version, for example 2026-07 (env API_VERSION)")
-	store := flag.String("store", os.Getenv("STORE"), "myshopify store name; introspects the store with ACCESS_TOKEN instead of the public proxy (env STORE)")
+	version := flag.String("version", "", "Admin API version, for example 2026-07 (required)")
+	store := flag.String("store", "", "myshopify store name; introspects that store using the ACCESS_TOKEN environment variable instead of the public proxy")
 	out := flag.String("o", "schema.graphql", "output file, or - for stdout")
+	timeout := flag.Duration("timeout", 2*time.Minute, "HTTP timeout")
 	flag.Parse()
 
-	if *version == "" {
-		fmt.Fprintln(os.Stderr, "fetchschema: -version is required")
+	if !versionPattern.MatchString(*version) {
+		fmt.Fprintf(os.Stderr, "fetchschema: -version must look like 2026-07 or be \"unstable\", got %q\n", *version)
 		flag.Usage()
 		os.Exit(2)
 	}
@@ -43,6 +55,10 @@ func main() {
 	url := proxyURL + *version
 	headers := map[string]string{"Content-Type": "application/json"}
 	if *store != "" {
+		if !storePattern.MatchString(*store) {
+			fmt.Fprintf(os.Stderr, "fetchschema: -store must be the store's myshopify subdomain, got %q\n", *store)
+			os.Exit(2)
+		}
 		token := os.Getenv("ACCESS_TOKEN")
 		if token == "" {
 			fmt.Fprintln(os.Stderr, "fetchschema: ACCESS_TOKEN must be set when -store is given")
@@ -52,13 +68,18 @@ func main() {
 		headers["X-Shopify-Access-Token"] = token
 	}
 
-	schema, err := introspect(url, headers)
+	client := &http.Client{Timeout: *timeout}
+	schema, err := introspect(client, url, headers)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "fetchschema:", err)
 		os.Exit(1)
 	}
 
-	sdl := printSchema(schema)
+	sdl, err := render(schema)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "fetchschema:", err)
+		os.Exit(1)
+	}
 
 	if *out == "-" {
 		_, err = os.Stdout.WriteString(sdl)
@@ -71,7 +92,7 @@ func main() {
 	}
 }
 
-func introspect(url string, headers map[string]string) (*schema, error) {
+func introspect(client *http.Client, url string, headers map[string]string) (*schema, error) {
 	body, err := json.Marshal(map[string]string{"query": introspectionQuery})
 	if err != nil {
 		return nil, err
@@ -85,7 +106,7 @@ func introspect(url string, headers map[string]string) (*schema, error) {
 		req.Header.Set(k, v)
 	}
 
-	resp, err := http.DefaultClient.Do(req)
+	resp, err := client.Do(req)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +117,7 @@ func introspect(url string, headers map[string]string) (*schema, error) {
 		return nil, err
 	}
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("%s: HTTP %d: %s", url, resp.StatusCode, strings.TrimSpace(string(raw)))
+		return nil, fmt.Errorf("%s: HTTP %d: %s", url, resp.StatusCode, excerpt(raw))
 	}
 
 	var result struct {
@@ -108,23 +129,45 @@ func introspect(url string, headers map[string]string) (*schema, error) {
 		} `json:"errors"`
 	}
 	if err := json.Unmarshal(raw, &result); err != nil {
-		return nil, fmt.Errorf("decoding response: %w", err)
+		return nil, fmt.Errorf("%s: response is not JSON (%v): %s", url, err, excerpt(raw))
 	}
 	if len(result.Errors) > 0 {
-		return nil, fmt.Errorf("introspection failed: %s", result.Errors[0].Message)
+		var msgs []string
+		for _, e := range result.Errors {
+			if e.Message != "" {
+				msgs = append(msgs, e.Message)
+			}
+		}
+		if len(msgs) == 0 {
+			return nil, fmt.Errorf("introspection failed: %s", excerpt(raw))
+		}
+		return nil, fmt.Errorf("introspection failed: %s", strings.Join(msgs, "; "))
 	}
-	if result.Data.Schema == nil {
-		return nil, fmt.Errorf("response has no __schema: %s", truncate(string(raw), 200))
+	if result.Data.Schema == nil || len(result.Data.Schema.Types) == 0 {
+		return nil, fmt.Errorf("response has no schema types: %s", excerpt(raw))
 	}
 
 	return result.Data.Schema, nil
 }
 
-func truncate(s string, n int) string {
-	if len(s) > n {
-		return s[:n] + "..."
+// excerpt returns the start of a response body for error messages.
+func excerpt(raw []byte) string {
+	s := strings.TrimSpace(string(raw))
+	if len(s) > 200 {
+		return s[:200] + "..."
 	}
 	return s
+}
+
+// render prints the schema, turning malformed introspection data into an
+// error instead of a panic.
+func render(s *schema) (sdl string, err error) {
+	defer func() {
+		if r := recover(); r != nil {
+			err = fmt.Errorf("malformed introspection result: %v", r)
+		}
+	}()
+	return printSchema(s), nil
 }
 
 // Introspection result types, following the GraphQL introspection schema.
@@ -155,10 +198,12 @@ type fieldDef struct {
 }
 
 type inputValue struct {
-	Name         string  `json:"name"`
-	Description  *string `json:"description"`
-	Type         typeRef `json:"type"`
-	DefaultValue *string `json:"defaultValue"`
+	Name              string  `json:"name"`
+	Description       *string `json:"description"`
+	Type              typeRef `json:"type"`
+	DefaultValue      *string `json:"defaultValue"`
+	IsDeprecated      bool    `json:"isDeprecated"`
+	DeprecationReason *string `json:"deprecationReason"`
 }
 
 type enumValue struct {
@@ -174,15 +219,30 @@ type typeRef struct {
 	OfType *typeRef `json:"ofType"`
 }
 
+var errTypeRefTooDeep = errors.New("type reference nested deeper than the introspection query supports")
+
 func (t typeRef) String() string {
 	switch t.Kind {
 	case "NON_NULL":
+		if t.OfType == nil {
+			panic(errTypeRefTooDeep)
+		}
 		return t.OfType.String() + "!"
 	case "LIST":
+		if t.OfType == nil {
+			panic(errTypeRefTooDeep)
+		}
 		return "[" + t.OfType.String() + "]"
 	default:
-		return *t.Name
+		return t.name()
 	}
+}
+
+func (t typeRef) name() string {
+	if t.Name == nil {
+		panic(fmt.Sprintf("type reference of kind %q without a name", t.Kind))
+	}
+	return *t.Name
 }
 
 type directiveDef struct {
@@ -234,7 +294,7 @@ func printType(t typeDef) string {
 	case "UNION":
 		names := make([]string, len(t.PossibleTypes))
 		for i, p := range t.PossibleTypes {
-			names[i] = *p.Name
+			names[i] = p.name()
 		}
 		return desc + "union " + t.Name + " = " + strings.Join(names, " | ")
 	case "ENUM":
@@ -250,7 +310,7 @@ func printType(t typeDef) string {
 		}
 		return desc + "input " + t.Name + printBlock(items)
 	default:
-		panic("unexpected type kind " + t.Kind)
+		panic(fmt.Sprintf("type %q has unexpected kind %q", t.Name, t.Kind))
 	}
 }
 
@@ -260,7 +320,7 @@ func printImplements(interfaces []typeRef) string {
 	}
 	names := make([]string, len(interfaces))
 	for i, r := range interfaces {
-		names[i] = *r.Name
+		names[i] = r.name()
 	}
 	return " implements " + strings.Join(names, " & ")
 }
@@ -313,7 +373,7 @@ func printInputValue(v inputValue) string {
 	if v.DefaultValue != nil {
 		s += " = " + *v.DefaultValue
 	}
-	return s
+	return s + printDeprecated(v.IsDeprecated, v.DeprecationReason)
 }
 
 func printDeprecated(deprecated bool, reason *string) string {
@@ -413,7 +473,8 @@ func isWhiteSpace(c byte) bool {
 	return c == ' ' || c == '\t'
 }
 
-// printString mirrors graphql-js's printString (a JSON string literal).
+// printString prints a GraphQL string literal. It uses JSON escaping, which
+// differs from graphql-js only for control characters and U+2028/U+2029.
 func printString(s string) string {
 	var buf bytes.Buffer
 	enc := json.NewEncoder(&buf)
@@ -433,7 +494,7 @@ query IntrospectionQuery {
       name
       description
       locations
-      args { ...InputValue }
+      args(includeDeprecated: true) { ...InputValue }
     }
   }
 }
@@ -445,12 +506,12 @@ fragment FullType on __Type {
   fields(includeDeprecated: true) {
     name
     description
-    args { ...InputValue }
+    args(includeDeprecated: true) { ...InputValue }
     type { ...TypeRef }
     isDeprecated
     deprecationReason
   }
-  inputFields { ...InputValue }
+  inputFields(includeDeprecated: true) { ...InputValue }
   interfaces { ...TypeRef }
   enumValues(includeDeprecated: true) {
     name
@@ -466,6 +527,8 @@ fragment InputValue on __InputValue {
   description
   type { ...TypeRef }
   defaultValue
+  isDeprecated
+  deprecationReason
 }
 
 fragment TypeRef on __Type {

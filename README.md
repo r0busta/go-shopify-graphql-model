@@ -21,8 +21,9 @@ follows the Admin API version the models were generated from; see
     go run ./cmd/fetchschema -version 2026-07
     ```
 
-   To introspect a specific store instead, pass `-store my-store` and set
-   `ACCESS_TOKEN` to an Admin API access token.
+   To introspect a specific store instead, pass `-store my-store` and export
+   `ACCESS_TOKEN` with an Admin API access token. Deprecated arguments and
+   input fields are included since the API still accepts them.
 
 2. Generate the models:
 

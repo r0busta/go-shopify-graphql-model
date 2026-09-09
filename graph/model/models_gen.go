@@ -9358,6 +9358,8 @@ type CollectionInput struct {
 	Image *ImageInput `json:"image,omitempty"`
 	// Initial list of collection products. Only valid with `collectionCreate`.
 	Products []string `json:"products,omitempty"`
+	// Initial list of collection publications. Only valid with `collectionCreate`.
+	Publications []CollectionPublicationInput `json:"publications,omitempty"`
 	// The rules used to assign products to the collection. This is the legacy smart-collection model;
 	// use `sources` with `conditions` instead. Each `ruleSet` rule has an equivalent `condition`.
 	RuleSet *CollectionRuleSetInput `json:"ruleSet,omitempty"`
@@ -9435,6 +9437,9 @@ type CollectionPublicationEdge struct {
 type CollectionPublicationInput struct {
 	// The ID of the publication.
 	PublicationID *string `json:"publicationId,omitempty"`
+	// The ID of the channel.
+	ChannelID     *string `json:"channelId,omitempty"`
+	ChannelHandle *string `json:"channelHandle,omitempty"`
 }
 
 // The input fields for specifying a collection to publish and the sales channels to publish it to.
@@ -13065,6 +13070,8 @@ type CustomerIdentifierInput struct {
 
 // The input fields and values to use when creating or updating a customer.
 type CustomerInput struct {
+	// The addresses for a customer.
+	Addresses []MailingAddressInput `json:"addresses,omitempty"`
 	// The unique email address of the customer.
 	Email *string `json:"email,omitempty"`
 	// The customer's first name.
@@ -13937,6 +13944,8 @@ type CustomerSetInput struct {
 	Email *string `json:"email,omitempty"`
 	// The customer's first name.
 	FirstName *string `json:"firstName,omitempty"`
+	// Specifies the customer to update. If absent, a new customer is created.
+	ID *string `json:"id,omitempty"`
 	// The customer's last name.
 	LastName *string `json:"lastName,omitempty"`
 	// The customer's locale.
@@ -15089,6 +15098,8 @@ func (this DeliveryCustomizationError) GetMessage() string { return this.Message
 
 // The input fields to create and update a delivery customization.
 type DeliveryCustomizationInput struct {
+	// The ID of the function providing the delivery customization.
+	FunctionID *string `json:"functionId,omitempty"`
 	// Function handle scoped to your current app ID. Only finds functions within your app.
 	FunctionHandle *string `json:"functionHandle,omitempty"`
 	// The title of the delivery customization.
@@ -16750,6 +16761,8 @@ type DiscountAutomaticAppInput struct {
 	// [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
 	// mutation.
 	Tags []string `json:"tags,omitempty"`
+	// The ID of the function providing the discount.
+	FunctionID *string `json:"functionId,omitempty"`
 	// The handle of the function providing the discount.
 	FunctionHandle *string `json:"functionHandle,omitempty"`
 	// Additional metafields to associate to the discount.
@@ -17546,6 +17559,8 @@ type DiscountCodeAppInput struct {
 	AppliesOncePerCustomer *bool `json:"appliesOncePerCustomer,omitempty"`
 	// The code that customers use to apply the discount.
 	Code *string `json:"code,omitempty"`
+	// The customers that can use the discount.
+	CustomerSelection *DiscountCustomerSelectionInput `json:"customerSelection,omitempty"`
 	// The maximum number of times the discount can be redeemed.
 	// For unlimited usage, specify `null`.
 	UsageLimit *int `json:"usageLimit,omitempty"`
@@ -17566,6 +17581,8 @@ type DiscountCodeAppInput struct {
 	// [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
 	// mutation.
 	Tags []string `json:"tags,omitempty"`
+	// The ID of the function providing the discount.
+	FunctionID *string `json:"functionId,omitempty"`
 	// The handle of the function providing the discount.
 	FunctionHandle *string `json:"functionHandle,omitempty"`
 	// Whether the discount applies to subscriptions items.
@@ -17763,6 +17780,8 @@ type DiscountCodeBasicInput struct {
 	AppliesOncePerCustomer *bool `json:"appliesOncePerCustomer,omitempty"`
 	// The code that customers use to apply the discount.
 	Code *string `json:"code,omitempty"`
+	// The customers that can use the discount.
+	CustomerSelection *DiscountCustomerSelectionInput `json:"customerSelection,omitempty"`
 	// The maximum number of times the discount can be redeemed.
 	// For unlimited usage, specify `null`.
 	UsageLimit *int `json:"usageLimit,omitempty"`
@@ -17953,6 +17972,8 @@ type DiscountCodeBxgyInput struct {
 	AppliesOncePerCustomer *bool `json:"appliesOncePerCustomer,omitempty"`
 	// The code that customers use to apply the discount.
 	Code *string `json:"code,omitempty"`
+	// The customers that can use the discount.
+	CustomerSelection *DiscountCustomerSelectionInput `json:"customerSelection,omitempty"`
 	// The maximum number of times the discount can be redeemed.
 	// For unlimited usage, specify `null`.
 	UsageLimit *int `json:"usageLimit,omitempty"`
@@ -18151,6 +18172,8 @@ type DiscountCodeFreeShippingInput struct {
 	AppliesOncePerCustomer *bool `json:"appliesOncePerCustomer,omitempty"`
 	// The code that customers use to apply the discount.
 	Code *string `json:"code,omitempty"`
+	// The customers that can use the discount.
+	CustomerSelection *DiscountCustomerSelectionInput `json:"customerSelection,omitempty"`
 	// The maximum number of times the discount can be redeemed.
 	// For unlimited usage, specify `null`.
 	UsageLimit *int `json:"usageLimit,omitempty"`
@@ -19278,6 +19301,8 @@ type DraftOrderAppliedDiscount struct {
 
 // The input fields for applying an order-level discount to a draft order.
 type DraftOrderAppliedDiscountInput struct {
+	// The applied amount of the discount in your shop currency.
+	Amount *null.String `json:"amount,omitempty"`
 	// The applied amount of the discount in the specified currency.
 	AmountWithCurrency *MoneyInput `json:"amountWithCurrency,omitempty"`
 	// Reason for the discount.
@@ -19484,6 +19509,8 @@ type DraftOrderInput struct {
 	AcceptAutomaticDiscounts *bool `json:"acceptAutomaticDiscounts,omitempty"`
 	// The mailing address associated with the payment method.
 	BillingAddress *MailingAddressInput `json:"billingAddress,omitempty"`
+	// The customer associated with the draft order.
+	CustomerID *string `json:"customerId,omitempty"`
 	// The extra information added to the draft order on behalf of the customer.
 	CustomAttributes []AttributeInput `json:"customAttributes,omitempty"`
 	// The customer's email address.
@@ -19496,6 +19523,8 @@ type DraftOrderInput struct {
 	LineItems []DraftOrderLineItemInput `json:"lineItems,omitempty"`
 	// The list of metafields attached to the draft order. An existing metafield can not be used when creating a draft order.
 	Metafields []MetafieldInput `json:"metafields,omitempty"`
+	// The localization extensions attached to the draft order. For example, Tax IDs.
+	LocalizationExtensions []LocalizationExtensionInput `json:"localizationExtensions,omitempty"`
 	// The localized fields attached to the draft order. For example, Tax IDs.
 	LocalizedFields []LocalizedFieldInput `json:"localizedFields,omitempty"`
 	// The text of an optional note that a shop owner can attach to the draft order.
@@ -19518,6 +19547,8 @@ type DraftOrderInput struct {
 	ReserveInventoryUntil *string `json:"reserveInventoryUntil,omitempty"`
 	// The payment currency of the customer for this draft order.
 	PresentmentCurrencyCode *CurrencyCode `json:"presentmentCurrencyCode,omitempty"`
+	// The selected country code that determines the pricing of the draft order.
+	MarketRegionCountryCode *CountryCode `json:"marketRegionCountryCode,omitempty"`
 	// The customer's phone number.
 	Phone *string `json:"phone,omitempty"`
 	// The fields used to create payment terms.
@@ -19688,6 +19719,10 @@ type DraftOrderLineItemInput struct {
 	AppliedDiscount *DraftOrderAppliedDiscountInput `json:"appliedDiscount,omitempty"`
 	// A generic custom attribute using a key value pair.
 	CustomAttributes []AttributeInput `json:"customAttributes,omitempty"`
+	// The weight in grams for custom line items. This field is ignored when `variantId` is provided.
+	Grams *int `json:"grams,omitempty"`
+	// The custom line item price without any discounts applied in shop currency. This field is ignored when `variantId` is provided.
+	OriginalUnitPrice *null.String `json:"originalUnitPrice,omitempty"`
 	// The price in presentment currency, without any discounts applied, for a custom line item.
 	// If this value is provided, `original_unit_price` will be ignored. This field is ignored when `variantId` is provided.
 	// Note: All presentment currencies for a single draft should be the same and match the
@@ -19712,6 +19747,8 @@ type DraftOrderLineItemInput struct {
 	// The UUID of the draft order line item. Must be unique and consistent across requests.
 	// This field is mandatory in order to manipulate drafts with bundles.
 	UUID *string `json:"uuid,omitempty"`
+	// The bundle components when the line item is a bundle.
+	BundleComponents []BundlesDraftOrderBundleLineItemComponentInput `json:"bundleComponents,omitempty"`
 	// The components of the draft order line item.
 	Components []DraftOrderLineItemComponentInput `json:"components,omitempty"`
 	// If the line item doesn't already have a price override input, setting `generatePriceOverride` to `true` will
@@ -22908,6 +22945,8 @@ type GiftCardConnection struct {
 
 // The input fields to issue a gift card.
 type GiftCardCreateInput struct {
+	// The initial value of the gift card.
+	InitialValue *null.String `json:"initialValue,omitempty"`
 	// The initial amount of the gift card.
 	InitialAmount *MoneyInput `json:"initialAmount,omitempty"`
 	// The gift card's code. It must be 8-20 characters long and contain only letters(a-z) and numbers(0-9).
@@ -26498,16 +26537,21 @@ type MailingAddressInput struct {
 	City *string `json:"city,omitempty"`
 	// The name of the customer's company or organization.
 	Company *string `json:"company,omitempty"`
+	// The name of the country.
+	Country *string `json:"country,omitempty"`
 	// The two-letter code for the country of the address.
 	CountryCode *CountryCode `json:"countryCode,omitempty"`
 	// The first name of the customer.
 	FirstName *string `json:"firstName,omitempty"`
+	ID        *string `json:"id,omitempty"`
 	// The last name of the customer.
 	LastName *string `json:"lastName,omitempty"`
 	// A unique phone number for the customer.
 	//
 	// Formatted using E.164 standard. For example, _+16135551111_.
 	Phone *string `json:"phone,omitempty"`
+	// The region of the address, such as the province, state, or district.
+	Province *string `json:"province,omitempty"`
 	// The code for the region of the address, such as the province, state, or district.
 	// For example QC for Quebec, Canada.
 	ProvinceCode *string `json:"provinceCode,omitempty"`
@@ -26825,10 +26869,23 @@ type MarketCreateInput struct {
 	// A unique identifier for the market. For example `"ca"`.
 	// If the handle isn't provided, then the handle is auto-generated based on the country or name.
 	Handle *string `json:"handle,omitempty"`
+	// Whether the market is enabled to receive visitors and sales. If a
+	// value isn't provided, then the market is enabled by default if all
+	// included regions have shipping rates, and disabled if any regions don't
+	// have shipping rates.
+	//
+	// **Note**: Regions in inactive markets can't be selected on the
+	// storefront or in checkout.
+	Enabled *bool `json:"enabled,omitempty"`
+	// The regions to be included in the market. Each region can only be included in one market at
+	// a time.
+	Regions []MarketRegionCreateInput `json:"regions,omitempty"`
 	// The conditions that apply to the market.
 	Conditions *MarketConditionsInput `json:"conditions,omitempty"`
 	// Catalog IDs to include in the market.
 	Catalogs []string `json:"catalogs,omitempty"`
+	// Whether to update duplicate market's status to draft.
+	MakeDuplicateRegionMarketsDraft *bool `json:"makeDuplicateRegionMarketsDraft,omitempty"`
 	// Whether to update duplicate region or wildcard markets' status to draft.
 	MakeDuplicateUniqueMarketsDraft *bool `json:"makeDuplicateUniqueMarketsDraft,omitempty"`
 	// The status of the market.
@@ -27164,6 +27221,9 @@ type MarketUpdateInput struct {
 	Name *string `json:"name,omitempty"`
 	// A unique identifier for the market. For example `"ca"`.
 	Handle *string `json:"handle,omitempty"`
+	// Whether the market is enabled to receive visitors and sales. **Note**: Regions in
+	// inactive markets cannot be selected on the storefront or in checkout.
+	Enabled *bool `json:"enabled,omitempty"`
 	// The conditions to update.
 	Conditions *MarketConditionsUpdateInput `json:"conditions,omitempty"`
 	// Catalog IDs to include in the market.
@@ -27178,6 +27238,8 @@ type MarketUpdateInput struct {
 	DiscountsToAdd []string `json:"discountsToAdd,omitempty"`
 	// The discounts to remove from the market.
 	DiscountsToDelete []string `json:"discountsToDelete,omitempty"`
+	// Whether to update duplicate market's status to draft.
+	MakeDuplicateRegionMarketsDraft *bool `json:"makeDuplicateRegionMarketsDraft,omitempty"`
 	// Whether to update duplicate region or wildcard markets' status to draft.
 	MakeDuplicateUniqueMarketsDraft *bool `json:"makeDuplicateUniqueMarketsDraft,omitempty"`
 	// The status of the market.
@@ -27472,6 +27534,8 @@ type MarketingActivityCreateExternalInput struct {
 	// The method of marketing used for this marketing activity. The marketing tactic determines which default fields are included in the marketing activity.
 	Tactic MarketingTactic `json:"tactic"`
 	// The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
+	Channel *MarketingChannel `json:"channel,omitempty"`
+	// The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
 	MarketingChannelType MarketingChannel `json:"marketingChannelType"`
 	// The domain from which ad clicks are forwarded to the shop.
 	ReferringDomain *string `json:"referringDomain,omitempty"`
@@ -27503,10 +27567,25 @@ type MarketingActivityCreateExternalPayload struct {
 
 // The input fields required to create a marketing activity. Marketing activity app extensions are deprecated and will be removed in the near future.
 type MarketingActivityCreateInput struct {
+	// The title of the marketing activity.
+	MarketingActivityTitle *string `json:"marketingActivityTitle,omitempty"`
+	// The form data in JSON serialized as a string.
+	FormData *string `json:"formData,omitempty"`
 	// The ID of the marketing activity extension.
 	MarketingActivityExtensionID string `json:"marketingActivityExtensionId"`
+	// Encoded context containing marketing campaign id.
+	Context *string `json:"context,omitempty"`
+	// Specifies the
+	// [Urchin Traffic Module (UTM) parameters](https://en.wikipedia.org/wiki/UTM_parameters)
+	// that are associated with a related marketing campaign. UTMInput is required for all Marketing
+	// tactics except Storefront App.
+	Utm *UTMInput `json:"utm,omitempty"`
+	// Value for a query parameter that gets inserted into storefront URLs for matching storefront traffic to this activity. This feature is currently available on a limited basis to some partners only. UTMs should continue to be used for most partners. Both the URL parameter value and UTM parameters can be set.
+	URLParameterValue *string `json:"urlParameterValue,omitempty"`
 	// The current state of the marketing activity.
 	Status MarketingActivityStatus `json:"status"`
+	// The budget for this marketing activity.
+	Budget *MarketingActivityBudgetInput `json:"budget,omitempty"`
 }
 
 // Return type for `marketingActivityCreate` mutation.
@@ -27558,6 +27637,8 @@ type MarketingActivityUpdateExternalInput struct {
 	// The method of marketing used for this marketing activity. The marketing tactic determines which default fields are included in the marketing activity.
 	Tactic *MarketingTactic `json:"tactic,omitempty"`
 	// The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
+	Channel *MarketingChannel `json:"channel,omitempty"`
+	// The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
 	MarketingChannelType *MarketingChannel `json:"marketingChannelType,omitempty"`
 	// The domain from which ad clicks are forwarded to the shop.
 	ReferringDomain *string `json:"referringDomain,omitempty"`
@@ -27585,6 +27666,39 @@ type MarketingActivityUpdateExternalPayload struct {
 type MarketingActivityUpdateInput struct {
 	// The ID of the marketing activity.
 	ID string `json:"id"`
+	// The ID of the recommendation that the marketing activity was created from, if one exists.
+	MarketingRecommendationID *string `json:"marketingRecommendationId,omitempty"`
+	// The title of the marketing activity.
+	Title *string `json:"title,omitempty"`
+	// The budget for the marketing activity.
+	Budget *MarketingActivityBudgetInput `json:"budget,omitempty"`
+	// The cumulative amount spent on the marketing activity.
+	AdSpend *MoneyInput `json:"adSpend,omitempty"`
+	// The current state of the marketing activity. Learn more about
+	// [marketing activities statuses](/api/marketing-activities/statuses).
+	Status *MarketingActivityStatus `json:"status,omitempty"`
+	// The target state that the marketing activity is transitioning to. Learn more about [marketing activities statuses](/api/marketing-activities/statuses).
+	TargetStatus *MarketingActivityStatus `json:"targetStatus,omitempty"`
+	// The form data of the marketing activity. This is only used if the marketing activity is
+	//               integrated with the external editor.
+	FormData *string `json:"formData,omitempty"`
+	// Specifies the
+	// [Urchin Traffic Module (UTM) parameters](https://en.wikipedia.org/wiki/UTM_parameters)
+	// that are associated with a related marketing campaign. UTMInput is required for all Marketing
+	// tactics except Storefront App. The utm field can only be set once and never modified.
+	Utm *UTMInput `json:"utm,omitempty"`
+	// Value for a query parameter that gets inserted into storefront URLs for matching storefront traffic to this activity. This feature is currently available on a limited basis to some partners only. UTMs should continue to be used for most partners. Both the URL parameter value and UTM parameters can be set.
+	URLParameterValue *string `json:"urlParameterValue,omitempty"`
+	// A list of the item IDs that were marketed in this marketing activity. Valid types for these items are:
+	// * `Product`
+	// * `Shop`
+	MarketedResources []string `json:"marketedResources,omitempty"`
+	// Encoded context provided by Shopify during the update marketing activity callback.
+	Context *string `json:"context,omitempty"`
+	// The error messages that were generated when the app was trying to complete the activity.
+	// Learn more about the
+	// [JSON format expected for error messages](/api/marketing-activities/statuses#failed-status).
+	Errors *string `json:"errors,omitempty"`
 }
 
 // Return type for `marketingActivityUpdate` mutation.
@@ -27774,6 +27888,8 @@ type MarketingEngagementInput struct {
 	UniqueClicksCount *int `json:"uniqueClicksCount,omitempty"`
 	// The total ad spend for the marketing content. Recurring weekly, monthly, or yearly spend needs to be divided into daily amounts.
 	AdSpend *MoneyInput `json:"adSpend,omitempty"`
+	// Specifies how the provided metrics have been aggregated. Cumulative metrics are aggregated from the first day of reporting up to and including `occuredOn`. Non-cumulative metrics are aggregated over the single day indicated in `occuredOn`. Cumulative metrics will monotonically increase in time as each record includes the previous day's values, and so on. Non-cumulative metrics are required going forward; cumulative metrics are deprecated.
+	IsCumulative *bool `json:"isCumulative,omitempty"`
 	// The UTC offset for the time zone in which the metrics are being reported, in the format `"+HH:MM"` or `"-HH:MM"`. Used in combination with occurredOn when aggregating daily metrics. Must match the account settings for the shop to minimize eventual discrepancies in reporting.
 	UtcOffset string `json:"utcOffset"`
 	// The amount of sales generated from the marketing content.
@@ -28919,6 +29035,8 @@ type MetafieldDefinitionInput struct {
 	// type `date`, you can set a minimum date validation so that each of the metafields that belong to it can only
 	// store dates after the specified minimum.
 	Validations []MetafieldDefinitionValidationInput `json:"validations,omitempty"`
+	// Whether the metafield definition can be used as a collection condition.
+	UseAsCollectionCondition *bool `json:"useAsCollectionCondition,omitempty"`
 	// Whether to [pin](https://help.shopify.com/manual/custom-data/metafields/pinning-metafield-definitions)
 	// the metafield definition.
 	Pin *bool `json:"pin,omitempty"`
@@ -29049,6 +29167,8 @@ type MetafieldDefinitionUpdateInput struct {
 	Validations []MetafieldDefinitionValidationInput `json:"validations,omitempty"`
 	// Whether to pin the metafield definition.
 	Pin *bool `json:"pin,omitempty"`
+	// Whether the metafield definition can be used as a collection condition.
+	UseAsCollectionCondition *bool `json:"useAsCollectionCondition,omitempty"`
 	// The access settings that apply to each of the metafields that belong to the metafield definition.
 	Access *MetafieldAccessUpdateInput `json:"access,omitempty"`
 	// The [constraints](https://shopify.dev/apps/build/custom-data/metafields/conditional-metafield-definitions)
@@ -31736,6 +31856,8 @@ type OrderCreateOrderInput struct {
 	// A list of extra information that's added to the order. Appears in the **Additional details** section of an order details page.
 	CustomAttributes []OrderCreateCustomAttributeInput `json:"customAttributes,omitempty"`
 	// The customer to associate to the order.
+	CustomerID *string `json:"customerId,omitempty"`
+	// The customer to associate to the order.
 	Customer *OrderCreateCustomerInput `json:"customer,omitempty"`
 	// A discount code applied to the order.
 	DiscountCode *OrderCreateDiscountCodeInput `json:"discountCode,omitempty"`
@@ -32432,6 +32554,8 @@ type OrderInput struct {
 	CustomAttributes []AttributeInput `json:"customAttributes,omitempty"`
 	// A list of new metafields to add to the existing metafields for the order.
 	Metafields []MetafieldInput `json:"metafields,omitempty"`
+	// A list of new [localization extensions](https://shopify.dev/api/admin-graphql/latest/objects/localizationextension) to add to the existing list of localization extensions for the order.
+	LocalizationExtensions []LocalizationExtensionInput `json:"localizationExtensions,omitempty"`
 	// A list of new [localized fields](https://shopify.dev/api/admin-graphql/latest/objects/localizedfield) to add to the existing list of localized fields for the order.
 	LocalizedFields []LocalizedFieldInput `json:"localizedFields,omitempty"`
 	// The new purchase order number for the order.
@@ -33283,6 +33407,8 @@ func (this PaymentCustomizationError) GetMessage() string { return this.Message 
 
 // The input fields to create and update a payment customization.
 type PaymentCustomizationInput struct {
+	// The ID of the function providing the payment customization.
+	FunctionID *string `json:"functionId,omitempty"`
 	// Function handle scoped to your app ID.
 	FunctionHandle *string `json:"functionHandle,omitempty"`
 	// The title of the payment customization.
@@ -35938,6 +36064,18 @@ type ProductInput struct {
 	// This input is supported only with the [`productCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productCreate)
 	// mutation.
 	ProductOptions []OptionCreateInput `json:"productOptions,omitempty"`
+	// A list of the channels where the product is published.
+	ProductPublications []ProductPublicationInput `json:"productPublications,omitempty"`
+	// A list of the channels where the product is published.
+	Publications []ProductPublicationInput `json:"publications,omitempty"`
+	// Only products with an active status can be published.
+	PublishDate *string `json:"publishDate,omitempty"`
+	// Only products with an active status can be published.
+	PublishOn *string `json:"publishOn,omitempty"`
+	// Only products with an active status can be published.
+	Published *bool `json:"published,omitempty"`
+	// Only products with an active status can be published.
+	PublishedAt *string `json:"publishedAt,omitempty"`
 	// The [product status](https://help.shopify.com/manual/products/details/product-details-page#product-status),
 	// which controls visibility across all sales channels.
 	Status *ProductStatus `json:"status,omitempty"`
@@ -36246,6 +36384,9 @@ type ProductPublicationEdge struct {
 type ProductPublicationInput struct {
 	// ID of the publication.
 	PublicationID *string `json:"publicationId,omitempty"`
+	// ID of the channel.
+	ChannelID     *string `json:"channelId,omitempty"`
+	ChannelHandle *string `json:"channelHandle,omitempty"`
 	// The date and time that the product was (or will be) published.
 	PublishDate *string `json:"publishDate,omitempty"`
 }
@@ -36449,6 +36590,14 @@ type ProductSetInput struct {
 	Files []FileSetInput `json:"files,omitempty"`
 	// List of custom product options and option values (maximum of 3 per product).
 	ProductOptions []OptionSetInput `json:"productOptions,omitempty"`
+	// The product's ID.
+	//
+	// If you're creating a product, then you don't need to pass the `id` as input to the
+	// [`productCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productCreate) mutation.
+	// If you're updating a product, then you do need to pass the `id` as input to the
+	// [`productUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productUpdate) mutation
+	// to identify which product you want to update.
+	ID *string `json:"id,omitempty"`
 	// A list of variants associated with the product.
 	//
 	// Complexity cost: 0.2 per variant.
@@ -37629,6 +37778,8 @@ type PublicationEdge struct {
 
 // The input fields required to publish a resource.
 type PublicationInput struct {
+	// ID of the channel.
+	ChannelID *string `json:"channelId,omitempty"`
 	// ID of the publication.
 	PublicationID *string `json:"publicationId,omitempty"`
 	// The date and time that the resource was published. Setting this to a date in the future will schedule the resource to be published. Only online store channels support future publishing. This field has no effect if you include it in the `publishableUnpublish` mutation.
@@ -39702,6 +39853,8 @@ type ReturnApproveRequestInput struct {
 	// Notify the customer when a return request is approved.
 	// The customer will only receive a notification if `Order.email` is present.
 	NotifyCustomer *bool `json:"notifyCustomer,omitempty"`
+	// When `true` the return will be created in an unprocessed state; returns must subsequently be processed via Return Processing APIs in order to take further action on them. Creating returns in an unprocessed state will soon be the default behavior. After July 1st, 2025, this field is only available to merchants who have created exchanges or returns with fees using API up that date. It will be ignored otherwise.
+	Unprocessed *bool `json:"unprocessed,omitempty"`
 }
 
 // Return type for `returnApproveRequest` mutation.
@@ -39797,6 +39950,10 @@ type ReturnInput struct {
 	ReturnLineItems []ReturnLineItemInput `json:"returnLineItems,omitempty"`
 	// The return shipping fee to capture.
 	ReturnShippingFee *ReturnShippingFeeInput `json:"returnShippingFee,omitempty"`
+	// When `true` the customer will receive a notification if there's an `Order.email` present.
+	NotifyCustomer *bool `json:"notifyCustomer,omitempty"`
+	// When `true` the return will be created in an unprocessed state; returns must subsequently be processed via Return Processing APIs in order to take further action on them. Creating returns in an unprocessed state will soon be the default behavior. After July 1st, 2025, this field is only available to merchants who have created exchanges or returns with fees using API up that date. It will be ignored otherwise.
+	Unprocessed *bool `json:"unprocessed,omitempty"`
 }
 
 // An item that a customer returns from a fulfilled order. Links to the original [`FulfillmentLineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentLineItem) and tracks quantities through the return process.
@@ -39882,6 +40039,8 @@ func (this ReturnLineItem) GetUnprocessedQuantity() int { return this.Unprocesse
 type ReturnLineItemInput struct {
 	// The quantity of the item to be returned.
 	Quantity int `json:"quantity"`
+	// The reason for the item to be returned.
+	ReturnReason *ReturnReason `json:"returnReason,omitempty"`
 	// The ID of a [`ReturnReasonDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ReturnReasonDefinition). Accepts any ID from the full library of reasons available via [`returnReasonDefinitions`](https://shopify.dev/docs/api/admin-graphql/latest/queries/returnReasonDefinitions), not limited to the suggested reasons for the line item.
 	ReturnReasonDefinitionID *string `json:"returnReasonDefinitionId,omitempty"`
 	// A note about the reason that the item is being returned.
@@ -40109,6 +40268,8 @@ type ReturnRequestLineItemInput struct {
 	Quantity int `json:"quantity"`
 	// The restocking fee to capture.
 	RestockingFee *RestockingFeeInput `json:"restockingFee,omitempty"`
+	// The reason why the line item is being returned.
+	ReturnReason *ReturnReason `json:"returnReason,omitempty"`
 	// The ID of a [`ReturnReasonDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ReturnReasonDefinition). Accepts any ID from the full library of reasons available via [`returnReasonDefinitions`](https://shopify.dev/docs/api/admin-graphql/latest/queries/returnReasonDefinitions), not limited to the suggested reasons for the line item.
 	ReturnReasonDefinitionID *string `json:"returnReasonDefinitionId,omitempty"`
 	// A note from the customer that describes the item to be returned.
@@ -42234,6 +42395,8 @@ type ShippingLineEdge struct {
 // > Note:
 // > A custom shipping line includes a title and price with `shippingRateHandle` set to `nil`. A shipping line with a carrier-provided shipping rate (currently set via the Shopify admin) includes the shipping rate handle.
 type ShippingLineInput struct {
+	// Price of the shipping rate in shop currency.
+	Price *null.String `json:"price,omitempty"`
 	// Price of the shipping rate with currency. If provided, `price` will be ignored.
 	PriceWithCurrency *MoneyInput `json:"priceWithCurrency,omitempty"`
 	// A unique identifier for the shipping rate.
@@ -48035,6 +48198,8 @@ type ValidationConnection struct {
 
 // The input fields required to install a validation.
 type ValidationCreateInput struct {
+	// The function ID representing the extension to install.
+	FunctionID *string `json:"functionId,omitempty"`
 	// The function handle representing the extension to install.
 	FunctionHandle *string `json:"functionHandle,omitempty"`
 	// Whether the validation should be live on the merchant checkout.
@@ -48557,6 +48722,8 @@ type WebhookSubscriptionInput struct {
 	Metafields []HasMetafieldsMetafieldIdentifierInput `json:"metafields,omitempty"`
 	// A human-readable name for the webhook subscription.
 	Name *string `json:"name,omitempty"`
+	// URL where the webhook subscription should send the POST request when the event occurs.
+	CallbackURL *string `json:"callbackUrl,omitempty"`
 	// The URI where the webhook subscription should send events. Supports an HTTPS URL, a Google Pub/Sub URI (pubsub://{project-id}:{topic-id}) or an Amazon EventBridge event source ARN.
 	URI *string `json:"uri,omitempty"`
 }

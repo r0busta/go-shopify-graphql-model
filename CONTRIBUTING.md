@@ -31,5 +31,5 @@ ship as minor or patch releases.
 
 See the README for the fetch and generate steps. The default fetch uses the
 public introspection endpoint on shopify.dev and needs no credentials. If
-you introspect a store instead, keep its access token in `.env`, which is
-gitignored, and never commit it.
+you introspect a store instead, export its access token as `ACCESS_TOKEN`;
+if you keep it in `.env`, that file is gitignored, never commit it.
