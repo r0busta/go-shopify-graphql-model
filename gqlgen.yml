@@ -9,10 +9,14 @@ model:
 
 omit_slice_element_pointers: true
 
+# we don't use generated.go and it causes mod.tidy to change go.mod it is included
+exec:
+  filename: _tmp/generated.go
+
 models:
   Money:
     model:
-      - github.com/r0busta/go-shopify-graphql-model/v4/graphql.Money
+      - ./graphql.Money
   Decimal:
     model:
-      - github.com/r0busta/go-shopify-graphql-model/v4/graphql.Decimal
+      - ./graphql.Decimal

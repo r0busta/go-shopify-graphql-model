@@ -7,4 +7,5 @@ graph/schema.resolvers.go
 result.gql
 result.graphql
 generated.go
+_tmp/
 .env
