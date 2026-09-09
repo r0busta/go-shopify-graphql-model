@@ -100,5 +100,5 @@ func TestJSONValueArray(t *testing.T) {
 	err := json.Unmarshal(jsonStr, &moField)
 	assert.Nil(t, err)
 
-	assert.Equal(t, "gid://shopify/TaxonomyValue/3", *moField.JSONValue)
+	assert.Equal(t, `["gid://shopify/TaxonomyValue/3"]`, *moField.JSONValue)
 }

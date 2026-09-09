@@ -1,18 +1,11 @@
 package model
 
 import (
-	"fmt"
 	"reflect"
 	"regexp"
 
 	"gopkg.in/guregu/null.v4"
 )
-
-var gidRegex *regexp.Regexp
-
-func init() {
-	gidRegex = regexp.MustCompile(`^gid://shopify/(\w+)/\d+$`)
-}
 
 func NewNullString(v null.String) *null.String {
 	return &v
@@ -34,37 +27,23 @@ func NewFloat64(v float64) *float64 {
 	return &v
 }
 
-func concludeMediaObjectType(gid string) (reflect.Type, error) {
-	submatches := gidRegex.FindStringSubmatch(gid)
-	if len(submatches) != 2 {
-		return reflect.TypeOf(nil), fmt.Errorf("malformed gid=`%s`", gid)
-	}
-	resource := submatches[1]
-	switch resource {
-	case "MediaImage":
-		return reflect.TypeOf(MediaImage{}), nil
-	case "Video":
-		return reflect.TypeOf(Video{}), nil
-	case "Model3d":
-		return reflect.TypeOf(Model3d{}), nil
-	case "ExternalVideo":
-		return reflect.TypeOf(ExternalVideo{}), nil
-	default:
-		return reflect.TypeOf(nil), fmt.Errorf("`%s` not implemented type", resource)
-	}
+// gidResource extracts the resource name from a Shopify global ID such as
+// gid://shopify/MediaImage/123.
+var gidResource = regexp.MustCompile(`^gid://shopify/(\w+)/`)
+
+// mediaTypes maps GraphQL type names to the Go types implementing Media.
+var mediaTypes = map[string]reflect.Type{
+	"ExternalVideo": reflect.TypeOf(ExternalVideo{}),
+	"MediaImage":    reflect.TypeOf(MediaImage{}),
+	"Model3d":       reflect.TypeOf(Model3d{}),
+	"Video":         reflect.TypeOf(Video{}),
 }
 
-func concludeConditionObjectType(resource string) (reflect.Type, error) {
-	switch resource {
-	case "CollectionRuleCategoryCondition":
-		return reflect.TypeOf(CollectionRuleCategoryCondition{}), nil
-	case "CollectionRuleMetafieldCondition":
-		return reflect.TypeOf(CollectionRuleMetafieldCondition{}), nil
-	case "CollectionRuleProductCategoryCondition":
-		return reflect.TypeOf(CollectionRuleProductCategoryCondition{}), nil
-	case "CollectionRuleTextCondition":
-		return reflect.TypeOf(CollectionRuleTextCondition{}), nil
-	default:
-		return reflect.TypeOf(nil), fmt.Errorf("`%s` not implemented type", resource)
-	}
+// collectionRuleConditionObjectTypes maps GraphQL type names to the Go types
+// that are members of the CollectionRuleConditionObject union.
+var collectionRuleConditionObjectTypes = map[string]reflect.Type{
+	"CollectionRuleCategoryCondition":        reflect.TypeOf(CollectionRuleCategoryCondition{}),
+	"CollectionRuleMetafieldCondition":       reflect.TypeOf(CollectionRuleMetafieldCondition{}),
+	"CollectionRuleProductCategoryCondition": reflect.TypeOf(CollectionRuleProductCategoryCondition{}),
+	"CollectionRuleTextCondition":            reflect.TypeOf(CollectionRuleTextCondition{}),
 }
